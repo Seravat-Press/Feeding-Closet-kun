@@ -24,27 +24,31 @@ func _ready():
 func update_button_labels() -> void: 
 	ing_button.text = ingText % resourceData.ingID
 	ord_button.text = ordText % resourceData.orderID
-	
-## Set up parent's functionality for this component. 
-func setup_parent():
-	pass
 
-
+## When the new Ingredient button is pressed, create a new Ingredient. 
 func _on_ing_button_pressed():
-	## TODO Create new Ingredient
 	var newIngredient = ingPath.new()
-	var ingName : String = ing_text.text + "_" + str(resourceData.ingID)
+	var ingNamePath : String = ingOutPath + (str(resourceData.ingID) + "_" + ing_text.text) + ".tres"
+	newIngredient.Name = ing_text.text
 	newIngredient.Amount = 0
 	newIngredient.ID = resourceData.ingID
 	resourceData.ingID += 1
-	#ResourceSaver.save(newIngredient, ingPath + ingName + ".tres")
-	## TODO FIX THIS
+	ResourceSaver.save(newIngredient, ingNamePath)
 	update_button_labels()
+	ing_text.text = ""
+	EditorInterface.get_inspector().resource_selected.emit(newIngredient, ingNamePath)
 
-
+## When the new Order button is pressed, create a new Order. 
 func _on_ord_button_pressed():
-	## TODO create new Order
+	var newOrder = ordPath.new()
+	var ordNamePath : String = ordOutPath + (str(resourceData.orderID) + "_" + ord_text.text) + ".tres"
+	newOrder.Name = ord_text.text
+	newOrder.ID = resourceData.orderID
+	resourceData.orderID += 1
+	ResourceSaver.save(newOrder, ordNamePath)
 	update_button_labels()
+	ord_text.text = ""
+	EditorInterface.get_inspector().resource_selected.emit(newOrder, ordNamePath)
 
 func _exit_tree():
 	ResourceSaver.save(resourceData, "res://addons/resource_manager/resourceData.tres")

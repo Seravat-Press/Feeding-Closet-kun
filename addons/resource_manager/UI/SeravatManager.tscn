@@ -30,6 +30,7 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "New Ingredient"
+scroll_fit_content_height = true
 
 [node name="ingButton" type="Button" parent="ingBox"]
 layout_mode = 2
@@ -51,6 +52,7 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "New Order"
+scroll_fit_content_height = true
 
 [node name="ordButton" type="Button" parent="ordBox"]
 layout_mode = 2
