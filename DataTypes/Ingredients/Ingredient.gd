@@ -8,7 +8,7 @@ enum INGR_CLASS {
 }
 
 ## Signal for when an ingredient runs out. 
-signal intredient_gone
+signal ingredient_gone
 
 @export var Name : String					## Name of the Ingredient
 @export var ID : int						## ID  of Ingredient

@@ -1,0 +1,62 @@
+[gd_scene load_steps=2 format=3 uid="uid://ls5888dbgkb"]
+
+[ext_resource type="Script" path="res://addons/resource_manager/UI/SeravatManager.gd" id="1_1bubo"]
+
+[node name="SeravatManager" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1bubo")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "Seravat Resource Manager"
+
+[node name="HSeparator" type="HSeparator" parent="."]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 2
+text = "Ingredients"
+horizontal_alignment = 1
+
+[node name="ingBox" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="ingText" type="TextEdit" parent="ingBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "New Ingredient"
+scroll_fit_content_height = true
+
+[node name="ingButton" type="Button" parent="ingBox"]
+layout_mode = 2
+text = "New"
+
+[node name="HSeparator2" type="HSeparator" parent="."]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 2
+text = "Orders"
+horizontal_alignment = 1
+
+[node name="ordBox" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="ordText" type="TextEdit" parent="ordBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "New Order"
+scroll_fit_content_height = true
+
+[node name="ordButton" type="Button" parent="ordBox"]
+layout_mode = 2
+text = "New"
+
+[connection signal="pressed" from="ingBox/ingButton" to="." method="_on_ing_button_pressed"]
+[connection signal="pressed" from="ordBox/ordButton" to="." method="_on_ord_button_pressed"]

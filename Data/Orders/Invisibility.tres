@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="Order" load_steps=2 format=3 uid="uid://bome0qsg0uqmp"]
-
-[ext_resource type="Script" path="res://DataTypes/Order/Order.gd" id="1_es3de"]
-
-[resource]
-script = ExtResource("1_es3de")
-Name = "Invisibility Potion"
-Ingredients = Array[Resource("res://DataTypes/Ingredients/Ingredient.gd")]([])
-orderTime = 120.0

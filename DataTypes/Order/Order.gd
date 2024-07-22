@@ -4,6 +4,8 @@ class_name Order extends Resource
 @export var Name : String					## Name of Ingredients
 @export var Ingredients : Array[Ingredient]	## Array of Ingredients
 @export var orderTime : float = 1.00		## Total time in the order
+@export_group("Don't Change")
+@export var ID : int
 
 ## TODO predicate array of strings
 
