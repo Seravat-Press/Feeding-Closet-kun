@@ -2,5 +2,5 @@
 class_name Main extends Node
 
 func _ready():
-	pass
+	$DudeManager.spawn_dude()
 

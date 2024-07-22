@@ -2,7 +2,7 @@ class_name DudeManager extends Node
 
 ## Currently loaded dude
 var currentDude : Dude
-var preloadedDude = preload("res://DataTypes/Dude/Dude.gd")
+var preloadedDudeScene = preload("res://DataTypes/Dude/Dude.tscn")
 
 # data arrays
 var namesArray : Array
@@ -26,13 +26,16 @@ func build_data_arrays():
 func build_name_array():
 	var list = FileAccess.open(namesFilePath, FileAccess.READ)
 	while not list.eof_reached():
-		namesArray.append(list.get_line())
+		var name = list.get_line()
+		if name != "":
+			namesArray.append(name)
 
 func build_portrait_array():
 	var textureFilesArray = Globals.list_files_in_directory(textureDirectory)
 	for textureFile in textureFilesArray:
-		var newTexture : Texture2D = ResourceLoader.load(textureFile)
-		texturesArray.append(newTexture)
+		if not textureFile.get_extension() == "import":
+			var newTexture = Globals.import_image(textureFile)
+			texturesArray.append(newTexture)
 	
 func build_order_array():
 	var orderFilesArray = Globals.list_files_in_directory(orderDirectory)
@@ -48,9 +51,9 @@ func spawn_dude():
 	var dudeName = namesArray.pick_random()
 	var dudeTexture = texturesArray.pick_random()
 	var dudeOrder = ordersArray.pick_random()
-	var dudeInstance = preloadedDude.instantiate(dudeName, dudeTexture, dudeOrder)
-	add_child(dudeInstance)
-	currentDude = dudeInstance
+	var dudeSceneInstance = preloadedDudeScene.instantiate()
+	dudeSceneInstance.setup(dudeName, dudeTexture, dudeOrder)
+	add_child(dudeSceneInstance)
 	# TODO connect signals for dude elements (spawn)
 
 func despawn_current_dude():

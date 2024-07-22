@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdcbolvua0386"]
+[gd_scene load_steps=5 format=3 uid="uid://cdcbolvua0386"]
 
 [ext_resource type="Script" path="res://Main/Main.gd" id="1_sqhfc"]
 [ext_resource type="PackedScene" uid="uid://ddt7va66cy1mx" path="res://DataTypes/Storage.tscn" id="2_hegu7"]
 [ext_resource type="PackedScene" uid="uid://dl756gys3wbma" path="res://UI/Closet/Closet.tscn" id="3_20i0m"]
+[ext_resource type="Script" path="res://Manager/DudeManager.gd" id="4_oax4r"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_sqhfc")
@@ -12,3 +13,9 @@ script = ExtResource("1_sqhfc")
 [node name="Closet" parent="." instance=ExtResource("3_20i0m")]
 position = Vector2(128, 230)
 scale = Vector2(0.5, 0.5)
+
+[node name="DudeManager" type="Node2D" parent="."]
+script = ExtResource("4_oax4r")
+textureDirectory = "res://Images/Dudes"
+orderDirectory = "res://Data/Orders"
+namesFilePath = "res://NamesList.txt"
