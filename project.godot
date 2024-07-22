@@ -17,23 +17,21 @@ config/icon="res://icon.svg"
 [autoload]
 
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
-Globals="*res://Globals/Globals.gd"
 
 [dialogic]
 
-directories/dch_directory={}
+directories/dch_directory={
+"Dude": "res://DialogicAssets/Dude.dch"
+}
 directories/dtl_directory={}
+glossary/default_case_sensitive=true
+layout/style_list=[]
+layout/default_style="Default"
+variables={}
 
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/dialogic/plugin.cfg")
-
-[file_customization]
-
-folder_colors={
-"res://addons/": "yellow",
-"res://assets/": "red"
-}
 
 [input]
 
