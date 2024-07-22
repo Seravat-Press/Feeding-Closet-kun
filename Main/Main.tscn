@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://cdcbolvua0386"]
+[gd_scene load_steps=3 format=3 uid="uid://cdcbolvua0386"]
 
 [ext_resource type="Script" path="res://Main/Main.gd" id="1_sqhfc"]
+[ext_resource type="PackedScene" uid="uid://ddt7va66cy1mx" path="res://DataTypes/Storage.tscn" id="2_hegu7"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_sqhfc")
+
+[node name="Storage" parent="." instance=ExtResource("2_hegu7")]

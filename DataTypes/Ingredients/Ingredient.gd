@@ -1,12 +1,22 @@
 ## Ingredient class. Handled by the Ingredient Storage and Runners. 
 class_name Ingredient extends Resource
 
+## Types of Ingredient.
+enum INGR_CLASS {
+	STORAGE,	## Storage/Runner
+	ORDER		## Put in Orders
+}
+
+## Signal for when an ingredient runs out. 
+signal intredient_gone
+
 @export var Name : String					## Name of the Ingredient
 @export var ID : int						## ID  of Ingredient
 @export_range(0, 999, 1) var Amount : int	## Amount of Ingredient
 
 @export_group("Processing")
 @export var completedFlag : bool = false 	## TRUE if the ingredient is part of an order and it's been completed. 
+@export var orderPart : INGR_CLASS = INGR_CLASS.STORAGE
 
 
 ## Adds to an Ingredient.
@@ -22,6 +32,6 @@ func subtract_amount(subtracted : int) -> int:
 	if self.Amount < 0: 
 		leftover = abs(self.Amount)
 		self.Amount = 0
-		## TODO: implement item destruction
+		## handle destruction, but NOT when part of an order
 	return leftover
 
