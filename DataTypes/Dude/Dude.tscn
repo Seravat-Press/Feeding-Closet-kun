@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bf6lh4bhng6r5"]
+
+[ext_resource type="Script" path="res://DataTypes/Dude/Dude.gd" id="1_5yr2t"]
+[ext_resource type="Script" path="res://addons/dialogic/Modules/Text/node_dialog_text.gd" id="2_1rbhs"]
+
+[node name="Dude" type="Node2D"]
+script = ExtResource("1_5yr2t")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="DialogueBox" type="RichTextLabel" parent="."]
+offset_right = 48.0
+offset_bottom = 26.0
+text = "Test"
+script = ExtResource("2_1rbhs")

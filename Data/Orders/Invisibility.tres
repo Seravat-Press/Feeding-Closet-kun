@@ -6,4 +6,4 @@
 script = ExtResource("1_es3de")
 Name = "Invisibility Potion"
 Ingredients = Array[Resource("res://DataTypes/Ingredients/Ingredient.gd")]([])
-orderTime = 1.0
+orderTime = 120.0
