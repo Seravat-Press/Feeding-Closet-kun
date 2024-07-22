@@ -4,6 +4,7 @@ class_name Order extends Resource
 @export var Name : String					## Name of Ingredients
 @export var Ingredients : Array[Ingredient]	## Array of Ingredients
 @export var orderTime : float = 1.00		## Total time in the order
+@export var cost : int = 0					## Cost of the order
 @export_group("Don't Change")
 @export var ID : int
 
