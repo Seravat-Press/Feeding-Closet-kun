@@ -23,9 +23,7 @@ Globals="*res://Globals/Globals.gd"
 [dialogic]
 
 directories/dch_directory={}
-directories/dtl_directory={
-"test": "res://test.dtl"
-}
+directories/dtl_directory={}
 glossary/default_case_sensitive=true
 layout/style_list=[]
 layout/default_style="Default"
