@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpwgprccpe3nn"]
+
+[ext_resource type="Script" path="res://UI/Orders/IngredientLine.gd" id="1_a1rut"]
+
+[node name="IngredientLine" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a1rut")
+
+[node name="IngTex" type="TextureRect" parent="."]
+layout_mode = 2
+
+[node name="IngName" type="Label" parent="."]
+layout_mode = 2
+
+[node name="IngCount" type="Label" parent="."]
+layout_mode = 2

@@ -2,9 +2,13 @@
 ## This is managed by TODO something???
 class_name OrderUi extends Control
 
+const INGREDIENT_LINE = preload("res://UI/Orders/IngredientLine.tscn")
+
 @export var orderData : Order		## Data for this order. 
 
 @onready var order_timer = $OrderTimer
+@onready var order_tex: TextureRect = $OrderTex
+@onready var ingredient_lines: VBoxContainer = $IngredientLines
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,7 +23,20 @@ func _ready():
 func install_order_data(newData : Order) -> void:
 	orderData = newData
 	order_timer.wait_time = orderData.orderTime
-
+	order_tex.texture = load(orderData.imgRect)
+	# TODO Setup signals from order to the UI for when it's complete 
+	# or maybe do a check after an ingredient is filled out and check for all. 
+	var newIngredientLine
+	
+	# Loop through ingredients and set up the recipe.
+	for ingredient in orderData.Ingredients:
+		newIngredientLine = INGREDIENT_LINE.instantiate()
+		newIngredientLine.install_ingredient(ingredient)
+		
+		# Connect signals for this ingredient
+		ingredient.connect("ingredient_gone", Callable(newIngredientLine, "_on_ingredient_complete"))
+		ingredient_lines.add_child(newIngredientLine)
+		
 ## Start the order timer with the order's wait time. 
 func start_order_timer() -> void: 
 	order_timer.start()
