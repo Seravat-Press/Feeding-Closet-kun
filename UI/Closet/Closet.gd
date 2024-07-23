@@ -1,21 +1,31 @@
 ## UI Element to handle the Closet hunger + textures. 
-class_name Closet extends Node
+class_name Closet extends Control
+
+signal hunger_changed(new_value)	## Emitted when the hunger value has changed. 
+signal shop_devoured				## Emitted when all hunger levels are filled. 
 
 @export var hungerStage : int = 0		## Current hunger stage. NOTE may become an enum? 
 @export var hungerTimerDuration = 30	## The time for each hunger stage
+
+const GOOD_H_TEX = preload("res://assets/hunger/good_hunger.png")
+const SPENT_H_TEX = preload("res://assets/hunger/spent_hunger.png")
 
 @onready var hunger_timer = $HungerTimer
 @onready var closet_image = $ClosetImage
 @onready var hunger_state_label = $HungerStateLabel
 @onready var visual_hunger_timer = $VisualHungerTimer
-
-signal hunger_changed(new_value)	## Emitted when the hunger value has changed. 
+@onready var hunger_1 = $HungerStates/Hunger1
+@onready var hunger_2 = $HungerStates/Hunger2
+@onready var hunger_3 = $HungerStates/Hunger3
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	hunger_timer.wait_time = hungerTimerDuration
 	hunger_timer.one_shot = 0
 	hunger_timer.autostart = 0
+	hunger_1.texture = GOOD_H_TEX
+	hunger_2.texture = GOOD_H_TEX
+	hunger_3.texture = GOOD_H_TEX
 
 func _process(_delta) -> void: 
 	visual_hunger_timer.update_hunger_timer(hunger_timer.time_left / hunger_timer.wait_time)
@@ -50,3 +60,21 @@ func update_closet_image():
 ## Called when the hunger state is changed. 
 func _on_hunger_changed():
 	hunger_state_label.text = str(hungerStage)
+	match (hungerStage):
+		0:
+			hunger_1.texture = GOOD_H_TEX
+			hunger_2.texture = GOOD_H_TEX
+			hunger_3.texture = GOOD_H_TEX
+		1:
+			hunger_1.texture = SPENT_H_TEX
+			hunger_2.texture = GOOD_H_TEX
+			hunger_3.texture = GOOD_H_TEX
+		2:
+			hunger_1.texture = SPENT_H_TEX
+			hunger_2.texture = SPENT_H_TEX
+			hunger_3.texture = GOOD_H_TEX
+		3:
+			hunger_1.texture = SPENT_H_TEX
+			hunger_2.texture = SPENT_H_TEX
+			hunger_3.texture = SPENT_H_TEX
+			emit_signal("shop_devoured")

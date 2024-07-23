@@ -15,3 +15,9 @@ func start_game():
 	order_manager.generate_order(dude_manager.currentDude.order)
 	closet.reset_hunger_timer()
 	storage.add_shadow(100)
+
+
+## Called when all of the hunger thresholds are hit in the closet. 
+func _on_closet_shop_devoured():
+	# TODO: Serve End Game Scene
+	pass # Replace with function body.

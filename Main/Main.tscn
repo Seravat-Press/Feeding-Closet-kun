@@ -37,7 +37,10 @@ texture = ExtResource("4_qplh8")
 metadata/_edit_use_anchors_ = true
 
 [node name="Closet" parent="." instance=ExtResource("3_20i0m")]
-position = Vector2(125, 193)
+offset_left = 125.0
+offset_top = 193.0
+offset_right = 125.0
+offset_bottom = 193.0
 scale = Vector2(0.5, 0.5)
 
 [node name="DudeManager" type="Node2D" parent="."]
@@ -50,3 +53,4 @@ namesFilePath = "res://NamesList.txt"
 script = ExtResource("1_mpeoh")
 
 [connection signal="shadow_changed" from="Storage" to="Storage/ShadometerLabel" method="_on_storage_shadow_changed"]
+[connection signal="shop_devoured" from="Closet" to="." method="_on_closet_shop_devoured"]
