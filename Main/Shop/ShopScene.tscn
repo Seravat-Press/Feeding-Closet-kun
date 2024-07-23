@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://b30q37jguwlek"]
+
+[ext_resource type="Script" path="res://Main/Shop/ShopScene.gd" id="1_pnct4"]
+[ext_resource type="PackedScene" uid="uid://dl756gys3wbma" path="res://UI/Closet/Closet.tscn" id="2_sf3t0"]
+[ext_resource type="PackedScene" uid="uid://bopu02di7e3e0" path="res://Manager/OrderManager.tscn" id="3_am2ce"]
+[ext_resource type="PackedScene" uid="uid://ddt7va66cy1mx" path="res://DataTypes/Storage.tscn" id="3_cbyd5"]
+[ext_resource type="PackedScene" uid="uid://dctd4p2s02lu8" path="res://UI/Shadometer/Shadometer.tscn" id="4_e7eu6"]
+[ext_resource type="PackedScene" uid="uid://csjq6cfuxqky1" path="res://Manager/DudeManager.tscn" id="5_ojv5s"]
+
+[node name="ShopScene" type="Node"]
+script = ExtResource("1_pnct4")
+
+[node name="ProcessingNodes" type="Node" parent="."]
+
+[node name="Storage" parent="ProcessingNodes" instance=ExtResource("3_cbyd5")]
+
+[node name="OrderManager" parent="ProcessingNodes" instance=ExtResource("3_am2ce")]
+
+[node name="UINodes" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Closet" parent="UINodes" instance=ExtResource("2_sf3t0")]
+layout_mode = 2
+anchor_left = 0.203993
+anchor_top = 0.087963
+anchor_right = 0.222222
+anchor_bottom = 0.756173
+offset_bottom = 40.0
+size_flags_horizontal = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Shadometer" parent="UINodes" instance=ExtResource("4_e7eu6")]
+layout_mode = 2
+anchor_left = 0.949653
+anchor_top = 0.037037
+anchor_right = 0.949653
+anchor_bottom = 0.037037
+offset_left = -72.0
+offset_right = 40.0
+offset_bottom = 36.0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="2DNodes" type="Node2D" parent="."]
+
+[node name="DudeManager" parent="2DNodes" instance=ExtResource("5_ojv5s")]
+textureDirectory = "res://Images/Dudes"
+orderDirectory = "res://Data/Orders"
+namesFilePath = "res://NamesList.txt"
+
+[connection signal="shop_devoured" from="UINodes/Closet" to="." method="_on_closet_shop_devoured"]
