@@ -12,7 +12,7 @@ var ordersArray : Array
 # source for random generation
 @export_dir var textureDirectory
 @export_dir var orderDirectory
-@export var namesFilePath : String
+@export_file var namesFilePath
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
