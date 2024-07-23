@@ -46,7 +46,7 @@ The monsters are hot?
 
 # Art
 
-- All Ingredient/Order assets are 256x256
+- All Ingredient/Order assets are 256x256, resized to 64x64
 
 ---
 
