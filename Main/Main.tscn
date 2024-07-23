@@ -1,17 +1,32 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdcbolvua0386"]
+[gd_scene load_steps=7 format=3 uid="uid://cdcbolvua0386"]
 
 [ext_resource type="Script" path="res://Main/Main.gd" id="1_sqhfc"]
 [ext_resource type="PackedScene" uid="uid://ddt7va66cy1mx" path="res://DataTypes/Storage.tscn" id="2_hegu7"]
 [ext_resource type="PackedScene" uid="uid://dl756gys3wbma" path="res://UI/Closet/Closet.tscn" id="3_20i0m"]
+[ext_resource type="Script" path="res://Main/ShadometerLabel.gd" id="3_xn73f"]
 [ext_resource type="Script" path="res://Manager/DudeManager.gd" id="4_oax4r"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_l740h"]
+font_size = 32
 
 [node name="Main" type="Node"]
 script = ExtResource("1_sqhfc")
 
 [node name="Storage" parent="." instance=ExtResource("2_hegu7")]
 
+[node name="ShadometerLabel" type="Label" parent="Storage"]
+offset_left = 985.0
+offset_top = 1.0
+offset_right = 1151.0
+offset_bottom = 81.0
+text = "0"
+label_settings = SubResource("LabelSettings_l740h")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_xn73f")
+
 [node name="Closet" parent="." instance=ExtResource("3_20i0m")]
-position = Vector2(599, 328)
+position = Vector2(125, 193)
 scale = Vector2(0.5, 0.5)
 
 [node name="DudeManager" type="Node2D" parent="."]
@@ -19,3 +34,5 @@ script = ExtResource("4_oax4r")
 textureDirectory = "res://Images/Dudes"
 orderDirectory = "res://Data/Orders"
 namesFilePath = "res://NamesList.txt"
+
+[connection signal="shadow_changed" from="Storage" to="Storage/ShadometerLabel" method="_on_storage_shadow_changed"]

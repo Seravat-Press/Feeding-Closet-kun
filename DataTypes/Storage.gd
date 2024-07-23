@@ -7,12 +7,14 @@ signal shadow_changed	## Amount of shadow has been changed.
 @export var ingredientStorage : Array[Ingredient]	## Ingredients in Storage. 
 @export var shadometer : int						## Money. 
 
+signal shadow_changed(new_value)
+
 func _ready():
 	pass
 
 ## Adds Shadow to the Shadometer.
-func add_shadow(newShadow : int):
-	shadometer += newShadow
+func add_shadow(moreShadow : int):
+	shadometer += moreShadow
 	update_shadow()
 
 ## Subtracts shadow from the Shadometer. Bounds at 0. 
