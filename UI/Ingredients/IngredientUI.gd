@@ -35,6 +35,7 @@ func install_ingredient_data(newData : Ingredient) -> void:
 	await ready
 	if newData != ingredientData:
 		ingredientData = newData
+	ingredientData.connect("ingredient_updated", Callable(self, "_on_ingredient_updated"))
 	ing_name.text = ingredientData.Name
 	ing_count.text = str(ingredientData.Amount) + " / " + str(Globals.MAX_INGREDIENTS)
 	full_tex.texture = load(ingredientData.imgRect)
@@ -63,7 +64,11 @@ func _process( _delta : float ):
 		# Hover the hazy texture where the mouse is
 		hazy_tex.global_position = get_global_mouse_position()
 
-
+## Update the Ingredient UI based on the ingredient data changed. 
+func _on_ingredient_updated() -> void:
+	# NOTE: only accounts for count change. 
+	ing_count.text = str(ingredientData.Amount) + " / " + str(Globals.MAX_INGREDIENTS)
+	
 ## Detect GUI input on the ingredient UI. 
 func _on_full_tex_gui_input(event: InputEvent) -> void:
 	if canUse == false:

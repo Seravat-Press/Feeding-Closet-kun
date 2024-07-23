@@ -18,3 +18,9 @@ func install_ingredient(ingredientData : Ingredient):
 ## When the ingredient completes, turn off this scene. 
 func _on_ingredient_complete():
 	done_line.visible = true
+
+## Update the Ingredient UI based on the ingredient data changed. 
+func _on_ingredient_updated(newIng : Ingredient) -> void:
+	ing_count.text = str(newIng.Amount)
+	if newIng.Amount == 0:
+		done_line.visible = true

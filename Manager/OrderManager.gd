@@ -6,6 +6,8 @@ var newOrderPreloaded = preload("res://UI/Orders/OrderUI.tscn")
 @onready var visual_queue = $VisualQueue
 @onready var visual = $Visual
 
+var focusedOrder : OrderUi
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	visual.visible = false
@@ -20,6 +22,8 @@ func generate_order(orderData):
 	order_enqueue(newOrder)
 
 func order_enqueue(newOrder):
+	newOrder.connect("entered_order", Callable(self,"_on_order_focused"))
+	newOrder.connect("left_order", Callable(self,"_on_order_unfocused"))
 	visual_queue.add_child(newOrder)
 	orderQueue.append(newOrder)
 
@@ -29,3 +33,19 @@ func order_dequeue():
 ## When a dude is spawned, attach its order to the queue
 func _on_dude_manager_dude_spawned(dude):
 	generate_order(dude.order)
+
+## IngredientUI emits signal for "picked_up" and passes itself. 
+func _on_order_focused(inOrder : OrderUi) -> void:
+	focusedOrder = inOrder
+
+## IngredientUI emits signal for "released" and passes itself.
+func _on_order_unfocused(outOrder : OrderUi) -> void:
+	if focusedOrder == outOrder:
+		focusedOrder = null
+
+func get_focused_order() -> Order:
+	if focusedOrder != null:
+		return focusedOrder.orderData
+	else:
+		return null
+# TODO: Manage an order completion/failure

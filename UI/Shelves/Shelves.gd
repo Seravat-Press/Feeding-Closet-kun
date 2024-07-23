@@ -1,6 +1,8 @@
 ## Holds all of the ingredientUIs
 class_name Shelves extends MarginContainer
 
+signal released_ingredient(ingredient)
+
 @onready var ingredients = $Ingredients
 
 var pickedUpIngredient : IngredientUI
@@ -14,9 +16,6 @@ func connect_signals_to_ingredients() -> void:
 		ingredient.connect("picked_up", Callable(self,"_on_ingredient_picked_up"))
 		ingredient.connect("released", Callable(self,"_on_ingredient_released"))
 
-func _process(_delta):
-	print(pickedUpIngredient)
-
 ## IngredientUI emits signal for "picked_up" and passes itself. 
 func _on_ingredient_picked_up(upIngredient : IngredientUI) -> void:
 	pickedUpIngredient = upIngredient
@@ -24,6 +23,7 @@ func _on_ingredient_picked_up(upIngredient : IngredientUI) -> void:
 ## IngredientUI emits signal for "released" and passes itself.
 func _on_ingredient_released(downIngredient : IngredientUI) -> void:
 	if downIngredient == pickedUpIngredient:
+		emit_signal("released_ingredient", pickedUpIngredient.ingredientData)
 		pickedUpIngredient = null
 
 ## Returns whether or not an item is picked up. 

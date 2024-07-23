@@ -1,6 +1,8 @@
 ## Handle an order with Ingredient needs. 
 class_name Order extends Resource
 
+signal order_updated(ingredient_finished)
+
 @export var Name : String					## Name of order
 @export var Ingredients : Array[Ingredient]	## Array of Ingredients
 @export var orderTime : float = 1.00		## Total time in the order
@@ -28,6 +30,7 @@ func fill_ingredient(new_ingredient : Ingredient) -> void:
 			if ingred.Amount == 0:
 				ingred.completedFlag = true
 				print("Ingredient Filled!")
+				emit_signal("order_updated", new_ingredient)
 
 
 func fail_order() -> void:

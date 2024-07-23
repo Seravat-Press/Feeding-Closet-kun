@@ -9,6 +9,7 @@ enum INGR_CLASS {
 
 ## Signal for when an ingredient runs out. 
 signal ingredient_gone
+signal ingredient_updated
 
 @export var Name : String					## Name of the Ingredient
 @export var ID : int						## ID  of Ingredient
@@ -28,6 +29,7 @@ func add_amount(added : int) -> void:
 	self.Amount += added
 	if self.Amount > Globals.MAX_INGREDIENTS:
 		self.Amount = Globals.MAX_INGREDIENTS
+	emit_signal("ingredient_updated")
 
 ## Subtracts from an Ingredient. Returns a leftover value. 
 func subtract_amount(subtracted : int) -> int:
@@ -37,5 +39,6 @@ func subtract_amount(subtracted : int) -> int:
 		leftover = abs(self.Amount)
 		self.Amount = 0
 		## handle destruction, but NOT when part of an order
+	emit_signal("ingredient_updated")
 	return leftover
 
