@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://d28f41evct6o"]
+
+[ext_resource type="Script" path="res://UI/Ingredients/IngredientUI.gd" id="1_a7bil"]
+
+[node name="IngredientUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a7bil")
+
+[node name="HazyTex" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="FullTex" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="IngName" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.066358
+anchor_bottom = 0.066358
+offset_right = 40.0
+offset_bottom = 23.0
+metadata/_edit_use_anchors_ = true
+
+[node name="IngCount" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00173611
+anchor_top = 0.0246914
+anchor_right = 0.00173611
+anchor_bottom = 0.0246914
+offset_left = 1.0
+offset_top = 44.0
+offset_right = 41.0
+offset_bottom = 67.0
+metadata/_edit_use_anchors_ = true
