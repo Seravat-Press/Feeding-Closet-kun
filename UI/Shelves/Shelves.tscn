@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://UI/Shelves/Shelves.gd" id="1_443ot"]
 [ext_resource type="PackedScene" uid="uid://d28f41evct6o" path="res://UI/Ingredients/IngredientUI.tscn" id="2_wx4m6"]
-[ext_resource type="Resource" uid="uid://choxeld1cs6vj" path="res://Data/Ingredients/Ectoplasm_0.tres" id="3_uywqp"]
+[ext_resource type="Resource" path="res://Data/Ingredients/Ectoplasm_0.tres" id="3_uywqp"]
 [ext_resource type="Resource" uid="uid://b1n428kr0861i" path="res://Data/Ingredients/Toxin_1.tres" id="4_urojw"]
-[ext_resource type="Resource" uid="uid://cdq506p6ow665" path="res://Data/Ingredients/Fang_2.tres" id="5_3rxsr"]
-[ext_resource type="Resource" uid="uid://bbcd3a71dr13e" path="res://Data/Ingredients/Death Petal_3.tres" id="6_1hdbu"]
+[ext_resource type="Resource" path="res://Data/Ingredients/Fang_2.tres" id="5_3rxsr"]
+[ext_resource type="Resource" path="res://Data/Ingredients/Death Petal_3.tres" id="6_1hdbu"]
 
 [node name="Shelves" type="MarginContainer"]
 offset_right = 310.0

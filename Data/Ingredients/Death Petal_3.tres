@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://bbcd3a71dr13e"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://dh8ljrlidm1vj"]
 
 [ext_resource type="Script" path="res://DataTypes/Ingredients/Ingredient.gd" id="1_ib7ae"]
 
@@ -8,5 +8,8 @@ Name = "Death Petal"
 ID = 3
 Amount = 0
 imgRect = "res://assets/ingredients/death_petal.png"
+sourceTime = 5.0
+gatherMin = 10
+gatherMax = 10
 completedFlag = false
 orderPart = 0

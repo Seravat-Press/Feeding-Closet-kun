@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://cdq506p6ow665"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://beyka4mlbrrny"]
 
 [ext_resource type="Script" path="res://DataTypes/Ingredients/Ingredient.gd" id="1_8ixk4"]
 
@@ -8,5 +8,8 @@ Name = "Fang"
 ID = 2
 Amount = 0
 imgRect = "res://assets/ingredients/fang.png"
+sourceTime = 5.0
+gatherMin = 10
+gatherMax = 10
 completedFlag = false
 orderPart = 0

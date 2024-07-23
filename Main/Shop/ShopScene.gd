@@ -5,7 +5,7 @@ class_name ShopScene extends Node
 @onready var order_manager = $UINodes/OrderManager
 @onready var closet = $UINodes/Closet
 @onready var storage = $ProcessingNodes/Storage
-@onready var introduction_point = $IntroductionPoint
+@onready var introduction_point = $"2DNodes/IntroductionPoint"
 
 func _ready():
 	print("Shop Activated!")
@@ -21,7 +21,6 @@ func game_loop():
 	# put order in queue
 	# start dude cd timer
 	pass
-	
 
 func run_test():
 	dude_manager.spawn_dude()

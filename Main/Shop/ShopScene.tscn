@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://b30q37jguwlek"]
+[gd_scene load_steps=9 format=3 uid="uid://b30q37jguwlek"]
 
 [ext_resource type="Script" path="res://Main/Shop/ShopScene.gd" id="1_pnct4"]
 [ext_resource type="PackedScene" uid="uid://dl756gys3wbma" path="res://UI/Closet/Closet.tscn" id="2_sf3t0"]
-[ext_resource type="PackedScene" uid="uid://bopu02di7e3e0" path="res://Manager/OrderManager.tscn" id="3_am2ce"]
+[ext_resource type="PackedScene" uid="uid://38p37nklc2cj" path="res://Manager/OrderManager.tscn" id="3_am2ce"]
 [ext_resource type="PackedScene" uid="uid://ddt7va66cy1mx" path="res://DataTypes/Storage.tscn" id="3_cbyd5"]
 [ext_resource type="PackedScene" uid="uid://dctd4p2s02lu8" path="res://UI/Shadometer/Shadometer.tscn" id="4_e7eu6"]
-[ext_resource type="PackedScene" uid="uid://csjq6cfuxqky1" path="res://Manager/DudeManager.tscn" id="5_ojv5s"]
+[ext_resource type="PackedScene" uid="uid://jfwvhdbe2n2k" path="res://Manager/DudeManager.tscn" id="5_ojv5s"]
 [ext_resource type="PackedScene" uid="uid://bed8bleqgeosy" path="res://UI/Shelves/Shelves.tscn" id="6_g07xb"]
+[ext_resource type="PackedScene" uid="uid://enawlhjqmymv" path="res://UI/Runners/Runner.tscn" id="8_r1um1"]
 
 [node name="ShopScene" type="Node"]
 script = ExtResource("1_pnct4")
@@ -67,12 +68,17 @@ offset_bottom = 167.0
 textureDirectory = "res://assets/dudes"
 orderDirectory = "res://Data/Orders"
 namesFilePath = "res://assets/NamesList.txt"
-introductionPoint = NodePath("../../IntroductionPoint")
+introductionPoint = NodePath("../IntroductionPoint")
 
-[node name="IntroductionPoint" type="Node2D" parent="."]
+[node name="IntroductionPoint" type="Node2D" parent="2DNodes"]
 position = Vector2(412, 488)
+
+[node name="Runner" parent="2DNodes" instance=ExtResource("8_r1um1")]
+position = Vector2(1, 421)
 
 [connection signal="shop_devoured" from="UINodes/Closet" to="." method="_on_closet_shop_devoured"]
 [connection signal="dude_spawned" from="2DNodes/DudeManager" to="UINodes/OrderManager" method="_on_dude_manager_dude_spawned"]
+[connection signal="timeout" from="2DNodes/Runner/MissionTimer" to="ProcessingNodes/Storage" method="_on_mission_timer_timeout"]
 
 [editable path="UINodes/Closet"]
+[editable path="2DNodes/Runner"]

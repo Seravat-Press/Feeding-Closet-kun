@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://enawlhjqmymv"]
+
+[ext_resource type="Script" path="res://UI/Runners/Runner.gd" id="1_58bsv"]
+[ext_resource type="PackedScene" uid="uid://xvaoroug6jw3" path="res://UI/Ingredients/RequestIngredientButton.tscn" id="2_ivquo"]
+[ext_resource type="Resource" uid="uid://dh8ljrlidm1vj" path="res://Data/Ingredients/Death Petal_3.tres" id="4_l1x0t"]
+[ext_resource type="Resource" uid="uid://b3jbaa0uxgy8y" path="res://Data/Ingredients/Ectoplasm_0.tres" id="6_tylyb"]
+[ext_resource type="Resource" uid="uid://beyka4mlbrrny" path="res://Data/Ingredients/Fang_2.tres" id="8_c8wja"]
+[ext_resource type="Resource" uid="uid://bvq3jcd5f7gps" path="res://Data/Ingredients/Toxin_1.tres" id="10_o4p0p"]
+
+[node name="Runner" type="Node2D"]
+script = ExtResource("1_58bsv")
+
+[node name="MissionTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 256.0
+offset_bottom = 339.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 190.0
+offset_bottom = 225.0
+color = Color(0.121569, 0.054902, 0.00784314, 0.392157)
+
+[node name="MissionTimerProgressBar" type="ProgressBar" parent="."]
+offset_right = 189.0
+offset_bottom = 33.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = 69.0
+offset_top = 191.0
+offset_right = 126.0
+offset_bottom = 214.0
+text = "Runner"
+
+[node name="RequestButtonGrid" type="GridContainer" parent="."]
+offset_left = 24.0
+offset_top = 38.0
+offset_right = 172.0
+offset_bottom = 186.0
+columns = 2
+
+[node name="btnRequestDeathPetal" parent="RequestButtonGrid" instance=ExtResource("2_ivquo")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+ingredient = ExtResource("4_l1x0t")
+
+[node name="btnRequestEctoplasm" parent="RequestButtonGrid" instance=ExtResource("2_ivquo")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+ingredient = ExtResource("6_tylyb")
+
+[node name="btnRequestFang" parent="RequestButtonGrid" instance=ExtResource("2_ivquo")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+ingredient = ExtResource("8_c8wja")
+
+[node name="btnRequestToxin" parent="RequestButtonGrid" instance=ExtResource("2_ivquo")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+ingredient = ExtResource("10_o4p0p")
+
+[connection signal="timeout" from="MissionTimer" to="." method="_on_mission_timer_timeout"]
+[connection signal="ingredient_clicked" from="RequestButtonGrid/btnRequestDeathPetal" to="." method="_on_btn_request_death_petal_ingredient_clicked"]
+[connection signal="ingredient_clicked" from="RequestButtonGrid/btnRequestEctoplasm" to="." method="_on_btn_request_ectoplasm_ingredient_clicked"]
+[connection signal="ingredient_clicked" from="RequestButtonGrid/btnRequestFang" to="." method="_on_btn_request_fang_ingredient_clicked"]
+[connection signal="ingredient_clicked" from="RequestButtonGrid/btnRequestToxin" to="." method="_on_btn_request_toxin_ingredient_clicked"]

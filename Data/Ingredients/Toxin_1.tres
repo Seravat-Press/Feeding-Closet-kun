@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://b1n428kr0861i"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://bvq3jcd5f7gps"]
 
 [ext_resource type="Script" path="res://DataTypes/Ingredients/Ingredient.gd" id="1_03n20"]
 
@@ -8,5 +8,8 @@ Name = "Toxin"
 ID = 1
 Amount = 0
 imgRect = "res://assets/ingredients/toxin.png"
+sourceTime = 5.0
+gatherMin = 10
+gatherMax = 10
 completedFlag = false
 orderPart = 0

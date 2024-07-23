@@ -15,6 +15,8 @@ signal ingredient_gone
 @export_range(0, Globals.MAX_INGREDIENTS, 1) var Amount : int	## Amount of Ingredient
 @export_file("*.png") var imgRect			## Icon for this ingredient. 
 @export_range(1.0, 30.0, 0.5) var sourceTime : float	## Time taken to get the ingredient.
+@export_range(0, 100, 1) var gatherMin : int = 10 ## Minimum amount gathered by runner
+@export_range(0, 100, 1) var gatherMax : int = 10 ## Maximum amount gathered by runner
 
 @export_group("Processing")
 @export var completedFlag : bool = false 	## TRUE if the ingredient is part of an order and it's been completed. 

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://choxeld1cs6vj"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://b3jbaa0uxgy8y"]
 
 [ext_resource type="Script" path="res://DataTypes/Ingredients/Ingredient.gd" id="1_g7wxk"]
 
@@ -8,5 +8,8 @@ Name = "Ectoplasm"
 ID = 0
 Amount = 0
 imgRect = "res://assets/ingredients/ectoplasm.png"
+sourceTime = 5.0
+gatherMin = 10
+gatherMax = 10
 completedFlag = false
 orderPart = 0
