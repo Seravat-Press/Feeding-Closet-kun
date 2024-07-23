@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://twxevxk1nvbs"]
 
 [ext_resource type="Script" path="res://UI/Orders/OrderUI.gd" id="1_jmd3j"]
-[ext_resource type="Texture2D" uid="uid://bw35ympcm3jgw" path="res://assets/orders/invisibility.png" id="3_67qy1"]
+[ext_resource type="Texture2D" uid="uid://cqw006n83chwd" path="res://assets/orders/invisibility.png" id="3_67qy1"]
 [ext_resource type="PackedScene" uid="uid://dpwgprccpe3nn" path="res://UI/Orders/IngredientLine.tscn" id="4_8j7er"]
 [ext_resource type="Shader" path="res://UI/Orders/OrderOutline.gdshader" id="5_x7c1b"]
 
@@ -18,7 +18,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_jmd3j")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="OrderOutline" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_kxaiv")
 layout_mode = 2
 size_flags_stretch_ratio = 0.0
@@ -54,6 +54,7 @@ layout_mode = 2
 size_flags_vertical = 1
 size_flags_stretch_ratio = 0.54
 mouse_filter = 1
+step = 1.0
 value = 50.0
 show_percentage = false
 
@@ -65,3 +66,6 @@ size_flags_vertical = 3
 layout_mode = 2
 
 [node name="OrderTimer" type="Timer" parent="."]
+
+[connection signal="mouse_entered" from="OrderOutline" to="." method="_on_order_outline_mouse_entered"]
+[connection signal="mouse_exited" from="OrderOutline" to="." method="_on_order_outline_mouse_exited"]

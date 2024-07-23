@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://b30q37jguwlek"]
+[gd_scene load_steps=8 format=3 uid="uid://b30q37jguwlek"]
 
 [ext_resource type="Script" path="res://Main/Shop/ShopScene.gd" id="1_pnct4"]
 [ext_resource type="PackedScene" uid="uid://dl756gys3wbma" path="res://UI/Closet/Closet.tscn" id="2_sf3t0"]
-[ext_resource type="PackedScene" uid="uid://38p37nklc2cj" path="res://Manager/OrderManager.tscn" id="3_am2ce"]
+[ext_resource type="PackedScene" uid="uid://bopu02di7e3e0" path="res://Manager/OrderManager.tscn" id="3_am2ce"]
 [ext_resource type="PackedScene" uid="uid://ddt7va66cy1mx" path="res://DataTypes/Storage.tscn" id="3_cbyd5"]
 [ext_resource type="PackedScene" uid="uid://dctd4p2s02lu8" path="res://UI/Shadometer/Shadometer.tscn" id="4_e7eu6"]
-[ext_resource type="PackedScene" path="res://Manager/DudeManager.tscn" id="5_ojv5s"]
+[ext_resource type="PackedScene" uid="uid://csjq6cfuxqky1" path="res://Manager/DudeManager.tscn" id="5_ojv5s"]
+[ext_resource type="PackedScene" uid="uid://bed8bleqgeosy" path="res://UI/Shelves/Shelves.tscn" id="6_g07xb"]
 
 [node name="ShopScene" type="Node"]
 script = ExtResource("1_pnct4")
@@ -52,6 +53,13 @@ offset_left = 605.0
 offset_top = 257.0
 offset_right = 1074.0
 offset_bottom = 447.0
+
+[node name="Shelves" parent="UINodes" instance=ExtResource("6_g07xb")]
+layout_mode = 0
+offset_left = 619.0
+offset_top = 49.0
+offset_right = 929.0
+offset_bottom = 167.0
 
 [node name="2DNodes" type="Node2D" parent="."]
 

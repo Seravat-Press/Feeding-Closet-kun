@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://38p37nklc2cj"]
+[gd_scene load_steps=2 format=3 uid="uid://bopu02di7e3e0"]
 
 [ext_resource type="Script" path="res://Manager/OrderManager.gd" id="1_p6a8a"]
 
