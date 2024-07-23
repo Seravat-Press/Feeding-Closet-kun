@@ -1,5 +1,5 @@
 ## UI Element to handle the Closet hunger + textures. 
-class_name Closet extends Control
+class_name Closet extends MarginContainer
 
 signal hunger_changed(new_value)	## Emitted when the hunger value has changed. 
 signal shop_devoured				## Emitted when all hunger levels are filled. 
@@ -11,12 +11,12 @@ const GOOD_H_TEX = preload("res://assets/hunger/good_hunger.png")
 const SPENT_H_TEX = preload("res://assets/hunger/spent_hunger.png")
 
 @onready var hunger_timer = $HungerTimer
-@onready var closet_image = $ClosetImage
-@onready var hunger_state_label = $HungerStateLabel
-@onready var visual_hunger_timer = $VisualHungerTimer
-@onready var hunger_1 = $HungerStates/Hunger1
-@onready var hunger_2 = $HungerStates/Hunger2
-@onready var hunger_3 = $HungerStates/Hunger3
+@onready var closet_image = $VBoxContainer/ClosetImage
+@onready var visual_hunger_timer = $VBoxContainer/VisualHungerTimer
+@onready var hunger_1 = $VBoxContainer/HungerStates/Hunger1
+@onready var hunger_2 = $VBoxContainer/HungerStates/Hunger2
+@onready var hunger_3 = $VBoxContainer/HungerStates/Hunger3
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -43,23 +43,23 @@ func reset_hunger_timer():
 ## Call to increase the hunger stage and update the closet image. 
 func increase_hunger_stage():
 	hungerStage += 1
-	update_closet_image()
-	hunger_changed.emit(hungerStage)
+	#update_closet_image()
+	hunger_lvl_changed()
 
 ## Call to decrease the hunger stage and update the closet image. 
 func decrease_hunger_stage():
 	if hungerStage > 0:
 		hungerStage -= 1
-		update_closet_image()
-		hunger_changed.emit(hungerStage)
+		#update_closet_image()
+		hunger_lvl_changed()
 
 ## Update the closet texture based on the given hunger stage. 
 func update_closet_image():
 	closet_image.texture = load("" + "Stage" + str(hungerStage))
 
 ## Called when the hunger state is changed. 
-func _on_hunger_changed():
-	hunger_state_label.text = str(hungerStage)
+func hunger_lvl_changed():
+	hunger_changed.emit(hungerStage)
 	match (hungerStage):
 		0:
 			hunger_1.texture = GOOD_H_TEX
