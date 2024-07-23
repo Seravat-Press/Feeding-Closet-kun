@@ -10,8 +10,8 @@ signal order_failed
 @export var orderData : Order		## Data for this order. 
 
 @onready var order_timer = $OrderTimer
-@onready var order_tex: TextureRect = $OrderTex
-@onready var ingredient_lines: VBoxContainer = $IngredientLines
+@onready var order_tex: TextureRect = $MarginContainer/VBoxContainer/OrderTex
+@onready var ingredient_lines: VBoxContainer = $MarginContainer/VBoxContainer/IngredientLines
 @onready var order_progress_bar = $MarginContainer/VBoxContainer/OrderProgressBar
 
 var outlineEntered : bool = false
