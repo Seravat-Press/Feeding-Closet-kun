@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_nuggk")
-orderID = 1
-ingID = 0
+orderID = 4
+ingID = 4

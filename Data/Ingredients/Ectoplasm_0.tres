@@ -7,6 +7,6 @@ script = ExtResource("1_g7wxk")
 Name = "Ectoplasm"
 ID = 0
 Amount = 0
-imgRect = null
+imgRect = "res://assets/ingredients/ectoplasm.png"
 completedFlag = false
 orderPart = 0

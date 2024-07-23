@@ -46,6 +46,8 @@ The monsters are hot?
 
 # Art
 
+- All Ingredient/Order assets are 256x256
+
 ---
 
 # Audio
