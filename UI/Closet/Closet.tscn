@@ -1,7 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://dl756gys3wbma"]
+[gd_scene load_steps=5 format=3 uid="uid://dl756gys3wbma"]
 
 [ext_resource type="Script" path="res://UI/Closet/Closet.gd" id="1_fya4j"]
 [ext_resource type="Texture2D" uid="uid://ckw7dq144ulxj" path="res://Images/ClosetStage0.png" id="2_l6des"]
+[ext_resource type="Script" path="res://UI/Closet/VisualHungerTimer.gd" id="3_d0joh"]
+
+[sub_resource type="GDScript" id="GDScript_38guf"]
+script/source = "extends Label
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
 
 [node name="Closet" type="Node2D"]
 script = ExtResource("1_fya4j")
@@ -11,4 +26,24 @@ script = ExtResource("1_fya4j")
 [node name="ClosetImage" type="Sprite2D" parent="."]
 texture = ExtResource("2_l6des")
 
+[node name="VisualHungerTimer" type="ProgressBar" parent="."]
+offset_left = -125.0
+offset_top = -288.0
+offset_right = 126.0
+offset_bottom = -261.0
+script = ExtResource("3_d0joh")
+
+[node name="HungerStateLabel" type="Label" parent="."]
+offset_left = -66.0
+offset_top = -97.0
+offset_right = 40.0
+offset_bottom = -23.0
+rotation = 0.0825654
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = SubResource("GDScript_38guf")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="hunger_changed" from="." to="." method="_on_hunger_changed"]
 [connection signal="timeout" from="HungerTimer" to="." method="_on_hunger_timer_timeout"]

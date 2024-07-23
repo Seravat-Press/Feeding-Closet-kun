@@ -11,7 +11,7 @@ script = ExtResource("1_sqhfc")
 [node name="Storage" parent="." instance=ExtResource("2_hegu7")]
 
 [node name="Closet" parent="." instance=ExtResource("3_20i0m")]
-position = Vector2(128, 230)
+position = Vector2(599, 328)
 scale = Vector2(0.5, 0.5)
 
 [node name="DudeManager" type="Node2D" parent="."]

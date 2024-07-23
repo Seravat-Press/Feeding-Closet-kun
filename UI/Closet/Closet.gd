@@ -1,10 +1,11 @@
 class_name Closet extends Node
 
 @export var hungerStage : int = 0
-@export var hungerTimerDuration = 300
+@export var hungerTimerDuration = 30
 
 @onready var hunger_timer = $HungerTimer
 @onready var closet_image = $ClosetImage
+@onready var hunger_state_label = $HungerStateLabel
 
 signal hunger_changed(new_value)
 
@@ -39,3 +40,6 @@ func decrease_hunger_stage():
 
 func update_closet_image():
 	closet_image.texture = load("" + "Stage" + str(hungerStage))
+
+func _on_hunger_changed(new_value):
+	hunger_state_label.text = str(hungerStage)
