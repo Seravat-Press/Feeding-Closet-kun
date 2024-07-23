@@ -62,3 +62,8 @@ func spawn_dude():
 func despawn_current_dude():
 	remove_child(currentDude)
 	# TODO connect signal for dude despawned
+
+## Have the dude slide up to the counter
+func move_dude(dude : Dude, point : Vector2):
+	#var introductionPoint : Vector2 = get_viewport().get_visible_rect().size / 2
+	dude.translate(point)

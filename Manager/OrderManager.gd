@@ -1,11 +1,14 @@
-class_name OrderManager extends Node
+class_name OrderManager extends Control
 
 var orderQueue : Array
 var newOrderPreloaded = preload("res://UI/Orders/OrderUI.tscn")
 
+@onready var visual_queue = $VisualQueue
+@onready var visual = $Visual
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	visual.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -17,7 +20,8 @@ func generate_order(orderData):
 	order_enqueue(newOrder)
 
 func order_enqueue(newOrder):
+	visual_queue.add_child(newOrder)
 	orderQueue.append(newOrder)
-	
+
 func order_dequeue():
-	orderQueue.pop_front()
+	visual_queue.remove_child(orderQueue.pop_front())

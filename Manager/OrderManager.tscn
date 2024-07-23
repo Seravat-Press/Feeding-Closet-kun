@@ -1,6 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://bopu02di7e3e0"]
+[gd_scene load_steps=2 format=3 uid="uid://38p37nklc2cj"]
 
 [ext_resource type="Script" path="res://Manager/OrderManager.gd" id="1_p6a8a"]
 
-[node name="OrderManager" type="Node"]
+[node name="OrderManager" type="MarginContainer"]
+offset_right = 450.0
+offset_bottom = 190.0
 script = ExtResource("1_p6a8a")
+
+[node name="Visual" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(1, 1, 1, 0.294118)
+
+[node name="Label" type="Label" parent="Visual"]
+layout_mode = 0
+offset_left = 149.0
+offset_top = 83.0
+offset_right = 287.0
+offset_bottom = 106.0
+text = "ORDER MANAGER"
+
+[node name="VisualQueue" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+alignment = 1
