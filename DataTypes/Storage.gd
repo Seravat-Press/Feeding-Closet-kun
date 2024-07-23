@@ -5,8 +5,10 @@ class_name Storage extends Node
 signal shadow_changed(new_value) ## Amount of shadow has been changed.
 
 @export var ingredientStorage : Array[Ingredient]	## Ingredients in Storage. 
-@export var shadometer : int						## Money. 
+@export var shadometer : int = 0					## Money. 
 
+func _ready():
+	print("Current Ingredient Storage: " + str(ingredientStorage))
 
 ## Adds Shadow to the Shadometer.
 func add_shadow(moreShadow : int):
@@ -23,3 +25,12 @@ func sub_shadow(lessShadow : int):
 ## Emit a signal to UI nodes to update the shadometer. 
 func update_shadow() -> void:
 	emit_signal("shadow_changed", shadometer)
+
+func add_ingredient():
+	pass
+	
+func remove_ingredient():
+	pass
+
+func _on_runner_mission_complete(ingredient, quantity):
+	pass

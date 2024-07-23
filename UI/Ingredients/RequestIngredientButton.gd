@@ -5,5 +5,5 @@ class_name RequestIngredientButton extends Button
 signal ingredient_clicked(ingredient)
 
 func _on_button_up():
-	print("Ingredient request button clicked.")
+	print("Requesting ingredient: " + ingredient.Name)
 	ingredient_clicked.emit(ingredient)

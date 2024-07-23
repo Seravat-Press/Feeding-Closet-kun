@@ -41,7 +41,9 @@ stretch_mode = 4
 metadata/_edit_lock_ = true
 
 [node name="VisualHungerTimer" type="ProgressBar" parent="VBoxContainer" node_paths=PackedStringArray("hunger_timer")]
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
+show_percentage = false
 script = ExtResource("3_d0joh")
 hunger_timer = NodePath("../../HungerTimer")
 

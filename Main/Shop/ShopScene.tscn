@@ -78,8 +78,8 @@ position = Vector2(1, 421)
 
 [connection signal="shop_devoured" from="UINodes/Closet" to="." method="_on_closet_shop_devoured"]
 [connection signal="dude_spawned" from="2DNodes/DudeManager" to="UINodes/OrderManager" method="_on_dude_manager_dude_spawned"]
+[connection signal="mission_complete" from="2DNodes/Runner" to="ProcessingNodes/Storage" method="_on_runner_mission_complete"]
 [connection signal="timeout" from="2DNodes/Runner/MissionTimer" to="ProcessingNodes/Storage" method="_on_mission_timer_timeout"]
-[connection signal="released_ingredient" from="UINodes/Shelves" to="." method="_on_shelves_released_ingredient"]
 
 [editable path="UINodes/Closet"]
 [editable path="2DNodes/Runner"]

@@ -12,9 +12,13 @@ func _ready():
 	start_game()
 
 func start_game():
+	set_initial_resources()
 	closet.reset_hunger_timer()
 	dude_manager.begin_spawning_dudes()
 	#run_test()
+
+func set_initial_resources():
+	storage.add_shadow(100)
 
 func game_loop():
 	# after timer, spawn a dude
@@ -42,7 +46,6 @@ func _on_closet_shop_devoured():
 	# TODO: Serve End Game Scene
 	pass # Replace with function body.
 
-
 ## Called when a held ingredient is released. 
 func _on_shelves_released_ingredient(ingredient : Ingredient):
 	var currentOrder : Order = order_manager.get_focused_order()
@@ -51,6 +54,6 @@ func _on_shelves_released_ingredient(ingredient : Ingredient):
 		# No current order being hovered. Return. 
 		return
 	else:
-		print("We have an prder")
+		print("We have an order")
 		currentOrder.fill_ingredient(ingredient)
 	pass # Replace with function body.
