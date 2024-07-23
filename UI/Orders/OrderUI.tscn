@@ -47,13 +47,14 @@ text = "[center]Invisibility Potion[/center]"
 fit_content = true
 scroll_active = false
 
-[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer"]
+[node name="OrderProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer"]
 modulate = Color(0.239216, 0.207843, 1, 1)
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 size_flags_vertical = 1
 size_flags_stretch_ratio = 0.54
 mouse_filter = 1
+step = 1.0
 value = 50.0
 show_percentage = false
 

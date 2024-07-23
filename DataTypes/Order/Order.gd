@@ -10,7 +10,8 @@ class_name Order extends Resource
 @export_group("Don't Change")
 @export var ID : int
 
-signal order_completed()
+signal order_completed
+signal order_failed
 
 ## TODO predicate array of strings
 
@@ -28,3 +29,9 @@ func fill_ingredient(new_ingredient : Ingredient) -> void:
 				ingred.completedFlag = true
 				print("Ingredient Filled!")
 
+
+func fail_order() -> void:
+	emit_signal("order_failed")
+
+func succeed_order() -> void: 
+	emit_signal("order_completed")

@@ -1,8 +1,9 @@
+## Manager for Dude-related functionality. 
 class_name DudeManager extends Node
 
 ## Currently loaded dude
 var currentDude : Dude
-var preloadedDudeScene = preload("res://DataTypes/Dude/Dude.tscn")
+const preloadedDudeScene = preload("res://DataTypes/Dude/Dude.tscn")
 
 # data arrays
 var namesArray : Array
@@ -48,10 +49,15 @@ func spawn_dude():
 	var dudeTexture = texturesArray.pick_random()
 	var dudeOrder = ordersArray.pick_random()
 	var dudeSceneInstance = preloadedDudeScene.instantiate()
+	
+	## Connect Order Signals for Dude
+	dudeOrder.connect("order_completed", Callable(dudeSceneInstance, "_on_dudes_order_failed"))
+	dudeOrder.connect("order_failed", Callable(dudeSceneInstance, "_on_dudes_order_success"))
+	
+	## Set up the Dude
 	dudeSceneInstance.setup(dudeName, dudeTexture, dudeOrder)
 	add_child(dudeSceneInstance)
 	currentDude = dudeSceneInstance
-	# TODO connect signals for dude elements (spawn)
 
 func despawn_current_dude():
 	remove_child(currentDude)
