@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://38p37nklc2cj" path="res://Manager/OrderManager.tscn" id="3_am2ce"]
 [ext_resource type="PackedScene" uid="uid://ddt7va66cy1mx" path="res://DataTypes/Storage.tscn" id="3_cbyd5"]
 [ext_resource type="PackedScene" uid="uid://dctd4p2s02lu8" path="res://UI/Shadometer/Shadometer.tscn" id="4_e7eu6"]
-[ext_resource type="PackedScene" path="res://Manager/DudeManager.tscn" id="5_ojv5s"]
+[ext_resource type="PackedScene" uid="uid://jfwvhdbe2n2k" path="res://Manager/DudeManager.tscn" id="5_ojv5s"]
 
 [node name="ShopScene" type="Node"]
 script = ExtResource("1_pnct4")
@@ -55,16 +55,16 @@ offset_bottom = 447.0
 
 [node name="2DNodes" type="Node2D" parent="."]
 
-[node name="DudeManager" parent="2DNodes" instance=ExtResource("5_ojv5s")]
+[node name="DudeManager" parent="2DNodes" node_paths=PackedStringArray("introductionPoint") instance=ExtResource("5_ojv5s")]
 textureDirectory = "res://assets/dudes"
 orderDirectory = "res://Data/Orders"
 namesFilePath = "res://assets/NamesList.txt"
+introductionPoint = NodePath("../../IntroductionPoint")
 
 [node name="IntroductionPoint" type="Node2D" parent="."]
 position = Vector2(412, 488)
 
-[node name="DudeSpawnCooldown" type="Timer" parent="."]
-
 [connection signal="shop_devoured" from="UINodes/Closet" to="." method="_on_closet_shop_devoured"]
+[connection signal="dude_spawned" from="2DNodes/DudeManager" to="UINodes/OrderManager" method="_on_dude_manager_dude_spawned"]
 
 [editable path="UINodes/Closet"]

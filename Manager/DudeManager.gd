@@ -15,6 +15,17 @@ var ordersArray : Array
 @export_dir var orderDirectory
 @export_file var namesFilePath
 
+@export var dudeSpawnCooldownMin : float = 5.0
+@export var dudeSpawnCooldownMax : float = 10.0
+@export var dudeStandTime : float = 5.0
+@export var introductionPoint : Node2D
+
+signal dude_spawned(dude)
+signal dude_despawned(dude)
+
+@onready var dude_spawn_cooldown = $DudeSpawnCooldown
+@onready var dude_stand_timer = $DudeStandTimer
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	build_data_arrays()
@@ -58,12 +69,32 @@ func spawn_dude():
 	dudeSceneInstance.setup(dudeName, dudeTexture, dudeOrder)
 	add_child(dudeSceneInstance)
 	currentDude = dudeSceneInstance
+	dude_spawned.emit(currentDude)
 
 func despawn_current_dude():
 	remove_child(currentDude)
-	# TODO connect signal for dude despawned
+	dude_despawned.emit(currentDude)
 
 ## Have the dude slide up to the counter
 func move_dude(dude : Dude, point : Vector2):
-	#var introductionPoint : Vector2 = get_viewport().get_visible_rect().size / 2
 	dude.translate(point)
+
+func begin_spawning_dudes():
+	dude_spawn_cooldown.stop
+	randomize_dude_cooldown()
+	dude_spawn_cooldown.start()
+
+func randomize_dude_cooldown():
+	dude_spawn_cooldown.wait_time = randf_range(dudeSpawnCooldownMin, dudeSpawnCooldownMax)
+
+func _on_dude_spawn_cooldown_timeout():
+	spawn_dude()
+	move_dude(currentDude, introductionPoint.position)
+	dude_stand_timer.start()
+
+func _on_dude_stand_timer_timeout():
+	despawn_current_dude()
+	dude_spawn_cooldown.stop()
+	randomize_dude_cooldown()
+	dude_spawn_cooldown.start()
+	

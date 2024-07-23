@@ -5,7 +5,6 @@ class_name ShopScene extends Node
 @onready var order_manager = $UINodes/OrderManager
 @onready var closet = $UINodes/Closet
 @onready var storage = $ProcessingNodes/Storage
-
 @onready var introduction_point = $IntroductionPoint
 
 func _ready():
@@ -13,7 +12,9 @@ func _ready():
 	start_game()
 
 func start_game():
-	run_test()
+	closet.reset_hunger_timer()
+	dude_manager.begin_spawning_dudes()
+	#run_test()
 
 func game_loop():
 	# after timer, spawn a dude

@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://csjq6cfuxqky1"]
+[gd_scene load_steps=2 format=3 uid="uid://jfwvhdbe2n2k"]
 
 [ext_resource type="Script" path="res://Manager/DudeManager.gd" id="1_e7vp7"]
 
 [node name="DudeManager" type="Node2D"]
 script = ExtResource("1_e7vp7")
+
+[node name="DudeSpawnCooldown" type="Timer" parent="."]
+one_shot = true
+
+[node name="DudeStandTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="DudeSpawnCooldown" to="." method="_on_dude_spawn_cooldown_timeout"]
+[connection signal="timeout" from="DudeStandTimer" to="." method="_on_dude_stand_timer_timeout"]

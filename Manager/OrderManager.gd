@@ -25,3 +25,7 @@ func order_enqueue(newOrder):
 
 func order_dequeue():
 	visual_queue.remove_child(orderQueue.pop_front())
+
+## When a dude is spawned, attach its order to the queue
+func _on_dude_manager_dude_spawned(dude):
+	generate_order(dude.order)
