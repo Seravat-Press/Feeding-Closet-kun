@@ -6,33 +6,36 @@
 [node name="IngredientLine" type="MarginContainer"]
 offset_right = 155.0
 offset_bottom = 23.0
+mouse_filter = 2
 script = ExtResource("1_a1rut")
 
 [node name="IngredientData" type="HBoxContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
 alignment = 1
 
 [node name="IngTex" type="TextureRect" parent="IngredientData"]
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("2_i47nr")
 expand_mode = 2
 
 [node name="VSeparator" type="VSeparator" parent="IngredientData"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="IngName" type="Label" parent="IngredientData"]
 layout_mode = 2
-mouse_filter = 1
 text = "Ectoplasm"
 
 [node name="VSeparator2" type="VSeparator" parent="IngredientData"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="IngCount" type="Label" parent="IngredientData"]
 layout_mode = 2
-mouse_filter = 1
 text = "400"
 
 [node name="DoneLine" type="ColorRect" parent="."]
@@ -40,4 +43,5 @@ visible = false
 custom_minimum_size = Vector2(0, 4)
 layout_mode = 2
 size_flags_vertical = 4
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
