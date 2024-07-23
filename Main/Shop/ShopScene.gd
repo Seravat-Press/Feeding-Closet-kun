@@ -41,3 +41,14 @@ func run_test():
 func _on_closet_shop_devoured():
 	# TODO: Serve End Game Scene
 	pass # Replace with function body.
+
+
+## Called when a held ingredient is released. 
+func _on_shelves_released_ingredient(ingredient : Ingredient):
+	var currentOrder : Order = order_manager.get_focused_order()
+	if currentOrder == null:
+		# No current order being hovered. Return. 
+		return
+	else:
+		currentOrder.fill_ingredient(ingredient)
+	pass # Replace with function body.

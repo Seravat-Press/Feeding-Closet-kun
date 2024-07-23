@@ -4,8 +4,8 @@ class_name OrderUi extends MarginContainer
 
 const INGREDIENT_LINE = preload("res://UI/Orders/IngredientLine.tscn")
 
-signal order_completed
-signal order_failed
+signal entered_order(order)
+signal left_order(order)
 
 @export var orderData : Order		## Data for this order. 
 
@@ -35,8 +35,8 @@ func install_order_data(newData : Order) -> void:
 	orderData = newData
 	order_timer.wait_time = orderData.orderTime
 	order_tex.texture = load(orderData.imgRect)
-	# TODO Setup signals from order to the UI for when it's complete 
-	# or maybe do a check after an ingredient is filled out and check for all. 
+	orderData.connect('order_updated', Callable(self, "_on_order_updated"))
+	
 	var newIngredientLine
 	
 	# Loop through ingredients and set up the recipe.
@@ -46,6 +46,7 @@ func install_order_data(newData : Order) -> void:
 		
 		# Connect signals for this ingredient
 		ingredient.connect("ingredient_gone", Callable(newIngredientLine, "_on_ingredient_complete"))
+		ingredient.connect("ingredient_updated", Callable(newIngredientLine, "_on_ingredient_updated"))
 		ingredient_lines.add_child(newIngredientLine)
 		
 ## Start the order timer with the order's wait time. 
@@ -73,7 +74,24 @@ func check_completion() -> void:
 	
 func _on_order_outline_mouse_entered():
 	outlineEntered = true
+	emit_signal("entered_order", self)
 
 
 func _on_order_outline_mouse_exited():
 	outlineEntered = false
+	emit_signal("left_order", self)
+
+func _on_order_updated(ingredientChanged : Ingredient) -> void:
+	## One of the ingredients is completed. 
+	print("Completed: " + ingredientChanged.Name + " in " + orderData.Name)
+	if are_ingredients_filled():
+		print("This order is complete!")
+	else:
+		print("There are still ingredients to go!")
+
+## Returns whether or not all ingredients are filled. 
+func are_ingredients_filled() -> bool:
+	for ingredient in orderData.Ingredients:
+		if ingredient.completedFlag != true:
+			return false
+	return true

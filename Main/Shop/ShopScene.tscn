@@ -74,5 +74,6 @@ position = Vector2(412, 488)
 [node name="DudeSpawnCooldown" type="Timer" parent="."]
 
 [connection signal="shop_devoured" from="UINodes/Closet" to="." method="_on_closet_shop_devoured"]
+[connection signal="released_ingredient" from="UINodes/Shelves" to="." method="_on_shelves_released_ingredient"]
 
 [editable path="UINodes/Closet"]
