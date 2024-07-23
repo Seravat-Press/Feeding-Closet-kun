@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dl756gys3wbma"]
 
 [ext_resource type="Script" path="res://UI/Closet/Closet.gd" id="1_fya4j"]
-[ext_resource type="Texture2D" uid="uid://ckw7dq144ulxj" path="res://Images/ClosetStage0.png" id="2_l6des"]
+[ext_resource type="Texture2D" uid="uid://c1gcwrt02uxx8" path="res://Images/ClosetStage0.png" id="2_l6des"]
 [ext_resource type="Script" path="res://UI/Closet/VisualHungerTimer.gd" id="3_d0joh"]
 
 [sub_resource type="GDScript" id="GDScript_38guf"]
@@ -26,12 +26,13 @@ script = ExtResource("1_fya4j")
 [node name="ClosetImage" type="Sprite2D" parent="."]
 texture = ExtResource("2_l6des")
 
-[node name="VisualHungerTimer" type="ProgressBar" parent="."]
+[node name="VisualHungerTimer" type="ProgressBar" parent="." node_paths=PackedStringArray("hunger_timer")]
 offset_left = -125.0
 offset_top = -288.0
 offset_right = 126.0
 offset_bottom = -261.0
 script = ExtResource("3_d0joh")
+hunger_timer = NodePath("../HungerTimer")
 
 [node name="HungerStateLabel" type="Label" parent="."]
 offset_left = -66.0
