@@ -9,7 +9,6 @@ offset_bottom = 40.0
 script = ExtResource("1_a7bil")
 
 [node name="Shelf" type="VBoxContainer" parent="."]
-modulate = Color(0.558, 0.558, 0.558, 0.424)
 layout_mode = 2
 alignment = 1
 
