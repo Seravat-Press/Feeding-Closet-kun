@@ -11,34 +11,30 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_a7bil")
 
+[node name="Shelf" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+alignment = 1
+
+[node name="FullTex" type="TextureRect" parent="Shelf"]
+layout_mode = 2
+
+[node name="IngName" type="Label" parent="Shelf"]
+layout_mode = 2
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="IngCount" type="Label" parent="Shelf"]
+layout_mode = 2
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
 [node name="HazyTex" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.364706)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="FullTex" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="IngName" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.066358
-anchor_bottom = 0.066358
-offset_right = 40.0
-offset_bottom = 23.0
-metadata/_edit_use_anchors_ = true
-
-[node name="IngCount" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.00173611
-anchor_top = 0.0246914
-anchor_right = 0.00173611
-anchor_bottom = 0.0246914
-offset_left = 1.0
-offset_top = 44.0
-offset_right = 41.0
-offset_bottom = 67.0
-metadata/_edit_use_anchors_ = true
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="gui_input" from="Shelf/FullTex" to="." method="_on_full_tex_gui_input"]
