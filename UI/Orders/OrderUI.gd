@@ -1,6 +1,6 @@
 ## This is the wrapper node around OrderData. It handles timing and order vars. 
 ## This is managed by TODO something???
-class_name OrderUi extends Control
+class_name OrderUi extends MarginContainer
 
 const INGREDIENT_LINE = preload("res://UI/Orders/IngredientLine.tscn")
 

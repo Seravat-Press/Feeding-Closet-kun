@@ -1,20 +1,43 @@
-[gd_scene load_steps=2 format=3 uid="uid://dpwgprccpe3nn"]
+[gd_scene load_steps=3 format=3 uid="uid://dpwgprccpe3nn"]
 
 [ext_resource type="Script" path="res://UI/Orders/IngredientLine.gd" id="1_a1rut"]
+[ext_resource type="Texture2D" uid="uid://dc8wr50n0ixou" path="res://assets/ingredients/ectoplasm.png" id="2_i47nr"]
 
-[node name="IngredientLine" type="HBoxContainer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="IngredientLine" type="MarginContainer"]
+offset_right = 155.0
+offset_bottom = 23.0
 script = ExtResource("1_a1rut")
 
-[node name="IngTex" type="TextureRect" parent="."]
+[node name="IngredientData" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="IngTex" type="TextureRect" parent="IngredientData"]
+layout_mode = 2
+texture = ExtResource("2_i47nr")
+expand_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="IngredientData"]
 layout_mode = 2
 
-[node name="IngName" type="Label" parent="."]
+[node name="IngName" type="Label" parent="IngredientData"]
+layout_mode = 2
+mouse_filter = 1
+text = "Ectoplasm"
+
+[node name="VSeparator2" type="VSeparator" parent="IngredientData"]
 layout_mode = 2
 
-[node name="IngCount" type="Label" parent="."]
+[node name="IngCount" type="Label" parent="IngredientData"]
 layout_mode = 2
+mouse_filter = 1
+text = "400"
+
+[node name="DoneLine" type="ColorRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+size_flags_vertical = 4
+color = Color(0, 0, 0, 1)
