@@ -41,5 +41,5 @@ func decrease_hunger_stage():
 func update_closet_image():
 	closet_image.texture = load("" + "Stage" + str(hungerStage))
 
-func _on_hunger_changed(new_value):
+func _on_hunger_changed():
 	hunger_state_label.text = str(hungerStage)

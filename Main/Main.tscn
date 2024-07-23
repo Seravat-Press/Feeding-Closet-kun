@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cdcbolvua0386"]
+[gd_scene load_steps=8 format=3 uid="uid://cdcbolvua0386"]
 
-[ext_resource type="Script" path="res://Main/Main.gd" id="1_sqhfc"]
+[ext_resource type="Script" path="res://Manager/OrderManager.gd" id="1_mpeoh"]
+[ext_resource type="Script" path="res://Main/Main.gd" id="1_sgx0e"]
 [ext_resource type="PackedScene" uid="uid://ddt7va66cy1mx" path="res://DataTypes/Storage.tscn" id="2_hegu7"]
 [ext_resource type="PackedScene" uid="uid://dl756gys3wbma" path="res://UI/Closet/Closet.tscn" id="3_20i0m"]
 [ext_resource type="Script" path="res://Main/ShadometerLabel.gd" id="3_xn73f"]
@@ -10,7 +11,7 @@
 font_size = 32
 
 [node name="Main" type="Node"]
-script = ExtResource("1_sqhfc")
+script = ExtResource("1_sgx0e")
 
 [node name="Storage" parent="." instance=ExtResource("2_hegu7")]
 
@@ -34,5 +35,8 @@ script = ExtResource("4_oax4r")
 textureDirectory = "res://Images/Dudes"
 orderDirectory = "res://Data/Orders"
 namesFilePath = "res://NamesList.txt"
+
+[node name="OrderManager" type="Node2D" parent="."]
+script = ExtResource("1_mpeoh")
 
 [connection signal="shadow_changed" from="Storage" to="Storage/ShadometerLabel" method="_on_storage_shadow_changed"]

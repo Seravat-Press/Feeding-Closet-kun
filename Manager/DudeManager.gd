@@ -42,10 +42,6 @@ func build_order_array():
 	for orderFile in orderFilesArray:
 		var newOrder : Order = ResourceLoader.load(orderFile)
 		ordersArray.append(newOrder)
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 func spawn_dude():
 	var dudeName = namesArray.pick_random()
@@ -54,6 +50,7 @@ func spawn_dude():
 	var dudeSceneInstance = preloadedDudeScene.instantiate()
 	dudeSceneInstance.setup(dudeName, dudeTexture, dudeOrder)
 	add_child(dudeSceneInstance)
+	currentDude = dudeSceneInstance
 	# TODO connect signals for dude elements (spawn)
 
 func despawn_current_dude():
