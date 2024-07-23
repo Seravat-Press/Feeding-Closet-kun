@@ -13,6 +13,7 @@ signal ingredient_gone
 @export var Name : String					## Name of the Ingredient
 @export var ID : int						## ID  of Ingredient
 @export_range(0, Globals.MAX_INGREDIENTS, 1) var Amount : int	## Amount of Ingredient
+@export_file("*.png") var imgRect			## Icon for this ingredient. 
 
 @export_group("Processing")
 @export var completedFlag : bool = false 	## TRUE if the ingredient is part of an order and it's been completed. 
