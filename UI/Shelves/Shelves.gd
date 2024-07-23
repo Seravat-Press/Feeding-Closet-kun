@@ -1,0 +1,31 @@
+## Holds all of the ingredientUIs
+class_name Shelves extends MarginContainer
+
+@onready var ingredients = $Ingredients
+
+var pickedUpIngredient : IngredientUI
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	connect_signals_to_ingredients()
+
+func connect_signals_to_ingredients() -> void:
+	for ingredient in ingredients.get_children():
+		ingredient.connect("picked_up", Callable(self,"_on_ingredient_picked_up"))
+		ingredient.connect("released", Callable(self,"_on_ingredient_released"))
+
+func _process(_delta):
+	print(pickedUpIngredient)
+
+## IngredientUI emits signal for "picked_up" and passes itself. 
+func _on_ingredient_picked_up(upIngredient : IngredientUI) -> void:
+	pickedUpIngredient = upIngredient
+
+## IngredientUI emits signal for "released" and passes itself.
+func _on_ingredient_released(downIngredient : IngredientUI) -> void:
+	if downIngredient == pickedUpIngredient:
+		pickedUpIngredient = null
+
+## Returns whether or not an item is picked up. 
+func check_if_item_picked() -> bool:
+	return true if (pickedUpIngredient != null) else false
