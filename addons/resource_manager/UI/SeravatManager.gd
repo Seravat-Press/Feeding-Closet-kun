@@ -7,8 +7,8 @@ const ordPath = preload("res://DataTypes/Order/Order.gd")
 const ingOutPath = "res://Data/Ingredients/"
 const ordOutPath = "res://Data/Orders/"
 
-var ingText : String = "New Ingredient [%3d]"
-var ordText : String = "New Order [%3d]"
+var ingText : String = "New [%3d]"
+var ordText : String = "New [%3d]"
 
 var resourceData : ResourceData
 @onready var ing_button = $ingBox/ingButton
@@ -19,6 +19,10 @@ var resourceData : ResourceData
 func _ready():
 	resourceData = ResourceLoader.load("res://addons/resource_manager/resourceData.tres")
 	update_button_labels()
+	
+	# Set up all of the directory dependencies.
+	var error = DirAccess.make_dir_recursive_absolute(ingOutPath) 
+	error = DirAccess.make_dir_recursive_absolute(ordOutPath) 
 
 ## Updates the button labels with the current ID (next). 
 func update_button_labels() -> void: 
