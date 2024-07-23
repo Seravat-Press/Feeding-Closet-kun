@@ -14,7 +14,7 @@ func setup(createDudeName : String, createTexture : Texture, createOrder : Order
 func _ready():
 	var dude_image = $DudeImage
 	dude_image.texture = dudeTexture
-	print(dudeName)
+	print(dudeName + " has spawned in!")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
