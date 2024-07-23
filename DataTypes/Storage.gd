@@ -2,6 +2,8 @@
 ## This serves UI. 
 class_name Storage extends Node
 
+signal shadow_changed	## Amount of shadow has been changed.
+
 @export var ingredientStorage : Array[Ingredient]	## Ingredients in Storage. 
 @export var shadometer : int						## Money. 
 
@@ -22,5 +24,4 @@ func sub_shadow(lessShadow : int):
 
 ## Emit a signal to UI nodes to update the shadometer. 
 func update_shadow() -> void:
-	## TODO emit signal for shadow update to UI
-	pass
+	emit_signal("shadow_changed")
