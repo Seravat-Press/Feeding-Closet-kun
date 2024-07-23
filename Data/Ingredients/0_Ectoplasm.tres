@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://choxeld1cs6vj"]
+
+[ext_resource type="Script" path="res://DataTypes/Ingredients/Ingredient.gd" id="1_g7wxk"]
+
+[resource]
+script = ExtResource("1_g7wxk")
+Name = "Ectoplasm"
+ID = 0
+Amount = 0
+imgRect = null
+completedFlag = false
+orderPart = 0

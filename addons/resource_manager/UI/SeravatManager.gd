@@ -10,7 +10,8 @@ const ordOutPath = "res://Data/Orders/"
 var ingText : String = "New [%3d]"
 var ordText : String = "New [%3d]"
 
-var resourceData : ResourceData
+var resourceData : Resource		## Save Data Path. Setting up as a ResourceData causes a parse error. 
+
 @onready var ing_button = $ingBox/ingButton
 @onready var ord_button = $ordBox/ordButton
 @onready var ing_text = $ingBox/ingText
