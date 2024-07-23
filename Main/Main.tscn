@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cdcbolvua0386"]
+[gd_scene load_steps=9 format=3 uid="uid://cdcbolvua0386"]
 
 [ext_resource type="Script" path="res://Manager/OrderManager.gd" id="1_mpeoh"]
 [ext_resource type="Script" path="res://Main/Main.gd" id="1_sgx0e"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dl756gys3wbma" path="res://UI/Closet/Closet.tscn" id="3_20i0m"]
 [ext_resource type="Script" path="res://Main/ShadometerLabel.gd" id="3_xn73f"]
 [ext_resource type="Script" path="res://Manager/DudeManager.gd" id="4_oax4r"]
+[ext_resource type="Texture2D" uid="uid://dws7hegsnlqi5" path="res://assets/shadow.png" id="4_qplh8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_l740h"]
 font_size = 32
@@ -25,6 +26,15 @@ label_settings = SubResource("LabelSettings_l740h")
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("3_xn73f")
+
+[node name="ShadometerIcon" type="TextureRect" parent="Storage"]
+offset_left = 1089.0
+offset_top = 7.0
+offset_right = 1345.0
+offset_bottom = 263.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_qplh8")
+metadata/_edit_use_anchors_ = true
 
 [node name="Closet" parent="." instance=ExtResource("3_20i0m")]
 position = Vector2(125, 193)
