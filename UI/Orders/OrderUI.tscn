@@ -18,7 +18,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_jmd3j")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="OrderOutline" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_kxaiv")
 layout_mode = 2
 size_flags_stretch_ratio = 0.0
@@ -65,3 +65,6 @@ size_flags_vertical = 3
 layout_mode = 2
 
 [node name="OrderTimer" type="Timer" parent="."]
+
+[connection signal="mouse_entered" from="OrderOutline" to="." method="_on_order_outline_mouse_entered"]
+[connection signal="mouse_exited" from="OrderOutline" to="." method="_on_order_outline_mouse_exited"]

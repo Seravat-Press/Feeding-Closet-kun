@@ -10,6 +10,8 @@ const INGREDIENT_LINE = preload("res://UI/Orders/IngredientLine.tscn")
 @onready var order_tex: TextureRect = $OrderTex
 @onready var ingredient_lines: VBoxContainer = $IngredientLines
 
+var outlineEntered : bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	order_timer.one_shot = true
@@ -49,3 +51,11 @@ func _on_order_timer_timeout():
 func calculate_tip():
 	## TODO: Do something with this value. Maybe set a threshold of 40% for earning any tip? 
 	var tip = order_timer.time_left / orderData.orderTime
+
+
+func _on_order_outline_mouse_entered():
+	outlineEntered = true
+
+
+func _on_order_outline_mouse_exited():
+	outlineEntered = false
