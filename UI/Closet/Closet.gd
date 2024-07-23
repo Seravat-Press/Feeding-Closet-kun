@@ -4,6 +4,8 @@ class_name Closet extends MarginContainer
 signal hunger_changed(new_value)	## Emitted when the hunger value has changed. 
 signal shop_devoured				## Emitted when all hunger levels are filled. 
 
+@export_dir var closetAssetPath
+
 @export var hungerStage : int = 0		## Current hunger stage. NOTE may become an enum? 
 @export var hungerTimerDuration = 30	## The time for each hunger stage
 
@@ -55,7 +57,7 @@ func decrease_hunger_stage():
 
 ## Update the closet texture based on the given hunger stage. 
 func update_closet_image():
-	closet_image.texture = load("" + "Stage" + str(hungerStage))
+	closet_image.texture = load(closetAssetPath.path_join("ClosetStage" + str(hungerStage) + ".png"))
 
 ## Called when the hunger state is changed. 
 func hunger_lvl_changed():
@@ -78,3 +80,6 @@ func hunger_lvl_changed():
 			hunger_2.texture = SPENT_H_TEX
 			hunger_3.texture = SPENT_H_TEX
 			emit_signal("shop_devoured")
+
+func _on_shop_devoured():
+	hunger_timer.paused

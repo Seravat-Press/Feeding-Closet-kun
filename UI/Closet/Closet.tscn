@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://dl756gys3wbma"]
 
 [ext_resource type="Script" path="res://UI/Closet/Closet.gd" id="1_fya4j"]
-[ext_resource type="Texture2D" uid="uid://c1gcwrt02uxx8" path="res://Images/ClosetStage0.png" id="2_l6des"]
 [ext_resource type="Script" path="res://UI/Closet/VisualHungerTimer.gd" id="3_d0joh"]
-[ext_resource type="Texture2D" uid="uid://0pl7xp0ycxsp" path="res://assets/hunger/good_hunger.png" id="4_2ij0j"]
+[ext_resource type="Texture2D" uid="uid://p4gy5lvyhxj1" path="res://assets/hunger/good_hunger.png" id="4_2ij0j"]
+[ext_resource type="Texture2D" uid="uid://ckw7dq144ulxj" path="res://assets/closet/ClosetStage0.png" id="4_qybs5"]
 
 [node name="Closet" type="MarginContainer"]
 offset_right = 200.0
@@ -11,6 +11,7 @@ offset_bottom = 410.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_fya4j")
+closetAssetPath = "res://assets/closet"
 
 [node name="HungerTimer" type="Timer" parent="."]
 
@@ -47,7 +48,8 @@ hunger_timer = NodePath("../../HungerTimer")
 [node name="ClosetImage" type="TextureRect" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-texture = ExtResource("2_l6des")
+texture = ExtResource("4_qybs5")
 expand_mode = 1
 
+[connection signal="shop_devoured" from="." to="." method="_on_shop_devoured"]
 [connection signal="timeout" from="HungerTimer" to="." method="_on_hunger_timer_timeout"]
