@@ -1,20 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://d28f41evct6o"]
+[gd_scene load_steps=3 format=3 uid="uid://d28f41evct6o"]
 
 [ext_resource type="Script" path="res://UI/Ingredients/IngredientUI.gd" id="1_a7bil"]
+[ext_resource type="Texture2D" uid="uid://bwn1kk27ntmne" path="res://assets/ingredients/death_petal.png" id="2_44ebk"]
 
-[node name="IngredientUi" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="IngredientUI" type="MarginContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
 script = ExtResource("1_a7bil")
 
 [node name="Shelf" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+modulate = Color(0.558, 0.558, 0.558, 0.424)
+layout_mode = 2
 alignment = 1
 
 [node name="FullTex" type="TextureRect" parent="Shelf"]
@@ -31,10 +27,9 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="HazyTex" type="TextureRect" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0.364706)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 2
+texture = ExtResource("2_44ebk")
 
-[connection signal="gui_input" from="." to="." method="_on_gui_input"]
-[connection signal="gui_input" from="Shelf/FullTex" to="." method="_on_full_tex_gui_input"]
+[connection signal="gui_input" from="." to="." method="_on_full_tex_gui_input"]
