@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Order" load_steps=7 format=3 uid="uid://c8ky7pk0ixkhg"]
+
+[ext_resource type="Script" path="res://DataTypes/Order/Order.gd" id="1_1dtv1"]
+[ext_resource type="Resource" uid="uid://dh8ljrlidm1vj" path="res://Data/IngredientTypes/Death Petal_3.tres" id="1_wm16q"]
+[ext_resource type="Script" path="res://DataTypes/Ingredients/IngredientOrder.gd" id="2_ps1ix"]
+[ext_resource type="Resource" uid="uid://beyka4mlbrrny" path="res://Data/IngredientTypes/Fang_2.tres" id="3_400er"]
+
+[sub_resource type="Resource" id="Resource_luagk"]
+script = ExtResource("2_ps1ix")
+ingredientData = ExtResource("1_wm16q")
+amountNeeded = 8
+completedFlag = false
+
+[sub_resource type="Resource" id="Resource_mfi5a"]
+script = ExtResource("2_ps1ix")
+ingredientData = ExtResource("3_400er")
+amountNeeded = 5
+completedFlag = false
+
+[resource]
+script = ExtResource("1_1dtv1")
+Name = "Anti-Lycan"
+neededIngredients = Array[ExtResource("2_ps1ix")]([SubResource("Resource_luagk"), SubResource("Resource_mfi5a")])
+imgRect = "res://assets/orders/lycan.png"
+ID = 3

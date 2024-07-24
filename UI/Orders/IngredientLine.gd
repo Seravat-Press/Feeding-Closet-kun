@@ -10,17 +10,17 @@ func _ready():
 	done_line.visible = false
 	
 ## Set up the scene data with all of the ingredient data. 
-func install_ingredient(ingredientData : Ingredient):
-	ing_tex.texture = load(ingredientData.imgRect)
-	ing_name.text = ingredientData.Name
-	ing_count.text = str(ingredientData.Amount)
+func install_ingredient(ingredientData : IngredientOrder):
+	ing_tex.texture = load(ingredientData.ingredientData.imgRect)
+	ing_name.text = ingredientData.ingredientData.Name
+	ing_count.text = str(ingredientData.amountNeeded)
 
 ## When the ingredient completes, turn off this scene. 
 func _on_ingredient_complete():
 	done_line.visible = true
 
 ## Update the Ingredient UI based on the ingredient data changed. 
-func _on_ingredient_updated(newIng : Ingredient) -> void:
-	ing_count.text = str(newIng.Amount)
-	if newIng.Amount == 0:
+func _on_ingredient_updated(newIng : IngredientOrder) -> void:
+	ing_count.text = str(newIng.amountNeeded)
+	if newIng.amountNeeded == 0:
 		done_line.visible = true

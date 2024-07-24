@@ -1,12 +1,32 @@
-[gd_scene load_steps=8 format=3 uid="uid://bed8bleqgeosy"]
+[gd_scene load_steps=12 format=3 uid="uid://bed8bleqgeosy"]
 
 [ext_resource type="Script" path="res://UI/Shelves/Shelves.gd" id="1_443ot"]
 [ext_resource type="PackedScene" uid="uid://d28f41evct6o" path="res://UI/Ingredients/IngredientUI.tscn" id="2_wx4m6"]
-[ext_resource type="Resource" uid="uid://choxeld1cs6vj" path="res://Data/Ingredients/Ectoplasm_0.tres" id="3_uywqp"]
-[ext_resource type="Texture2D" uid="uid://dc8wr50n0ixou" path="res://assets/ingredients/ectoplasm.png" id="4_2lnl7"]
-[ext_resource type="Resource" uid="uid://b1n428kr0861i" path="res://Data/Ingredients/Toxin_1.tres" id="4_urojw"]
-[ext_resource type="Resource" path="res://Data/Ingredients/Fang_2.tres" id="5_3rxsr"]
-[ext_resource type="Resource" path="res://Data/Ingredients/Death Petal_3.tres" id="6_1hdbu"]
+[ext_resource type="Resource" uid="uid://b3jbaa0uxgy8y" path="res://Data/IngredientTypes/Ectoplasm_0.tres" id="3_ik4br"]
+[ext_resource type="Script" path="res://DataTypes/Ingredients/IngredientInventory.gd" id="4_42aol"]
+[ext_resource type="Resource" uid="uid://bvq3jcd5f7gps" path="res://Data/IngredientTypes/Toxin_1.tres" id="6_culc8"]
+[ext_resource type="Resource" uid="uid://beyka4mlbrrny" path="res://Data/IngredientTypes/Fang_2.tres" id="6_p0fkj"]
+[ext_resource type="Resource" uid="uid://dh8ljrlidm1vj" path="res://Data/IngredientTypes/Death Petal_3.tres" id="7_5huc8"]
+
+[sub_resource type="Resource" id="Resource_gde6u"]
+script = ExtResource("4_42aol")
+ingredientData = ExtResource("3_ik4br")
+amountHeld = 7
+
+[sub_resource type="Resource" id="Resource_j0cfg"]
+script = ExtResource("4_42aol")
+ingredientData = ExtResource("6_culc8")
+amountHeld = 0
+
+[sub_resource type="Resource" id="Resource_04bnv"]
+script = ExtResource("4_42aol")
+ingredientData = ExtResource("6_p0fkj")
+amountHeld = 0
+
+[sub_resource type="Resource" id="Resource_5tygc"]
+script = ExtResource("4_42aol")
+ingredientData = ExtResource("7_5huc8")
+amountHeld = 0
 
 [node name="Shelves" type="MarginContainer"]
 offset_right = 310.0
@@ -23,30 +43,19 @@ columns = 4
 
 [node name="IngredientUi" parent="Ingredients" instance=ExtResource("2_wx4m6")]
 layout_mode = 2
-ingredientData = ExtResource("3_uywqp")
-
-[node name="FullTex" parent="Ingredients/IngredientUi/Shelf" index="0"]
-texture = ExtResource("4_2lnl7")
-
-[node name="IngName" parent="Ingredients/IngredientUi/Shelf" index="1"]
-text = "Ectoplasm"
-
-[node name="IngCount" parent="Ingredients/IngredientUi/Shelf" index="2"]
-text = "0 / 999"
-
-[node name="HazyTex" parent="Ingredients/IngredientUi" index="1"]
-texture = ExtResource("4_2lnl7")
+ingredientData = SubResource("Resource_gde6u")
 
 [node name="IngredientUi2" parent="Ingredients" instance=ExtResource("2_wx4m6")]
 layout_mode = 2
-ingredientData = ExtResource("4_urojw")
+ingredientData = SubResource("Resource_j0cfg")
+canUse = false
 
 [node name="IngredientUi3" parent="Ingredients" instance=ExtResource("2_wx4m6")]
 layout_mode = 2
-ingredientData = ExtResource("5_3rxsr")
+ingredientData = SubResource("Resource_04bnv")
+canUse = false
 
 [node name="IngredientUi4" parent="Ingredients" instance=ExtResource("2_wx4m6")]
 layout_mode = 2
-ingredientData = ExtResource("6_1hdbu")
-
-[editable path="Ingredients/IngredientUi"]
+ingredientData = SubResource("Resource_5tygc")
+canUse = false

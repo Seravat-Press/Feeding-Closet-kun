@@ -8,7 +8,7 @@ const USABLE_COLOR = Color(1,1,1,1)
 signal picked_up(ingredient)
 signal released(ingredient)
 
-@export var ingredientData : Ingredient :	## Data for this order. 
+@export var ingredientData : IngredientInventory :	## Data for this order. 
 	get:
 		return ingredientData
 	set(newIngredient):
@@ -24,25 +24,28 @@ signal released(ingredient)
 @onready var hazy_tex: TextureRect = $HazyTex
 @onready var shelf = $Shelf
 
-var mouseHeld : bool = false	## Grab state of the mouse hold. 
-var canUse : bool = false		## TRUE if you can use this ingredient. 
+var mouseHeld : bool = false			## Grab state of the mouse hold. 
+@export var canUse : bool = false		## TRUE if you can use this ingredient. 
 
 func _ready(): 
-	set_usability(true)
+	#set_usability(true)
+	pass
 
 ## Installs an Ingredient into this node. 
-func install_ingredient_data(newData : Ingredient) -> void:
+func install_ingredient_data(newData : IngredientInventory) -> void:
 	await ready
 	if newData != ingredientData:
 		ingredientData = newData
 	ingredientData.connect("ingredient_updated", Callable(self, "_on_ingredient_updated"))
-	ing_name.text = ingredientData.Name
-	ing_count.text = str(ingredientData.Amount) + " / " + str(Globals.MAX_INGREDIENTS)
-	full_tex.texture = load(ingredientData.imgRect)
-	hazy_tex.texture = load(ingredientData.imgRect)
+	ing_name.text = ingredientData.get_ingredient_name()
+	ing_count.text = str(ingredientData.amountHeld) + " / " + str(Globals.MAX_INGREDIENTS)
+	full_tex.texture = load(ingredientData.get_tex())
+	hazy_tex.texture = load(ingredientData.get_tex())
 	hazy_tex.global_position = full_tex.global_position
 	hazy_tex.visible = false
+	set_usability(canUse)
 
+## Clears all ingredient data in an IngredientUI
 func clear_ingredient_data() -> void: 
 	ing_name.text = ""
 	ing_count.text = ""
@@ -67,7 +70,7 @@ func _process( _delta : float ):
 ## Update the Ingredient UI based on the ingredient data changed. 
 func _on_ingredient_updated() -> void:
 	# NOTE: only accounts for count change. 
-	ing_count.text = str(ingredientData.Amount) + " / " + str(Globals.MAX_INGREDIENTS)
+	ing_count.text = str(ingredientData.amountHeld) + " / " + str(Globals.MAX_INGREDIENTS)
 	
 ## Detect GUI input on the ingredient UI. 
 func _on_full_tex_gui_input(event: InputEvent) -> void:

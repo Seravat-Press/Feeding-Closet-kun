@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Order" load_steps=5 format=3 uid="uid://capc4sxqriidx"]
+
+[ext_resource type="Resource" uid="uid://b3jbaa0uxgy8y" path="res://Data/IngredientTypes/Ectoplasm_0.tres" id="1_11gxg"]
+[ext_resource type="Script" path="res://DataTypes/Ingredients/IngredientOrder.gd" id="2_m0xkp"]
+[ext_resource type="Script" path="res://DataTypes/Order/Order.gd" id="3_xt5ly"]
+
+[sub_resource type="Resource" id="Resource_5opr8"]
+resource_local_to_scene = true
+script = ExtResource("2_m0xkp")
+ingredientData = ExtResource("1_11gxg")
+amountNeeded = 3
+completedFlag = false
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("3_xt5ly")
+Name = "Invisibility"
+neededIngredients = Array[ExtResource("2_m0xkp")]([SubResource("Resource_5opr8")])
+imgRect = "res://assets/orders/invisibility.png"
+ID = 0

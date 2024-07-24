@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://beyka4mlbrrny"]
+
+[ext_resource type="Script" path="res://DataTypes/Ingredients/Ingredient.gd" id="1_242h3"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_242h3")
+Name = "Fang"
+ID = 2
+imgRect = "res://assets/ingredients/fang.png"

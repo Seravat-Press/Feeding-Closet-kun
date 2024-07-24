@@ -2,10 +2,10 @@
 class_name Dude extends Node2D
 
 @export var dudeTexture : Texture
-@export var order : Order
+@export var order : OrderFull
 @export var dudeName : String
 
-func setup(createDudeName : String, createTexture : Texture, createOrder : Order):
+func setup(createDudeName : String, createTexture : Texture, createOrder : OrderFull):
 	dudeName = createDudeName
 	dudeTexture = createTexture
 	order = createOrder
@@ -17,7 +17,7 @@ func _ready():
 	print(dudeName + " has spawned in!")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 ## Called when an orderUI emit("order_failed") for this dude's order. 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b30q37jguwlek"]
+[gd_scene load_steps=14 format=3 uid="uid://b30q37jguwlek"]
 
 [ext_resource type="Script" path="res://Main/Shop/ShopScene.gd" id="1_pnct4"]
 [ext_resource type="PackedScene" uid="uid://dl756gys3wbma" path="res://UI/Closet/Closet.tscn" id="2_sf3t0"]
@@ -8,6 +8,35 @@
 [ext_resource type="PackedScene" uid="uid://jfwvhdbe2n2k" path="res://Manager/DudeManager.tscn" id="5_ojv5s"]
 [ext_resource type="PackedScene" uid="uid://bed8bleqgeosy" path="res://UI/Shelves/Shelves.tscn" id="6_g07xb"]
 [ext_resource type="PackedScene" uid="uid://enawlhjqmymv" path="res://UI/Runners/Runner.tscn" id="8_r1um1"]
+[ext_resource type="Script" path="res://DataTypes/Ingredients/Ingredient.gd" id="9_xk6bq"]
+
+[sub_resource type="Resource" id="Resource_a8vn6"]
+resource_local_to_scene = true
+script = ExtResource("9_xk6bq")
+Name = "Death Petal"
+ID = 3
+imgRect = "res://assets/ingredients/death_petal.png"
+
+[sub_resource type="Resource" id="Resource_mrdlx"]
+resource_local_to_scene = true
+script = ExtResource("9_xk6bq")
+Name = "Ectoplasm"
+ID = 0
+imgRect = "res://assets/ingredients/ectoplasm.png"
+
+[sub_resource type="Resource" id="Resource_wockh"]
+resource_local_to_scene = true
+script = ExtResource("9_xk6bq")
+Name = "Fang"
+ID = 2
+imgRect = "res://assets/ingredients/fang.png"
+
+[sub_resource type="Resource" id="Resource_bxqbu"]
+resource_local_to_scene = true
+script = ExtResource("9_xk6bq")
+Name = "Toxin"
+ID = 1
+imgRect = "res://assets/ingredients/toxin.png"
 
 [node name="ShopScene" type="Node"]
 script = ExtResource("1_pnct4")
@@ -76,7 +105,20 @@ position = Vector2(412, 488)
 [node name="Runner" parent="2DNodes" instance=ExtResource("8_r1um1")]
 position = Vector2(1, 421)
 
+[node name="btnRequestDeathPetal" parent="2DNodes/Runner/RequestButtonGrid" index="0"]
+ingredient = SubResource("Resource_a8vn6")
+
+[node name="btnRequestEctoplasm" parent="2DNodes/Runner/RequestButtonGrid" index="1"]
+ingredient = SubResource("Resource_mrdlx")
+
+[node name="btnRequestFang" parent="2DNodes/Runner/RequestButtonGrid" index="2"]
+ingredient = SubResource("Resource_wockh")
+
+[node name="btnRequestToxin" parent="2DNodes/Runner/RequestButtonGrid" index="3"]
+ingredient = SubResource("Resource_bxqbu")
+
 [connection signal="shop_devoured" from="UINodes/Closet" to="." method="_on_closet_shop_devoured"]
+[connection signal="released_ingredient" from="UINodes/Shelves" to="." method="_on_shelves_released_ingredient"]
 [connection signal="dude_spawned" from="2DNodes/DudeManager" to="UINodes/OrderManager" method="_on_dude_manager_dude_spawned"]
 [connection signal="mission_complete" from="2DNodes/Runner" to="ProcessingNodes/Storage" method="_on_runner_mission_complete"]
 [connection signal="timeout" from="2DNodes/Runner/MissionTimer" to="ProcessingNodes/Storage" method="_on_mission_timer_timeout"]

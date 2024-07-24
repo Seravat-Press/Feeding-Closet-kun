@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Order" load_steps=7 format=3 uid="uid://biml63ufwlls2"]
+
+[ext_resource type="Resource" uid="uid://dh8ljrlidm1vj" path="res://Data/IngredientTypes/Death Petal_3.tres" id="1_trbox"]
+[ext_resource type="Script" path="res://DataTypes/Ingredients/IngredientOrder.gd" id="2_ako0y"]
+[ext_resource type="Resource" uid="uid://beyka4mlbrrny" path="res://Data/IngredientTypes/Fang_2.tres" id="3_a2p2x"]
+[ext_resource type="Script" path="res://DataTypes/Order/Order.gd" id="4_xy1i5"]
+
+[sub_resource type="Resource" id="Resource_82s4i"]
+script = ExtResource("2_ako0y")
+ingredientData = ExtResource("1_trbox")
+amountNeeded = 3
+completedFlag = false
+
+[sub_resource type="Resource" id="Resource_qfoeh"]
+script = ExtResource("2_ako0y")
+ingredientData = ExtResource("3_a2p2x")
+amountNeeded = 5
+completedFlag = false
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("4_xy1i5")
+Name = "Virility"
+neededIngredients = Array[ExtResource("2_ako0y")]([SubResource("Resource_82s4i"), SubResource("Resource_qfoeh")])
+imgRect = "res://assets/orders/virility.png"
+ID = 1

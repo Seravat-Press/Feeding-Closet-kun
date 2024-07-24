@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://dh8ljrlidm1vj"]
+
+[ext_resource type="Script" path="res://DataTypes/Ingredients/Ingredient.gd" id="1_7pd2v"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_7pd2v")
+Name = "Death Petal"
+ID = 3
+imgRect = "res://assets/ingredients/death_petal.png"

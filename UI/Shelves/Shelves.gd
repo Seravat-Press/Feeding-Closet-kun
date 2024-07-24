@@ -11,6 +11,7 @@ var pickedUpIngredient : IngredientUI
 func _ready():
 	connect_signals_to_ingredients()
 
+## Set up ingredient signals
 func connect_signals_to_ingredients() -> void:
 	for ingredient in ingredients.get_children():
 		ingredient.connect("picked_up", Callable(self,"_on_ingredient_picked_up"))

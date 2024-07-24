@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="OrderFull" load_steps=3 format=3 uid="uid://blsfhsfm3i2d6"]
+
+[ext_resource type="Resource" uid="uid://capc4sxqriidx" path="res://Data/OrderTypes/Invisibility_0.tres" id="1_e036t"]
+[ext_resource type="Script" path="res://DataTypes/Order/OrderFull.gd" id="1_metwy"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_metwy")
+orderData = ExtResource("1_e036t")
+orderTime = 3.0
+cost = 4

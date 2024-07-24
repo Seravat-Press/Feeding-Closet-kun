@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" path="res://UI/Runners/Runner.gd" id="1_58bsv"]
 [ext_resource type="PackedScene" uid="uid://xvaoroug6jw3" path="res://UI/Ingredients/RequestIngredientButton.tscn" id="2_ivquo"]
-[ext_resource type="Texture2D" uid="uid://sgcd1y64kv5b" path="res://assets/ingredients/death_petal.png" id="3_riyrb"]
-[ext_resource type="Resource" uid="uid://dh8ljrlidm1vj" path="res://Data/Ingredients/Death Petal_3.tres" id="4_l1x0t"]
-[ext_resource type="Texture2D" uid="uid://dasbobr73ig1" path="res://assets/ingredients/ectoplasm.png" id="5_b6rs8"]
-[ext_resource type="Resource" uid="uid://b3jbaa0uxgy8y" path="res://Data/Ingredients/Ectoplasm_0.tres" id="6_tylyb"]
-[ext_resource type="Texture2D" uid="uid://dj3dkfwonbkp2" path="res://assets/ingredients/fang.png" id="7_iy2el"]
-[ext_resource type="Resource" uid="uid://beyka4mlbrrny" path="res://Data/Ingredients/Fang_2.tres" id="8_c8wja"]
-[ext_resource type="Texture2D" uid="uid://b8fgndjue41ih" path="res://assets/ingredients/toxin.png" id="9_n34xk"]
-[ext_resource type="Resource" uid="uid://bvq3jcd5f7gps" path="res://Data/Ingredients/Toxin_1.tres" id="10_o4p0p"]
+[ext_resource type="Texture2D" uid="uid://bwn1kk27ntmne" path="res://assets/ingredients/death_petal.png" id="3_riyrb"]
+[ext_resource type="Resource" uid="uid://dh8ljrlidm1vj" path="res://Data/IngredientTypes/Death Petal_3.tres" id="4_l1x0t"]
+[ext_resource type="Texture2D" uid="uid://dc8wr50n0ixou" path="res://assets/ingredients/ectoplasm.png" id="5_b6rs8"]
+[ext_resource type="Resource" uid="uid://b3jbaa0uxgy8y" path="res://Data/IngredientTypes/Ectoplasm_0.tres" id="6_tylyb"]
+[ext_resource type="Texture2D" uid="uid://d21dn3asekoo7" path="res://assets/ingredients/fang.png" id="7_iy2el"]
+[ext_resource type="Resource" uid="uid://beyka4mlbrrny" path="res://Data/IngredientTypes/Fang_2.tres" id="8_c8wja"]
+[ext_resource type="Texture2D" uid="uid://d1hkvrcd6v58f" path="res://assets/ingredients/toxin.png" id="9_n34xk"]
+[ext_resource type="Resource" uid="uid://bvq3jcd5f7gps" path="res://Data/IngredientTypes/Toxin_1.tres" id="10_o4p0p"]
 
 [node name="Runner" type="Node2D"]
 script = ExtResource("1_58bsv")

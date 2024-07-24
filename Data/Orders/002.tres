@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="OrderFull" load_steps=3 format=3 uid="uid://ddrnqjgt37f54"]
+
+[ext_resource type="Resource" uid="uid://biml63ufwlls2" path="res://Data/OrderTypes/Virility_1.tres" id="1_omk6m"]
+[ext_resource type="Script" path="res://DataTypes/Order/OrderFull.gd" id="2_obxpe"]
+
+[resource]
+script = ExtResource("2_obxpe")
+orderData = ExtResource("1_omk6m")
+orderTime = 1.0
+cost = 5
