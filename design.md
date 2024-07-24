@@ -52,6 +52,9 @@ The monsters are hot?
 
 # Audio
 
+Plugins:
+- https://lese.io/plugin/codec/
+
 ## Music
 
 ## Sound Effects
