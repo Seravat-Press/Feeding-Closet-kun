@@ -35,6 +35,31 @@ offset_bottom = 1080.0
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("3_dh404")
 
+[node name="ShelfImage" type="TextureRect" parent="UINodes"]
+layout_mode = 0
+offset_left = 587.0
+offset_top = 53.0
+offset_right = 1099.0
+offset_bottom = 309.0
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("6_bhdty")
+
+[node name="AlchemistImage" type="TextureRect" parent="UINodes"]
+layout_mode = 0
+offset_left = 619.0
+offset_top = 230.0
+offset_right = 943.0
+offset_bottom = 554.0
+texture = ExtResource("8_e1sbk")
+
+[node name="CounterImage" type="TextureRect" parent="UINodes"]
+layout_mode = 0
+offset_left = 427.0
+offset_top = 236.0
+offset_right = 1149.0
+offset_bottom = 644.0
+texture = ExtResource("7_0q6ha")
+
 [node name="Closet" parent="UINodes" instance=ExtResource("2_sf3t0")]
 layout_mode = 2
 anchor_left = 0.0104167
@@ -77,31 +102,6 @@ offset_left = 619.0
 offset_top = 49.0
 offset_right = 929.0
 offset_bottom = 167.0
-
-[node name="ShelfImage" type="TextureRect" parent="UINodes"]
-layout_mode = 0
-offset_left = 587.0
-offset_top = 53.0
-offset_right = 1099.0
-offset_bottom = 309.0
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("6_bhdty")
-
-[node name="AlchemistImage" type="TextureRect" parent="UINodes"]
-layout_mode = 0
-offset_left = 619.0
-offset_top = 230.0
-offset_right = 943.0
-offset_bottom = 554.0
-texture = ExtResource("8_e1sbk")
-
-[node name="CounterImage" type="TextureRect" parent="UINodes"]
-layout_mode = 0
-offset_left = 427.0
-offset_top = 236.0
-offset_right = 1149.0
-offset_bottom = 644.0
-texture = ExtResource("7_0q6ha")
 
 [node name="OrderManager" parent="UINodes" instance=ExtResource("3_am2ce")]
 layout_mode = 0
