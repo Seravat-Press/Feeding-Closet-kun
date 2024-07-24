@@ -53,7 +53,6 @@ func build_order_array():
 	var orderFilesArray = Globals.list_files_in_directory(orderDirectory)
 	for orderFile in orderFilesArray:
 		var newOrder : OrderFull = ResourceLoader.load(orderFile)
-		#print(newOrder) ## TODO wait, we only have two orders, so it's filling and picking random ones. So we just need to zero them out or clear the cache. 
 		ordersArray.append(newOrder)
 
 func spawn_dude():

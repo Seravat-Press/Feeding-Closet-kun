@@ -1,41 +1,41 @@
-[gd_scene load_steps=13 format=3 uid="uid://b30q37jguwlek"]
+[gd_scene load_steps=18 format=3 uid="uid://b30q37jguwlek"]
 
 [ext_resource type="Script" path="res://Main/Shop/ShopScene.gd" id="1_pnct4"]
 [ext_resource type="PackedScene" uid="uid://dl756gys3wbma" path="res://UI/Closet/Closet.tscn" id="2_sf3t0"]
 [ext_resource type="PackedScene" uid="uid://38p37nklc2cj" path="res://Manager/OrderManager.tscn" id="3_am2ce"]
 [ext_resource type="PackedScene" uid="uid://ddt7va66cy1mx" path="res://DataTypes/Storage.tscn" id="3_cbyd5"]
-[ext_resource type="Texture2D" uid="uid://c5i4wee5b72tj" path="res://assets/stone_background.png" id="3_dh404"]
+[ext_resource type="Texture2D" uid="uid://8ffm7k8b7c6n" path="res://assets/stone_background.png" id="3_dh404"]
 [ext_resource type="PackedScene" uid="uid://dctd4p2s02lu8" path="res://UI/Shadometer/Shadometer.tscn" id="4_e7eu6"]
 [ext_resource type="PackedScene" uid="uid://jfwvhdbe2n2k" path="res://Manager/DudeManager.tscn" id="5_ojv5s"]
-[ext_resource type="Texture2D" uid="uid://ddxk2eoedap2s" path="res://assets/shelf.png" id="6_bhdty"]
+[ext_resource type="Texture2D" uid="uid://dimjqdj1ojoc6" path="res://assets/shelf.png" id="6_bhdty"]
 [ext_resource type="PackedScene" uid="uid://bed8bleqgeosy" path="res://UI/Shelves/Shelves.tscn" id="6_g07xb"]
-[ext_resource type="Texture2D" uid="uid://cutrceybd5d5a" path="res://assets/counter.png" id="7_0q6ha"]
-[ext_resource type="Texture2D" uid="uid://djece52l4tifo" path="res://assets/alchemist.png" id="8_e1sbk"]
+[ext_resource type="Texture2D" uid="uid://dx64h1rexx3mv" path="res://assets/counter.png" id="7_0q6ha"]
+[ext_resource type="Texture2D" uid="uid://0ddg6bgqy60f" path="res://assets/alchemist.png" id="8_e1sbk"]
 [ext_resource type="PackedScene" uid="uid://enawlhjqmymv" path="res://UI/Runners/Runner.tscn" id="8_r1um1"]
 [ext_resource type="Script" path="res://DataTypes/Ingredients/Ingredient.gd" id="9_xk6bq"]
 
-[sub_resource type="Resource" id="Resource_a8vn6"]
+[sub_resource type="Resource" id="Resource_usoj8"]
 resource_local_to_scene = true
 script = ExtResource("9_xk6bq")
 Name = "Death Petal"
 ID = 3
 imgRect = "res://assets/ingredients/death_petal.png"
 
-[sub_resource type="Resource" id="Resource_mrdlx"]
+[sub_resource type="Resource" id="Resource_y3ubh"]
 resource_local_to_scene = true
 script = ExtResource("9_xk6bq")
 Name = "Ectoplasm"
 ID = 0
 imgRect = "res://assets/ingredients/ectoplasm.png"
 
-[sub_resource type="Resource" id="Resource_wockh"]
+[sub_resource type="Resource" id="Resource_u2idw"]
 resource_local_to_scene = true
 script = ExtResource("9_xk6bq")
 Name = "Fang"
 ID = 2
 imgRect = "res://assets/ingredients/fang.png"
 
-[sub_resource type="Resource" id="Resource_bxqbu"]
+[sub_resource type="Resource" id="Resource_cfe5y"]
 resource_local_to_scene = true
 script = ExtResource("9_xk6bq")
 Name = "Toxin"
@@ -153,8 +153,22 @@ position = Vector2(122, 462)
 [node name="Runner" parent="2DNodes" instance=ExtResource("8_r1um1")]
 position = Vector2(7, 138)
 
+[node name="btnRequestDeathPetal" parent="2DNodes/Runner/RequestButtonGrid" index="0"]
+ingredient = SubResource("Resource_usoj8")
+
+[node name="btnRequestEctoplasm" parent="2DNodes/Runner/RequestButtonGrid" index="1"]
+ingredient = SubResource("Resource_y3ubh")
+
+[node name="btnRequestFang" parent="2DNodes/Runner/RequestButtonGrid" index="2"]
+ingredient = SubResource("Resource_u2idw")
+
+[node name="btnRequestToxin" parent="2DNodes/Runner/RequestButtonGrid" index="3"]
+ingredient = SubResource("Resource_cfe5y")
+
+[connection signal="shadow_changed" from="ProcessingNodes/Storage" to="UINodes/Shadometer" method="_on_storage_shadow_changed"]
 [connection signal="shop_devoured" from="UINodes/Closet" to="." method="_on_closet_shop_devoured"]
 [connection signal="released_ingredient" from="UINodes/Shelves" to="." method="_on_shelves_released_ingredient"]
+[connection signal="add_shadow" from="UINodes/OrderManager" to="ProcessingNodes/Storage" method="_on_add_shadow"]
 [connection signal="dude_spawned" from="2DNodes/DudeManager" to="UINodes/OrderManager" method="_on_dude_manager_dude_spawned"]
 [connection signal="mission_complete" from="2DNodes/Runner" to="ProcessingNodes/Storage" method="_on_runner_mission_complete"]
 [connection signal="timeout" from="2DNodes/Runner/MissionTimer" to="ProcessingNodes/Storage" method="_on_mission_timer_timeout"]

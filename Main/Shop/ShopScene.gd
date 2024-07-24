@@ -18,7 +18,8 @@ func start_game():
 	#run_test()
 
 func set_initial_resources():
-	storage.add_shadow(100)
+	#storage.add_shadow(100)
+	pass
 
 func game_loop():
 	# after timer, spawn a dude
@@ -30,7 +31,6 @@ func run_test():
 	dude_manager.spawn_dude()
 	order_manager.generate_order(dude_manager.currentDude.order)
 	closet.reset_hunger_timer()
-	storage.add_shadow(100)
 	
 	dude_manager.move_dude(dude_manager.currentDude, introduction_point.position)
 	await get_tree().create_timer(5.0).timeout

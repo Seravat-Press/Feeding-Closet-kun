@@ -1,5 +1,7 @@
 class_name OrderManager extends Control
 
+signal add_shadow(amt)
+
 var orderQueue : Array
 var newOrderPreloaded = preload("res://UI/Orders/OrderUI.tscn")
 
@@ -22,10 +24,12 @@ func generate_order(orderData):
 	order_enqueue(newOrder)
 
 func order_enqueue(newOrder : OrderUi):
-	print("\nAdd order to queue: " + str(newOrder.orderData.get_order_data().Name))
+	print("\nAdd order to queue: " + newOrder.orderData.get_order_name())
 	newOrder.connect("entered_order", Callable(self,"_on_order_focused"))
 	newOrder.connect("left_order", Callable(self,"_on_order_unfocused"))
 	visual_queue.add_child(newOrder)
+	newOrder.orderData.connect("order_completed", Callable(self, "_on_order_success"))
+	newOrder.orderData.connect("order_failed", Callable(self, "_on_order_fail"))
 	newOrder.activate_order()
 	orderQueue.append(newOrder)
 
@@ -51,10 +55,9 @@ func get_focused_order() -> OrderFull:
 	else:
 		return null
 
-func _on_order_success(orderWin : OrderUi) -> void:
-	# TODO dequeue and payout
-	pass
+func _on_order_success(orderWin : OrderFull) -> void:
+	emit_signal("add_shadow", orderWin.get_cost())
+	queue_free()
 
-func _on_order_fail(orderfail : OrderUi) -> void:
-	# TODO dequeue
-	pass
+func _on_order_fail(orderfail : OrderFull) -> void:
+	queue_free()

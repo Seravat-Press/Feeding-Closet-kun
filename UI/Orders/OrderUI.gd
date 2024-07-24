@@ -96,3 +96,6 @@ func are_ingredients_filled() -> bool:
 		if ingredient.completedFlag != true:
 			return false
 	return true
+
+func get_cost() -> int:
+	return orderData.get_cost()

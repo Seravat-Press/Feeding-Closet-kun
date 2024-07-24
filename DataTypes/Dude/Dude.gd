@@ -21,9 +21,9 @@ func _process(_delta):
 	pass
 
 ## Called when an orderUI emit("order_failed") for this dude's order. 
-func _on_dudes_order_failed() -> void: 
+func _on_dudes_order_failed(order : OrderFull) -> void: 
 	print(dudeName + " is so sad their order is failed...")
 
 ## Called when an orderUI emit("order_completed") for this dude's order.
-func _on_dudes_order_success() -> void:
+func _on_dudes_order_success(order : OrderFull) -> void:
 	print(dudeName + " is so HAPPY their order is fulfilled!")

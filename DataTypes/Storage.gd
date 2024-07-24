@@ -26,6 +26,10 @@ func sub_shadow(lessShadow : int):
 func update_shadow() -> void:
 	emit_signal("shadow_changed", shadometer)
 
+## Received from OrderManager
+func _on_add_shadow(addAmount : int) -> void:
+	add_shadow(addAmount)
+
 func add_ingredient():
 	pass
 	

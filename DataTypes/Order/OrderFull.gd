@@ -9,20 +9,14 @@ signal order_failed
 @export var orderTime : float = 1.00		## Total time in the order
 @export var cost : int = 0					## Cost of the order
 
-## TODO predicate array of strings
-
-## Option to pass in a new ingredient on creation. 
-func _init(newOrder : Order = null):
-	if newOrder != null:
-		orderData = newOrder
-	if orderData != null:
-		orderData.fix_ingredients()
-
 func new_instance():
 	var instance = self.duplicate(true)
 	instance.orderData.fix_ingredients()
 	return instance
-		
+
+func get_cost() -> int:
+	return self.cost
+	
 func set_order_data(newOrder : Order) -> void: 
 	self.orderData = newOrder
 
@@ -40,7 +34,7 @@ func fill_ingredient(new_ingredient : IngredientInventory) -> void:
 			
 			# Make the Amount the leftover. 
 			new_ingredient.update_amount(ingred.fill_amount(new_ingredient.amountHeld))
-			new_ingredient.emit_signal("ingredient_updated", new_ingredient)
+			new_ingredient.emit_signal("ingredient_updated")
 			
 			# If the ingredient is filled, send a message. 
 			if ingred.amountNeeded == 0:
@@ -51,7 +45,7 @@ func get_order_data() -> Order:
 	return orderData
 	
 func fail_order() -> void:
-	emit_signal("order_failed")
+	emit_signal("order_failed", self)
 
 func succeed_order() -> void: 
-	emit_signal("order_completed")
+	emit_signal("order_completed", self)
