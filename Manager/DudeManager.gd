@@ -59,7 +59,7 @@ func build_order_array():
 func spawn_dude():
 	var dudeName = namesArray.pick_random()
 	var dudeTexture = texturesArray.pick_random()
-	var dudeOrder : OrderFull = ordersArray[0].new_instance()
+	var dudeOrder : OrderFull = ordersArray.pick_random().new_instance()
 	var dudeSceneInstance = preloadedDudeScene.instantiate()
 	## Connect Order Signals for Dude
 	dudeOrder.connect("order_failed", Callable(dudeSceneInstance, "_on_dudes_order_failed"))
