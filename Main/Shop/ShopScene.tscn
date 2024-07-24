@@ -1,12 +1,16 @@
-[gd_scene load_steps=14 format=3 uid="uid://b30q37jguwlek"]
+[gd_scene load_steps=13 format=3 uid="uid://b30q37jguwlek"]
 
 [ext_resource type="Script" path="res://Main/Shop/ShopScene.gd" id="1_pnct4"]
 [ext_resource type="PackedScene" uid="uid://dl756gys3wbma" path="res://UI/Closet/Closet.tscn" id="2_sf3t0"]
 [ext_resource type="PackedScene" uid="uid://38p37nklc2cj" path="res://Manager/OrderManager.tscn" id="3_am2ce"]
 [ext_resource type="PackedScene" uid="uid://ddt7va66cy1mx" path="res://DataTypes/Storage.tscn" id="3_cbyd5"]
+[ext_resource type="Texture2D" uid="uid://c5i4wee5b72tj" path="res://assets/stone_background.png" id="3_dh404"]
 [ext_resource type="PackedScene" uid="uid://dctd4p2s02lu8" path="res://UI/Shadometer/Shadometer.tscn" id="4_e7eu6"]
 [ext_resource type="PackedScene" uid="uid://jfwvhdbe2n2k" path="res://Manager/DudeManager.tscn" id="5_ojv5s"]
+[ext_resource type="Texture2D" uid="uid://ddxk2eoedap2s" path="res://assets/shelf.png" id="6_bhdty"]
 [ext_resource type="PackedScene" uid="uid://bed8bleqgeosy" path="res://UI/Shelves/Shelves.tscn" id="6_g07xb"]
+[ext_resource type="Texture2D" uid="uid://cutrceybd5d5a" path="res://assets/counter.png" id="7_0q6ha"]
+[ext_resource type="Texture2D" uid="uid://djece52l4tifo" path="res://assets/alchemist.png" id="8_e1sbk"]
 [ext_resource type="PackedScene" uid="uid://enawlhjqmymv" path="res://UI/Runners/Runner.tscn" id="8_r1um1"]
 [ext_resource type="Script" path="res://DataTypes/Ingredients/Ingredient.gd" id="9_xk6bq"]
 
@@ -53,16 +57,60 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="BackgroundImage" type="TextureRect" parent="UINodes"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_dh404")
+
+[node name="ShelfImage" type="TextureRect" parent="UINodes"]
+layout_mode = 0
+offset_left = 490.0
+offset_top = 45.0
+offset_right = 1002.0
+offset_bottom = 301.0
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("6_bhdty")
+
+[node name="AlchemistImage" type="TextureRect" parent="UINodes"]
+layout_mode = 0
+offset_left = 531.0
+offset_top = 199.0
+offset_right = 855.0
+offset_bottom = 523.0
+texture = ExtResource("8_e1sbk")
+
 [node name="Closet" parent="UINodes" instance=ExtResource("2_sf3t0")]
 layout_mode = 2
-anchor_left = 0.0104167
-anchor_top = 0.00925926
-anchor_right = 0.0286457
-anchor_bottom = 0.677469
+anchor_left = 0.217882
+anchor_top = 0.200617
+anchor_right = 0.236111
+anchor_bottom = 0.868827
 offset_bottom = 40.0
 scale = Vector2(0.5, 0.5)
 size_flags_horizontal = 0
 metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" parent="UINodes/Closet" index="1"]
+metadata/_edit_lock_ = true
+
+[node name="HungerStates" parent="UINodes/Closet/VBoxContainer" index="0"]
+metadata/_edit_lock_ = true
+
+[node name="VisualHungerTimer" parent="UINodes/Closet/VBoxContainer" index="1"]
+metadata/_edit_lock_ = true
+
+[node name="ClosetImage" parent="UINodes/Closet/VBoxContainer" index="2"]
+metadata/_edit_lock_ = true
+
+[node name="CounterImage" type="TextureRect" parent="UINodes"]
+layout_mode = 0
+offset_left = 303.0
+offset_top = 352.0
+offset_right = 1076.0
+offset_bottom = 649.0
+texture = ExtResource("7_0q6ha")
 
 [node name="Shadometer" parent="UINodes" instance=ExtResource("4_e7eu6")]
 layout_mode = 2
@@ -77,19 +125,19 @@ size_flags_horizontal = 8
 size_flags_vertical = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="OrderManager" parent="UINodes" instance=ExtResource("3_am2ce")]
-layout_mode = 0
-offset_left = 605.0
-offset_top = 257.0
-offset_right = 1074.0
-offset_bottom = 447.0
-
 [node name="Shelves" parent="UINodes" instance=ExtResource("6_g07xb")]
 layout_mode = 0
-offset_left = 619.0
-offset_top = 49.0
-offset_right = 929.0
-offset_bottom = 167.0
+offset_left = 527.0
+offset_top = 33.0
+offset_right = 837.0
+offset_bottom = 151.0
+
+[node name="OrderManager" parent="UINodes" instance=ExtResource("3_am2ce")]
+layout_mode = 0
+offset_left = 372.0
+offset_top = 440.0
+offset_right = 1062.0
+offset_bottom = 630.0
 
 [node name="2DNodes" type="Node2D" parent="."]
 
@@ -100,22 +148,10 @@ namesFilePath = "res://assets/NamesList.txt"
 introductionPoint = NodePath("../IntroductionPoint")
 
 [node name="IntroductionPoint" type="Node2D" parent="2DNodes"]
-position = Vector2(412, 488)
+position = Vector2(122, 462)
 
 [node name="Runner" parent="2DNodes" instance=ExtResource("8_r1um1")]
-position = Vector2(1, 421)
-
-[node name="btnRequestDeathPetal" parent="2DNodes/Runner/RequestButtonGrid" index="0"]
-ingredient = SubResource("Resource_a8vn6")
-
-[node name="btnRequestEctoplasm" parent="2DNodes/Runner/RequestButtonGrid" index="1"]
-ingredient = SubResource("Resource_mrdlx")
-
-[node name="btnRequestFang" parent="2DNodes/Runner/RequestButtonGrid" index="2"]
-ingredient = SubResource("Resource_wockh")
-
-[node name="btnRequestToxin" parent="2DNodes/Runner/RequestButtonGrid" index="3"]
-ingredient = SubResource("Resource_bxqbu")
+position = Vector2(7, 138)
 
 [connection signal="shop_devoured" from="UINodes/Closet" to="." method="_on_closet_shop_devoured"]
 [connection signal="released_ingredient" from="UINodes/Shelves" to="." method="_on_shelves_released_ingredient"]
