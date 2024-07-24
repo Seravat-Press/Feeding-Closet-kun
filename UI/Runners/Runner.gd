@@ -1,6 +1,6 @@
 class_name Runner extends Node
 
-var targetIngredient : Ingredient
+var targetIngredient : IngredientFetch
 var gatherQuantity : int = 0
 
 @onready var mission_timer_progress_bar = $MissionTimerProgressBar
@@ -26,7 +26,7 @@ func begin_resource_mission(requestedIngredient):
 	
 	mission_timer_progress_bar.visible = true
 	for button in request_button_grid.get_children():
-		if button.ingredient.Name != requestedIngredient.Name:
+		if button.ingredient.get_ingredient_name() != requestedIngredient.get_ingredient_name():
 			button.visible = false
 		else:
 			button.disabled = true
@@ -41,8 +41,9 @@ func _on_mission_timer_timeout():
 		button.disabled = false
 	mission_timer_progress_bar.visible = false
 	gatherQuantity = randomize_quantity_retrieved()
-	mission_complete.emit(targetIngredient, gatherQuantity)
-	print("Mission for " + targetIngredient.Name + " successful. " + str(gatherQuantity) + " retrieved.")
+	mission_complete.emit(targetIngredient.ingredientData, gatherQuantity)
+	mission_timer.stop()
+	print("Mission for " + targetIngredient.get_ingredient_name() + " successful. " + str(gatherQuantity) + " retrieved.")
 
 func _on_btn_request_death_petal_ingredient_clicked(ingredient):
 	begin_resource_mission(ingredient)

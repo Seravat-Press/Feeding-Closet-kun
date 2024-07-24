@@ -18,3 +18,6 @@ func set_source_time(newTime : float) -> void:
 ## Returns a random value to gather. 
 func get_random_gather() -> int:
 	return randi_range(gatherMin, gatherMax)
+
+func get_ingredient_name() -> String:
+	return ingredientData.Name

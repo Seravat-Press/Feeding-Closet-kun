@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b30q37jguwlek"]
+[gd_scene load_steps=22 format=3 uid="uid://b30q37jguwlek"]
 
 [ext_resource type="Script" path="res://Main/Shop/ShopScene.gd" id="1_pnct4"]
 [ext_resource type="PackedScene" uid="uid://dl756gys3wbma" path="res://UI/Closet/Closet.tscn" id="2_sf3t0"]
@@ -12,35 +12,39 @@
 [ext_resource type="Texture2D" uid="uid://dx64h1rexx3mv" path="res://assets/counter.png" id="7_0q6ha"]
 [ext_resource type="Texture2D" uid="uid://0ddg6bgqy60f" path="res://assets/alchemist.png" id="8_e1sbk"]
 [ext_resource type="PackedScene" uid="uid://enawlhjqmymv" path="res://UI/Runners/Runner.tscn" id="8_r1um1"]
-[ext_resource type="Script" path="res://DataTypes/Ingredients/Ingredient.gd" id="9_xk6bq"]
+[ext_resource type="Resource" uid="uid://dh8ljrlidm1vj" path="res://Data/IngredientTypes/Death Petal_3.tres" id="13_c8hc0"]
+[ext_resource type="Script" path="res://DataTypes/Ingredients/IngredientFetch.gd" id="14_irxkm"]
+[ext_resource type="Resource" uid="uid://b3jbaa0uxgy8y" path="res://Data/IngredientTypes/Ectoplasm_0.tres" id="15_yebkj"]
+[ext_resource type="Resource" uid="uid://beyka4mlbrrny" path="res://Data/IngredientTypes/Fang_2.tres" id="16_shg1y"]
+[ext_resource type="Resource" uid="uid://bvq3jcd5f7gps" path="res://Data/IngredientTypes/Toxin_1.tres" id="17_ajb48"]
 
-[sub_resource type="Resource" id="Resource_usoj8"]
-resource_local_to_scene = true
-script = ExtResource("9_xk6bq")
-Name = "Death Petal"
-ID = 3
-imgRect = "res://assets/ingredients/death_petal.png"
+[sub_resource type="Resource" id="Resource_v8s66"]
+script = ExtResource("14_irxkm")
+ingredientData = ExtResource("13_c8hc0")
+sourceTime = 0.0
+gatherMin = 10
+gatherMax = 10
 
-[sub_resource type="Resource" id="Resource_y3ubh"]
-resource_local_to_scene = true
-script = ExtResource("9_xk6bq")
-Name = "Ectoplasm"
-ID = 0
-imgRect = "res://assets/ingredients/ectoplasm.png"
+[sub_resource type="Resource" id="Resource_li3pf"]
+script = ExtResource("14_irxkm")
+ingredientData = ExtResource("15_yebkj")
+sourceTime = 0.0
+gatherMin = 10
+gatherMax = 10
 
-[sub_resource type="Resource" id="Resource_u2idw"]
-resource_local_to_scene = true
-script = ExtResource("9_xk6bq")
-Name = "Fang"
-ID = 2
-imgRect = "res://assets/ingredients/fang.png"
+[sub_resource type="Resource" id="Resource_uxm6u"]
+script = ExtResource("14_irxkm")
+ingredientData = ExtResource("16_shg1y")
+sourceTime = 0.0
+gatherMin = 10
+gatherMax = 10
 
-[sub_resource type="Resource" id="Resource_cfe5y"]
-resource_local_to_scene = true
-script = ExtResource("9_xk6bq")
-Name = "Toxin"
-ID = 1
-imgRect = "res://assets/ingredients/toxin.png"
+[sub_resource type="Resource" id="Resource_y4rx8"]
+script = ExtResource("14_irxkm")
+ingredientData = ExtResource("17_ajb48")
+sourceTime = 0.0
+gatherMin = 10
+gatherMax = 10
 
 [node name="ShopScene" type="Node"]
 script = ExtResource("1_pnct4")
@@ -154,16 +158,16 @@ position = Vector2(122, 462)
 position = Vector2(7, 138)
 
 [node name="btnRequestDeathPetal" parent="2DNodes/Runner/RequestButtonGrid" index="0"]
-ingredient = SubResource("Resource_usoj8")
+ingredient = SubResource("Resource_v8s66")
 
 [node name="btnRequestEctoplasm" parent="2DNodes/Runner/RequestButtonGrid" index="1"]
-ingredient = SubResource("Resource_y3ubh")
+ingredient = SubResource("Resource_li3pf")
 
 [node name="btnRequestFang" parent="2DNodes/Runner/RequestButtonGrid" index="2"]
-ingredient = SubResource("Resource_u2idw")
+ingredient = SubResource("Resource_uxm6u")
 
 [node name="btnRequestToxin" parent="2DNodes/Runner/RequestButtonGrid" index="3"]
-ingredient = SubResource("Resource_cfe5y")
+ingredient = SubResource("Resource_y4rx8")
 
 [connection signal="shadow_changed" from="ProcessingNodes/Storage" to="UINodes/Shadometer" method="_on_storage_shadow_changed"]
 [connection signal="shop_devoured" from="UINodes/Closet" to="." method="_on_closet_shop_devoured"]
