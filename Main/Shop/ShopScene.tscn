@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b30q37jguwlek"]
+[gd_scene load_steps=13 format=3 uid="uid://b30q37jguwlek"]
 
 [ext_resource type="Script" path="res://Main/Shop/ShopScene.gd" id="1_pnct4"]
 [ext_resource type="PackedScene" uid="uid://dl756gys3wbma" path="res://UI/Closet/Closet.tscn" id="2_sf3t0"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ddxk2eoedap2s" path="res://assets/shelf.png" id="6_bhdty"]
 [ext_resource type="PackedScene" uid="uid://bed8bleqgeosy" path="res://UI/Shelves/Shelves.tscn" id="6_g07xb"]
 [ext_resource type="Texture2D" uid="uid://cutrceybd5d5a" path="res://assets/counter.png" id="7_0q6ha"]
+[ext_resource type="Texture2D" uid="uid://djece52l4tifo" path="res://assets/alchemist.png" id="8_e1sbk"]
 [ext_resource type="PackedScene" uid="uid://enawlhjqmymv" path="res://UI/Runners/Runner.tscn" id="8_r1um1"]
 
 [node name="ShopScene" type="Node"]
@@ -85,6 +86,14 @@ offset_right = 1099.0
 offset_bottom = 309.0
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("6_bhdty")
+
+[node name="AlchemistImage" type="TextureRect" parent="UINodes"]
+layout_mode = 0
+offset_left = 619.0
+offset_top = 230.0
+offset_right = 943.0
+offset_bottom = 554.0
+texture = ExtResource("8_e1sbk")
 
 [node name="CounterImage" type="TextureRect" parent="UINodes"]
 layout_mode = 0
