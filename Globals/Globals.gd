@@ -3,6 +3,8 @@ extends Node
 const MAX_INGREDIENTS = 999	## Maximum number of ingredients. 
 const CLOSET_STAGE_COST = 50	## Cost of ingredients in stack to decrease closet hunger stage. 
 
+var scoreManager : ScoreManager
+
 ## Lists all files in a directory.
 func list_files_in_directory(path) -> Array:
 	var files = []
@@ -35,3 +37,7 @@ func import_image(path : String) -> ImageTexture:
 ## Dummy Wait
 func wait(wait_time : float) -> void:
 	await get_tree().create_timer(wait_time).timeout
+
+## Application function to grab the score manager. 
+func get_score_manager() -> ScoreManager:
+	return scoreManager

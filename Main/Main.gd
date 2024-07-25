@@ -8,11 +8,14 @@ const startScreen := preload("res://UI/StartScreen/StartScreen.tscn")
 @export var SkipMenu : bool = false		## Editor option to go straight into the shop scene. 
 
 @onready var screen_fade = $ScreenFade
+@onready var score_manager = $ScoreManager
 
 var currentScene : Node
 var nextScene : Node
 
 func _ready():
+	Globals.scoreManager = score_manager
+	
 	if SkipMenu:
 		setup_next_scene(shopScene)
 		currentScene = nextScene

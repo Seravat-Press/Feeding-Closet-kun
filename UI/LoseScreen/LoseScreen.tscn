@@ -1,73 +1,141 @@
-[gd_scene load_steps=3 format=3 uid="uid://cs0vun6knevg8"]
+[gd_scene load_steps=4 format=3 uid="uid://cs0vun6knevg8"]
 
 [ext_resource type="Script" path="res://UI/LoseScreen/LoseScreen.gd" id="1_gwhdq"]
 [ext_resource type="LabelSettings" uid="uid://bbyc5e3ytxh36" path="res://UI/Shadometer/shadometerFont.tres" id="1_jkkgf"]
+[ext_resource type="FontFile" uid="uid://doe13s6pv7v0a" path="res://fonts/Breathe Fire.otf" id="3_5nuvd"]
 
-[node name="LoseScreen" type="MarginContainer"]
+[node name="LoseScreen" type="Node"]
+script = ExtResource("1_gwhdq")
+
+[node name="FullWindow" type="MarginContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_gwhdq")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="FullWindow"]
 layout_mode = 2
 color = Color(0.258824, 0.258824, 0.258824, 0.760784)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="FullWindow"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="GameLabel" type="Label" parent="VBoxContainer"]
+[node name="GameLabel" type="Label" parent="FullWindow/VBoxContainer"]
 layout_mode = 2
 text = "Game Over!"
 label_settings = ExtResource("1_jkkgf")
 
-[node name="ElapsedLabel" type="Label" parent="VBoxContainer"]
+[node name="ElapsedLabel" type="Label" parent="FullWindow/VBoxContainer"]
 layout_mode = 2
 text = "Time Elapsed"
 horizontal_alignment = 1
 
-[node name="ColorRect" type="ColorRect" parent="VBoxContainer"]
+[node name="ColorRect" type="ColorRect" parent="FullWindow/VBoxContainer"]
 custom_minimum_size = Vector2(0, 2)
 layout_mode = 2
 color = Color(0.364706, 0.192157, 0.505882, 1)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="FullWindow/VBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="HrLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
+[node name="HrLabel" type="Label" parent="FullWindow/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "hrs"
 
-[node name="HrSep" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
+[node name="HrSep" type="VSeparator" parent="FullWindow/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="MinLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
+[node name="MinLabel" type="Label" parent="FullWindow/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "min"
 
-[node name="MinSep" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
+[node name="MinSep" type="VSeparator" parent="FullWindow/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="SecLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
+[node name="SecLabel" type="Label" parent="FullWindow/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "sec"
 
-[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="FullWindow/VBoxContainer"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="PlayAgainButton" type="Button" parent="VBoxContainer"]
+[node name="PlayAgainButton" type="Button" parent="FullWindow/VBoxContainer"]
 layout_mode = 2
 text = "Play Again!"
 
-[node name="ExitButton" type="Button" parent="VBoxContainer"]
+[node name="ExitButton" type="Button" parent="FullWindow/VBoxContainer"]
 layout_mode = 2
 text = "Exit!"
 
-[connection signal="pressed" from="VBoxContainer/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[node name="SadContainer" type="VBoxContainer" parent="."]
+offset_right = 85.0
+offset_bottom = 23.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="SadContainer"]
+layout_mode = 2
+text = "Sad People"
+
+[node name="HSeparator" type="HSeparator" parent="SadContainer"]
+layout_mode = 2
+
+[node name="SadList" type="VBoxContainer" parent="SadContainer"]
+layout_mode = 2
+
+[node name="HappyContainer" type="VBoxContainer" parent="."]
+offset_left = 1045.0
+offset_right = 1152.0
+offset_bottom = 23.0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="HappyContainer"]
+layout_mode = 2
+text = "Happy People"
+
+[node name="HSeparator2" type="HSeparator" parent="HappyContainer"]
+layout_mode = 2
+
+[node name="HappyList" type="VBoxContainer" parent="HappyContainer"]
+layout_mode = 2
+
+[node name="HighScoreLabel" type="RichTextLabel" parent="."]
+visible = false
+anchors_preset = -1
+anchor_right = 0.00173611
+anchor_bottom = 0.0725309
+offset_left = 771.0
+offset_top = 247.0
+offset_right = 910.0
+offset_bottom = 286.0
+rotation = 0.659734
+theme_override_fonts/normal_font = ExtResource("3_5nuvd")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[pulse freq=1.0 color=#ffffff40 ease=-2.0]New High Score![/pulse]"
+metadata/_edit_use_anchors_ = true
+
+[node name="PreviousScoreLabel" type="RichTextLabel" parent="."]
+anchors_preset = -1
+anchor_right = 0.190104
+anchor_bottom = 0.141975
+offset_left = 399.0
+offset_top = 471.0
+offset_right = 538.0
+offset_bottom = 510.0
+theme_override_fonts/normal_font = ExtResource("3_5nuvd")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]Too bad!
+Current High Score: 
+%.2f[/center]"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="FullWindow/VBoxContainer/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
+[connection signal="pressed" from="FullWindow/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

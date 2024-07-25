@@ -18,6 +18,7 @@ interpolation_mode = 2
 offsets = PackedFloat32Array(0.16957, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_js2al"]
+line_spacing = -24.0
 font = ExtResource("2_hhqn8")
 font_size = 100
 font_color = Color(0, 0, 0, 1)
@@ -70,7 +71,8 @@ color_ramp = SubResource("Gradient_cdnee")
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Closet Feed"
+text = "Feeding 
+Closet-kun"
 label_settings = SubResource("LabelSettings_js2al")
 horizontal_alignment = 1
 metadata/_edit_lock_ = true

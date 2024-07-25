@@ -4,9 +4,9 @@ class_name Dude extends Control
 @export var dudeTexture : Texture
 @export var order : OrderFull
 @export var dudeName : String
-@onready var placeholder = $VBoxContainer/DudeImage/Placeholder
-@onready var dude_image = $VBoxContainer/DudeImage
-@onready var name_label = $VBoxContainer/Label
+@onready var placeholder = $Placeholder
+@onready var dude_image = $DudeImage
+@onready var name_label = $Label
 
 func setup(createDudeName : String, createTexture : Texture, createOrder : OrderFull):
 	dudeName = createDudeName
@@ -27,7 +27,9 @@ func _process(_delta):
 ## Called when an orderUI emit("order_failed") for this dude's order. 
 func _on_dudes_order_failed(order : OrderFull) -> void: 
 	print(dudeName + " is so sad their order is failed...")
+	Globals.get_score_manager().add_sad_person(self.dudeName)
 
 ## Called when an orderUI emit("order_completed") for this dude's order.
 func _on_dudes_order_success(order : OrderFull) -> void:
 	print(dudeName + " is so HAPPY their order is fulfilled!")
+	Globals.get_score_manager().add_happy_person(self.dudeName)
