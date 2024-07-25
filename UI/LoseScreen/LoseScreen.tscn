@@ -43,16 +43,31 @@ alignment = 1
 layout_mode = 2
 text = "hrs"
 
-[node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
+[node name="HrSep" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
 [node name="MinLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "min"
 
-[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
+[node name="MinSep" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
 [node name="SecLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "sec"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="PlayAgainButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Play Again!"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Exit!"
+
+[connection signal="pressed" from="VBoxContainer/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
