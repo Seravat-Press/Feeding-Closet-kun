@@ -29,6 +29,7 @@ signal dude_despawned(dude)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	build_data_arrays()
+	dude_stand_timer.wait_time = dudeStandTime
 
 func build_data_arrays():
 	build_name_array()
