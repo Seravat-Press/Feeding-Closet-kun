@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="OrderFull" load_steps=3 format=3 uid="uid://dbf74cddy3h3n"]
+
+[ext_resource type="Script" path="res://DataTypes/Order/OrderFull.gd" id="1_cfq71"]
+[ext_resource type="Resource" uid="uid://carva2tlppp38" path="res://Data/OrderTypes/Wart Salve_2.tres" id="1_n4oxo"]
+
+[resource]
+script = ExtResource("1_cfq71")
+orderData = ExtResource("1_n4oxo")
+orderTime = 4.0
+cost = 8

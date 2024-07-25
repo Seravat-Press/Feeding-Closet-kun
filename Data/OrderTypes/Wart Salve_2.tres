@@ -1,10 +1,9 @@
-[gd_resource type="Resource" script_class="Order" load_steps=9 format=3 uid="uid://carva2tlppp38"]
+[gd_resource type="Resource" script_class="Order" load_steps=7 format=3 uid="uid://carva2tlppp38"]
 
 [ext_resource type="Resource" uid="uid://beyka4mlbrrny" path="res://Data/IngredientTypes/Fang_2.tres" id="1_sx6ut"]
 [ext_resource type="Script" path="res://DataTypes/Order/Order.gd" id="1_t3a45"]
 [ext_resource type="Script" path="res://DataTypes/Ingredients/IngredientOrder.gd" id="2_5563o"]
 [ext_resource type="Resource" uid="uid://bvq3jcd5f7gps" path="res://Data/IngredientTypes/Toxin_1.tres" id="3_3wcys"]
-[ext_resource type="Resource" uid="uid://b3jbaa0uxgy8y" path="res://Data/IngredientTypes/Ectoplasm_0.tres" id="4_mtbva"]
 
 [sub_resource type="Resource" id="Resource_l1jre"]
 script = ExtResource("2_5563o")
@@ -18,15 +17,9 @@ ingredientData = ExtResource("3_3wcys")
 amountNeeded = 3
 completedFlag = false
 
-[sub_resource type="Resource" id="Resource_vu1tk"]
-script = ExtResource("2_5563o")
-ingredientData = ExtResource("4_mtbva")
-amountNeeded = 5
-completedFlag = false
-
 [resource]
 script = ExtResource("1_t3a45")
 Name = "Wart Salve"
-neededIngredients = Array[ExtResource("2_5563o")]([SubResource("Resource_l1jre"), SubResource("Resource_v14g7"), SubResource("Resource_vu1tk")])
+neededIngredients = Array[ExtResource("2_5563o")]([SubResource("Resource_l1jre"), SubResource("Resource_v14g7")])
 imgRect = "res://assets/orders/wart.png"
 ID = 2
