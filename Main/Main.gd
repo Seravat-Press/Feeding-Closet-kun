@@ -46,6 +46,7 @@ func _on_screen_fade_faded_in():
 
 ## Called when the [ScreenFade] has faded out. 
 func _on_screen_fade_faded_out():
+	remove_child(currentScene)
 	currentScene.queue_free()
 	currentScene = null
 	install_next_scene()
