@@ -14,17 +14,19 @@ const loseScreen : PackedScene = preload("res://UI/LoseScreen/LoseScreen.tscn")
 @onready var ui_nodes: Control = $UINodes
 @onready var _2d_nodes: Node2D = $"2DNodes"
 
-func _ready():
-	print("Shop Activated!\n")
-	start_game()
-
-func start_game():
+func start():
 	set_initial_resources()
+	closet.initialize_closet()
 	closet.reset_hunger_timer()
 	dude_manager.begin_spawning_dudes()
-	game_timer.start()
+	setup_timer()
 	#run_test()
 
+## Call to reset and start the game timer. 
+func setup_timer():
+	game_timer.reset()
+	game_timer.start()
+	
 func set_initial_resources():
 	#storage.add_shadow(100)
 	storage.set_ingredients(shelves.get_ingredient_nodes())
@@ -54,6 +56,7 @@ func _on_closet_shop_devoured():
 	game_timer.stop()
 	var newScreen = loseScreen.instantiate()
 	ui_nodes.add_child(newScreen)
+	newScreen.connect("play_again", Callable(get_parent(), "_on_game_restart"))
 	newScreen._on_lose(game_timer.get_time_elapsed())
 
 ## Called when a held ingredient is released. 
