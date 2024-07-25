@@ -35,7 +35,7 @@ layout_mode = 2
 mouse_filter = 2
 
 [node name="OrderTex" type="TextureRect" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 100)
+custom_minimum_size = Vector2(0, 128)
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2

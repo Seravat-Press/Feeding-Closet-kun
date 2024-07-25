@@ -10,7 +10,9 @@ point_count = 3
 
 [node name="ShadowParticles" type="CPUParticles2D"]
 position = Vector2(-7, 3)
+emitting = false
 amount = 16
+one_shot = true
 speed_scale = 2.1
 texture = ExtResource("1_2jmrs")
 spread = 180.0
