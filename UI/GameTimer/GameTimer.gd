@@ -22,3 +22,7 @@ func reset() -> void:
 ## Call to stop the game timer. 
 func stop() -> void:
 	set_process(false)
+
+## Returns the current time elapsed. 
+func get_time_elapsed() -> float:
+	return time_elapsed
