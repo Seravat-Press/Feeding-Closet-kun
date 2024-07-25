@@ -7,13 +7,9 @@ signal released_ingredient(ingredient)
 
 var pickedUpIngredient : IngredientUI
 
-var ingredientNodes : IngredientUI
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	connect_signals_to_ingredients()
-	for ing in ingredients.get_children():
-		ingredientNodes.append(ing)
 
 ## Set up ingredient signals
 func connect_signals_to_ingredients() -> void:
@@ -35,7 +31,8 @@ func _on_ingredient_released(downIngredient : IngredientUI) -> void:
 func check_if_item_picked() -> bool:
 	return true if (pickedUpIngredient != null) else false
 
-func _on_add_items(newItem : Ingredient, quantity : int) -> void:
-	for ing in ingredientNodes:
-		if newItem.ID == ing.ingredientNode.ID:
-			pass ## TODO fix this
+func get_ingredient_nodes() -> Array[IngredientUI]:
+	var ingredientNodes : Array[IngredientUI]
+	for ing in ingredients.get_children():
+		ingredientNodes.append(ing)
+	return ingredientNodes

@@ -40,6 +40,7 @@ func activate_order() -> void:
 	order_name.text = "[center]" + orderData.get_order_name() + "[/center]"
 	order_tex.texture = load(orderData.orderData.imgRect)
 	orderData.connect('order_updated', Callable(self, "_on_order_updated"))
+	orderData.connect('order_completed', Callable(self, "_on_order_success"))
 	var newIngredientLine : IngredientLine
 	
 	# Loop through ingredients and set up the recipe.
@@ -63,8 +64,7 @@ func start_order_timer() -> void:
 	
 func _on_order_timer_timeout():
 	# Order Ran Out
-	print("Order Ran Out: " + orderData.get_order_name())
-	orderData.fail_order()
+	_on_order_failed()
 
 ## Calculates the tip based on the time left when an order is completed. 
 func calculate_tip():
@@ -99,3 +99,10 @@ func are_ingredients_filled() -> bool:
 
 func get_cost() -> int:
 	return orderData.get_cost()
+
+func _on_order_failed():
+	orderData.fail_order()
+	queue_free()
+
+func _on_order_success(orderCompleted : OrderFull):
+	queue_free()

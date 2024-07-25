@@ -22,9 +22,9 @@ func get_id() -> int:
 	
 ## Adds to an Ingredient.
 func add_amount(added : int) -> void:
-	self.Amount += added
-	if self.Amount > Globals.MAX_INGREDIENTS:
-		self.Amount = Globals.MAX_INGREDIENTS
+	self.amountHeld += added
+	if self.amountHeld > Globals.MAX_INGREDIENTS:
+		self.amountHeld = Globals.MAX_INGREDIENTS
 	emit_signal("ingredient_updated")
 
 ## Subtracts from an Ingredient. Returns a leftover value. 

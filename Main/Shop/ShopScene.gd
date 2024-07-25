@@ -6,6 +6,7 @@ class_name ShopScene extends Node
 @onready var closet = $UINodes/Closet
 @onready var storage = $ProcessingNodes/Storage
 @onready var introduction_point = $"2DNodes/IntroductionPoint"
+@onready var shelves: Shelves = $UINodes/Shelves
 
 func _ready():
 	print("Shop Activated!")
@@ -19,6 +20,7 @@ func start_game():
 
 func set_initial_resources():
 	#storage.add_shadow(100)
+	storage.set_ingredients(shelves.get_ingredient_nodes())
 	pass
 
 func game_loop():

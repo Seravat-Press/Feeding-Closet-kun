@@ -57,7 +57,6 @@ func get_focused_order() -> OrderFull:
 
 func _on_order_success(orderWin : OrderFull) -> void:
 	emit_signal("add_shadow", orderWin.get_cost())
-	queue_free()
 
 func _on_order_fail(orderfail : OrderFull) -> void:
-	queue_free()
+	pass

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d28f41evct6o"]
 
 [ext_resource type="Script" path="res://UI/Ingredients/IngredientUI.gd" id="1_a7bil"]
-[ext_resource type="Texture2D" uid="uid://bwn1kk27ntmne" path="res://assets/ingredients/death_petal.png" id="2_44ebk"]
+[ext_resource type="Texture2D" uid="uid://4kxu41s2drf2" path="res://assets/ingredients/death_petal.png" id="2_44ebk"]
 
 [node name="IngredientUI" type="MarginContainer"]
 offset_right = 40.0
