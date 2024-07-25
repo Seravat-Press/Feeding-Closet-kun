@@ -65,12 +65,17 @@ func _on_closet_shop_devoured():
 
 ## Called when a held ingredient is released. 
 func _on_shelves_released_ingredient(ingredient : IngredientInventory):
-	var currentOrder : OrderFull = order_manager.get_focused_order()
-	if currentOrder == null:
-		# No current order being hovered. Return. 
-		return
+	if closet.get_hovered():
+		# Send Ingredients to Closet-kun.
+		closet.feed_ingredients(ingredient)
 	else:
-		currentOrder.fill_ingredient(ingredient)
+		# Check for an order being hovered. 
+		var currentOrder : OrderFull = order_manager.get_focused_order()
+		if currentOrder == null:
+			# No current order being hovered. Return. 
+			return
+		else:
+			currentOrder.fill_ingredient(ingredient)
 
 func _on_shadow_earn(amt : int, orderNode : OrderUi) -> void:
 	var new_shadow : ShadowParticles = sParticles.instantiate()

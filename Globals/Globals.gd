@@ -1,6 +1,7 @@
 extends Node
 
 const MAX_INGREDIENTS = 999	## Maximum number of ingredients. 
+const CLOSET_STAGE_COST = 50	## Cost of ingredients in stack to decrease closet hunger stage. 
 
 ## Lists all files in a directory.
 func list_files_in_directory(path) -> Array:
