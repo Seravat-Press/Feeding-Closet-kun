@@ -8,9 +8,6 @@ signal shadow_changed(new_value) ## Amount of shadow has been changed.
 
 var ingredientStorage : Array[IngredientUI]	## Ingredients in Storage. 
 
-func _ready():
-	print("Current Ingredient Storage: " + str(ingredientStorage))
-
 ## Adds Shadow to the Shadometer.
 func add_shadow(moreShadow : int):
 	shadometer += moreShadow
@@ -31,14 +28,9 @@ func update_shadow() -> void:
 func _on_add_shadow(addAmount : int) -> void:
 	add_shadow(addAmount)
 
+## Sets up all of the ingredients. 
 func set_ingredients(allIngredients : Array[IngredientUI]):
 	ingredientStorage = allIngredients
-	
-func add_ingredient():
-	pass
-	
-func remove_ingredient():
-	pass
 
 ## Called when the runners finish their tasks. 
 func _on_add_items(newItem : Ingredient, quantity : int) -> void:

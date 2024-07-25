@@ -24,7 +24,6 @@ func generate_order(orderData):
 	order_enqueue(newOrder)
 
 func order_enqueue(newOrder : OrderUi):
-	print("\nAdd order to queue: " + newOrder.orderData.get_order_name())
 	newOrder.connect("entered_order", Callable(self,"_on_order_focused"))
 	newOrder.connect("left_order", Callable(self,"_on_order_unfocused"))
 	visual_queue.add_child(newOrder)
