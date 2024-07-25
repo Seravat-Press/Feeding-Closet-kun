@@ -3,6 +3,9 @@ extends Node
 const MAX_INGREDIENTS = 999	## Maximum number of ingredients. 
 const CLOSET_STAGE_COST = 50	## Cost of ingredients in stack to decrease closet hunger stage. 
 
+const GOOD_BOOP = preload("res://audio/sfx/good_boop.ogg")
+const BAD_BOOP = preload("res://audio/sfx/bad_boop.ogg")
+
 var scoreManager : ScoreManager
 
 ## Lists all files in a directory.
