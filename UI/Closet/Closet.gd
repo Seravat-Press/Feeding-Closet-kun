@@ -22,6 +22,8 @@ const SPENT_H_TEX = preload("res://assets/hunger/spent_hunger.png")
 @onready var hunger_3 = $VBoxContainer/HungerStates/Hunger3
 @onready var feed_button = $VBoxContainer/ClosetImage/btnFeed
 
+var closetFocused : bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	initialize_closet()
@@ -104,3 +106,22 @@ func _on_btn_feed_button_up():
 func _on_storage_shadow_changed(new_value):
 	if storageNode.shadometer >= feedCost:
 		feed_button.disabled = false
+
+
+## Called when the mouse enters the closet image. 
+func _on_closet_mouse_entered():
+	closetFocused = true
+
+## Called when the mouse enters the closet image. 
+func _on_closet_mouse_exited():
+	closetFocused = false
+
+## Returns TRUE if the closet is being hovered by the mouse. 
+func get_hovered() -> bool:
+	return closetFocused
+
+## Call to feed ingredients to Closet-kun.
+func feed_ingredients(newIngredient : IngredientInventory) -> void:
+	if (newIngredient.amountHeld >= Globals.CLOSET_STAGE_COST) and (hungerStage > 0):
+		newIngredient.subtract_amount(Globals.CLOSET_STAGE_COST)
+		decrease_hunger_stage()
