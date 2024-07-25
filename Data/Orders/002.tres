@@ -6,5 +6,5 @@
 [resource]
 script = ExtResource("2_obxpe")
 orderData = ExtResource("1_omk6m")
-orderTime = 5.0
+orderTime = 9.0
 cost = 5
