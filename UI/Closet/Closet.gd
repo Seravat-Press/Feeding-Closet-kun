@@ -8,6 +8,8 @@ signal shop_devoured				## Emitted when all hunger levels are filled.
 
 @export var hungerStage : int = 0		## Current hunger stage. NOTE may become an enum? 
 @export var hungerTimerDuration = 30	## The time for each hunger stage
+@export var storageNode : Storage		## The Storage node for feeding the closet
+@export var feedCost : int				## How much CS required to sate the closet
 
 const GOOD_H_TEX = preload("res://assets/hunger/good_hunger.png")
 const SPENT_H_TEX = preload("res://assets/hunger/spent_hunger.png")
@@ -18,7 +20,7 @@ const SPENT_H_TEX = preload("res://assets/hunger/spent_hunger.png")
 @onready var hunger_1 = $VBoxContainer/HungerStates/Hunger1
 @onready var hunger_2 = $VBoxContainer/HungerStates/Hunger2
 @onready var hunger_3 = $VBoxContainer/HungerStates/Hunger3
-
+@onready var feed_button = $VBoxContainer/ClosetImage/btnFeed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -28,6 +30,7 @@ func _ready():
 	hunger_1.texture = GOOD_H_TEX
 	hunger_2.texture = GOOD_H_TEX
 	hunger_3.texture = GOOD_H_TEX
+	feed_button.disabled = true
 
 func _process(_delta) -> void: 
 	visual_hunger_timer.update_hunger_timer(hunger_timer.time_left / hunger_timer.wait_time)
@@ -83,3 +86,12 @@ func hunger_lvl_changed():
 
 func _on_shop_devoured():
 	hunger_timer.paused
+
+func _on_btn_feed_button_up():
+	storageNode.sub_shadow(feedCost)
+	if storageNode.shadometer < feedCost:
+		feed_button.disabled = true
+
+func _on_storage_shadow_changed(new_value):
+	if storageNode.shadometer >= feedCost:
+		feed_button.disabled = false
