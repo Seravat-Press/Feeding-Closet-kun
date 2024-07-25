@@ -4,6 +4,11 @@ class_name ShopScene extends Node
 const loseScreen : PackedScene = preload("res://UI/LoseScreen/LoseScreen.tscn")
 const sParticles : PackedScene = preload("res://UI/ShadowParticles/ShadowParticles.tscn")
 
+const WORRIED_SOUNDS = [
+	preload("res://audio/sfx/alchemist/alchemist_worried_1.ogg"),
+	preload("res://audio/sfx/alchemist/alchemist_worried_2.ogg")
+]
+
 @onready var dude_manager = $UINodes/DudeManager
 @onready var order_manager = $UINodes/OrderManager
 @onready var closet = $UINodes/Closet
@@ -16,6 +21,8 @@ const sParticles : PackedScene = preload("res://UI/ShadowParticles/ShadowParticl
 @onready var processing_nodes: Node = $ProcessingNodes
 @onready var ui_nodes: Control = $UINodes
 @onready var _2d_nodes: Node2D = $"2DNodes"
+
+@onready var shop_sfx = $ShopSfx
 
 func start():
 	set_initial_resources()
@@ -81,3 +88,10 @@ func _on_shadow_earn(amt : int, orderNode : OrderUi) -> void:
 	var new_shadow : ShadowParticles = sParticles.instantiate()
 	_2d_nodes.add_child(new_shadow)
 	new_shadow.spawn_particles(orderNode.global_position, shadometer.get_particle_destination(), amt)
+
+func _on_closet_hunger_changed(value : int) -> void:
+	if closet.hungerStage == Closet.HUNGER_STAGES.THIRD:
+		shop_sfx.stream = load("res://audio/sfx/alchemist/alchemist_scared.ogg")
+	else:
+		shop_sfx.stream = WORRIED_SOUNDS.pick_random()
+	shop_sfx.play()

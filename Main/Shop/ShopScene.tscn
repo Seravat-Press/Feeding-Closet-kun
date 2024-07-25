@@ -209,8 +209,11 @@ introductionPoint = NodePath("../../2DNodes/IntroductionPoint")
 [node name="IntroductionPoint" type="Node2D" parent="2DNodes"]
 position = Vector2(248, 371)
 
+[node name="ShopSfx" type="AudioStreamPlayer" parent="."]
+
 [connection signal="shadow_changed" from="ProcessingNodes/Storage" to="UINodes/Closet" method="_on_storage_shadow_changed"]
 [connection signal="shadow_changed" from="ProcessingNodes/Storage" to="UINodes/Shadometer" method="_on_storage_shadow_changed"]
+[connection signal="hunger_changed" from="UINodes/Closet" to="." method="_on_closet_hunger_changed"]
 [connection signal="shop_devoured" from="UINodes/Closet" to="." method="_on_closet_shop_devoured"]
 [connection signal="released_ingredient" from="UINodes/Shelves" to="." method="_on_shelves_released_ingredient"]
 [connection signal="add_shadow" from="UINodes/OrderManager" to="." method="_on_shadow_earn"]

@@ -1,12 +1,19 @@
 ## UI Element to handle the Closet hunger + textures. 
 class_name Closet extends MarginContainer
 
+enum HUNGER_STAGES {
+	NONE,
+	FIRST,
+	SECOND,
+	THIRD
+}
+
 signal hunger_changed(new_value)	## Emitted when the hunger value has changed. 
 signal shop_devoured				## Emitted when all hunger levels are filled. 
 
 @export_dir var closetAssetPath
 
-@export var hungerStage : int = 0		## Current hunger stage. NOTE may become an enum? 
+@export var hungerStage : HUNGER_STAGES = HUNGER_STAGES.NONE 		## Current hunger stage.
 @export var hungerTimerDuration = 30	## The time for each hunger stage
 @export var storageNode : Storage		## The Storage node for feeding the closet
 @export var feedCost : int				## How much CS required to sate the closet
@@ -72,19 +79,19 @@ func update_closet_image():
 func hunger_lvl_changed():
 	hunger_changed.emit(hungerStage)
 	match (hungerStage):
-		0:
+		HUNGER_STAGES.NONE:
 			hunger_1.texture = GOOD_H_TEX
 			hunger_2.texture = GOOD_H_TEX
 			hunger_3.texture = GOOD_H_TEX
-		1:
+		HUNGER_STAGES.FIRST:
 			hunger_1.texture = SPENT_H_TEX
 			hunger_2.texture = GOOD_H_TEX
 			hunger_3.texture = GOOD_H_TEX
-		2:
+		HUNGER_STAGES.SECOND:
 			hunger_1.texture = SPENT_H_TEX
 			hunger_2.texture = SPENT_H_TEX
 			hunger_3.texture = GOOD_H_TEX
-		3:
+		HUNGER_STAGES.THIRD:
 			hunger_1.texture = SPENT_H_TEX
 			hunger_2.texture = SPENT_H_TEX
 			hunger_3.texture = SPENT_H_TEX
