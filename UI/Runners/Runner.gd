@@ -21,12 +21,12 @@ func _process(_delta) -> void:
 func randomize_quantity_retrieved() -> int:
 	return randi_range(targetIngredient.gatherMin, targetIngredient.gatherMax)
 
-func begin_resource_mission(requestedIngredient):
+func begin_resource_mission(requestedIngredient : IngredientFetch):
 	targetIngredient = requestedIngredient
 	
 	mission_timer_progress_bar.visible = true
 	for button in request_button_grid.get_children():
-		if button.ingredient.get_ingredient_name() != requestedIngredient.get_ingredient_name():
+		if button.ingredient.get_ingredient_id() != requestedIngredient.get_ingredient_id():
 			button.visible = false
 		else:
 			button.disabled = true
@@ -45,14 +45,14 @@ func _on_mission_timer_timeout():
 	mission_timer.stop()
 	print("Mission for " + targetIngredient.get_ingredient_name() + " successful. " + str(gatherQuantity) + " retrieved.")
 
-func _on_btn_request_death_petal_ingredient_clicked(ingredient):
+func _on_btn_request_death_petal_ingredient_clicked(ingredient : IngredientFetch):
 	begin_resource_mission(ingredient)
 
-func _on_btn_request_ectoplasm_ingredient_clicked(ingredient):
+func _on_btn_request_ectoplasm_ingredient_clicked(ingredient : IngredientFetch):
 	begin_resource_mission(ingredient)
 
-func _on_btn_request_fang_ingredient_clicked(ingredient):
+func _on_btn_request_fang_ingredient_clicked(ingredient : IngredientFetch):
 	begin_resource_mission(ingredient)
 
-func _on_btn_request_toxin_ingredient_clicked(ingredient):
+func _on_btn_request_toxin_ingredient_clicked(ingredient : IngredientFetch):
 	begin_resource_mission(ingredient)
