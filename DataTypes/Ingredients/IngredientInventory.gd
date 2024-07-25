@@ -6,17 +6,20 @@ signal ingredient_updated
 @export var ingredientData : Ingredient		## Base ingredient that this resource leverages. 
 @export_range(0, Globals.MAX_INGREDIENTS, 1) var amountHeld : int	## Amount of Ingredient
 
-## Option to pass in a new ingredient on creation. 
+## Option to pass in a new [Ingredient] on creation. 
 func _init(newIngredient : Ingredient = null):
 	if newIngredient != null:
 		ingredientData = newIngredient
 
+## Returns the name of the member [Ingredient].
 func get_ingredient_name() -> String:
 	return ingredientData.Name
 
+## Returns the texture of the member [Ingredient].
 func get_tex() -> String:
 	return ingredientData.imgRect
 
+## Returns the ID of the member [Ingredient].
 func get_id() -> int:
 	return ingredientData.ID
 	
