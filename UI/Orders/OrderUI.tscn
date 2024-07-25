@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://twxevxk1nvbs"]
 
 [ext_resource type="Script" path="res://UI/Orders/OrderUI.gd" id="1_jmd3j"]
-[ext_resource type="Texture2D" uid="uid://bw35ympcm3jgw" path="res://assets/orders/invisibility.png" id="3_67qy1"]
+[ext_resource type="Texture2D" uid="uid://cqw006n83chwd" path="res://assets/orders/invisibility.png" id="3_67qy1"]
 [ext_resource type="Shader" path="res://UI/Orders/OrderOutline.gdshader" id="5_x7c1b"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kxaiv"]
