@@ -7,7 +7,7 @@ signal shop_devoured				## Emitted when all hunger levels are filled.
 @export_dir var closetAssetPath
 
 @export var hungerStage : int = 0		## Current hunger stage. NOTE may become an enum? 
-@export var hungerTimerDuration = 30	## The time for each hunger stage
+@export var hungerTimerDuration = 5	## The time for each hunger stage
 @export var storageNode : Storage		## The Storage node for feeding the closet
 @export var feedCost : int				## How much CS required to sate the closet
 
@@ -48,14 +48,14 @@ func reset_hunger_timer():
 ## Call to increase the hunger stage and update the closet image. 
 func increase_hunger_stage():
 	hungerStage += 1
-	#update_closet_image()
+	update_closet_image()
 	hunger_lvl_changed()
 
 ## Call to decrease the hunger stage and update the closet image. 
 func decrease_hunger_stage():
 	if hungerStage > 0:
 		hungerStage -= 1
-		#update_closet_image()
+		update_closet_image()
 		hunger_lvl_changed()
 
 ## Update the closet texture based on the given hunger stage. 
