@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://cdcbolvua0386"]
+[gd_scene load_steps=3 format=3 uid="uid://cdcbolvua0386"]
 
 [ext_resource type="Script" path="res://Main/Main.gd" id="1_sgx0e"]
+[ext_resource type="PackedScene" uid="uid://cj2xue64afl2c" path="res://UI/Fades/ScreenFade.tscn" id="2_44dlx"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_sgx0e")
+
+[node name="ScreenFade" parent="." instance=ExtResource("2_44dlx")]
+
+[connection signal="faded_in" from="ScreenFade" to="." method="_on_screen_fade_faded_in"]
+[connection signal="faded_out" from="ScreenFade" to="." method="_on_screen_fade_faded_out"]
