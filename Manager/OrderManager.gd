@@ -5,8 +5,14 @@ signal add_shadow(amt : int, orderui : OrderUi)
 var orderQueue : Array
 var newOrderPreloaded = preload("res://UI/Orders/OrderUI.tscn")
 
+const BOTTLE_SOUNDS = [
+	preload("res://audio/sfx/bottle_1.ogg"),
+	preload("res://audio/sfx/bottle_2.ogg"),
+	preload("res://audio/sfx/bottle_3.ogg")]
+	
 @onready var visual_queue = $VisualQueue
 @onready var visual = $Visual
+@onready var bottle_audio = $BottleAudio
 
 var focusedOrder : OrderUi
 
@@ -56,6 +62,8 @@ func get_focused_order() -> OrderFull:
 
 func _on_order_success(orderWin : OrderFull) -> void:
 	emit_signal("add_shadow", orderWin.get_cost(), orderWin.parentUI)
+	bottle_audio.stream = BOTTLE_SOUNDS.pick_random()
+	bottle_audio.play()
 
 func _on_order_fail(orderfail : OrderFull) -> void:
 	pass
