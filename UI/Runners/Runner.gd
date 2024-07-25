@@ -3,7 +3,7 @@ class_name Runner extends Control
 var targetIngredient : IngredientFetch
 var gatherQuantity : int = 0
 
-@onready var mission_timer_progress_bar = $MissionTimerProgressBar
+@onready var mission_timer_progress_bar = $VBoxContainer/MissionTimerProgressBar
 
 @onready var mission_timer = $MissionTimer
 @onready var request_button_grid = $RequestButtonGrid
