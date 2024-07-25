@@ -1,0 +1,12 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bbyc5e3ytxh36"]
+
+[ext_resource type="FontFile" uid="uid://nv5li22up5na" path="res://fonts/Breathe Fire.otf" id="1_d45kc"]
+
+[resource]
+font = ExtResource("1_d45kc")
+font_size = 34
+font_color = Color(0.926806, 0.926806, 0.926806, 1)
+outline_size = 4
+outline_color = Color(0.396715, 0.0163297, 0.703027, 1)
+shadow_size = 13
+shadow_color = Color(0, 0, 0, 0.286275)

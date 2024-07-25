@@ -7,6 +7,7 @@ class_name ShopScene extends Node
 @onready var storage = $ProcessingNodes/Storage
 @onready var introduction_point = $"2DNodes/IntroductionPoint"
 @onready var shelves: Shelves = $UINodes/Shelves
+@onready var game_timer: GameTimer = $UINodes/GameTimer
 
 func _ready():
 	print("Shop Activated!\n")
@@ -16,6 +17,7 @@ func start_game():
 	set_initial_resources()
 	closet.reset_hunger_timer()
 	dude_manager.begin_spawning_dudes()
+	game_timer.start()
 	#run_test()
 
 func set_initial_resources():

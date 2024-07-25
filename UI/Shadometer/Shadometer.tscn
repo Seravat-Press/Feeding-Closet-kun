@@ -1,17 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dctd4p2s02lu8"]
+[gd_scene load_steps=4 format=3 uid="uid://dctd4p2s02lu8"]
 
 [ext_resource type="Script" path="res://UI/Shadometer/Shadometer.gd" id="1_lcreb"]
-[ext_resource type="Texture2D" uid="uid://8cp3h01jfnyo" path="res://assets/shadow.png" id="1_ne3lr"]
-[ext_resource type="FontFile" uid="uid://o84mgk5dm7pn" path="res://fonts/Breathe Fire.otf" id="2_qmtm4"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_udgef"]
-font = ExtResource("2_qmtm4")
-font_size = 34
-font_color = Color(0.926806, 0.926806, 0.926806, 1)
-outline_size = 4
-outline_color = Color(0.396715, 0.0163297, 0.703027, 1)
-shadow_size = 13
-shadow_color = Color(0, 0, 0, 0.286275)
+[ext_resource type="Texture2D" uid="uid://by883mfic0aa4" path="res://assets/shadow.png" id="1_ne3lr"]
+[ext_resource type="LabelSettings" uid="uid://bbyc5e3ytxh36" path="res://UI/Shadometer/shadometerFont.tres" id="2_ptl6s"]
 
 [node name="Shadometer" type="HBoxContainer"]
 offset_right = 104.0
@@ -24,7 +15,7 @@ script = ExtResource("1_lcreb")
 [node name="ShadLabel" type="Label" parent="."]
 layout_mode = 2
 text = "0"
-label_settings = SubResource("LabelSettings_udgef")
+label_settings = ExtResource("2_ptl6s")
 
 [node name="ShadTex" type="TextureRect" parent="."]
 layout_mode = 2
