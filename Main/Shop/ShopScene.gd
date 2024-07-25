@@ -1,6 +1,7 @@
 ## This scene handles all shop processing. 
 class_name ShopScene extends Node
 
+const loseScreen : PackedScene = preload("res://UI/LoseScreen/LoseScreen.tscn")
 @onready var dude_manager = $"2DNodes/DudeManager"
 @onready var order_manager = $UINodes/OrderManager
 @onready var closet = $UINodes/Closet
@@ -8,6 +9,10 @@ class_name ShopScene extends Node
 @onready var introduction_point = $"2DNodes/IntroductionPoint"
 @onready var shelves: Shelves = $UINodes/Shelves
 @onready var game_timer: GameTimer = $UINodes/GameTimer
+
+@onready var processing_nodes: Node = $ProcessingNodes
+@onready var ui_nodes: Control = $UINodes
+@onready var _2d_nodes: Node2D = $"2DNodes"
 
 func _ready():
 	print("Shop Activated!\n")
@@ -23,7 +28,6 @@ func start_game():
 func set_initial_resources():
 	#storage.add_shadow(100)
 	storage.set_ingredients(shelves.get_ingredient_nodes())
-	pass
 
 func game_loop():
 	# after timer, spawn a dude
@@ -37,18 +41,20 @@ func run_test():
 	closet.reset_hunger_timer()
 	
 	dude_manager.move_dude(dude_manager.currentDude, introduction_point.position)
-	await get_tree().create_timer(5.0).timeout
+	Globals.wait(5.0)
 	dude_manager.despawn_current_dude()
 	dude_manager.spawn_dude()
 	order_manager.generate_order(dude_manager.currentDude.order)
 	dude_manager.move_dude(dude_manager.currentDude, introduction_point.position)
-	await get_tree().create_timer(2.0).timeout
+	Globals.wait(2.0)
 	order_manager.order_dequeue()
 
 ## Called when all of the hunger thresholds are hit in the closet. 
 func _on_closet_shop_devoured():
-	# TODO: Serve End Game Scene
-	pass # Replace with function body.
+	game_timer.stop()
+	var newScreen = loseScreen.instantiate()
+	ui_nodes.add_child(newScreen)
+	newScreen._on_lose(game_timer.get_time_elapsed())
 
 ## Called when a held ingredient is released. 
 func _on_shelves_released_ingredient(ingredient : IngredientInventory):

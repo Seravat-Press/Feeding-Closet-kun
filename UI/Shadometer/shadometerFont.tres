@@ -3,8 +3,9 @@
 [ext_resource type="FontFile" uid="uid://nv5li22up5na" path="res://fonts/Breathe Fire.otf" id="1_d45kc"]
 
 [resource]
+resource_local_to_scene = true
 font = ExtResource("1_d45kc")
-font_size = 34
+font_size = 60
 font_color = Color(0.926806, 0.926806, 0.926806, 1)
 outline_size = 4
 outline_color = Color(0.396715, 0.0163297, 0.703027, 1)

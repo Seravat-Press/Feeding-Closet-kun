@@ -30,3 +30,7 @@ func import_image(path : String) -> ImageTexture:
 		return
 	var texture = ImageTexture.create_from_image(image)
 	return texture
+
+## Dummy Wait
+func wait(wait_time : float) -> void:
+	await get_tree().create_timer(wait_time).timeout
