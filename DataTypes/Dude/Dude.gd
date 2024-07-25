@@ -1,5 +1,5 @@
 ## This is a Dude
-class_name Dude extends Node2D
+class_name Dude extends Control
 
 @export var dudeTexture : Texture
 @export var order : OrderFull

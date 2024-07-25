@@ -2,7 +2,7 @@
 class_name ShopScene extends Node
 
 const loseScreen : PackedScene = preload("res://UI/LoseScreen/LoseScreen.tscn")
-@onready var dude_manager = $"2DNodes/DudeManager"
+@onready var dude_manager = $UINodes/DudeManager
 @onready var order_manager = $UINodes/OrderManager
 @onready var closet = $UINodes/Closet
 @onready var storage = $ProcessingNodes/Storage

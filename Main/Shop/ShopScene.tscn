@@ -22,30 +22,30 @@
 [sub_resource type="Resource" id="Resource_v8s66"]
 script = ExtResource("14_irxkm")
 ingredientData = ExtResource("13_c8hc0")
-sourceTime = 0.0
-gatherMin = 10
+sourceTime = 2.0
+gatherMin = 3
 gatherMax = 10
 
 [sub_resource type="Resource" id="Resource_li3pf"]
 script = ExtResource("14_irxkm")
 ingredientData = ExtResource("15_yebkj")
 sourceTime = 0.0
-gatherMin = 10
-gatherMax = 10
+gatherMin = 3
+gatherMax = 6
 
 [sub_resource type="Resource" id="Resource_uxm6u"]
 script = ExtResource("14_irxkm")
 ingredientData = ExtResource("16_shg1y")
 sourceTime = 0.0
-gatherMin = 10
-gatherMax = 10
+gatherMin = 4
+gatherMax = 7
 
 [sub_resource type="Resource" id="Resource_y4rx8"]
 script = ExtResource("14_irxkm")
 ingredientData = ExtResource("17_ajb48")
 sourceTime = 2.0
-gatherMin = 10
-gatherMax = 10
+gatherMin = 1
+gatherMax = 4
 
 [node name="ShopScene" type="Node"]
 script = ExtResource("1_pnct4")
@@ -160,41 +160,61 @@ offset_top = 16.0
 offset_right = 136.0
 offset_bottom = 52.0
 
-[node name="2DNodes" type="Node2D" parent="."]
+[node name="Runner" parent="UINodes" instance=ExtResource("8_r1um1")]
+offset_left = 13.0
+offset_top = 100.0
+offset_right = 13.0
+offset_bottom = 100.0
 
-[node name="DudeManager" parent="2DNodes" node_paths=PackedStringArray("introductionPoint") instance=ExtResource("5_ojv5s")]
+[node name="TextureRect" parent="UINodes/Runner" index="1"]
+layout_mode = 0
+
+[node name="MissionTimerProgressBar" parent="UINodes/Runner" index="2"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 189.0
+offset_bottom = 27.0
+
+[node name="Label" parent="UINodes/Runner" index="3"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 57.0
+offset_bottom = 23.0
+
+[node name="btnRequestDeathPetal" parent="UINodes/Runner/RequestButtonGrid" index="0"]
+ingredient = SubResource("Resource_v8s66")
+
+[node name="btnRequestEctoplasm" parent="UINodes/Runner/RequestButtonGrid" index="1"]
+ingredient = SubResource("Resource_li3pf")
+
+[node name="btnRequestFang" parent="UINodes/Runner/RequestButtonGrid" index="2"]
+ingredient = SubResource("Resource_uxm6u")
+
+[node name="btnRequestToxin" parent="UINodes/Runner/RequestButtonGrid" index="3"]
+ingredient = SubResource("Resource_y4rx8")
+
+[node name="DudeManager" parent="UINodes" node_paths=PackedStringArray("introductionPoint") instance=ExtResource("5_ojv5s")]
 textureDirectory = "res://assets/dudes"
 orderDirectory = "res://Data/Orders"
 namesFilePath = "res://assets/NamesList.txt"
 dudeStandTime = 3.0
-introductionPoint = NodePath("../IntroductionPoint")
+introductionPoint = NodePath("../../2DNodes/IntroductionPoint")
+
+[node name="2DNodes" type="Node2D" parent="."]
 
 [node name="IntroductionPoint" type="Node2D" parent="2DNodes"]
-position = Vector2(253, 520)
-
-[node name="Runner" parent="2DNodes" instance=ExtResource("8_r1um1")]
-position = Vector2(13, 100)
-
-[node name="btnRequestDeathPetal" parent="2DNodes/Runner/RequestButtonGrid" index="0"]
-ingredient = SubResource("Resource_v8s66")
-
-[node name="btnRequestEctoplasm" parent="2DNodes/Runner/RequestButtonGrid" index="1"]
-ingredient = SubResource("Resource_li3pf")
-
-[node name="btnRequestFang" parent="2DNodes/Runner/RequestButtonGrid" index="2"]
-ingredient = SubResource("Resource_uxm6u")
-
-[node name="btnRequestToxin" parent="2DNodes/Runner/RequestButtonGrid" index="3"]
-ingredient = SubResource("Resource_y4rx8")
+position = Vector2(248, 371)
 
 [connection signal="shadow_changed" from="ProcessingNodes/Storage" to="UINodes/Closet" method="_on_storage_shadow_changed"]
 [connection signal="shadow_changed" from="ProcessingNodes/Storage" to="UINodes/Shadometer" method="_on_storage_shadow_changed"]
 [connection signal="shop_devoured" from="UINodes/Closet" to="." method="_on_closet_shop_devoured"]
 [connection signal="released_ingredient" from="UINodes/Shelves" to="." method="_on_shelves_released_ingredient"]
 [connection signal="add_shadow" from="UINodes/OrderManager" to="ProcessingNodes/Storage" method="_on_add_shadow"]
-[connection signal="dude_spawned" from="2DNodes/DudeManager" to="UINodes/OrderManager" method="_on_dude_manager_dude_spawned"]
-[connection signal="mission_complete" from="2DNodes/Runner" to="ProcessingNodes/Storage" method="_on_add_items"]
-[connection signal="timeout" from="2DNodes/Runner/MissionTimer" to="ProcessingNodes/Storage" method="_on_mission_timer_timeout"]
+[connection signal="mission_complete" from="UINodes/Runner" to="ProcessingNodes/Storage" method="_on_add_items"]
+[connection signal="timeout" from="UINodes/Runner/MissionTimer" to="ProcessingNodes/Storage" method="_on_mission_timer_timeout"]
+[connection signal="dude_spawned" from="UINodes/DudeManager" to="UINodes/OrderManager" method="_on_dude_manager_dude_spawned"]
 
 [editable path="UINodes/Closet"]
-[editable path="2DNodes/Runner"]
+[editable path="UINodes/Runner"]

@@ -2,42 +2,44 @@
 
 [ext_resource type="Script" path="res://UI/Runners/Runner.gd" id="1_58bsv"]
 [ext_resource type="PackedScene" uid="uid://xvaoroug6jw3" path="res://UI/Ingredients/RequestIngredientButton.tscn" id="2_ivquo"]
-[ext_resource type="Texture2D" uid="uid://cvdy6ysuel61i" path="res://assets/runner.png" id="2_rs5yt"]
-[ext_resource type="Texture2D" uid="uid://sgcd1y64kv5b" path="res://assets/ingredients/death_petal.png" id="3_riyrb"]
+[ext_resource type="Texture2D" uid="uid://cqreqq485lcho" path="res://assets/runner.png" id="2_rs5yt"]
+[ext_resource type="Texture2D" uid="uid://bwn1kk27ntmne" path="res://assets/ingredients/death_petal.png" id="3_riyrb"]
 [ext_resource type="Script" path="res://DataTypes/Ingredients/Ingredient.gd" id="4_sfmyx"]
-[ext_resource type="Texture2D" uid="uid://dasbobr73ig1" path="res://assets/ingredients/ectoplasm.png" id="5_b6rs8"]
-[ext_resource type="Texture2D" uid="uid://dj3dkfwonbkp2" path="res://assets/ingredients/fang.png" id="7_iy2el"]
-[ext_resource type="Texture2D" uid="uid://b8fgndjue41ih" path="res://assets/ingredients/toxin.png" id="9_n34xk"]
+[ext_resource type="Texture2D" uid="uid://dc8wr50n0ixou" path="res://assets/ingredients/ectoplasm.png" id="5_b6rs8"]
+[ext_resource type="Texture2D" uid="uid://d21dn3asekoo7" path="res://assets/ingredients/fang.png" id="7_iy2el"]
+[ext_resource type="Texture2D" uid="uid://d1hkvrcd6v58f" path="res://assets/ingredients/toxin.png" id="9_n34xk"]
 
-[sub_resource type="Resource" id="Resource_uvo1b"]
+[sub_resource type="Resource" id="Resource_vgcmx"]
 resource_local_to_scene = true
 script = ExtResource("4_sfmyx")
 Name = "Death Petal"
 ID = 3
 imgRect = "res://assets/ingredients/death_petal.png"
 
-[sub_resource type="Resource" id="Resource_a6o3w"]
+[sub_resource type="Resource" id="Resource_xwppr"]
 resource_local_to_scene = true
 script = ExtResource("4_sfmyx")
 Name = "Ectoplasm"
 ID = 0
 imgRect = "res://assets/ingredients/ectoplasm.png"
 
-[sub_resource type="Resource" id="Resource_sk1w7"]
+[sub_resource type="Resource" id="Resource_25tpc"]
 resource_local_to_scene = true
 script = ExtResource("4_sfmyx")
 Name = "Fang"
 ID = 2
 imgRect = "res://assets/ingredients/fang.png"
 
-[sub_resource type="Resource" id="Resource_m5lbd"]
+[sub_resource type="Resource" id="Resource_w8pb0"]
 resource_local_to_scene = true
 script = ExtResource("4_sfmyx")
 Name = "Toxin"
 ID = 1
 imgRect = "res://assets/ingredients/toxin.png"
 
-[node name="Runner" type="Node2D"]
+[node name="Runner" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_58bsv")
 
 [node name="MissionTimer" type="Timer" parent="."]
@@ -75,6 +77,7 @@ offset_bottom = 214.0
 text = "Runner"
 
 [node name="RequestButtonGrid" type="GridContainer" parent="."]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -93,28 +96,28 @@ columns = 2
 [node name="btnRequestDeathPetal" parent="RequestButtonGrid" instance=ExtResource("2_ivquo")]
 layout_mode = 2
 icon = ExtResource("3_riyrb")
-ingredient = SubResource("Resource_uvo1b")
+ingredient = SubResource("Resource_vgcmx")
 
 [node name="btnRequestEctoplasm" parent="RequestButtonGrid" instance=ExtResource("2_ivquo")]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 icon = ExtResource("5_b6rs8")
-ingredient = SubResource("Resource_a6o3w")
+ingredient = SubResource("Resource_xwppr")
 
 [node name="btnRequestFang" parent="RequestButtonGrid" instance=ExtResource("2_ivquo")]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 icon = ExtResource("7_iy2el")
-ingredient = SubResource("Resource_sk1w7")
+ingredient = SubResource("Resource_25tpc")
 
 [node name="btnRequestToxin" parent="RequestButtonGrid" instance=ExtResource("2_ivquo")]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 icon = ExtResource("9_n34xk")
-ingredient = SubResource("Resource_m5lbd")
+ingredient = SubResource("Resource_w8pb0")
 
 [connection signal="timeout" from="MissionTimer" to="." method="_on_mission_timer_timeout"]
 [connection signal="ingredient_clicked" from="RequestButtonGrid/btnRequestDeathPetal" to="." method="_on_btn_request_death_petal_ingredient_clicked"]

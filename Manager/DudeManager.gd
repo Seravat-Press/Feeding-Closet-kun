@@ -1,5 +1,6 @@
 ## Manager for Dude-related functionality. 
-class_name DudeManager extends Node
+## TODO could be a Node w/ dudes being added to UI nodes. 
+class_name DudeManager extends Control
 
 ## Currently loaded dude
 var currentDude : Dude
@@ -77,7 +78,7 @@ func despawn_current_dude():
 
 ## Have the dude slide up to the counter
 func move_dude(dude : Dude, point : Vector2):
-	dude.translate(point)
+	dude.set_begin(point)
 
 func begin_spawning_dudes():
 	dude_spawn_cooldown.stop

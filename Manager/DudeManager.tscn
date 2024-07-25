@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" path="res://Manager/DudeManager.gd" id="1_e7vp7"]
 
-[node name="DudeManager" type="Node2D"]
+[node name="DudeManager" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_e7vp7")
 
 [node name="DudeSpawnCooldown" type="Timer" parent="."]

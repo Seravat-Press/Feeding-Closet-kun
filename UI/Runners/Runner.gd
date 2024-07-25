@@ -1,4 +1,4 @@
-class_name Runner extends Node
+class_name Runner extends Control
 
 var targetIngredient : IngredientFetch
 var gatherQuantity : int = 0
