@@ -30,6 +30,7 @@ func setup_timer():
 func set_initial_resources():
 	#storage.add_shadow(100)
 	storage.set_ingredients(shelves.get_ingredient_nodes())
+	storage.zero_out_ingredients()
 
 func game_loop():
 	# after timer, spawn a dude

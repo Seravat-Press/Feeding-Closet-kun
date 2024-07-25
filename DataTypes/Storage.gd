@@ -38,3 +38,7 @@ func _on_add_items(newItem : Ingredient, quantity : int) -> void:
 		if ((newItem.ID == ing.ingredientData.ingredientData.ID) and
 			(ing.canUse == true)):
 			ing.ingredientData.add_amount(quantity)
+
+func zero_out_ingredients() -> void:
+	for ing in ingredientStorage:
+		ing.ingredientData.update_amount(0)
