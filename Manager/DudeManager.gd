@@ -16,9 +16,9 @@ var ordersArray : Array[OrderFull]
 @export_dir var orderDirectory
 @export_file var namesFilePath
 
-@export var dudeSpawnCooldownMin : float = 5.0
-@export var dudeSpawnCooldownMax : float = 10.0
-@export var dudeStandTime : float = 5.0
+@export_range(0.1, 30.0, 0.1) var dudeSpawnCooldownMin : float = 5.0	## Minimum Time to spawn a dude
+@export_range(0.1, 30.0, 0.1) var dudeSpawnCooldownMax : float = 10.0	## Maximum Time to spawn a dude
+@export_range(0.1, 30.0, 0.1) var dudeStandTime : float = 5.0			## Amount of Time a dude hangs around
 @export var introductionPoint : Node2D
 
 signal dude_spawned(dude)

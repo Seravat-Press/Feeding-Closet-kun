@@ -6,7 +6,7 @@ signal order_completed
 signal order_failed
 
 @export var orderData : Order				## Order that this full order utilizes. 
-@export var orderTime : float = 1.00		## Total time in the order
+@export_range(0.1,30.0, 0.1) var orderTime : float = 1.00		## Total time in the order
 @export var cost : int = 0					## Cost of the order
 
 var parentUI : OrderUi
