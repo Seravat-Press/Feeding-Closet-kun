@@ -1,5 +1,5 @@
 ## Basic Start Screen  
-class_name StartScreen extends MarginContainer
+class_name StartScreen extends Control
 
 signal start_pressed
 

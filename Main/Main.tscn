@@ -5,7 +5,6 @@
 
 [node name="Main" type="Node"]
 script = ExtResource("1_sgx0e")
-SkipMenu = true
 
 [node name="ScreenFade" parent="." instance=ExtResource("2_44dlx")]
 
