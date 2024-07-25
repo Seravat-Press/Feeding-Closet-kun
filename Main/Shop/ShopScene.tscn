@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b30q37jguwlek"]
+[gd_scene load_steps=23 format=3 uid="uid://b30q37jguwlek"]
 
 [ext_resource type="Script" path="res://Main/Shop/ShopScene.gd" id="1_pnct4"]
 [ext_resource type="PackedScene" uid="uid://dl756gys3wbma" path="res://UI/Closet/Closet.tscn" id="2_sf3t0"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://b8f3p2fruh8lm" path="res://assets/counter.png" id="7_0q6ha"]
 [ext_resource type="Texture2D" uid="uid://cnh4wsspr1vfl" path="res://assets/alchemist.png" id="8_e1sbk"]
 [ext_resource type="PackedScene" uid="uid://enawlhjqmymv" path="res://UI/Runners/Runner.tscn" id="8_r1um1"]
+[ext_resource type="PackedScene" uid="uid://bl1cpcmhn6dvy" path="res://UI/GameTimer/GameTimer.tscn" id="11_tvbia"]
 [ext_resource type="Resource" uid="uid://dh8ljrlidm1vj" path="res://Data/IngredientTypes/Death Petal_3.tres" id="13_c8hc0"]
 [ext_resource type="Script" path="res://DataTypes/Ingredients/IngredientFetch.gd" id="14_irxkm"]
 [ext_resource type="Resource" uid="uid://b3jbaa0uxgy8y" path="res://Data/IngredientTypes/Ectoplasm_0.tres" id="15_yebkj"]
@@ -142,6 +143,13 @@ offset_left = 372.0
 offset_top = 440.0
 offset_right = 1062.0
 offset_bottom = 630.0
+
+[node name="GameTimer" parent="UINodes" instance=ExtResource("11_tvbia")]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 15.0
+offset_right = 130.0
+offset_bottom = 51.0
 
 [node name="2DNodes" type="Node2D" parent="."]
 

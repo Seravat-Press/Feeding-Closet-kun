@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bl1cpcmhn6dvy"]
+
+[ext_resource type="Script" path="res://UI/GameTimer/GameTimer.gd" id="1_n3lms"]
+[ext_resource type="LabelSettings" uid="uid://bbyc5e3ytxh36" path="res://UI/Shadometer/shadometerFont.tres" id="2_bd7kl"]
+
+[node name="GameTimer" type="MarginContainer"]
+offset_right = 1.0
+offset_bottom = 23.0
+script = ExtResource("1_n3lms")
+
+[node name="TimeLabel" type="Label" parent="."]
+layout_mode = 2
+label_settings = ExtResource("2_bd7kl")
