@@ -7,7 +7,7 @@ signal shop_devoured				## Emitted when all hunger levels are filled.
 @export_dir var closetAssetPath
 
 @export var hungerStage : int = 0		## Current hunger stage. NOTE may become an enum? 
-@export var hungerTimerDuration = 5	## The time for each hunger stage
+@export var hungerTimerDuration = 30	## The time for each hunger stage
 @export var storageNode : Storage		## The Storage node for feeding the closet
 @export var feedCost : int				## How much CS required to sate the closet
 
@@ -93,6 +93,11 @@ func _on_shop_devoured():
 
 func _on_btn_feed_button_up():
 	storageNode.sub_shadow(feedCost)
+	# Reset hunger time
+	hunger_timer.stop()
+	hunger_timer.wait_time = hungerTimerDuration
+	visual_hunger_timer.update_hunger_timer(hungerTimerDuration)
+	hunger_timer.start()
 	if storageNode.shadometer < feedCost:
 		feed_button.disabled = true
 
