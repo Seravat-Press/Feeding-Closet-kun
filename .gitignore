@@ -14,3 +14,6 @@ export_presets.cfg
 data_*/
 
 *.tmp
+
+# Allow uid_cache
+!.godot/uid_cache.bin
