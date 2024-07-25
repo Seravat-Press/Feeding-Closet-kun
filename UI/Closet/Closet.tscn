@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://UI/Closet/Closet.gd" id="1_fya4j"]
 [ext_resource type="Script" path="res://UI/Closet/VisualHungerTimer.gd" id="3_d0joh"]
-[ext_resource type="Texture2D" uid="uid://0pl7xp0ycxsp" path="res://assets/hunger/good_hunger.png" id="4_2ij0j"]
-[ext_resource type="Texture2D" uid="uid://crc2y0jak00ei" path="res://assets/closet/ClosetStage0.png" id="4_qybs5"]
+[ext_resource type="Texture2D" uid="uid://p4gy5lvyhxj1" path="res://assets/hunger/good_hunger.png" id="4_2ij0j"]
+[ext_resource type="Texture2D" uid="uid://ckw7dq144ulxj" path="res://assets/closet/ClosetStage0.png" id="4_qybs5"]
 
 [node name="Closet" type="MarginContainer"]
 offset_right = 200.0

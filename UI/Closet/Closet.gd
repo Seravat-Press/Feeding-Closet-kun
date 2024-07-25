@@ -43,6 +43,7 @@ func initialize_closet() -> void:
 	hunger_2.texture = GOOD_H_TEX
 	hunger_3.texture = GOOD_H_TEX
 	feed_button.disabled = true
+	feed_button.text = "FEED [" + str(feedCost) + "]"
 	
 func _process(_delta) -> void: 
 	if !hunger_timer.paused:
