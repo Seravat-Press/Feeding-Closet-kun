@@ -4,8 +4,9 @@ class_name Dude extends Control
 @export var dudeTexture : Texture
 @export var order : OrderFull
 @export var dudeName : String
-@onready var placeholder = $Placeholder
-@onready var name_label = $Label
+@onready var placeholder = $VBoxContainer/DudeImage/Placeholder
+@onready var dude_image = $VBoxContainer/DudeImage
+@onready var name_label = $VBoxContainer/Label
 
 func setup(createDudeName : String, createTexture : Texture, createOrder : OrderFull):
 	dudeName = createDudeName
@@ -15,7 +16,6 @@ func setup(createDudeName : String, createTexture : Texture, createOrder : Order
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	placeholder.visible = false
-	var dude_image = $DudeImage
 	dude_image.texture = dudeTexture
 	name_label.text = dudeName
 	print(dudeName + " has spawned in!")
