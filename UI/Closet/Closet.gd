@@ -24,6 +24,9 @@ const SPENT_H_TEX = preload("res://assets/hunger/spent_hunger.png")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	initialize_closet()
+
+func initialize_closet() -> void:
 	hunger_timer.wait_time = hungerTimerDuration
 	hunger_timer.one_shot = 0
 	hunger_timer.autostart = 0
@@ -31,9 +34,10 @@ func _ready():
 	hunger_2.texture = GOOD_H_TEX
 	hunger_3.texture = GOOD_H_TEX
 	feed_button.disabled = true
-
+	
 func _process(_delta) -> void: 
-	visual_hunger_timer.update_hunger_timer(hunger_timer.time_left / hunger_timer.wait_time)
+	if !hunger_timer.paused:
+		visual_hunger_timer.update_hunger_timer(hunger_timer.time_left / hunger_timer.wait_time)
 
 ## Called when the hunger timer runs out. 
 func _on_hunger_timer_timeout():
