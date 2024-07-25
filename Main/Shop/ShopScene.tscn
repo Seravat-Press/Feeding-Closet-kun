@@ -211,6 +211,7 @@ position = Vector2(248, 371)
 [connection signal="shadow_changed" from="ProcessingNodes/Storage" to="UINodes/Shadometer" method="_on_storage_shadow_changed"]
 [connection signal="shop_devoured" from="UINodes/Closet" to="." method="_on_closet_shop_devoured"]
 [connection signal="released_ingredient" from="UINodes/Shelves" to="." method="_on_shelves_released_ingredient"]
+[connection signal="add_shadow" from="UINodes/OrderManager" to="." method="_on_shadow_earn"]
 [connection signal="add_shadow" from="UINodes/OrderManager" to="ProcessingNodes/Storage" method="_on_add_shadow"]
 [connection signal="mission_complete" from="UINodes/Runner" to="ProcessingNodes/Storage" method="_on_add_items"]
 [connection signal="timeout" from="UINodes/Runner/MissionTimer" to="ProcessingNodes/Storage" method="_on_mission_timer_timeout"]

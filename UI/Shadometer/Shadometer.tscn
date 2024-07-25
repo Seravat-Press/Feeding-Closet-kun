@@ -21,3 +21,5 @@ label_settings = ExtResource("2_ptl6s")
 layout_mode = 2
 texture = ExtResource("1_ne3lr")
 expand_mode = 2
+
+[node name="ParticleDestination" type="Marker2D" parent="."]

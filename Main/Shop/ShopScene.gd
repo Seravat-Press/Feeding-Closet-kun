@@ -2,6 +2,8 @@
 class_name ShopScene extends Node
 
 const loseScreen : PackedScene = preload("res://UI/LoseScreen/LoseScreen.tscn")
+const sParticles : PackedScene = preload("res://UI/ShadowParticles/ShadowParticles.tscn")
+
 @onready var dude_manager = $UINodes/DudeManager
 @onready var order_manager = $UINodes/OrderManager
 @onready var closet = $UINodes/Closet
@@ -9,6 +11,7 @@ const loseScreen : PackedScene = preload("res://UI/LoseScreen/LoseScreen.tscn")
 @onready var introduction_point = $"2DNodes/IntroductionPoint"
 @onready var shelves: Shelves = $UINodes/Shelves
 @onready var game_timer: GameTimer = $UINodes/GameTimer
+@onready var shadometer = $UINodes/Shadometer
 
 @onready var processing_nodes: Node = $ProcessingNodes
 @onready var ui_nodes: Control = $UINodes
@@ -68,3 +71,8 @@ func _on_shelves_released_ingredient(ingredient : IngredientInventory):
 		return
 	else:
 		currentOrder.fill_ingredient(ingredient)
+
+func _on_shadow_earn(amt : int, orderNode : OrderUi) -> void:
+	var new_shadow : ShadowParticles = sParticles.instantiate()
+	_2d_nodes.add_child(new_shadow)
+	new_shadow.spawn_particles(orderNode.global_position, shadometer.get_particle_destination(), amt)

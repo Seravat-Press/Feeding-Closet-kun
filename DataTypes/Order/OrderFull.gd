@@ -9,6 +9,8 @@ signal order_failed
 @export var orderTime : float = 1.00		## Total time in the order
 @export var cost : int = 0					## Cost of the order
 
+var parentUI : OrderUi
+
 func new_instance():
 	var instance = self.duplicate(true)
 	instance.orderData.fix_ingredients()

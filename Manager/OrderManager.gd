@@ -1,6 +1,6 @@
 class_name OrderManager extends Control
 
-signal add_shadow(amt)
+signal add_shadow(amt : int, orderui : OrderUi)
 
 var orderQueue : Array
 var newOrderPreloaded = preload("res://UI/Orders/OrderUI.tscn")
@@ -55,7 +55,7 @@ func get_focused_order() -> OrderFull:
 		return null
 
 func _on_order_success(orderWin : OrderFull) -> void:
-	emit_signal("add_shadow", orderWin.get_cost())
+	emit_signal("add_shadow", orderWin.get_cost(), orderWin.parentUI)
 
 func _on_order_fail(orderfail : OrderFull) -> void:
 	pass

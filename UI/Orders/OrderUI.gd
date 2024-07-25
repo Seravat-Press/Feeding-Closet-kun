@@ -57,6 +57,7 @@ func activate_order() -> void:
 ## Installs an order in this node and sets up the timer. 
 func install_order_data(newData : OrderFull) -> void:
 	orderData = newData
+	orderData.parentUI = self
 		
 ## Start the order timer with the order's wait time. 
 func start_order_timer() -> void: 

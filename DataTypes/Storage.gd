@@ -25,7 +25,7 @@ func update_shadow() -> void:
 	emit_signal("shadow_changed", shadometer)
 
 ## Received from OrderManager
-func _on_add_shadow(addAmount : int) -> void:
+func _on_add_shadow(addAmount : int, orderNode : OrderUi) -> void:
 	add_shadow(addAmount)
 
 ## Sets up all of the ingredients. 
