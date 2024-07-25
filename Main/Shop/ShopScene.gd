@@ -9,7 +9,7 @@ class_name ShopScene extends Node
 @onready var shelves: Shelves = $UINodes/Shelves
 
 func _ready():
-	print("Shop Activated!")
+	print("Shop Activated!\n")
 	start_game()
 
 func start_game():

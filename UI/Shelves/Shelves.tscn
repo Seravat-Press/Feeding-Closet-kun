@@ -48,14 +48,11 @@ ingredientData = SubResource("Resource_gde6u")
 [node name="IngredientUi2" parent="Ingredients" instance=ExtResource("2_wx4m6")]
 layout_mode = 2
 ingredientData = SubResource("Resource_j0cfg")
-canUse = false
 
 [node name="IngredientUi3" parent="Ingredients" instance=ExtResource("2_wx4m6")]
 layout_mode = 2
 ingredientData = SubResource("Resource_04bnv")
-canUse = false
 
 [node name="IngredientUi4" parent="Ingredients" instance=ExtResource("2_wx4m6")]
 layout_mode = 2
 ingredientData = SubResource("Resource_5tygc")
-canUse = false
