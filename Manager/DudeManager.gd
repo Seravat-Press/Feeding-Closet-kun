@@ -96,17 +96,15 @@ func _on_dude_spawn_cooldown_timeout():
 	await spawnTween.finished
 	dude_spawned.emit(currentDude)
 	dude_stand_timer.start()
-	spawnTween.tween_callback(currentDude.queue_free)
 
 func _on_dude_stand_timer_timeout():
 	var despawnTween = create_tween()
-	despawnTween.tween_property(currentDude, "position", spawnPoint.position, 0.2)
+	despawnTween.tween_property(currentDude, "position", spawnPoint.position, 0.2).set_trans(Tween.TRANS_ELASTIC)
 	await despawnTween.finished
 	despawn_current_dude()
 	dude_spawn_cooldown.stop()
 	randomize_dude_cooldown()
 	dude_spawn_cooldown.start()
-	despawnTween.tween_callback(currentDude.queue_free)
 
 func stop_spawning_dudes() -> void:
 	dude_spawn_cooldown.stop()
