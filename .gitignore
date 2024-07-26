@@ -17,3 +17,4 @@ data_*/
 
 # Allow uid_cache
 !.godot/uid_cache.bin
+!*.ogg.import
