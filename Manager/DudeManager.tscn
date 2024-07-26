@@ -13,5 +13,9 @@ one_shot = true
 [node name="DudeStandTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="DudeAudio" type="AudioStreamPlayer" parent="."]
+volume_db = -3.653
+bus = &"SFX"
+
 [connection signal="timeout" from="DudeSpawnCooldown" to="." method="_on_dude_spawn_cooldown_timeout"]
 [connection signal="timeout" from="DudeStandTimer" to="." method="_on_dude_stand_timer_timeout"]

@@ -23,6 +23,7 @@ const WORRIED_SOUNDS = [
 @onready var _2d_nodes: Node2D = $"2DNodes"
 
 @onready var shop_sfx = $ShopSfx
+@onready var shop_music = $ShopMusic
 
 func start():
 	set_initial_resources()
@@ -30,6 +31,7 @@ func start():
 	closet.reset_hunger_timer()
 	dude_manager.begin_spawning_dudes()
 	setup_timer()
+	shop_music.play()
 	#run_test()
 
 ## Call to reset and start the game timer. 
@@ -70,6 +72,7 @@ func _on_closet_shop_devoured():
 	ui_nodes.add_child(newScreen)
 	newScreen.connect("play_again", Callable(get_parent(), "_on_game_restart"))
 	newScreen._on_lose(game_timer.get_time_elapsed())
+	shop_music.stop()
 
 ## Called when a held ingredient is released. 
 func _on_shelves_released_ingredient(ingredient : IngredientInventory):
@@ -90,7 +93,8 @@ func _on_shadow_earn(amt : int, orderNode : OrderUi) -> void:
 	_2d_nodes.add_child(new_shadow)
 	new_shadow.spawn_particles(orderNode.global_position, shadometer.get_particle_destination(), amt)
 
-func _on_closet_hunger_changed(value : int) -> void:
+
+func _on_closet_audio_finished():
 	if closet.hungerStage == Closet.HUNGER_STAGES.THIRD:
 		shop_sfx.stream = load("res://audio/sfx/alchemist/alchemist_scared.ogg")
 	else:

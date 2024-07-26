@@ -2,6 +2,14 @@
 ## TODO could be a Node w/ dudes being added to UI nodes. 
 class_name DudeManager extends Control
 
+const DUDE_AUDIO = [
+	preload("res://audio/sfx/dudes/dudes_1.ogg"),
+	preload("res://audio/sfx/dudes/dudes_2.ogg"),
+	preload("res://audio/sfx/dudes/dudes_3.ogg"),
+	preload("res://audio/sfx/dudes/dudes_4.ogg"),
+	preload("res://audio/sfx/dudes/dudes_5.ogg")
+]
+
 ## Currently loaded dude
 var currentDude : Dude
 const preloadedDudeScene = preload("res://DataTypes/Dude/Dude.tscn")
@@ -27,6 +35,7 @@ signal dude_despawned(dude)
 
 @onready var dude_spawn_cooldown = $DudeSpawnCooldown
 @onready var dude_stand_timer = $DudeStandTimer
+@onready var dude_audio = $DudeAudio
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -71,6 +80,8 @@ func spawn_dude():
 	dudeSceneInstance.setup(dudeName, dudeTexture, dudeOrder)
 	add_child(dudeSceneInstance)
 	currentDude = dudeSceneInstance
+	dude_audio.stream = DUDE_AUDIO.pick_random()
+	dude_audio.play()
 
 func despawn_current_dude():
 	remove_child(currentDude)

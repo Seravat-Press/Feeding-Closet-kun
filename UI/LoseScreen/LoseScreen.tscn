@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cs0vun6knevg8"]
+[gd_scene load_steps=5 format=3 uid="uid://cs0vun6knevg8"]
 
 [ext_resource type="Script" path="res://UI/LoseScreen/LoseScreen.gd" id="1_gwhdq"]
 [ext_resource type="LabelSettings" uid="uid://bbyc5e3ytxh36" path="res://UI/Shadometer/shadometerFont.tres" id="1_jkkgf"]
 [ext_resource type="FontFile" uid="uid://doe13s6pv7v0a" path="res://fonts/Breathe Fire.otf" id="3_5nuvd"]
+[ext_resource type="AudioStream" uid="uid://bgkk0kodrehi6" path="res://audio/music/their_tummy_rumbles.ogg" id="4_bdxw5"]
 
 [node name="LoseScreen" type="Node"]
 script = ExtResource("1_gwhdq")
@@ -136,6 +137,10 @@ text = "[center]Too bad!
 Current High Score: 
 %.2f[/center]"
 metadata/_edit_use_anchors_ = true
+
+[node name="LoseMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_bdxw5")
+bus = &"Music"
 
 [connection signal="pressed" from="FullWindow/VBoxContainer/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
 [connection signal="pressed" from="FullWindow/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

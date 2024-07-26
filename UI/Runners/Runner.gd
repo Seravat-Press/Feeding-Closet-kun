@@ -3,10 +3,20 @@ class_name Runner extends Control
 var targetIngredient : IngredientFetch
 var gatherQuantity : int = 0
 
+const RUNNER_AUDIO = [
+	preload("res://audio/sfx/runner/runner_1.ogg"),
+	preload("res://audio/sfx/runner/runner_2.ogg"),
+	preload("res://audio/sfx/runner/runner_3.ogg"),
+	preload("res://audio/sfx/runner/runner_4.ogg"),
+	preload("res://audio/sfx/runner/runner_5.ogg"),
+	preload("res://audio/sfx/runner/runner_6.ogg")
+]
+
 @onready var mission_timer_progress_bar = $VBoxContainer/MissionTimerProgressBar
 
 @onready var mission_timer = $MissionTimer
 @onready var request_button_grid = $RequestButtonGrid
+@onready var runner_audio = $RunnerAudio
 
 signal mission_complete(ingredient, quantity)
 
@@ -44,6 +54,8 @@ func _on_mission_timer_timeout():
 	mission_complete.emit(targetIngredient.ingredientData, gatherQuantity)
 	mission_timer.stop()
 	print("Mission for " + targetIngredient.get_ingredient_name() + " successful. " + str(gatherQuantity) + " retrieved.")
+	runner_audio.stream = RUNNER_AUDIO.pick_random()
+	runner_audio.play()
 
 func _on_btn_request_death_petal_ingredient_clicked(ingredient : IngredientFetch):
 	begin_resource_mission(ingredient)
