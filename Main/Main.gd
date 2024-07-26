@@ -1,6 +1,7 @@
 ## The main game module. Grabs different scenes. 
 class_name Main extends Node
 
+const MUSIC = preload("res://audio/music/an_ode_to_closet_kun.ogg")
 
 const shopScene := preload("res://Main/Shop/ShopScene.tscn")
 const startScreen := preload("res://UI/StartScreen/StartScreen.tscn")
@@ -9,13 +10,14 @@ const startScreen := preload("res://UI/StartScreen/StartScreen.tscn")
 
 @onready var screen_fade = $ScreenFade
 @onready var score_manager = $ScoreManager
+@onready var music_player = $MusicPlayer
 
 var currentScene : Node
 var nextScene : Node
 
 func _ready():
 	Globals.scoreManager = score_manager
-	
+	music_player.stream = MUSIC
 	if SkipMenu:
 		setup_next_scene(shopScene)
 		currentScene = nextScene
@@ -46,6 +48,7 @@ func _on_game_restart() -> void:
 ## Called when the [ScreenFade] has faded in. 
 func _on_screen_fade_faded_in():
 	currentScene.start()
+	music_player.play()
 
 ## Called when the [ScreenFade] has faded out. 
 func _on_screen_fade_faded_out():

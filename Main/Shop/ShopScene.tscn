@@ -194,6 +194,7 @@ introductionPoint = NodePath("../../2DNodes/IntroductionPoint")
 position = Vector2(101, 395)
 
 [node name="ShopSfx" type="AudioStreamPlayer" parent="."]
+volume_db = 2.793
 
 [connection signal="shadow_changed" from="ProcessingNodes/Storage" to="UINodes/Closet" method="_on_storage_shadow_changed"]
 [connection signal="shadow_changed" from="ProcessingNodes/Storage" to="UINodes/Shadometer" method="_on_storage_shadow_changed"]
