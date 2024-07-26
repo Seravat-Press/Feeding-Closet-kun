@@ -188,7 +188,7 @@ position = Vector2(216, 399)
 position = Vector2(-105, 399)
 
 [node name="ShopSfx" type="AudioStreamPlayer" parent="."]
-volume_db = 2.793
+volume_db = 1.933
 bus = &"SFX"
 
 [node name="ShopMusic" type="AudioStreamPlayer" parent="."]

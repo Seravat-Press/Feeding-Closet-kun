@@ -9,28 +9,28 @@
 [ext_resource type="Texture2D" uid="uid://d21dn3asekoo7" path="res://assets/ingredients/fang.png" id="7_iy2el"]
 [ext_resource type="Texture2D" uid="uid://d1hkvrcd6v58f" path="res://assets/ingredients/toxin.png" id="9_n34xk"]
 
-[sub_resource type="Resource" id="Resource_54ipp"]
+[sub_resource type="Resource" id="Resource_2evyh"]
 resource_local_to_scene = true
 script = ExtResource("4_sfmyx")
 Name = "Death Petal"
 ID = 3
 imgRect = "res://assets/ingredients/death_petal.png"
 
-[sub_resource type="Resource" id="Resource_hf1bd"]
+[sub_resource type="Resource" id="Resource_8ou6e"]
 resource_local_to_scene = true
 script = ExtResource("4_sfmyx")
 Name = "Ectoplasm"
 ID = 0
 imgRect = "res://assets/ingredients/ectoplasm.png"
 
-[sub_resource type="Resource" id="Resource_8j3hw"]
+[sub_resource type="Resource" id="Resource_q1to5"]
 resource_local_to_scene = true
 script = ExtResource("4_sfmyx")
 Name = "Fang"
 ID = 2
 imgRect = "res://assets/ingredients/fang.png"
 
-[sub_resource type="Resource" id="Resource_c0tcn"]
+[sub_resource type="Resource" id="Resource_vawi0"]
 resource_local_to_scene = true
 script = ExtResource("4_sfmyx")
 Name = "Toxin"
@@ -81,28 +81,28 @@ columns = 2
 [node name="btnRequestDeathPetal" parent="RequestButtonGrid" instance=ExtResource("2_ivquo")]
 layout_mode = 2
 icon = ExtResource("3_riyrb")
-ingredient = SubResource("Resource_54ipp")
+ingredient = SubResource("Resource_2evyh")
 
 [node name="btnRequestEctoplasm" parent="RequestButtonGrid" instance=ExtResource("2_ivquo")]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 icon = ExtResource("5_b6rs8")
-ingredient = SubResource("Resource_hf1bd")
+ingredient = SubResource("Resource_8ou6e")
 
 [node name="btnRequestFang" parent="RequestButtonGrid" instance=ExtResource("2_ivquo")]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 icon = ExtResource("7_iy2el")
-ingredient = SubResource("Resource_8j3hw")
+ingredient = SubResource("Resource_q1to5")
 
 [node name="btnRequestToxin" parent="RequestButtonGrid" instance=ExtResource("2_ivquo")]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 icon = ExtResource("9_n34xk")
-ingredient = SubResource("Resource_c0tcn")
+ingredient = SubResource("Resource_vawi0")
 
 [node name="RunnerAudio" type="AudioStreamPlayer" parent="."]
 volume_db = -6.876
