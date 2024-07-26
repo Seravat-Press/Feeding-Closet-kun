@@ -18,3 +18,7 @@ func _on_exit_button_pressed():
 	audio_stream_player.play()
 	await audio_stream_player.finished
 	get_tree().quit()
+
+
+func _on_tutorial_button_pressed():
+	pass # Replace with function body.

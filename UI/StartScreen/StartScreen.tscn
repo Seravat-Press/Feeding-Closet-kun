@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dsjw5aseprnp7"]
+[gd_scene load_steps=12 format=3 uid="uid://dsjw5aseprnp7"]
 
 [ext_resource type="Script" path="res://UI/StartScreen/StartScreen.gd" id="1_4bejo"]
 [ext_resource type="FontFile" uid="uid://doe13s6pv7v0a" path="res://fonts/Breathe Fire.otf" id="2_hhqn8"]
@@ -33,6 +33,12 @@ shadow_offset = Vector2(5, 5)
 
 [sub_resource type="LabelSettings" id="LabelSettings_p5715"]
 font_size = 23
+
+[sub_resource type="LabelSettings" id="LabelSettings_th7lu"]
+font = ExtResource("2_hhqn8")
+font_size = 29
+outline_size = 7
+outline_color = Color(0.0353462, 0.0353462, 0.0353462, 1)
 
 [node name="StartScreen" type="Control"]
 layout_mode = 3
@@ -100,6 +106,13 @@ size_flags_horizontal = 4
 text = "Start Game"
 metadata/_edit_lock_ = true
 
+[node name="TutorialButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Tutorial"
+metadata/_edit_lock_ = true
+
 [node name="ExitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -161,5 +174,20 @@ layout_mode = 2
 texture = ExtResource("4_2bios")
 expand_mode = 1
 
+[node name="MarginContainer3" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 334.0
+offset_top = -23.0
+offset_right = 863.0
+offset_bottom = 150.0
+
+[node name="Label" type="Label" parent="MarginContainer3"]
+layout_mode = 2
+text = "There's an eldritch horror living in my closet and I have to feed it coalesced shadow so it doesn't destroy the world!!!"
+label_settings = SubResource("LabelSettings_th7lu")
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/TutorialButton" to="." method="_on_tutorial_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
