@@ -118,4 +118,6 @@ func _on_dude_stand_timer_timeout():
 	dude_spawn_cooldown.start()
 
 func stop_spawning_dudes() -> void:
-	dude_spawn_cooldown.stop()
+	despawn_current_dude()
+	dude_stand_timer.paused = true
+	dude_spawn_cooldown.paused = true
