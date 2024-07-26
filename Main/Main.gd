@@ -24,6 +24,7 @@ func _ready():
 		add_child(currentScene)
 		move_child(currentScene,0)
 		currentScene.start()
+		music_player.play()
 	else:
 		setup_start_screen()
 	
