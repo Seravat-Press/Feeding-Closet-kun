@@ -48,16 +48,59 @@ offset_right = 40.0
 offset_bottom = 40.0
 theme_override_constants/separation = 0
 
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Current Level:"
+
+[node name="LevelLabel" type="Label" parent="VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Bonus Yield:"
+
+[node name="YieldLabel" type="Label" parent="VBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "0"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Level Cost:"
+
+[node name="LevelCost" type="Label" parent="VBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "40"
+
+[node name="LevelUp" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Level Up!"
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_rs5yt")
+
 [node name="MissionTimerProgressBar" type="ProgressBar" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 size_flags_vertical = 3
 max_value = 1.0
 show_percentage = false
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
-layout_mode = 2
-texture = ExtResource("2_rs5yt")
 
 [node name="MissionTimer" type="Timer" parent="."]
 
@@ -68,10 +111,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 62.0
-offset_top = 120.0
-offset_right = 210.0
-offset_bottom = 268.0
+offset_left = 57.0
+offset_top = 189.0
+offset_right = 205.0
+offset_bottom = 337.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
@@ -108,6 +151,7 @@ ingredient = SubResource("Resource_vawi0")
 volume_db = -6.876
 bus = &"SFX"
 
+[connection signal="pressed" from="VBoxContainer/LevelUp" to="." method="_on_level_up_pressed"]
 [connection signal="timeout" from="MissionTimer" to="." method="_on_mission_timer_timeout"]
 [connection signal="ingredient_clicked" from="RequestButtonGrid/btnRequestDeathPetal" to="." method="_on_btn_request_death_petal_ingredient_clicked"]
 [connection signal="ingredient_clicked" from="RequestButtonGrid/btnRequestEctoplasm" to="." method="_on_btn_request_ectoplasm_ingredient_clicked"]

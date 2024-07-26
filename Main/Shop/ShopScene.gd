@@ -17,6 +17,7 @@ const WORRIED_SOUNDS = [
 @onready var shelves: Shelves = $UINodes/Shelves
 @onready var game_timer: GameTimer = $UINodes/GameTimer
 @onready var shadometer = $UINodes/Shadometer
+@onready var runner = $UINodes/Runner
 
 @onready var processing_nodes: Node = $ProcessingNodes
 @onready var ui_nodes: Control = $UINodes
@@ -100,3 +101,9 @@ func _on_closet_audio_finished():
 	else:
 		shop_sfx.stream = WORRIED_SOUNDS.pick_random()
 	shop_sfx.play()
+
+
+func _on_runner_runner_level_up():
+	var newShadow = runner.handle_level_up(storage.shadometer)
+	if storage.shadometer != newShadow:
+		storage.set_new_shadow(newShadow)
