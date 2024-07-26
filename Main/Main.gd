@@ -1,8 +1,6 @@
 ## The main game module. Grabs different scenes. 
 class_name Main extends Node
 
-const MUSIC = preload("res://audio/music/an_ode_to_closet_kun.ogg")
-
 const shopScene := preload("res://Main/Shop/ShopScene.tscn")
 const startScreen := preload("res://UI/StartScreen/StartScreen.tscn")
 

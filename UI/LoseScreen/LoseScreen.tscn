@@ -140,6 +140,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="LoseMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_bdxw5")
+bus = &"Music"
 
 [connection signal="pressed" from="FullWindow/VBoxContainer/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
 [connection signal="pressed" from="FullWindow/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
