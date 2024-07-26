@@ -101,7 +101,7 @@ func hunger_lvl_changed():
 			emit_signal("shop_devoured")
 
 func _on_shop_devoured():
-	hunger_timer.paused
+	hunger_timer.paused = true
 
 func _on_btn_feed_button_up():
 	storageNode.sub_shadow(feedCost)
