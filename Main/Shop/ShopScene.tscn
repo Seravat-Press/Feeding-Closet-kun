@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b30q37jguwlek"]
+[gd_scene load_steps=24 format=3 uid="uid://b30q37jguwlek"]
 
 [ext_resource type="Script" path="res://Main/Shop/ShopScene.gd" id="1_pnct4"]
 [ext_resource type="PackedScene" uid="uid://dl756gys3wbma" path="res://UI/Closet/Closet.tscn" id="2_sf3t0"]
@@ -46,6 +46,9 @@ ingredientData = ExtResource("17_ajb48")
 sourceTime = 2.0
 gatherMin = 1
 gatherMax = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_0laqe"]
+font_size = 8
 
 [node name="ShopScene" type="Node"]
 script = ExtResource("1_pnct4")
@@ -188,6 +191,16 @@ dudeSpawnCooldownMax = 5.0
 dudeStandTime = 2.0
 introductionPoint = NodePath("../../2DNodes/IntroductionPoint")
 spawnPoint = NodePath("../../2DNodes/StartPoint")
+
+[node name="Label" type="Label" parent="UINodes"]
+layout_mode = 0
+offset_left = 462.0
+offset_top = 47.0
+offset_right = 565.0
+offset_bottom = 96.0
+text = "Clear stage = 
+50 ingredient"
+label_settings = SubResource("LabelSettings_0laqe")
 
 [node name="2DNodes" type="Node2D" parent="."]
 
