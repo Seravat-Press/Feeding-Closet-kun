@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b30q37jguwlek"]
+[gd_scene load_steps=26 format=3 uid="uid://b30q37jguwlek"]
 
 [ext_resource type="Script" path="res://Main/Shop/ShopScene.gd" id="1_pnct4"]
 [ext_resource type="PackedScene" uid="uid://dl756gys3wbma" path="res://UI/Closet/Closet.tscn" id="2_sf3t0"]
@@ -7,9 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://c5i4wee5b72tj" path="res://assets/stone_background.png" id="3_dh404"]
 [ext_resource type="PackedScene" uid="uid://dctd4p2s02lu8" path="res://UI/Shadometer/Shadometer.tscn" id="4_e7eu6"]
 [ext_resource type="PackedScene" uid="uid://jfwvhdbe2n2k" path="res://Manager/DudeManager.tscn" id="5_ojv5s"]
+[ext_resource type="Script" path="res://Main/Shop/Alchemist.gd" id="6_1xivx"]
 [ext_resource type="Texture2D" uid="uid://ddxk2eoedap2s" path="res://assets/shelf.png" id="6_bhdty"]
 [ext_resource type="PackedScene" uid="uid://bed8bleqgeosy" path="res://UI/Shelves/Shelves.tscn" id="6_g07xb"]
 [ext_resource type="Texture2D" uid="uid://cutrceybd5d5a" path="res://assets/counter.png" id="7_0q6ha"]
+[ext_resource type="Texture2D" uid="uid://bh06yj6wei6oc" path="res://assets/alchemist_worried.png" id="7_to2xq"]
 [ext_resource type="Texture2D" uid="uid://djece52l4tifo" path="res://assets/alchemist.png" id="8_e1sbk"]
 [ext_resource type="PackedScene" uid="uid://enawlhjqmymv" path="res://UI/Runners/Runner.tscn" id="8_r1um1"]
 [ext_resource type="PackedScene" uid="uid://bl1cpcmhn6dvy" path="res://UI/GameTimer/GameTimer.tscn" id="11_tvbia"]
@@ -88,6 +90,9 @@ offset_top = 136.0
 offset_right = 928.0
 offset_bottom = 460.0
 texture = ExtResource("8_e1sbk")
+script = ExtResource("6_1xivx")
+AlchemistImageStage0 = ExtResource("8_e1sbk")
+AlchemistImageStage1 = ExtResource("7_to2xq")
 
 [node name="Closet" parent="UINodes" node_paths=PackedStringArray("storageNode") instance=ExtResource("2_sf3t0")]
 layout_mode = 2
@@ -216,6 +221,7 @@ volume_db = 2.793
 [connection signal="shadow_changed" from="ProcessingNodes/Storage" to="UINodes/Closet" method="_on_storage_shadow_changed"]
 [connection signal="shadow_changed" from="ProcessingNodes/Storage" to="UINodes/Shadometer" method="_on_storage_shadow_changed"]
 [connection signal="hunger_changed" from="UINodes/Closet" to="." method="_on_closet_hunger_changed"]
+[connection signal="hunger_changed" from="UINodes/Closet" to="UINodes/AlchemistImage" method="_on_closet_hunger_changed"]
 [connection signal="shop_devoured" from="UINodes/Closet" to="." method="_on_closet_shop_devoured"]
 [connection signal="released_ingredient" from="UINodes/Shelves" to="." method="_on_shelves_released_ingredient"]
 [connection signal="add_shadow" from="UINodes/OrderManager" to="." method="_on_shadow_earn"]
