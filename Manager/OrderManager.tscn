@@ -27,7 +27,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 alignment = 1
 
-[node name="BottleAudio" type="AudioStreamPlayer" parent="."]
+[node name="OrderAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_ccgf8")
 volume_db = 1.934
 bus = &"SFX"
