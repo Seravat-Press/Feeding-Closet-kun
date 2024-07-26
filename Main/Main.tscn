@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdcbolvua0386"]
+[gd_scene load_steps=4 format=3 uid="uid://cdcbolvua0386"]
 
 [ext_resource type="Script" path="res://Main/Main.gd" id="1_sgx0e"]
 [ext_resource type="PackedScene" uid="uid://cj2xue64afl2c" path="res://UI/Fades/ScreenFade.tscn" id="2_44dlx"]
 [ext_resource type="PackedScene" uid="uid://c46elm7d6bidi" path="res://Manager/ScoreManager.tscn" id="3_x3k2a"]
-[ext_resource type="AudioStream" uid="uid://bayxigica4fcc" path="res://audio/music/an_ode_to_closet_kun.ogg" id="4_6ob0o"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_sgx0e")
@@ -11,10 +10,6 @@ script = ExtResource("1_sgx0e")
 [node name="ScreenFade" parent="." instance=ExtResource("2_44dlx")]
 
 [node name="ScoreManager" parent="." instance=ExtResource("3_x3k2a")]
-
-[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_6ob0o")
-volume_db = -5.587
 
 [connection signal="faded_in" from="ScreenFade" to="." method="_on_screen_fade_faded_in"]
 [connection signal="faded_out" from="ScreenFade" to="." method="_on_screen_fade_faded_out"]
