@@ -20,6 +20,7 @@ var ordersArray : Array[OrderFull]
 @export_range(0.1, 30.0, 0.1) var dudeSpawnCooldownMax : float = 10.0	## Maximum Time to spawn a dude
 @export_range(0.1, 30.0, 0.1) var dudeStandTime : float = 5.0			## Amount of Time a dude hangs around
 @export var introductionPoint : Node2D
+@export var spawnPoint : Node2D
 
 signal dude_spawned(dude)
 signal dude_despawned(dude)
@@ -70,7 +71,6 @@ func spawn_dude():
 	dudeSceneInstance.setup(dudeName, dudeTexture, dudeOrder)
 	add_child(dudeSceneInstance)
 	currentDude = dudeSceneInstance
-	dude_spawned.emit(currentDude)
 
 func despawn_current_dude():
 	remove_child(currentDude)
@@ -90,15 +90,21 @@ func randomize_dude_cooldown():
 
 func _on_dude_spawn_cooldown_timeout():
 	spawn_dude()
-	move_dude(currentDude, introductionPoint.position)
+	move_dude(currentDude, spawnPoint.position)
+	var spawnTween = create_tween()
+	spawnTween.tween_property(currentDude, "position", introductionPoint.position, 1).set_trans(Tween.TRANS_ELASTIC)
+	await spawnTween.finished
+	dude_spawned.emit(currentDude)
 	dude_stand_timer.start()
 
 func _on_dude_stand_timer_timeout():
+	var despawnTween = create_tween()
+	despawnTween.tween_property(currentDude, "position", spawnPoint.position, 0.2).set_trans(Tween.TRANS_ELASTIC)
+	await despawnTween.finished
 	despawn_current_dude()
 	dude_spawn_cooldown.stop()
 	randomize_dude_cooldown()
 	dude_spawn_cooldown.start()
-	
 
 func stop_spawning_dudes() -> void:
 	dude_spawn_cooldown.stop()
