@@ -4,13 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://dl756gys3wbma" path="res://UI/Closet/Closet.tscn" id="2_sf3t0"]
 [ext_resource type="PackedScene" uid="uid://38p37nklc2cj" path="res://Manager/OrderManager.tscn" id="3_am2ce"]
 [ext_resource type="PackedScene" uid="uid://ddt7va66cy1mx" path="res://DataTypes/Storage.tscn" id="3_cbyd5"]
-[ext_resource type="Texture2D" uid="uid://8ffm7k8b7c6n" path="res://assets/stone_background.png" id="3_dh404"]
+[ext_resource type="Texture2D" uid="uid://c5i4wee5b72tj" path="res://assets/stone_background.png" id="3_dh404"]
 [ext_resource type="PackedScene" uid="uid://dctd4p2s02lu8" path="res://UI/Shadometer/Shadometer.tscn" id="4_e7eu6"]
 [ext_resource type="PackedScene" uid="uid://jfwvhdbe2n2k" path="res://Manager/DudeManager.tscn" id="5_ojv5s"]
-[ext_resource type="Texture2D" uid="uid://dimjqdj1ojoc6" path="res://assets/shelf.png" id="6_bhdty"]
+[ext_resource type="Texture2D" uid="uid://ddxk2eoedap2s" path="res://assets/shelf.png" id="6_bhdty"]
 [ext_resource type="PackedScene" uid="uid://bed8bleqgeosy" path="res://UI/Shelves/Shelves.tscn" id="6_g07xb"]
-[ext_resource type="Texture2D" uid="uid://dx64h1rexx3mv" path="res://assets/counter.png" id="7_0q6ha"]
-[ext_resource type="Texture2D" uid="uid://0ddg6bgqy60f" path="res://assets/alchemist.png" id="8_e1sbk"]
+[ext_resource type="Texture2D" uid="uid://cutrceybd5d5a" path="res://assets/counter.png" id="7_0q6ha"]
+[ext_resource type="Texture2D" uid="uid://djece52l4tifo" path="res://assets/alchemist.png" id="8_e1sbk"]
 [ext_resource type="PackedScene" uid="uid://enawlhjqmymv" path="res://UI/Runners/Runner.tscn" id="8_r1um1"]
 [ext_resource type="PackedScene" uid="uid://bl1cpcmhn6dvy" path="res://UI/GameTimer/GameTimer.tscn" id="11_tvbia"]
 [ext_resource type="Resource" uid="uid://dh8ljrlidm1vj" path="res://Data/IngredientTypes/Death Petal_3.tres" id="13_c8hc0"]
@@ -165,10 +165,10 @@ offset_right = 136.0
 offset_bottom = 52.0
 
 [node name="Runner" parent="UINodes" instance=ExtResource("8_r1um1")]
-offset_left = 13.0
-offset_top = 100.0
-offset_right = 13.0
-offset_bottom = 100.0
+offset_left = 10.0
+offset_top = 120.0
+offset_right = 10.0
+offset_bottom = 120.0
 
 [node name="btnRequestDeathPetal" parent="UINodes/Runner/RequestButtonGrid" index="0"]
 ingredient = SubResource("Resource_v8s66")
@@ -182,7 +182,7 @@ ingredient = SubResource("Resource_uxm6u")
 [node name="btnRequestToxin" parent="UINodes/Runner/RequestButtonGrid" index="3"]
 ingredient = SubResource("Resource_y4rx8")
 
-[node name="DudeManager" parent="UINodes" node_paths=PackedStringArray("introductionPoint") instance=ExtResource("5_ojv5s")]
+[node name="DudeManager" parent="UINodes" node_paths=PackedStringArray("introductionPoint", "spawnPoint") instance=ExtResource("5_ojv5s")]
 textureDirectory = "res://assets/dudes"
 orderDirectory = "res://Data/Orders"
 namesFilePath = "res://assets/NamesList.txt"
@@ -190,6 +190,7 @@ dudeSpawnCooldownMin = 2.0
 dudeSpawnCooldownMax = 5.0
 dudeStandTime = 3.0
 introductionPoint = NodePath("../../2DNodes/IntroductionPoint")
+spawnPoint = NodePath("../../2DNodes/Spawn Point")
 
 [node name="Label" type="Label" parent="UINodes"]
 layout_mode = 0
@@ -205,6 +206,9 @@ label_settings = SubResource("LabelSettings_0laqe")
 
 [node name="IntroductionPoint" type="Node2D" parent="2DNodes"]
 position = Vector2(101, 395)
+
+[node name="Spawn Point" type="Node2D" parent="2DNodes"]
+position = Vector2(104, 671)
 
 [node name="ShopSfx" type="AudioStreamPlayer" parent="."]
 volume_db = 2.793

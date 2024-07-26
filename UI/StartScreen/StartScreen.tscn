@@ -1,10 +1,10 @@
 [gd_scene load_steps=12 format=3 uid="uid://dsjw5aseprnp7"]
 
 [ext_resource type="Script" path="res://UI/StartScreen/StartScreen.gd" id="1_4bejo"]
-[ext_resource type="FontFile" uid="uid://doe13s6pv7v0a" path="res://fonts/Breathe Fire.otf" id="2_hhqn8"]
-[ext_resource type="Texture2D" uid="uid://dqqfdk4voiuyj" path="res://assets/icons/screen_tent.png" id="2_tldku"]
-[ext_resource type="Texture2D" uid="uid://qu5tb33mu0t3" path="res://assets/seravat-press-logo.png" id="3_ybycl"]
-[ext_resource type="Texture2D" uid="uid://prk4qa1ldelb" path="res://assets/icons/godot.png" id="4_2bios"]
+[ext_resource type="FontFile" uid="uid://o84mgk5dm7pn" path="res://fonts/Breathe Fire.otf" id="2_hhqn8"]
+[ext_resource type="Texture2D" uid="uid://c0anekvkn8odw" path="res://assets/icons/screen_tent.png" id="2_tldku"]
+[ext_resource type="Texture2D" uid="uid://bbvbod4y0losl" path="res://assets/seravat-press-logo.png" id="3_ybycl"]
+[ext_resource type="Texture2D" uid="uid://cvoqekw0x40es" path="res://assets/icons/godot.png" id="4_2bios"]
 
 [sub_resource type="Curve" id="Curve_yd8eu"]
 min_value = -200.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://enawlhjqmymv"]
+[gd_scene load_steps=14 format=3 uid="uid://enawlhjqmymv"]
 
 [ext_resource type="Script" path="res://UI/Runners/Runner.gd" id="1_58bsv"]
 [ext_resource type="PackedScene" uid="uid://xvaoroug6jw3" path="res://UI/Ingredients/RequestIngredientButton.tscn" id="2_ivquo"]
@@ -9,28 +9,32 @@
 [ext_resource type="Texture2D" uid="uid://dj3dkfwonbkp2" path="res://assets/ingredients/fang.png" id="7_iy2el"]
 [ext_resource type="Texture2D" uid="uid://b8fgndjue41ih" path="res://assets/ingredients/toxin.png" id="9_n34xk"]
 
-[sub_resource type="Resource" id="Resource_yvc0r"]
+[sub_resource type="LabelSettings" id="LabelSettings_i1bnh"]
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Resource" id="Resource_6cwh1"]
 resource_local_to_scene = true
 script = ExtResource("4_sfmyx")
 Name = "Death Petal"
 ID = 3
 imgRect = "res://assets/ingredients/death_petal.png"
 
-[sub_resource type="Resource" id="Resource_gsfqw"]
+[sub_resource type="Resource" id="Resource_7id13"]
 resource_local_to_scene = true
 script = ExtResource("4_sfmyx")
 Name = "Ectoplasm"
 ID = 0
 imgRect = "res://assets/ingredients/ectoplasm.png"
 
-[sub_resource type="Resource" id="Resource_kgtpx"]
+[sub_resource type="Resource" id="Resource_yp2rj"]
 resource_local_to_scene = true
 script = ExtResource("4_sfmyx")
 Name = "Fang"
 ID = 2
 imgRect = "res://assets/ingredients/fang.png"
 
-[sub_resource type="Resource" id="Resource_ut8kg"]
+[sub_resource type="Resource" id="Resource_n1pmp"]
 resource_local_to_scene = true
 script = ExtResource("4_sfmyx")
 Name = "Toxin"
@@ -55,6 +59,12 @@ size_flags_vertical = 3
 max_value = 1.0
 show_percentage = false
 
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Ron the Runner"
+label_settings = SubResource("LabelSettings_i1bnh")
+horizontal_alignment = 1
+
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
 layout_mode = 2
 texture = ExtResource("2_rs5yt")
@@ -68,10 +78,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 62.0
-offset_top = 120.0
-offset_right = 210.0
-offset_bottom = 268.0
+offset_left = 55.0
+offset_top = 108.0
+offset_right = 203.0
+offset_bottom = 256.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
@@ -81,28 +91,28 @@ columns = 2
 [node name="btnRequestDeathPetal" parent="RequestButtonGrid" instance=ExtResource("2_ivquo")]
 layout_mode = 2
 icon = ExtResource("3_riyrb")
-ingredient = SubResource("Resource_yvc0r")
+ingredient = SubResource("Resource_6cwh1")
 
 [node name="btnRequestEctoplasm" parent="RequestButtonGrid" instance=ExtResource("2_ivquo")]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 icon = ExtResource("5_b6rs8")
-ingredient = SubResource("Resource_gsfqw")
+ingredient = SubResource("Resource_7id13")
 
 [node name="btnRequestFang" parent="RequestButtonGrid" instance=ExtResource("2_ivquo")]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 icon = ExtResource("7_iy2el")
-ingredient = SubResource("Resource_kgtpx")
+ingredient = SubResource("Resource_yp2rj")
 
 [node name="btnRequestToxin" parent="RequestButtonGrid" instance=ExtResource("2_ivquo")]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 icon = ExtResource("9_n34xk")
-ingredient = SubResource("Resource_ut8kg")
+ingredient = SubResource("Resource_n1pmp")
 
 [connection signal="timeout" from="MissionTimer" to="." method="_on_mission_timer_timeout"]
 [connection signal="ingredient_clicked" from="RequestButtonGrid/btnRequestDeathPetal" to="." method="_on_btn_request_death_petal_ingredient_clicked"]

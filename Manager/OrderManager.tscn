@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://38p37nklc2cj"]
 
 [ext_resource type="Script" path="res://Manager/OrderManager.gd" id="1_p6a8a"]
-[ext_resource type="AudioStream" uid="uid://d1ierohi0ov1l" path="res://audio/sfx/bottle_3.ogg" id="2_ccgf8"]
+[ext_resource type="AudioStream" uid="uid://lf7fq0xtorta" path="res://audio/sfx/bottle_3.ogg" id="2_ccgf8"]
 
 [node name="OrderManager" type="MarginContainer"]
 offset_right = 450.0
