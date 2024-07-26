@@ -27,7 +27,9 @@ const SPENT_H_TEX = preload("res://assets/hunger/spent_hunger.png")
 @onready var hunger_1 = $VBoxContainer/HungerStates/Hunger1
 @onready var hunger_2 = $VBoxContainer/HungerStates/Hunger2
 @onready var hunger_3 = $VBoxContainer/HungerStates/Hunger3
-@onready var feed_button = $VBoxContainer/ClosetImage/btnFeed
+@onready var feed_button = $VBoxContainer/ClosetImage/MarginContainer/btnFeed
+@onready var feed_label = $VBoxContainer/ClosetImage/MarginContainer/feedLabel
+
 
 var closetFocused : bool = false
 
@@ -43,7 +45,7 @@ func initialize_closet() -> void:
 	hunger_2.texture = GOOD_H_TEX
 	hunger_3.texture = GOOD_H_TEX
 	feed_button.disabled = true
-	feed_button.text = "FEED [" + str(feedCost) + "]"
+	feed_label.text = "FEED [" + str(feedCost) + "]"
 	
 func _process(_delta) -> void: 
 	if !hunger_timer.paused:

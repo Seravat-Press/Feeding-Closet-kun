@@ -1,9 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://dl756gys3wbma"]
+[gd_scene load_steps=8 format=3 uid="uid://dl756gys3wbma"]
 
 [ext_resource type="Script" path="res://UI/Closet/Closet.gd" id="1_fya4j"]
 [ext_resource type="Script" path="res://UI/Closet/VisualHungerTimer.gd" id="3_d0joh"]
 [ext_resource type="Texture2D" uid="uid://0pl7xp0ycxsp" path="res://assets/hunger/good_hunger.png" id="4_2ij0j"]
 [ext_resource type="Texture2D" uid="uid://crc2y0jak00ei" path="res://assets/closet/ClosetStage0.png" id="4_qybs5"]
+[ext_resource type="Texture2D" uid="uid://bpp57aii1s1r3" path="res://assets/icons/feed_button.png" id="5_vowfq"]
+[ext_resource type="FontFile" uid="uid://doe13s6pv7v0a" path="res://fonts/Breathe Fire.otf" id="6_n6lqm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wbj5k"]
+font = ExtResource("6_n6lqm")
+font_size = 24
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 0.545098)
+shadow_offset = Vector2(2, 2)
 
 [node name="Closet" type="MarginContainer"]
 offset_right = 200.0
@@ -53,18 +64,33 @@ size_flags_vertical = 3
 texture = ExtResource("4_qybs5")
 expand_mode = 1
 
-[node name="btnFeed" type="Button" parent="VBoxContainer/ClosetImage"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ClosetImage"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.01
+anchor_top = 0.616352
+anchor_right = 0.595
+anchor_bottom = 0.754717
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="btnFeed" type="Button" parent="VBoxContainer/ClosetImage/MarginContainer"]
 layout_mode = 2
-offset_left = 53.0
-offset_top = 104.0
-offset_right = 127.0
-offset_bottom = 141.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
+icon = ExtResource("5_vowfq")
+icon_alignment = 1
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="feedLabel" type="Label" parent="VBoxContainer/ClosetImage/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
 text = "FEED"
+label_settings = SubResource("LabelSettings_wbj5k")
+horizontal_alignment = 1
 
 [connection signal="shop_devoured" from="." to="." method="_on_shop_devoured"]
 [connection signal="timeout" from="HungerTimer" to="." method="_on_hunger_timer_timeout"]
 [connection signal="mouse_entered" from="VBoxContainer/ClosetImage" to="." method="_on_closet_mouse_entered"]
 [connection signal="mouse_exited" from="VBoxContainer/ClosetImage" to="." method="_on_closet_mouse_exited"]
-[connection signal="button_up" from="VBoxContainer/ClosetImage/btnFeed" to="." method="_on_btn_feed_button_up"]
+[connection signal="button_up" from="VBoxContainer/ClosetImage/MarginContainer/btnFeed" to="." method="_on_btn_feed_button_up"]
