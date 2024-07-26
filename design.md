@@ -1,10 +1,5 @@
 
-# -insert game here- Design Document
-
-This game involves the following aspects:
-
-- Pokemon elements
-- Alchemy/spells
+# *Feeding Closet-kun* Design Document
 
 ---
 
@@ -12,23 +7,39 @@ This game involves the following aspects:
 
 ## Game Summary Pitch
 
-You are an alchemist making potions for your local community. They have problems, problems only alchemy is fit to solve. Like impotence. And a cheating spouse. And... you know... stuff.
+You are an alchemist making potions for your local community. They have problems, problems only alchemy is fit to solve.
 
-Oh yeah, there's an eldritch horror in your closet that needs to be fed. Or the world will end.
+Oh yeah, there's an eldritch horror in your closet that needs to be fed coalesced shadow. Or the world will end.
 
-The monsters are hot?
+Good thing everyone pays you in coalesced shadow and your helpful servant Ron the Runner is here to help fetch ingredients for you!
 
 ## Inspiration
 
+The main inspiration for this game is cooking games like Papa's Pizzeria and Overcooked, where the player has to complete orders within a certain amount of time in order to receive points. The title is inspired by isekai manga such as *Is It Wrong to Try to Pick Up Girls in a Dungeon?*, with their often very long and obvious titles.
+
 ## Player Experience
+
+In a static shop environment, the player will fulfill potion orders from various people with ingredients in their shop. The player can command Ron the Runner to fetch them more ingredients after a short delay. Orders may expire, and grant coalesced shadow on completion, a resource used to stop the horror in Closet-kun from escaping.
 
 ## Platform
 
+The game is developed to release on internet browsers.
+
 ## Development Software
+
+- Godot 4.2.2 for programming.
+- Aseprite for art assets.
+- Adobe Photoshop for art assets.
+- FL Studio for SFX and music.
+- Visual Studio Code for text editing.
 
 ## Genre
 
+Singeplayer, Shop Management
+
 ## Target Audience
+
+With simple mechanics and a frantic pace, this game is marketed to semi-casual players who want a short, tense experience.
 
 ---
 
@@ -36,24 +47,39 @@ The monsters are hot?
 
 ## Gameplay Overview
 
+The player fills potion orders using ingredients fetched by Ron the Runner. They can command Ron to get more ingredients so that they may fulfill these timed orders. The people requesting the orders pay in coalesced shadow, which is fed to Closet-kun to keep the horror inside it imprisoned. If the player fails to feed Closet-kun enough, the horror escapes and the game ends.
+
 ## Theme Interpretation
+
+The player is tasked with mixing ingredients and creating potions, which fits the "Alchemy" theme. The player is paid with coalesced shadow, which is used to keep an unknowable horror locked away. The nature of the currency and vague threat of world-ending terror fits the "Shadow" theme.
 
 ## Primary Mechanics
 
+**Ingredients** are the most basic unit of an **Order**. The player commands Ron the Runner to fetch **Ingredients**, which the player then uses to complete **Orders** for customers within their **Time Limit**. Upon successful order completion, the player receives **coalesced shadow** to feed to **Closet-kun** to reset the **Hunger Timer**.
+
+The **Hunger Timer** constantly decays over time, and can only be partially reset by feeding it **coalesced shadow**. Once the **Hunger Timer** runs out, the **Hunger Stage** increases. Once the horror inside **Closet-kun** reaches its third **Hunger Stage**, it breaks free, and the game ends.
+
+It is impossible to win the game. The player plays to find out how long they can last before the horror escapes.
+
 ## Secondary Mechanics
+
+The player may feed **Closet-kun** 50 of any single **Ingredient** to reduce the **Hunger Stage** by one.
 
 ---
 
 # Art
 
-- All Ingredient/Order assets are 256x256, resized to 64x64
+All mundane aspects of the background, such as Ron the Runner and the alchemy shop itself, are grayscale. The only elements of color in the game are magical objects, such as ingredients, orders, and the horror inside Closet-kun.
+
+The assets themselves are intentionally sloppily-made, lending an almost Microsoft Paint-type style. Paint bucket is often used without touch-ups, and the lines are thick and erratic to give the game a slapped-together quality.
 
 ---
 
 # Audio
 
 Plugins:
-- https://lese.io/plugin/codec/
+
+- [Codec](https://lese.io/plugin/codec/)
 
 ## Music
 
@@ -65,10 +91,20 @@ Plugins:
 
 ## UI
 
+UI elements are part of the shop itself. The player drags ingredients from the shelf and clicks ingredients on Ron the Runner. The current total of coalesced shadow is displayed in the top right of the screen while the current time is displayed in the top left. The order queue is displayed on the shop counter, with progress bars showing how much time is left to fill them.
+
 ## Controls
+
+The game exclusively uses the mouse and left click. Ingredients are dragged to orders with the mouse and left click, and the player clicks buttons to request ingredients and feed Closet-kun.
 
 ---
 
 # Development Timeline
+
+- 2024-07-22 - 2024-07-23: Complete minimum viable product.
+- 2024-07-24: Create rough assets for shop, potions, and dudes.
+- 2024-07-25: Create and refine basic economy of the game. Time, ingredient costs, etc.
+- 2024-07-26: Add sound effects and animations, clean up rough edges of art and implementation.
+- 2024-07-27: Fix bugs and polish game balance.
 
 It's made for the [Pirate Jam 15](https://itch.io/jam/pirate)
