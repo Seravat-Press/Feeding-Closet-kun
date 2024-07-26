@@ -80,7 +80,6 @@ func fill_sad_container() -> void:
 	
 func _on_play_again_button_pressed():
 	emit_signal("play_again")
-	queue_free()
 
 
 func _on_exit_button_pressed():
