@@ -169,7 +169,7 @@ ingredient = SubResource("Resource_uxm6u")
 [node name="btnRequestToxin" parent="UINodes/Runner/RequestButtonGrid" index="3"]
 ingredient = SubResource("Resource_y4rx8")
 
-[node name="DudeManager" parent="UINodes" node_paths=PackedStringArray("introductionPoint") instance=ExtResource("5_ojv5s")]
+[node name="DudeManager" parent="UINodes" node_paths=PackedStringArray("introductionPoint", "spawnPoint") instance=ExtResource("5_ojv5s")]
 textureDirectory = "res://assets/dudes"
 orderDirectory = "res://Data/Orders"
 namesFilePath = "res://assets/NamesList.txt"
@@ -177,18 +177,24 @@ dudeSpawnCooldownMin = 2.0
 dudeSpawnCooldownMax = 5.0
 dudeStandTime = 3.0
 introductionPoint = NodePath("../../2DNodes/IntroductionPoint")
+spawnPoint = NodePath("../../2DNodes/SpawnPoint")
 
 [node name="2DNodes" type="Node2D" parent="."]
 
 [node name="IntroductionPoint" type="Node2D" parent="2DNodes"]
-position = Vector2(101, 395)
+position = Vector2(216, 399)
+
+[node name="SpawnPoint" type="Node2D" parent="2DNodes"]
+position = Vector2(-105, 399)
 
 [node name="ShopSfx" type="AudioStreamPlayer" parent="."]
 volume_db = 2.793
+bus = &"SFX"
 
 [node name="ShopMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_58p6x")
 volume_db = -5.587
+bus = &"Music"
 
 [connection signal="shadow_changed" from="ProcessingNodes/Storage" to="UINodes/Closet" method="_on_storage_shadow_changed"]
 [connection signal="hunger_changed" from="UINodes/Closet" to="." method="_on_closet_hunger_changed"]
