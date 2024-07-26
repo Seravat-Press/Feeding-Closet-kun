@@ -17,6 +17,9 @@ const CLOSET_AUDIO = [
 	preload("res://audio/sfx/closet-kun/closet_3.ogg")
 ]
 
+const CLOSET_EAT = preload("res://audio/sfx/closet-kun/closet_eat.ogg")
+const CLOSET_YUM = preload("res://audio/sfx/closet-kun/closet_yum.ogg")
+
 @export_dir var closetAssetPath
 
 @export var hungerStage : HUNGER_STAGES = HUNGER_STAGES.NONE 		## Current hunger stage.
@@ -82,6 +85,8 @@ func decrease_hunger_stage():
 		hungerStage -= 1
 		update_closet_image()
 		hunger_lvl_changed()
+		closet_audio.stream = CLOSET_YUM
+		closet_audio.play()
 
 ## Update the closet texture based on the given hunger stage. 
 func update_closet_image():
@@ -118,6 +123,8 @@ func _on_btn_feed_button_up():
 	hunger_timer.stop()
 	hunger_timer.wait_time = hungerTimerDuration
 	visual_hunger_timer.update_hunger_timer(hungerTimerDuration)
+	closet_audio.stream = CLOSET_EAT
+	closet_audio.play()
 	hunger_timer.start()
 	if storageNode.shadometer < feedCost:
 		feed_button.disabled = true

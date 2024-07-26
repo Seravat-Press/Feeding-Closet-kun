@@ -9,10 +9,11 @@ const BOTTLE_SOUNDS = [
 	preload("res://audio/sfx/bottle_1.ogg"),
 	preload("res://audio/sfx/bottle_2.ogg"),
 	preload("res://audio/sfx/bottle_3.ogg")]
-	
+const FAIL_SOUND = preload("res://audio/sfx/order_fail.ogg")
+
 @onready var visual_queue = $VisualQueue
 @onready var visual = $Visual
-@onready var bottle_audio = $BottleAudio
+@onready var order_audio = $OrderAudio
 
 var focusedOrder : OrderUi
 
@@ -62,8 +63,11 @@ func get_focused_order() -> OrderFull:
 
 func _on_order_success(orderWin : OrderFull) -> void:
 	emit_signal("add_shadow", orderWin.get_cost(), orderWin.parentUI)
-	bottle_audio.stream = BOTTLE_SOUNDS.pick_random()
-	bottle_audio.play()
+	order_audio.stream = BOTTLE_SOUNDS.pick_random()
+	order_audio.play()
 
 func _on_order_fail(orderfail : OrderFull) -> void:
+	#order_audio.stream = FAIL_SOUND
+	#order_audio.play()
+	## Took out fail noise because it made me sad
 	pass
