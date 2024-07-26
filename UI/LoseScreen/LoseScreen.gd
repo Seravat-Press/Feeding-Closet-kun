@@ -25,7 +25,8 @@ const SEC_STR = "%.2f sec"
 
 func _ready():
 	for childNode in get_children():
-		childNode.visible = false
+		if !(childNode is AudioStreamPlayer):
+			childNode.visible = false
 	lose_music.play()
 	
 ## Called when the game is lost. 
