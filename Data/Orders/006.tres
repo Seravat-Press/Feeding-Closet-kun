@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="OrderFull" load_steps=3 format=3 uid="uid://56hgr11vd2yv"]
+
+[ext_resource type="Resource" uid="uid://bl6vrdvv304rf" path="res://Data/OrderTypes/Hypertenser_6.tres" id="1_8ajsg"]
+[ext_resource type="Script" path="res://DataTypes/Order/OrderFull.gd" id="1_ylebi"]
+
+[resource]
+script = ExtResource("1_ylebi")
+orderData = ExtResource("1_8ajsg")
+orderTime = 4.0
+cost = 10

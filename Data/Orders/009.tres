@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="OrderFull" load_steps=3 format=3 uid="uid://dtar6jd3m7rt7"]
+
+[ext_resource type="Script" path="res://DataTypes/Order/OrderFull.gd" id="1_6lvva"]
+[ext_resource type="Resource" uid="uid://1clphd0wm3sy" path="res://Data/OrderTypes/Deathsharp_9.tres" id="1_t3hpx"]
+
+[resource]
+script = ExtResource("1_6lvva")
+orderData = ExtResource("1_t3hpx")
+orderTime = 7.0
+cost = 9

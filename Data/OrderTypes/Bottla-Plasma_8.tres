@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Order" load_steps=5 format=3 uid="uid://fysmoyxe3ru"]
+
+[ext_resource type="Resource" uid="uid://b3jbaa0uxgy8y" path="res://Data/IngredientTypes/Ectoplasm_0.tres" id="1_08qic"]
+[ext_resource type="Script" path="res://DataTypes/Order/Order.gd" id="1_vult1"]
+[ext_resource type="Script" path="res://DataTypes/Ingredients/IngredientOrder.gd" id="2_kj7w4"]
+
+[sub_resource type="Resource" id="Resource_aavmf"]
+script = ExtResource("2_kj7w4")
+ingredientData = ExtResource("1_08qic")
+amountNeeded = 25
+completedFlag = false
+
+[resource]
+script = ExtResource("1_vult1")
+Name = "Bottla 'Plasma"
+neededIngredients = Array[ExtResource("2_kj7w4")]([SubResource("Resource_aavmf")])
+imgRect = "res://assets/orders/wart.png"
+ID = 8

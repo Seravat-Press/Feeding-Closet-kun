@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Order" load_steps=7 format=3 uid="uid://ba6ri8w7iaajg"]
+
+[ext_resource type="Script" path="res://DataTypes/Order/Order.gd" id="1_74lam"]
+[ext_resource type="Resource" uid="uid://beyka4mlbrrny" path="res://Data/IngredientTypes/Fang_2.tres" id="1_a627q"]
+[ext_resource type="Script" path="res://DataTypes/Ingredients/IngredientOrder.gd" id="2_ea6xj"]
+[ext_resource type="Resource" uid="uid://b3jbaa0uxgy8y" path="res://Data/IngredientTypes/Ectoplasm_0.tres" id="3_avln1"]
+
+[sub_resource type="Resource" id="Resource_hkrw8"]
+script = ExtResource("2_ea6xj")
+ingredientData = ExtResource("1_a627q")
+amountNeeded = 3
+completedFlag = false
+
+[sub_resource type="Resource" id="Resource_rmge4"]
+script = ExtResource("2_ea6xj")
+ingredientData = ExtResource("3_avln1")
+amountNeeded = 2
+completedFlag = false
+
+[resource]
+script = ExtResource("1_74lam")
+Name = "Focus Rite"
+neededIngredients = Array[ExtResource("2_ea6xj")]([SubResource("Resource_hkrw8"), SubResource("Resource_rmge4")])
+imgRect = "res://assets/orders/invisibility.png"
+ID = 7

@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Order" load_steps=7 format=3 uid="uid://1clphd0wm3sy"]
+
+[ext_resource type="Resource" uid="uid://beyka4mlbrrny" path="res://Data/IngredientTypes/Fang_2.tres" id="1_eytrt"]
+[ext_resource type="Script" path="res://DataTypes/Order/Order.gd" id="1_rtufp"]
+[ext_resource type="Script" path="res://DataTypes/Ingredients/IngredientOrder.gd" id="2_hkayt"]
+[ext_resource type="Resource" uid="uid://bvq3jcd5f7gps" path="res://Data/IngredientTypes/Toxin_1.tres" id="3_2nosm"]
+
+[sub_resource type="Resource" id="Resource_r2u8r"]
+script = ExtResource("2_hkayt")
+ingredientData = ExtResource("1_eytrt")
+amountNeeded = 4
+completedFlag = false
+
+[sub_resource type="Resource" id="Resource_ssgrc"]
+script = ExtResource("2_hkayt")
+ingredientData = ExtResource("3_2nosm")
+amountNeeded = 5
+completedFlag = false
+
+[resource]
+script = ExtResource("1_rtufp")
+Name = "Deathsharp"
+neededIngredients = Array[ExtResource("2_hkayt")]([SubResource("Resource_r2u8r"), SubResource("Resource_ssgrc")])
+imgRect = "res://assets/orders/invisibility.png"
+ID = 9

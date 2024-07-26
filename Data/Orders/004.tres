@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="OrderFull" load_steps=3 format=3 uid="uid://cyacha6uhhss7"]
+
+[ext_resource type="Resource" uid="uid://bbwlhqnlxgrk2" path="res://Data/OrderTypes/Gossamer-Veil_4.tres" id="1_jxcoi"]
+[ext_resource type="Script" path="res://DataTypes/Order/OrderFull.gd" id="1_rhrid"]
+
+[resource]
+script = ExtResource("1_rhrid")
+orderData = ExtResource("1_jxcoi")
+orderTime = 10.0
+cost = 10

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="OrderFull" load_steps=3 format=3 uid="uid://bn8ox3r3j5uve"]
+
+[ext_resource type="Resource" uid="uid://cjix44hw2cw4g" path="res://Data/OrderTypes/Fizzlepop_5.tres" id="1_dw8tc"]
+[ext_resource type="Script" path="res://DataTypes/Order/OrderFull.gd" id="1_ktlkv"]
+
+[resource]
+script = ExtResource("1_ktlkv")
+orderData = ExtResource("1_dw8tc")
+orderTime = 6.0
+cost = 7

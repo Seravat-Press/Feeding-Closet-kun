@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Order" load_steps=5 format=3 uid="uid://bbwlhqnlxgrk2"]
+
+[ext_resource type="Script" path="res://DataTypes/Order/Order.gd" id="1_dll8j"]
+[ext_resource type="Resource" uid="uid://b3jbaa0uxgy8y" path="res://Data/IngredientTypes/Ectoplasm_0.tres" id="1_pjm81"]
+[ext_resource type="Script" path="res://DataTypes/Ingredients/IngredientOrder.gd" id="2_8gwae"]
+
+[sub_resource type="Resource" id="Resource_ul15e"]
+script = ExtResource("2_8gwae")
+ingredientData = ExtResource("1_pjm81")
+amountNeeded = 15
+completedFlag = false
+
+[resource]
+script = ExtResource("1_dll8j")
+Name = "Gossamer Veil"
+neededIngredients = Array[ExtResource("2_8gwae")]([SubResource("Resource_ul15e")])
+imgRect = "res://assets/orders/invisibility.png"
+ID = 4
