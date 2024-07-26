@@ -10,21 +10,18 @@ const startScreen := preload("res://UI/StartScreen/StartScreen.tscn")
 
 @onready var screen_fade = $ScreenFade
 @onready var score_manager = $ScoreManager
-@onready var music_player = $MusicPlayer
 
 var currentScene : Node
 var nextScene : Node
 
 func _ready():
 	Globals.scoreManager = score_manager
-	music_player.stream = MUSIC
 	if SkipMenu:
 		setup_next_scene(shopScene)
 		currentScene = nextScene
 		add_child(currentScene)
 		move_child(currentScene,0)
 		currentScene.start()
-		music_player.play()
 	else:
 		setup_start_screen()
 	
@@ -49,7 +46,6 @@ func _on_game_restart() -> void:
 ## Called when the [ScreenFade] has faded in. 
 func _on_screen_fade_faded_in():
 	currentScene.start()
-	music_player.play()
 
 ## Called when the [ScreenFade] has faded out. 
 func _on_screen_fade_faded_out():

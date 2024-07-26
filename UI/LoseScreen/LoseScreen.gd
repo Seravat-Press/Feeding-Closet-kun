@@ -21,10 +21,12 @@ const SEC_STR = "%.2f sec"
 @onready var full_window = $FullWindow
 @onready var sad_container = $SadContainer
 @onready var happy_container = $HappyContainer
+@onready var lose_music = $LoseMusic
 
 func _ready():
 	for childNode in get_children():
 		childNode.visible = false
+	lose_music.play()
 	
 ## Called when the game is lost. 
 func _on_lose(sElapsed : float):
