@@ -81,7 +81,7 @@ func move_dude(dude : Dude, point : Vector2):
 	dude.set_begin(point)
 
 func begin_spawning_dudes():
-	dude_spawn_cooldown.stop
+	dude_spawn_cooldown.stop()
 	randomize_dude_cooldown()
 	dude_spawn_cooldown.start()
 
@@ -99,3 +99,6 @@ func _on_dude_stand_timer_timeout():
 	randomize_dude_cooldown()
 	dude_spawn_cooldown.start()
 	
+
+func stop_spawning_dudes() -> void:
+	dude_spawn_cooldown.stop()

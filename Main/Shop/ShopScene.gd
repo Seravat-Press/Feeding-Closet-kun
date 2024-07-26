@@ -65,6 +65,7 @@ func run_test():
 ## Called when all of the hunger thresholds are hit in the closet. 
 func _on_closet_shop_devoured():
 	game_timer.stop()
+	dude_manager.stop_spawning_dudes()
 	var newScreen = loseScreen.instantiate()
 	ui_nodes.add_child(newScreen)
 	newScreen.connect("play_again", Callable(get_parent(), "_on_game_restart"))
