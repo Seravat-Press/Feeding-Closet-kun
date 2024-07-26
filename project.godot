@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Pirate-jam-15"
+config/name="Feeding-Closet-kun"
 run/main_scene="res://Main/Main.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://assets/icons/closet_kun_icon.png"

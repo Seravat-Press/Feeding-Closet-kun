@@ -7,4 +7,4 @@
 script = ExtResource("1_ylebi")
 orderData = ExtResource("1_8ajsg")
 orderTime = 4.0
-cost = 10
+cost = 6

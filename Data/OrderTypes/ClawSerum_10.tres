@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Order" load_steps=5 format=3 uid="uid://2ie67iihff6t"]
+
+[ext_resource type="Resource" uid="uid://beyka4mlbrrny" path="res://Data/IngredientTypes/Fang_2.tres" id="1_6jeu4"]
+[ext_resource type="Script" path="res://DataTypes/Order/Order.gd" id="1_ijyff"]
+[ext_resource type="Script" path="res://DataTypes/Ingredients/IngredientOrder.gd" id="2_amfvx"]
+
+[sub_resource type="Resource" id="Resource_euta0"]
+script = ExtResource("2_amfvx")
+ingredientData = ExtResource("1_6jeu4")
+amountNeeded = 8
+completedFlag = false
+
+[resource]
+script = ExtResource("1_ijyff")
+Name = "Claw Serum"
+neededIngredients = Array[ExtResource("2_amfvx")]([SubResource("Resource_euta0")])
+imgRect = "res://assets/orders/lycan.png"
+ID = 10
