@@ -152,10 +152,10 @@ offset_right = 136.0
 offset_bottom = 52.0
 
 [node name="Runner" parent="UINodes" instance=ExtResource("8_r1um1")]
-offset_left = 13.0
-offset_top = 100.0
-offset_right = 13.0
-offset_bottom = 100.0
+offset_left = 52.0
+offset_top = 67.0
+offset_right = 52.0
+offset_bottom = 67.0
 
 [node name="btnRequestDeathPetal" parent="UINodes/Runner/RequestButtonGrid" index="0"]
 ingredient = SubResource("Resource_v8s66")
@@ -197,12 +197,14 @@ volume_db = -5.587
 bus = &"Music"
 
 [connection signal="shadow_changed" from="ProcessingNodes/Storage" to="UINodes/Closet" method="_on_storage_shadow_changed"]
+[connection signal="shadow_changed" from="ProcessingNodes/Storage" to="UINodes/Shadometer" method="_on_storage_shadow_changed"]
 [connection signal="shop_devoured" from="UINodes/Closet" to="." method="_on_closet_shop_devoured"]
 [connection signal="finished" from="UINodes/Closet/ClosetAudio" to="." method="_on_closet_audio_finished"]
 [connection signal="released_ingredient" from="UINodes/Shelves" to="." method="_on_shelves_released_ingredient"]
 [connection signal="add_shadow" from="UINodes/OrderManager" to="." method="_on_shadow_earn"]
 [connection signal="add_shadow" from="UINodes/OrderManager" to="ProcessingNodes/Storage" method="_on_add_shadow"]
 [connection signal="mission_complete" from="UINodes/Runner" to="ProcessingNodes/Storage" method="_on_add_items"]
+[connection signal="runner_level_up" from="UINodes/Runner" to="." method="_on_runner_runner_level_up"]
 [connection signal="timeout" from="UINodes/Runner/MissionTimer" to="ProcessingNodes/Storage" method="_on_mission_timer_timeout"]
 [connection signal="dude_spawned" from="UINodes/DudeManager" to="UINodes/OrderManager" method="_on_dude_manager_dude_spawned"]
 
