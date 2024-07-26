@@ -11,6 +11,12 @@ enum HUNGER_STAGES {
 signal hunger_changed(new_value)	## Emitted when the hunger value has changed. 
 signal shop_devoured				## Emitted when all hunger levels are filled. 
 
+const CLOSET_AUDIO = [
+	preload("res://audio/sfx/closet-kun/closet_1.ogg"),
+	preload("res://audio/sfx/closet-kun/closet_2.ogg"),
+	preload("res://audio/sfx/closet-kun/closet_3.ogg")
+]
+
 @export_dir var closetAssetPath
 
 @export var hungerStage : HUNGER_STAGES = HUNGER_STAGES.NONE 		## Current hunger stage.
@@ -29,6 +35,7 @@ const SPENT_H_TEX = preload("res://assets/hunger/spent_hunger.png")
 @onready var hunger_3 = $VBoxContainer/HungerStates/Hunger3
 @onready var feed_button = $VBoxContainer/ClosetImage/MarginContainer/btnFeed
 @onready var feed_label = $VBoxContainer/ClosetImage/MarginContainer/feedLabel
+@onready var closet_audio = $ClosetAudio
 
 
 var closetFocused : bool = false
@@ -66,6 +73,8 @@ func increase_hunger_stage():
 	hungerStage += 1
 	update_closet_image()
 	hunger_lvl_changed()
+	closet_audio.stream = CLOSET_AUDIO.pick_random()
+	closet_audio.play()
 
 ## Call to decrease the hunger stage and update the closet image. 
 func decrease_hunger_stage():

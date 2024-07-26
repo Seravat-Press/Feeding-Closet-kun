@@ -93,7 +93,8 @@ func _on_shadow_earn(amt : int, orderNode : OrderUi) -> void:
 	_2d_nodes.add_child(new_shadow)
 	new_shadow.spawn_particles(orderNode.global_position, shadometer.get_particle_destination(), amt)
 
-func _on_closet_hunger_changed(value : int) -> void:
+
+func _on_closet_audio_finished():
 	if closet.hungerStage == Closet.HUNGER_STAGES.THIRD:
 		shop_sfx.stream = load("res://audio/sfx/alchemist/alchemist_scared.ogg")
 	else:
