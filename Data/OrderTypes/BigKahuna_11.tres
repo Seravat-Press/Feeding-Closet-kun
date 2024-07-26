@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Order" load_steps=7 format=3 uid="uid://dpwnida7bnhxe"]
+
+[ext_resource type="Resource" uid="uid://dh8ljrlidm1vj" path="res://Data/IngredientTypes/Death Petal_3.tres" id="1_4lka5"]
+[ext_resource type="Script" path="res://DataTypes/Ingredients/IngredientOrder.gd" id="2_mxeq5"]
+[ext_resource type="Resource" uid="uid://beyka4mlbrrny" path="res://Data/IngredientTypes/Fang_2.tres" id="3_sltm1"]
+[ext_resource type="Script" path="res://DataTypes/Order/Order.gd" id="4_hubfj"]
+
+[sub_resource type="Resource" id="Resource_d12cy"]
+script = ExtResource("2_mxeq5")
+ingredientData = ExtResource("1_4lka5")
+amountNeeded = 15
+completedFlag = false
+
+[sub_resource type="Resource" id="Resource_ctdkk"]
+script = ExtResource("2_mxeq5")
+ingredientData = ExtResource("3_sltm1")
+amountNeeded = 15
+completedFlag = false
+
+[resource]
+script = ExtResource("4_hubfj")
+Name = "The Big Kahuna"
+neededIngredients = Array[ExtResource("2_mxeq5")]([SubResource("Resource_d12cy"), SubResource("Resource_ctdkk")])
+imgRect = "res://assets/orders/wart.png"
+ID = 11
