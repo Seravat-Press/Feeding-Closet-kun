@@ -185,7 +185,7 @@ orderDirectory = "res://Data/Orders"
 namesFilePath = "res://assets/NamesList.txt"
 dudeSpawnCooldownMin = 2.0
 dudeSpawnCooldownMax = 5.0
-dudeStandTime = 3.0
+dudeStandTime = 2.0
 introductionPoint = NodePath("../../2DNodes/IntroductionPoint")
 spawnPoint = NodePath("../../2DNodes/StartPoint")
 
