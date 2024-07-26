@@ -142,5 +142,17 @@ metadata/_edit_use_anchors_ = true
 stream = ExtResource("4_bdxw5")
 bus = &"Music"
 
+[node name="TweetNote" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Tweet your high scores @ThatFoxe !!"
+
 [connection signal="pressed" from="FullWindow/VBoxContainer/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
 [connection signal="pressed" from="FullWindow/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
