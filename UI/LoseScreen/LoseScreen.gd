@@ -12,8 +12,8 @@ const SEC_STR = "%.2f sec"
 @onready var hr_sep = $FullWindow/VBoxContainer/HBoxContainer/HrSep
 @onready var min_sep = $FullWindow/VBoxContainer/HBoxContainer/MinSep
 
-@onready var happy_list = $HappyContainer/HappyList
-@onready var sad_list = $SadContainer/SadList
+@onready var happy_list = $HappyContainer/ScrollContainer/HappyList
+@onready var sad_list = $SadContainer/ScrollContainer/SadList
 
 @onready var high_score_label = $HighScoreLabel
 @onready var previous_score_label = $PreviousScoreLabel

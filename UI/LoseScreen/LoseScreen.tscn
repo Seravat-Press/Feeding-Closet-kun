@@ -86,7 +86,10 @@ text = "Sad People"
 [node name="HSeparator" type="HSeparator" parent="SadContainer"]
 layout_mode = 2
 
-[node name="SadList" type="VBoxContainer" parent="SadContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="SadContainer"]
+layout_mode = 2
+
+[node name="SadList" type="VBoxContainer" parent="SadContainer/ScrollContainer"]
 layout_mode = 2
 
 [node name="HappyContainer" type="VBoxContainer" parent="."]
@@ -103,7 +106,10 @@ text = "Happy People"
 [node name="HSeparator2" type="HSeparator" parent="HappyContainer"]
 layout_mode = 2
 
-[node name="HappyList" type="VBoxContainer" parent="HappyContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="HappyContainer"]
+layout_mode = 2
+
+[node name="HappyList" type="VBoxContainer" parent="HappyContainer/ScrollContainer"]
 layout_mode = 2
 
 [node name="HighScoreLabel" type="RichTextLabel" parent="."]
