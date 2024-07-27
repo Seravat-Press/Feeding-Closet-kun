@@ -103,12 +103,11 @@ anchor_bottom = 0.725309
 offset_bottom = 40.0
 scale = Vector2(0.7, 0.7)
 size_flags_horizontal = 0
-hungerTimerDuration = 20
 storageNode = NodePath("../../ProcessingNodes/Storage")
-feedCost = 10
+hungerTimerDuration = 20
 metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" parent="UINodes/Closet" index="1"]
+[node name="VBoxContainer" parent="UINodes/Closet" index="0"]
 metadata/_edit_lock_ = true
 
 [node name="HungerStates" parent="UINodes/Closet/VBoxContainer" index="0"]

@@ -28,7 +28,11 @@ func update_shadow() -> void:
 func set_new_shadow(newShadow : int) -> void:
 	shadometer = newShadow
 	update_shadow()
-	
+
+## Returns the current value of the shadometer.
+func get_shadometer() -> int:
+	return shadometer
+
 ## Received from OrderManager
 func _on_add_shadow(addAmount : int, _orderNode : OrderUi) -> void:
 	add_shadow(addAmount)

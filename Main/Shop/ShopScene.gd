@@ -28,10 +28,10 @@ const WORRIED_SOUNDS = [
 
 func start():
 	set_initial_resources()
-	closet.initialize_closet()
-	closet.reset_hunger_timer()
-	dude_manager.begin_spawning_dudes()
 	setup_timer()
+	closet.initialize_closet()
+	#closet.reset_hunger_timer()
+	dude_manager.begin_spawning_dudes()
 	shop_music.play()
 	#run_test()
 
