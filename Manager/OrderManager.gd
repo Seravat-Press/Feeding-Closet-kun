@@ -1,6 +1,7 @@
 class_name OrderManager extends Control
 
 signal add_shadow(amt : int, orderui : OrderUi)
+signal queued_order_failed
 
 var orderQueue : Array
 var newOrderPreloaded = preload("res://UI/Orders/OrderUI.tscn")
@@ -35,6 +36,10 @@ func order_enqueue(newOrder : OrderUi):
 	newOrder.activate_order()
 	orderQueue.append(newOrder)
 
+func _on_shop_devoured() -> void:
+	for order in visual_queue.get_children():
+		order._on_order_failed()
+
 func order_dequeue():
 	visual_queue.remove_child(orderQueue.pop_front())
 
@@ -66,4 +71,4 @@ func _on_order_fail(_order_fail : OrderFull) -> void:
 	#order_audio.stream = FAIL_SOUND
 	#order_audio.play()
 	## Took out fail noise because it made me sad
-	pass
+	emit_signal("queued_order_failed")

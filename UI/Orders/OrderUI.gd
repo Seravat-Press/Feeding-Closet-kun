@@ -14,6 +14,7 @@ signal left_order(order)
 @onready var ingredient_lines: VBoxContainer = $MarginContainer/VBoxContainer/IngredientLines
 @onready var order_progress_bar = $MarginContainer/VBoxContainer/OrderProgressBar
 @onready var order_name = $MarginContainer/VBoxContainer/OrderName
+@onready var order_outline: ColorRect = $OrderOutline
 
 var outlineEntered : bool = false
 var rollingCost : int = 0
@@ -110,9 +111,21 @@ func are_ingredients_filled() -> bool:
 func get_cost() -> int:
 	return self.rollingCost
 
+func order_fall() -> void:
+	var fallTween = create_tween()
+	var rotTween = create_tween()
+	order_outline.position -= Vector2(self.size.x /2, self.size.y / 2)
+	$MarginContainer.position -= Vector2(self.size.x /2, self.size.y / 2)
+	fallTween.tween_property(self, "position", Vector2(self.position.x, self.position.y + 500), 0.3).set_ease(Tween.EASE_IN)
+	
+	rotTween.tween_property(self, "rotation", -90, 0.3).set_ease(Tween.EASE_IN)
+	
+	await fallTween.finished
+	queue_free()
+	
 func _on_order_failed():
 	orderData.fail_order()
-	queue_free()
+	order_fall()
 
 func _on_order_success(_orderCompleted : OrderFull):
 	queue_free()
