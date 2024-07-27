@@ -2,6 +2,9 @@
 ## This serves UI. 
 class_name Storage extends Node
 
+## Shadow lost on an order fail. 
+const SHAD_LOST : int = 3
+
 signal shadow_changed(new_value) ## Amount of shadow has been changed.
 
 @export var shadometer : int = 0					## Money. 
@@ -51,3 +54,7 @@ func _on_add_items(newItem : Ingredient, quantity : int) -> void:
 func zero_out_ingredients() -> void:
 	for ing in ingredientStorage:
 		ing.ingredientData.update_amount(0)
+
+## Decrease CS values whenever an order is failed. 
+func _on_order_fail() -> void:
+	sub_shadow(SHAD_LOST)

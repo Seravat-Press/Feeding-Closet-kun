@@ -108,7 +108,6 @@ offset_bottom = 40.0
 scale = Vector2(0.7, 0.7)
 size_flags_horizontal = 0
 storageNode = NodePath("../../ProcessingNodes/Storage")
-hungerTimerDuration = 20
 metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" parent="UINodes/Closet" index="0"]
@@ -207,7 +206,7 @@ spawn_point = NodePath("../../2DNodes/SettingsOpenPoint")
 position = Vector2(216, 399)
 
 [node name="SpawnPoint" type="Node2D" parent="2DNodes"]
-position = Vector2(-105, 399)
+position = Vector2(-208, 409)
 
 [node name="SettingsOpenPoint" type="Node2D" parent="2DNodes"]
 position = Vector2(928, 196)
@@ -224,10 +223,13 @@ bus = &"Music"
 [connection signal="shadow_changed" from="ProcessingNodes/Storage" to="UINodes/Closet" method="_on_storage_shadow_changed"]
 [connection signal="shadow_changed" from="ProcessingNodes/Storage" to="UINodes/Shadometer" method="_on_storage_shadow_changed"]
 [connection signal="shop_devoured" from="UINodes/Closet" to="." method="_on_closet_shop_devoured"]
+[connection signal="shop_devoured" from="UINodes/Closet" to="UINodes/OrderManager" method="_on_shop_devoured"]
 [connection signal="finished" from="UINodes/Closet/ClosetAudio" to="." method="_on_closet_audio_finished"]
 [connection signal="released_ingredient" from="UINodes/Shelves" to="." method="_on_shelves_released_ingredient"]
 [connection signal="add_shadow" from="UINodes/OrderManager" to="." method="_on_shadow_earn"]
 [connection signal="add_shadow" from="UINodes/OrderManager" to="ProcessingNodes/Storage" method="_on_add_shadow"]
+[connection signal="queued_order_failed" from="UINodes/OrderManager" to="ProcessingNodes/Storage" method="_on_order_fail"]
+[connection signal="increment_reached" from="UINodes/GameTimer" to="UINodes/DudeManager" method="_on_game_timer_threshold_reached"]
 [connection signal="mission_complete" from="UINodes/Runner" to="ProcessingNodes/Storage" method="_on_add_items"]
 [connection signal="runner_level_up" from="UINodes/Runner" to="." method="_on_runner_runner_level_up"]
 [connection signal="timeout" from="UINodes/Runner/MissionTimer" to="ProcessingNodes/Storage" method="_on_mission_timer_timeout"]
