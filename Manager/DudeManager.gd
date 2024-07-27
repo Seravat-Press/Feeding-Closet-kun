@@ -1,6 +1,8 @@
 ## Manager for Dude-related functionality. 
 class_name DudeManager extends Control
 
+const TIMER_INCREMENT : float = 0.5
+
 const DUDE_AUDIO = [
 	preload("res://audio/sfx/dudes/dudes_1.ogg"),
 	preload("res://audio/sfx/dudes/dudes_2.ogg"),
@@ -35,6 +37,8 @@ signal dude_despawned(dude)
 @onready var dude_spawn_cooldown = $DudeSpawnCooldown
 @onready var dude_stand_timer = $DudeStandTimer
 @onready var dude_audio = $DudeAudio
+
+var rollingDudeSpawnModifier : float = 0.0	## Increase to make dudes spawn faster. 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -90,13 +94,17 @@ func despawn_current_dude():
 func move_dude(dude : Dude, point : Vector2):
 	dude.set_begin(point)
 
+## Called when the game timer reaches its threshold. 
+func _on_game_timer_threshold_reached() -> void:
+	rollingDudeSpawnModifier += TIMER_INCREMENT
+	
 func begin_spawning_dudes():
 	dude_spawn_cooldown.stop()
 	randomize_dude_cooldown()
 	dude_spawn_cooldown.start()
 
 func randomize_dude_cooldown():
-	dude_spawn_cooldown.wait_time = randf_range(dudeSpawnCooldownMin, dudeSpawnCooldownMax)
+	dude_spawn_cooldown.wait_time = max(0.0,(randf_range(dudeSpawnCooldownMin, dudeSpawnCooldownMax) - rollingDudeSpawnModifier))
 
 func _on_dude_spawn_cooldown_timeout():
 	spawn_dude()
