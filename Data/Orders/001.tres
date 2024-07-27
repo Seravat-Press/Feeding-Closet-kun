@@ -7,5 +7,5 @@
 resource_local_to_scene = true
 script = ExtResource("1_metwy")
 orderData = ExtResource("1_e036t")
-orderTime = 5.0
-cost = 4
+timeAdder = 0.5
+costAdder = 0

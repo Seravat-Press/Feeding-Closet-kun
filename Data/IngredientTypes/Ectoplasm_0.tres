@@ -9,5 +9,5 @@ Name = "Ectoplasm"
 ID = 0
 imgRect = "res://assets/ingredients/ectoplasm.png"
 orderTimeMod = 0.4
-orderCostMod = 0.01
+orderCostMod = 1
 fetchTimeMod = 0.5
