@@ -203,10 +203,10 @@ spawn_point = NodePath("../../2DNodes/SettingsOpenPoint")
 [node name="2DNodes" type="Node2D" parent="."]
 
 [node name="IntroductionPoint" type="Node2D" parent="2DNodes"]
-position = Vector2(216, 399)
+position = Vector2(150, 402)
 
 [node name="SpawnPoint" type="Node2D" parent="2DNodes"]
-position = Vector2(-208, 409)
+position = Vector2(-392, 409)
 
 [node name="SettingsOpenPoint" type="Node2D" parent="2DNodes"]
 position = Vector2(928, 196)
