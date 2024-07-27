@@ -21,5 +21,5 @@ completedFlag = false
 script = ExtResource("1_s38wj")
 Name = "Blessed Curse"
 neededIngredients = Array[ExtResource("2_g1tmk")]([SubResource("Resource_vnr0h"), SubResource("Resource_a28rw")])
-imgRect = "res://assets/orders/invisibility.png"
+imgRect = "res://assets/orders/blessedcurse.png"
 ID = 12

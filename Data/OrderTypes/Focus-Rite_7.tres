@@ -21,5 +21,5 @@ completedFlag = false
 script = ExtResource("1_74lam")
 Name = "Focus Rite"
 neededIngredients = Array[ExtResource("2_ea6xj")]([SubResource("Resource_hkrw8"), SubResource("Resource_rmge4")])
-imgRect = "res://assets/orders/invisibility.png"
+imgRect = "res://assets/orders/focusrite.png"
 ID = 7

@@ -6,5 +6,5 @@
 [resource]
 script = ExtResource("1_ktlkv")
 orderData = ExtResource("1_dw8tc")
-orderTime = 6.0
-cost = 7
+timeAdder = 0.0
+costAdder = 0

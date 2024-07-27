@@ -21,5 +21,5 @@ completedFlag = false
 script = ExtResource("4_hubfj")
 Name = "The Big Kahuna"
 neededIngredients = Array[ExtResource("2_mxeq5")]([SubResource("Resource_d12cy"), SubResource("Resource_ctdkk")])
-imgRect = "res://assets/orders/wart.png"
+imgRect = "res://assets/orders/bigkahuna.png"
 ID = 11

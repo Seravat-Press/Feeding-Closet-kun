@@ -21,5 +21,5 @@ completedFlag = false
 script = ExtResource("1_rwok8")
 Name = "Fizzlepop"
 neededIngredients = Array[ExtResource("2_hbyva")]([SubResource("Resource_sx1g0"), SubResource("Resource_5v5eb")])
-imgRect = "res://assets/orders/invisibility.png"
+imgRect = "res://assets/orders/fizzypop.png"
 ID = 5

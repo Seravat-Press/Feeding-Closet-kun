@@ -14,5 +14,5 @@ completedFlag = false
 script = ExtResource("1_dll8j")
 Name = "Gossamer Veil"
 neededIngredients = Array[ExtResource("2_8gwae")]([SubResource("Resource_ul15e")])
-imgRect = "res://assets/orders/invisibility.png"
+imgRect = "res://assets/orders/gossamerveil.png"
 ID = 4

@@ -14,5 +14,5 @@ completedFlag = false
 script = ExtResource("1_qihnj")
 Name = "Hypertenser"
 neededIngredients = Array[ExtResource("2_stpbi")]([SubResource("Resource_if3k4")])
-imgRect = "res://assets/orders/invisibility.png"
+imgRect = "res://assets/orders/hypertenser.png"
 ID = 6
