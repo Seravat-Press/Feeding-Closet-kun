@@ -80,7 +80,7 @@ func _on_mission_timer_timeout():
 	gatherQuantity += (currentLevel * BONUS_PER_LEVEL)
 	mission_complete.emit(targetIngredient.ingredientData, gatherQuantity)
 	mission_timer.stop()
-	print("Mission for " + targetIngredient.get_ingredient_name() + " successful. " + str(gatherQuantity) + " retrieved.")
+	#print("Mission for " + targetIngredient.get_ingredient_name() + " successful. " + str(gatherQuantity) + " retrieved.")
 	var numLabel : FetchNumber = FETCH_NUMBER.instantiate()
 	add_child(numLabel)
 	numLabel.launch_number(gatherQuantity, num_spawn_location.global_position)
