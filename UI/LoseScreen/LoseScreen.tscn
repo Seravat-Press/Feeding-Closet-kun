@@ -74,10 +74,13 @@ layout_mode = 2
 text = "Exit!"
 
 [node name="SadContainer" type="VBoxContainer" parent="."]
-offset_right = 85.0
-offset_bottom = 23.0
+offset_left = 8.0
+offset_top = 1.0
+offset_right = 93.0
+offset_bottom = 638.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="SadContainer"]
 layout_mode = 2
@@ -88,16 +91,21 @@ layout_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="SadContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="SadList" type="VBoxContainer" parent="SadContainer/ScrollContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="HappyContainer" type="VBoxContainer" parent="."]
-offset_left = 1045.0
-offset_right = 1152.0
-offset_bottom = 23.0
+offset_left = 1036.0
+offset_top = 5.0
+offset_right = 1143.0
+offset_bottom = 639.0
 size_flags_horizontal = 8
 size_flags_vertical = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="HappyContainer"]
 layout_mode = 2
@@ -108,9 +116,12 @@ layout_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="HappyContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="HappyList" type="VBoxContainer" parent="HappyContainer/ScrollContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="HighScoreLabel" type="RichTextLabel" parent="."]
 visible = false
