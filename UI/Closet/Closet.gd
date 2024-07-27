@@ -68,10 +68,11 @@ func initialize_closet() -> void:
 func _process(_delta) -> void: 
 	if !activeTimer.paused:
 		update_visual_hunger_timer()
+		update_feed_button()
 		
+## Converts the active timer's time_left and displays it on the hunger timer. 
 func update_visual_hunger_timer() -> void:
 	var timeLeft = hungerTimerDuration * (activeTimer.time_left / hungerTimerDuration)
-	print(timeLeft)
 	visual_hunger_timer.update_hunger_timer(timeLeft)
 	
 ## Call to set up a new timer and make that timer active. 
@@ -148,6 +149,7 @@ func _on_btn_feed_button_pressed():
 	var remainPercent : float = activeTimer.time_left / hungerTimerDuration
 	var currShadometerVal : int = storageNode.get_shadometer()
 	
+	# Check if we can even spend shadometer. 
 	if currShadometerVal < minimumFeedCost or (remainPercent > 0.9): 
 		# We DO NOT have enough CS to feed.
 		# OR
@@ -182,6 +184,7 @@ func _on_btn_feed_button_pressed():
 	# Convert CS Spent to additional wait time
 	var addlWait = ((csSpendValue * AMT_TIMER_PER_10_CS) / CS_10) * hungerTimerDuration
 	
+	# Add the wait to the current wait and create a new timer. 
 	var newWait = currWaitRemaining + addlWait
 	set_up_new_timer(newWait)
 	play_feed_audio()
