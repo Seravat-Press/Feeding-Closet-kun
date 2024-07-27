@@ -36,6 +36,7 @@ func _process(_delta) -> void:
 
 ## Activate an order and fill out the OrderUI
 func activate_order() -> void:
+	# TODO change orderTime to the ingredient mod AND add a modifier in the orderFull
 	order_timer.wait_time = orderData.orderTime
 	order_name.text = "[center]" + orderData.get_order_name() + "[/center]"
 	order_tex.texture = load(orderData.orderData.imgRect)

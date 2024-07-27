@@ -5,6 +5,7 @@ signal runner_level_up
 
 var targetIngredient : IngredientFetch
 var gatherQuantity : int = 0
+var timeCalculated : float = 0.0
 
 const RUNNER_AUDIO = [
 	preload("res://audio/sfx/runner/runner_1.ogg"),
@@ -45,7 +46,7 @@ func update_labels() -> void:
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta) -> void:
-	mission_timer_progress_bar.value = mission_timer.time_left / mission_timer.wait_time
+	mission_timer_progress_bar.value = mission_timer.time_left / timeCalculated
 
 func randomize_quantity_retrieved() -> int:
 	return randi_range(targetIngredient.gatherMin, targetIngredient.gatherMax)
@@ -53,15 +54,19 @@ func randomize_quantity_retrieved() -> int:
 func begin_resource_mission(requestedIngredient : IngredientFetch):
 	targetIngredient = requestedIngredient
 	
-	mission_timer_progress_bar.visible = true
 	for button in request_button_grid.get_children():
 		if button.ingredient.get_ingredient_id() != requestedIngredient.get_ingredient_id():
 			button.visible = false
 		else:
 			button.disabled = true
 
-	mission_timer_progress_bar.value = requestedIngredient.sourceTime
-	mission_timer.wait_time = requestedIngredient.sourceTime
+	## Calculate random number, calculate wait time from that. NOTE keep currentLevel * bonus in the timeout.
+	gatherQuantity = randomize_quantity_retrieved()
+	timeCalculated = (gatherQuantity * targetIngredient.get_ingredient_fetch_mod()) + targetIngredient.timeMod
+	
+	mission_timer_progress_bar.value = timeCalculated
+	mission_timer.wait_time = timeCalculated
+	mission_timer_progress_bar.visible = true
 	mission_timer.start()
 
 func _on_mission_timer_timeout():
@@ -69,7 +74,7 @@ func _on_mission_timer_timeout():
 		button.visible = true
 		button.disabled = false
 	mission_timer_progress_bar.visible = false
-	gatherQuantity = randomize_quantity_retrieved() + (currentLevel * BONUS_PER_LEVEL)
+	gatherQuantity += (currentLevel * BONUS_PER_LEVEL)
 	mission_complete.emit(targetIngredient.ingredientData, gatherQuantity)
 	mission_timer.stop()
 	print("Mission for " + targetIngredient.get_ingredient_name() + " successful. " + str(gatherQuantity) + " retrieved.")

@@ -8,3 +8,6 @@ script = ExtResource("1_pfsje")
 Name = "Ectoplasm"
 ID = 0
 imgRect = "res://assets/ingredients/ectoplasm.png"
+orderTimeMod = 0.4
+orderCostMod = 0.01
+fetchTimeMod = 0.5

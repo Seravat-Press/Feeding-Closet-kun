@@ -6,6 +6,8 @@ class_name IngredientFetch extends Resource
 @export_range(0, 100, 1) var gatherMin : int = 10 ## Minimum amount gathered by runner
 @export_range(0, 100, 1) var gatherMax : int = 10 ## Maximum amount gathered by runner
 
+@export_range(-30.0, 30.0, 0.1) var timeMod : float = 0.0	## Extra time modifier for a resource fetch (seconds)
+
 ## Option to pass in a new ingredient on creation. 
 func _init(newIngredient : Ingredient = null):
 	if newIngredient != null:
@@ -26,3 +28,7 @@ func get_ingredient_name() -> String:
 ## Returns the ID of the [Ingredient].
 func get_ingredient_id() -> int: 
 	return ingredientData.ID
+
+## Returns the fetchTimeMod of the child [Ingredient]. 
+func get_ingredient_fetch_mod() -> float:
+	return ingredientData.fetchTimeMod

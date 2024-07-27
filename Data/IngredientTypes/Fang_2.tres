@@ -8,3 +8,6 @@ script = ExtResource("1_242h3")
 Name = "Fang"
 ID = 2
 imgRect = "res://assets/ingredients/fang.png"
+orderTimeMod = 1.0
+orderCostMod = 6
+fetchTimeMod = 0.9
