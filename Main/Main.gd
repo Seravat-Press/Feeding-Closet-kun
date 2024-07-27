@@ -27,7 +27,6 @@ func _ready():
 func setup_start_screen(): 
 	setup_next_scene(startScreen)
 	currentScene = nextScene
-	print(currentScene)
 	add_child(currentScene)
 	move_child(currentScene,0)
 
