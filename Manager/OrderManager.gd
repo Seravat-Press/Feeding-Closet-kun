@@ -21,10 +21,6 @@ var focusedOrder : OrderUi
 func _ready():
 	visual.visible = false
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func generate_order(orderData):
 	var newOrder : OrderUi = newOrderPreloaded.instantiate()
 	newOrder.install_order_data(orderData)
@@ -66,7 +62,7 @@ func _on_order_success(orderWin : OrderFull) -> void:
 	order_audio.stream = BOTTLE_SOUNDS.pick_random()
 	order_audio.play()
 
-func _on_order_fail(orderfail : OrderFull) -> void:
+func _on_order_fail(_order_fail : OrderFull) -> void:
 	#order_audio.stream = FAIL_SOUND
 	#order_audio.play()
 	## Took out fail noise because it made me sad

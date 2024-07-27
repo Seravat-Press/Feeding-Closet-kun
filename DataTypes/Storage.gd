@@ -30,7 +30,7 @@ func set_new_shadow(newShadow : int) -> void:
 	update_shadow()
 	
 ## Received from OrderManager
-func _on_add_shadow(addAmount : int, orderNode : OrderUi) -> void:
+func _on_add_shadow(addAmount : int, _orderNode : OrderUi) -> void:
 	add_shadow(addAmount)
 
 ## Sets up all of the ingredients. 

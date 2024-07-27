@@ -68,9 +68,9 @@ func _on_order_timer_timeout():
 	_on_order_failed()
 
 ## Calculates the tip based on the time left when an order is completed. 
-func calculate_tip():
-	## TODO: Do something with this value. Maybe set a threshold of 40% for earning any tip? 
-	var tip = order_timer.time_left / orderData.orderTime
+#func calculate_tip():
+#	## TODO: Do something with this value. Maybe set a threshold of 40% for earning any tip? 
+#	var tip = order_timer.time_left / orderData.orderTime
 
 	
 func _on_order_outline_mouse_entered():
@@ -105,5 +105,5 @@ func _on_order_failed():
 	orderData.fail_order()
 	queue_free()
 
-func _on_order_success(orderCompleted : OrderFull):
+func _on_order_success(_orderCompleted : OrderFull):
 	queue_free()

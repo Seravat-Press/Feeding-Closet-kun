@@ -25,11 +25,11 @@ func _process(_delta):
 	pass
 
 ## Called when an orderUI emit("order_failed") for this dude's order. 
-func _on_dudes_order_failed(order : OrderFull) -> void: 
+func _on_dudes_order_failed(_failed_order : OrderFull) -> void: 
 	print(dudeName + " is so sad their order is failed...")
 	Globals.get_score_manager().add_sad_person(self.dudeName)
 
 ## Called when an orderUI emit("order_completed") for this dude's order.
-func _on_dudes_order_success(order : OrderFull) -> void:
+func _on_dudes_order_success(_success_order : OrderFull) -> void:
 	print(dudeName + " is so HAPPY their order is fulfilled!")
 	Globals.get_score_manager().add_happy_person(self.dudeName)

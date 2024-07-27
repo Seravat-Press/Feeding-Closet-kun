@@ -129,10 +129,9 @@ func _on_btn_feed_button_up():
 	if storageNode.shadometer < feedCost:
 		feed_button.disabled = true
 
-func _on_storage_shadow_changed(new_value):
+func _on_storage_shadow_changed(_new_value):
 	if storageNode.shadometer >= feedCost:
 		feed_button.disabled = false
-
 
 ## Called when the mouse enters the closet image. 
 func _on_closet_mouse_entered():
