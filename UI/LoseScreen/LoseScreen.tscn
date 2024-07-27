@@ -74,6 +74,8 @@ layout_mode = 2
 text = "Exit!"
 
 [node name="SadContainer" type="VBoxContainer" parent="."]
+anchors_preset = -1
+anchor_right = 0.0121528
 offset_left = 8.0
 offset_top = 1.0
 offset_right = 93.0
@@ -85,6 +87,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Label" type="Label" parent="SadContainer"]
 layout_mode = 2
 text = "Sad People"
+horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="SadContainer"]
 layout_mode = 2
@@ -92,6 +95,7 @@ layout_mode = 2
 [node name="ScrollContainer" type="ScrollContainer" parent="SadContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+horizontal_scroll_mode = 0
 
 [node name="SadList" type="VBoxContainer" parent="SadContainer/ScrollContainer"]
 layout_mode = 2
@@ -117,6 +121,7 @@ layout_mode = 2
 [node name="ScrollContainer" type="ScrollContainer" parent="HappyContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+horizontal_scroll_mode = 0
 
 [node name="HappyList" type="VBoxContainer" parent="HappyContainer/ScrollContainer"]
 layout_mode = 2
