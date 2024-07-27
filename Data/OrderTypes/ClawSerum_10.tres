@@ -14,5 +14,5 @@ completedFlag = false
 script = ExtResource("1_ijyff")
 Name = "Claw Serum"
 neededIngredients = Array[ExtResource("2_amfvx")]([SubResource("Resource_euta0")])
-imgRect = "res://assets/orders/lycan.png"
+imgRect = "res://assets/orders/clawserum.png"
 ID = 10

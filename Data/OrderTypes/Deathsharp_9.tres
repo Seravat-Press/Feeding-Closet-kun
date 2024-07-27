@@ -21,5 +21,5 @@ completedFlag = false
 script = ExtResource("1_rtufp")
 Name = "Deathsharp"
 neededIngredients = Array[ExtResource("2_hkayt")]([SubResource("Resource_r2u8r"), SubResource("Resource_ssgrc")])
-imgRect = "res://assets/orders/invisibility.png"
+imgRect = "res://assets/orders/deathsharp.png"
 ID = 9
