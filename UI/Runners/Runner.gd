@@ -7,6 +7,8 @@ var targetIngredient : IngredientFetch
 var gatherQuantity : int = 0
 var timeCalculated : float = 0.0
 
+const FETCH_NUMBER = preload("res://UI/FetchNumber/FetchNumber.tscn")
+
 const RUNNER_AUDIO = [
 	preload("res://audio/sfx/runner/runner_1.ogg"),
 	preload("res://audio/sfx/runner/runner_2.ogg"),
@@ -30,6 +32,7 @@ const RUNNER_AUDIO = [
 @onready var level_label = $VBoxContainer/VBoxContainer/HBoxContainer/LevelLabel
 @onready var yield_label = $VBoxContainer/VBoxContainer/HBoxContainer2/YieldLabel
 @onready var level_cost = $VBoxContainer/VBoxContainer/HBoxContainer3/LevelCost
+@onready var num_spawn_location: Marker2D = $NumSpawnLocation
 
 var costToLevel : int
 
@@ -78,8 +81,12 @@ func _on_mission_timer_timeout():
 	mission_complete.emit(targetIngredient.ingredientData, gatherQuantity)
 	mission_timer.stop()
 	print("Mission for " + targetIngredient.get_ingredient_name() + " successful. " + str(gatherQuantity) + " retrieved.")
+	var numLabel : FetchNumber = FETCH_NUMBER.instantiate()
+	add_child(numLabel)
+	numLabel.launch_number(gatherQuantity, num_spawn_location.global_position)
 	runner_audio.stream = RUNNER_AUDIO.pick_random()
 	runner_audio.play()
+	
 
 func _on_btn_request_death_petal_ingredient_clicked(ingredient : IngredientFetch):
 	begin_resource_mission(ingredient)
