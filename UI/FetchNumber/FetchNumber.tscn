@@ -61,7 +61,6 @@ libraries = {
 layout_mode = 0
 offset_right = 53.0
 offset_bottom = 36.0
-text = "Test"
 label_settings = SubResource("LabelSettings_aw3e4")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
