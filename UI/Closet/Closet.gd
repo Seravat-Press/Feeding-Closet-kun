@@ -104,7 +104,8 @@ func increase_hunger_stage():
 	closet_audio.play()
 	update_closet_image()
 	hunger_lvl_changed()
-	set_up_new_timer(hungerTimerDuration)
+	if (hungerStage != HUNGER_STAGES.THIRD):
+		set_up_new_timer(hungerTimerDuration)
 
 ## Call to decrease the hunger stage and update the closet image. 
 func decrease_hunger_stage():
