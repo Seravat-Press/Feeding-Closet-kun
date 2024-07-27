@@ -56,7 +56,6 @@ func _on_lose(sElapsed : float):
 	full_window.visible = true
 	sad_container.visible = true
 	happy_container.visible = true
-	$TweetNote.visible = true
 
 ## Check the new score against the current high score. 
 func check_high_score(newScore : float) -> void:

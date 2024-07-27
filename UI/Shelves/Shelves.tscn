@@ -5,56 +5,56 @@
 [ext_resource type="Script" path="res://DataTypes/Ingredients/Ingredient.gd" id="3_edptn"]
 [ext_resource type="Script" path="res://DataTypes/Ingredients/IngredientInventory.gd" id="4_42aol"]
 
-[sub_resource type="Resource" id="Resource_ypn65"]
+[sub_resource type="Resource" id="Resource_b10aa"]
 resource_local_to_scene = true
 script = ExtResource("3_edptn")
 Name = "Ectoplasm"
 ID = 0
 imgRect = "res://assets/ingredients/ectoplasm.png"
 
-[sub_resource type="Resource" id="Resource_ctilt"]
+[sub_resource type="Resource" id="Resource_66kl2"]
 resource_local_to_scene = true
 script = ExtResource("4_42aol")
-ingredientData = SubResource("Resource_ypn65")
+ingredientData = SubResource("Resource_b10aa")
 amountHeld = 0
 
-[sub_resource type="Resource" id="Resource_pige6"]
+[sub_resource type="Resource" id="Resource_c8vqm"]
 resource_local_to_scene = true
 script = ExtResource("3_edptn")
 Name = "Toxin"
 ID = 1
 imgRect = "res://assets/ingredients/toxin.png"
 
-[sub_resource type="Resource" id="Resource_ve1ps"]
+[sub_resource type="Resource" id="Resource_chven"]
 resource_local_to_scene = true
 script = ExtResource("4_42aol")
-ingredientData = SubResource("Resource_pige6")
+ingredientData = SubResource("Resource_c8vqm")
 amountHeld = 0
 
-[sub_resource type="Resource" id="Resource_x07bb"]
+[sub_resource type="Resource" id="Resource_1rgyp"]
 resource_local_to_scene = true
 script = ExtResource("3_edptn")
 Name = "Fang"
 ID = 2
 imgRect = "res://assets/ingredients/fang.png"
 
-[sub_resource type="Resource" id="Resource_uvxgp"]
+[sub_resource type="Resource" id="Resource_jfqhd"]
 resource_local_to_scene = true
 script = ExtResource("4_42aol")
-ingredientData = SubResource("Resource_x07bb")
+ingredientData = SubResource("Resource_1rgyp")
 amountHeld = 0
 
-[sub_resource type="Resource" id="Resource_n373q"]
+[sub_resource type="Resource" id="Resource_h2y5p"]
 resource_local_to_scene = true
 script = ExtResource("3_edptn")
 Name = "Death Petal"
 ID = 3
 imgRect = "res://assets/ingredients/death_petal.png"
 
-[sub_resource type="Resource" id="Resource_sf01m"]
+[sub_resource type="Resource" id="Resource_w4msv"]
 resource_local_to_scene = true
 script = ExtResource("4_42aol")
-ingredientData = SubResource("Resource_n373q")
+ingredientData = SubResource("Resource_h2y5p")
 amountHeld = 0
 
 [node name="Shelves" type="MarginContainer"]
@@ -72,16 +72,16 @@ columns = 4
 
 [node name="IngredientUi" parent="Ingredients" instance=ExtResource("2_wx4m6")]
 layout_mode = 2
-ingredientData = SubResource("Resource_ctilt")
+ingredientData = SubResource("Resource_66kl2")
 
 [node name="IngredientUi2" parent="Ingredients" instance=ExtResource("2_wx4m6")]
 layout_mode = 2
-ingredientData = SubResource("Resource_ve1ps")
+ingredientData = SubResource("Resource_chven")
 
 [node name="IngredientUi3" parent="Ingredients" instance=ExtResource("2_wx4m6")]
 layout_mode = 2
-ingredientData = SubResource("Resource_uvxgp")
+ingredientData = SubResource("Resource_jfqhd")
 
 [node name="IngredientUi4" parent="Ingredients" instance=ExtResource("2_wx4m6")]
 layout_mode = 2
-ingredientData = SubResource("Resource_sf01m")
+ingredientData = SubResource("Resource_w4msv")
