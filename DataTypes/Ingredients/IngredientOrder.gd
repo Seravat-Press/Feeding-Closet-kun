@@ -23,5 +23,14 @@ func fill_amount(subtracted : int) -> int:
 	emit_signal("ingredient_updated", self)
 	return leftover
 
+## Returns the ingredient name. 
 func get_ingredient_name() -> String: 
 	return ingredientData.Name
+
+## Returns the ingredient's order time modifier. 
+func get_ingredient_order_time_mod() -> float:
+	return ingredientData.orderTimeMod
+	
+## Returns the ingredient's order cost modifier. 
+func get_ingredient_order_cost_mod() -> int:
+	return ingredientData.orderCostMod

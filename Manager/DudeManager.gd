@@ -1,5 +1,4 @@
 ## Manager for Dude-related functionality. 
-## TODO could be a Node w/ dudes being added to UI nodes. 
 class_name DudeManager extends Control
 
 const DUDE_AUDIO = [

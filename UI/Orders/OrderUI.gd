@@ -16,6 +16,8 @@ signal left_order(order)
 @onready var order_name = $MarginContainer/VBoxContainer/OrderName
 
 var outlineEntered : bool = false
+var rollingCost : int = 0
+var rollingTime : float = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,35 +25,40 @@ func _ready():
 	order_timer.one_shot = true
 	order_timer.autostart = false
 	order_progress_bar.value = 100
-	
-	## If we already have data somehow, set the timer up. 
-	if orderData != null: 
-		order_timer.wait_time = orderData.orderTime
 
 func _process(_delta) -> void: 
 	if !order_timer.is_stopped():
-		order_progress_bar.value = (order_timer.time_left / orderData.orderTime) * 100
+		order_progress_bar.value = (order_timer.time_left / self.rollingTime) * 100
 	else:
 		order_progress_bar.value = 0
 
 ## Activate an order and fill out the OrderUI
 func activate_order() -> void:
-	# TODO change orderTime to the ingredient mod AND add a modifier in the orderFull
-	order_timer.wait_time = orderData.orderTime
 	order_name.text = "[center]" + orderData.get_order_name() + "[/center]"
 	order_tex.texture = load(orderData.orderData.imgRect)
 	orderData.connect('order_updated', Callable(self, "_on_order_updated"))
 	orderData.connect('order_completed', Callable(self, "_on_order_success"))
+	
+	## Initialize Cost and Time.
+	rollingCost = orderData.get_cost_adder()
+	rollingTime = orderData.get_time_adder()
+	
 	var newIngredientLine : IngredientLine
 	
 	# Loop through ingredients and set up the recipe.
 	for ingredient in orderData.get_ingredients():
+		# Update rolling counts for cost and time
+		rollingTime += ingredient.amountNeeded * ingredient.get_ingredient_order_time_mod()
+		rollingCost += ingredient.amountNeeded * ingredient.get_ingredient_order_cost_mod()
+		
 		newIngredientLine = INGREDIENT_LINE.instantiate()
 		
 		ingredient_lines.add_child(newIngredientLine)
 		# Connect signals for this ingredient
 		ingredient.connect("ingredient_updated", Callable(newIngredientLine, "_on_ingredient_updated"))
 		newIngredientLine.install_ingredient(ingredient)
+	
+	order_timer.wait_time = rollingTime
 	self.visible = true
 	start_order_timer()
 	
@@ -99,8 +106,9 @@ func are_ingredients_filled() -> bool:
 			return false
 	return true
 
+## Returns the current rolling cost for the order. 
 func get_cost() -> int:
-	return orderData.get_cost()
+	return self.rollingCost
 
 func _on_order_failed():
 	orderData.fail_order()

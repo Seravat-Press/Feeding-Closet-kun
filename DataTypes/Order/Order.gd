@@ -30,18 +30,3 @@ func custom_sort_ing_by_id(a : IngredientOrder, b : IngredientOrder) -> bool:
 ## Returns the array of ingredients. 
 func get_ingredients() -> Array[IngredientOrder]:
 	return realIngredients
-	
-## Fill an ingredient in the order.
-func fill_ingredient(new_ingredient : IngredientInventory) -> void:
-	for ingred in realIngredients:
-		if (ingred.ingredientData.ID == new_ingredient.ID) and (ingred.completedFlag == false):
-			## TODO: This could be a dict with the IDs as the keys, no more looping
-			
-			# Make the Amount the leftover. 
-			new_ingredient.update_amount(ingred.fill_amount(new_ingredient.amountHeld))
-			new_ingredient.emit_signal("ingredient_updated")
-			
-			# If the ingredient is filled, send a message. 
-			if ingred.Amount == 0:
-				ingred.completedFlag = true
-				emit_signal("order_updated", new_ingredient)

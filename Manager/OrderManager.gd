@@ -58,7 +58,7 @@ func get_focused_order() -> OrderFull:
 		return null
 
 func _on_order_success(orderWin : OrderFull) -> void:
-	emit_signal("add_shadow", orderWin.get_cost(), orderWin.parentUI)
+	emit_signal("add_shadow", orderWin.parentUI.get_cost(), orderWin.parentUI)
 	order_audio.stream = BOTTLE_SOUNDS.pick_random()
 	order_audio.play()
 

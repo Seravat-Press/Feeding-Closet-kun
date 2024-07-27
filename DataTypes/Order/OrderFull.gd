@@ -6,8 +6,8 @@ signal order_completed
 signal order_failed
 
 @export var orderData : Order				## Order that this full order utilizes. 
-@export_range(0.1,30.0, 0.1) var orderTime : float = 1.00		## Total time in the order
-@export var cost : int = 0					## Cost of the order
+@export_range(-30.0,30.0, 0.1) var timeAdder : float = 0.0		## Adder to calculated order time.
+@export_range(-10, 40, 1) var costAdder : int = 0				## Adder to calculated cost. 
 
 var parentUI : OrderUi
 
@@ -16,8 +16,13 @@ func new_instance():
 	instance.orderData.fix_ingredients()
 	return instance
 
-func get_cost() -> int:
-	return self.cost
+## Returns the cost adder of this order. 
+func get_cost_adder() -> int:
+	return self.costAdder
+
+## Returns the time adder of this order. 
+func get_time_adder() -> float:
+	return self.timeAdder
 	
 func set_order_data(newOrder : Order) -> void: 
 	self.orderData = newOrder

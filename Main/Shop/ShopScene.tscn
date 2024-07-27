@@ -4,15 +4,15 @@
 [ext_resource type="PackedScene" uid="uid://dl756gys3wbma" path="res://UI/Closet/Closet.tscn" id="2_sf3t0"]
 [ext_resource type="PackedScene" uid="uid://38p37nklc2cj" path="res://Manager/OrderManager.tscn" id="3_am2ce"]
 [ext_resource type="PackedScene" uid="uid://ddt7va66cy1mx" path="res://DataTypes/Storage.tscn" id="3_cbyd5"]
-[ext_resource type="Texture2D" uid="uid://c5i4wee5b72tj" path="res://assets/stone_background.png" id="3_dh404"]
+[ext_resource type="Texture2D" uid="uid://8ffm7k8b7c6n" path="res://assets/stone_background.png" id="3_dh404"]
 [ext_resource type="PackedScene" uid="uid://dctd4p2s02lu8" path="res://UI/Shadometer/Shadometer.tscn" id="4_e7eu6"]
 [ext_resource type="PackedScene" uid="uid://jfwvhdbe2n2k" path="res://Manager/DudeManager.tscn" id="5_ojv5s"]
-[ext_resource type="Texture2D" uid="uid://ddxk2eoedap2s" path="res://assets/shelf.png" id="6_bhdty"]
+[ext_resource type="Texture2D" uid="uid://dimjqdj1ojoc6" path="res://assets/shelf.png" id="6_bhdty"]
 [ext_resource type="PackedScene" uid="uid://bed8bleqgeosy" path="res://UI/Shelves/Shelves.tscn" id="6_g07xb"]
 [ext_resource type="Script" path="res://Main/Shop/Alchemist.gd" id="6_xri4a"]
-[ext_resource type="Texture2D" uid="uid://cutrceybd5d5a" path="res://assets/counter.png" id="7_0q6ha"]
-[ext_resource type="Texture2D" uid="uid://bh06yj6wei6oc" path="res://assets/alchemist_worried.png" id="7_6tpk0"]
-[ext_resource type="Texture2D" uid="uid://djece52l4tifo" path="res://assets/alchemist.png" id="8_e1sbk"]
+[ext_resource type="Texture2D" uid="uid://dx64h1rexx3mv" path="res://assets/counter.png" id="7_0q6ha"]
+[ext_resource type="Texture2D" uid="uid://b35yyfgy7n84c" path="res://assets/alchemist_worried.png" id="7_6tpk0"]
+[ext_resource type="Texture2D" uid="uid://0ddg6bgqy60f" path="res://assets/alchemist.png" id="8_e1sbk"]
 [ext_resource type="PackedScene" uid="uid://enawlhjqmymv" path="res://UI/Runners/Runner.tscn" id="8_r1um1"]
 [ext_resource type="PackedScene" uid="uid://bl1cpcmhn6dvy" path="res://UI/GameTimer/GameTimer.tscn" id="11_tvbia"]
 [ext_resource type="Resource" uid="uid://dh8ljrlidm1vj" path="res://Data/IngredientTypes/Death Petal_3.tres" id="13_c8hc0"]
@@ -21,7 +21,7 @@
 [ext_resource type="Resource" uid="uid://beyka4mlbrrny" path="res://Data/IngredientTypes/Fang_2.tres" id="16_shg1y"]
 [ext_resource type="Resource" uid="uid://bvq3jcd5f7gps" path="res://Data/IngredientTypes/Toxin_1.tres" id="17_ajb48"]
 [ext_resource type="AudioStream" uid="uid://cf16sq4tan4d" path="res://audio/music/an_ode_to_closet_kun.ogg" id="19_58p6x"]
-[ext_resource type="Texture2D" uid="uid://bgpm5kwn886do" path="res://assets/settings_cog.png" id="21_rs80h"]
+[ext_resource type="Texture2D" uid="uid://c063lce486eh7" path="res://assets/settings_cog.png" id="21_rs80h"]
 [ext_resource type="Script" path="res://UI/Settings/SettingsButton.gd" id="22_ervtw"]
 
 [sub_resource type="Resource" id="Resource_v8s66"]
@@ -30,6 +30,7 @@ ingredientData = ExtResource("13_c8hc0")
 sourceTime = 2.0
 gatherMin = 3
 gatherMax = 10
+timeMod = 0.0
 
 [sub_resource type="Resource" id="Resource_li3pf"]
 script = ExtResource("14_irxkm")
@@ -37,6 +38,7 @@ ingredientData = ExtResource("15_yebkj")
 sourceTime = 1.5
 gatherMin = 3
 gatherMax = 6
+timeMod = 0.0
 
 [sub_resource type="Resource" id="Resource_uxm6u"]
 script = ExtResource("14_irxkm")
@@ -44,6 +46,7 @@ ingredientData = ExtResource("16_shg1y")
 sourceTime = 1.5
 gatherMin = 4
 gatherMax = 7
+timeMod = 0.0
 
 [sub_resource type="Resource" id="Resource_y4rx8"]
 script = ExtResource("14_irxkm")
@@ -51,6 +54,7 @@ ingredientData = ExtResource("17_ajb48")
 sourceTime = 2.0
 gatherMin = 1
 gatherMax = 4
+timeMod = 0.0
 
 [node name="ShopScene" type="Node"]
 script = ExtResource("1_pnct4")

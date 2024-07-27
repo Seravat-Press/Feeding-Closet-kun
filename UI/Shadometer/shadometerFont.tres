@@ -1,6 +1,6 @@
 [gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bbyc5e3ytxh36"]
 
-[ext_resource type="FontFile" uid="uid://nv5li22up5na" path="res://fonts/Breathe Fire.otf" id="1_d45kc"]
+[ext_resource type="FontFile" uid="uid://doe13s6pv7v0a" path="res://fonts/Breathe Fire.otf" id="1_d45kc"]
 
 [resource]
 resource_local_to_scene = true
