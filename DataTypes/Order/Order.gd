@@ -18,7 +18,15 @@ var realIngredients : Array[IngredientOrder]
 func fix_ingredients() -> void:
 	for ing in neededIngredients:
 		realIngredients.append(ing.duplicate(true))
+	realIngredients.sort_custom(Callable(self, "custom_sort_ing_by_id"))
 
+## Sort the needed ingredients by ID so that they're always in the correct order. 
+func custom_sort_ing_by_id(a : IngredientOrder, b : IngredientOrder) -> bool:
+	if a.ingredientData.ID <= b.ingredientData.ID:
+		return true
+	else:
+		return false
+		
 ## Returns the array of ingredients. 
 func get_ingredients() -> Array[IngredientOrder]:
 	return realIngredients
