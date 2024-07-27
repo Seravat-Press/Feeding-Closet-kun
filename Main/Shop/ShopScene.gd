@@ -28,10 +28,9 @@ const WORRIED_SOUNDS = [
 
 func start():
 	set_initial_resources()
-	closet.initialize_closet()
-	closet.reset_hunger_timer()
-	dude_manager.begin_spawning_dudes()
 	setup_timer()
+	closet.initialize_closet()
+	dude_manager.begin_spawning_dudes()
 	shop_music.play()
 	#run_test()
 
@@ -54,7 +53,6 @@ func game_loop():
 func run_test():
 	dude_manager.spawn_dude()
 	order_manager.generate_order(dude_manager.currentDude.order)
-	closet.reset_hunger_timer()
 	
 	dude_manager.move_dude(dude_manager.currentDude, introduction_point.position)
 	Globals.wait(5.0)
