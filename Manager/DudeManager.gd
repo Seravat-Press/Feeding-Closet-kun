@@ -6,6 +6,8 @@ const STAND_INCREMENT : float = 0.5
 const MINIMUM_STAND_TIME : float = 1.0
 const MINIMUM_SPAWN_TIME : float = 1.0
 
+const TEXTURE_DIRECTORY : String = "res://assets/dudes/"
+
 const DUDE_AUDIO = [
 	preload("res://audio/sfx/dudes/dudes_1.ogg"),
 	preload("res://audio/sfx/dudes/dudes_2.ogg"),
@@ -60,11 +62,10 @@ func build_name_array():
 			namesArray.append(newName)
 
 func build_portrait_array():
-	var textureFilesArray = Globals.list_files_in_directory(textureDirectory)
+	var textureFilesArray = Globals.list_files_in_directory(TEXTURE_DIRECTORY)
 	for textureFile in textureFilesArray:
-		if not textureFile.get_extension() == "import" && not textureFile.get_extension() == "remap":
-			var newTexture = Globals.import_image(textureFile)
-			texturesArray.append(newTexture)
+		var newTexture = load(textureFile)
+		texturesArray.append(newTexture)
 
 func spawn_dude():
 	var dudeName = namesArray.pick_random()

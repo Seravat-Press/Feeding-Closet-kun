@@ -178,7 +178,7 @@ ingredient = SubResource("Resource_uxm6u")
 ingredient = SubResource("Resource_y4rx8")
 
 [node name="DudeManager" parent="UINodes" node_paths=PackedStringArray("introductionPoint", "spawnPoint", "orderManager") instance=ExtResource("5_ojv5s")]
-textureDirectory = "res://assets/dudes"
+textureDirectory = "res://assets/dudes/"
 namesFilePath = "res://assets/NamesList.txt"
 dudeSpawnCooldownMin = 2.0
 dudeSpawnCooldownMax = 5.0
