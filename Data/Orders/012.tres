@@ -6,5 +6,5 @@
 [resource]
 script = ExtResource("1_e5ops")
 orderData = ExtResource("1_7scn2")
-orderTime = 25.0
-cost = 11
+timeAdder = 0.0
+costAdder = 0

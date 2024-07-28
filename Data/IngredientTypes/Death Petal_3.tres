@@ -9,5 +9,5 @@ Name = "Death Petal"
 ID = 3
 imgRect = "res://assets/ingredients/death_petal.png"
 orderTimeMod = 1.4
-orderCostMod = 10
+orderCostMod = 5
 fetchTimeMod = 1.1
