@@ -22,6 +22,7 @@ script = ExtResource("1_jmd3j")
 material = SubResource("ShaderMaterial_kxaiv")
 layout_mode = 2
 size_flags_stretch_ratio = 0.0
+mouse_filter = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

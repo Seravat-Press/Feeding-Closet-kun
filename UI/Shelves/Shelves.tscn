@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://DataTypes/Ingredients/Ingredient.gd" id="3_edptn"]
 [ext_resource type="Script" path="res://DataTypes/Ingredients/IngredientInventory.gd" id="4_42aol"]
 
-[sub_resource type="Resource" id="Resource_myu37"]
+[sub_resource type="Resource" id="Resource_okgex"]
 resource_local_to_scene = true
 script = ExtResource("3_edptn")
 Name = "Ectoplasm"
@@ -15,13 +15,13 @@ orderTimeMod = 0.01
 orderCostMod = 1
 fetchTimeMod = 0.01
 
-[sub_resource type="Resource" id="Resource_kiq6c"]
+[sub_resource type="Resource" id="Resource_mq2ab"]
 resource_local_to_scene = true
 script = ExtResource("4_42aol")
-ingredientData = SubResource("Resource_myu37")
+ingredientData = SubResource("Resource_okgex")
 amountHeld = 0
 
-[sub_resource type="Resource" id="Resource_osma4"]
+[sub_resource type="Resource" id="Resource_7ggjy"]
 resource_local_to_scene = true
 script = ExtResource("3_edptn")
 Name = "Toxin"
@@ -31,13 +31,13 @@ orderTimeMod = 0.01
 orderCostMod = 1
 fetchTimeMod = 0.01
 
-[sub_resource type="Resource" id="Resource_vb3mo"]
+[sub_resource type="Resource" id="Resource_56bbb"]
 resource_local_to_scene = true
 script = ExtResource("4_42aol")
-ingredientData = SubResource("Resource_osma4")
+ingredientData = SubResource("Resource_7ggjy")
 amountHeld = 0
 
-[sub_resource type="Resource" id="Resource_o6k3b"]
+[sub_resource type="Resource" id="Resource_ryq8t"]
 resource_local_to_scene = true
 script = ExtResource("3_edptn")
 Name = "Fang"
@@ -47,13 +47,13 @@ orderTimeMod = 0.01
 orderCostMod = 1
 fetchTimeMod = 0.01
 
-[sub_resource type="Resource" id="Resource_6e4ho"]
+[sub_resource type="Resource" id="Resource_yic1n"]
 resource_local_to_scene = true
 script = ExtResource("4_42aol")
-ingredientData = SubResource("Resource_o6k3b")
+ingredientData = SubResource("Resource_ryq8t")
 amountHeld = 0
 
-[sub_resource type="Resource" id="Resource_1jri5"]
+[sub_resource type="Resource" id="Resource_yu8ty"]
 resource_local_to_scene = true
 script = ExtResource("3_edptn")
 Name = "Death Petal"
@@ -63,10 +63,10 @@ orderTimeMod = 0.01
 orderCostMod = 1
 fetchTimeMod = 0.01
 
-[sub_resource type="Resource" id="Resource_v7psb"]
+[sub_resource type="Resource" id="Resource_x42di"]
 resource_local_to_scene = true
 script = ExtResource("4_42aol")
-ingredientData = SubResource("Resource_1jri5")
+ingredientData = SubResource("Resource_yu8ty")
 amountHeld = 0
 
 [node name="Shelves" type="MarginContainer"]
@@ -84,16 +84,16 @@ columns = 4
 
 [node name="IngredientUi" parent="Ingredients" instance=ExtResource("2_wx4m6")]
 layout_mode = 2
-ingredientData = SubResource("Resource_kiq6c")
+ingredientData = SubResource("Resource_mq2ab")
 
 [node name="IngredientUi2" parent="Ingredients" instance=ExtResource("2_wx4m6")]
 layout_mode = 2
-ingredientData = SubResource("Resource_vb3mo")
+ingredientData = SubResource("Resource_56bbb")
 
 [node name="IngredientUi3" parent="Ingredients" instance=ExtResource("2_wx4m6")]
 layout_mode = 2
-ingredientData = SubResource("Resource_6e4ho")
+ingredientData = SubResource("Resource_yic1n")
 
 [node name="IngredientUi4" parent="Ingredients" instance=ExtResource("2_wx4m6")]
 layout_mode = 2
-ingredientData = SubResource("Resource_v7psb")
+ingredientData = SubResource("Resource_x42di")
