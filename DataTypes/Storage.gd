@@ -55,6 +55,7 @@ func _on_add_items(newItem : Ingredient, quantity : int) -> void:
 			(ing.canUse == true)):
 			ing.ingredientData.add_amount(quantity)
 
+## Zero out all ingredient quantities. 
 func zero_out_ingredients() -> void:
 	for ing in ingredientStorage:
 		ing.ingredientData.update_amount(0)
