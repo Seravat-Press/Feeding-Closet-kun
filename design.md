@@ -128,6 +128,32 @@ If the player hits "Play Again", this score is kept cached so that they may comp
 
 ---
 
+# Design
+
+## Subsystems
+
+### Runner
+
+![Runner Image](assets/tutorial/assistant.png)
+
+The runner fetches any of the four ingredients that the player desires. It has a button for each of the ingredients in addition to a Level Context overlay. 
+
+#### Fetching an Ingredient
+
+When an ingredient button is pressed, a timer begins that is tracked on a progress bar. The amount returned is randomized based on the ingredient's "fetch range," and the fetch time is calculated (quantity * Ingredient_Fetch_Time).
+
+Once the fetch timer elapses, the runner adds any bonus from its current level to the fetched quantity and then adds it to the shop's storage. 
+
+A "Cancel Fetch" button also appears which allows the player to abandon the current fetch mission and begin another. 
+
+#### Leveling up the Runner
+
+The Runner starts at Level 0 and with each level gains that number in additional ingredient yield at the end of a fetch mission (this does not impact fetch time). 
+
+The first level-up requires 40 CS, then each subsequent level-up requires an additional 10CS (50CS for Level 2, etc.). 
+
+---
+
 # Future 
 
 ## Subsystems
