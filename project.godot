@@ -11,6 +11,12 @@ config_version=5
 [application]
 
 config/name="Feeding-Closet-kun"
+config/description="You are an alchemist making potions for your local community. They have problems, problems only alchemy is fit to solve.
+
+Oh yeah, there's an eldritch horror in your closet that needs to be fed coalesced shadow. Or the world will end.
+
+Good thing everyone pays you in coalesced shadow and your helpful servant Ron the Runner is here to help fetch ingredients for you!"
+config/version="1.0"
 config/tags=PackedStringArray("seravat_press")
 run/main_scene="res://Main/Main.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
