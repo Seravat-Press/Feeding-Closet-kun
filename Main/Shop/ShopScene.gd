@@ -33,24 +33,19 @@ func start():
 	#closet.reset_hunger_timer()
 	dude_manager.begin_spawning_dudes()
 	shop_music.play()
-	#run_test()
 
 ## Call to reset and start the game timer. 
 func setup_timer():
 	game_timer.reset()
 	game_timer.start()
 	
+## Apply initial values to resources. 
 func set_initial_resources():
 	#storage.add_shadow(100)
 	storage.set_ingredients(shelves.get_ingredient_nodes())
 	storage.zero_out_ingredients()
 
-func game_loop():
-	# after timer, spawn a dude
-	# put order in queue
-	# start dude cd timer
-	pass
-
+## Functional test, no longer implemented. 
 func run_test():
 	dude_manager.spawn_dude()
 	order_manager.generate_order(dude_manager.currentDude.order)
@@ -89,12 +84,13 @@ func _on_shelves_released_ingredient(ingredient : IngredientInventory):
 		else:
 			currentOrder.fill_ingredient(ingredient)
 
+## Called when shadow is earned via an order completing successfully. 
 func _on_shadow_earn(amt : int, orderNode : OrderUi) -> void:
 	var new_shadow : ShadowParticles = sParticles.instantiate()
 	_2d_nodes.add_child(new_shadow)
 	new_shadow.spawn_particles(orderNode.global_position, shadometer.get_particle_destination(), amt)
 
-
+## Queue the alchemist speaking after closet-kun makes a noise. 
 func _on_closet_audio_finished():
 	if closet.hungerStage == Closet.HUNGER_STAGES.THIRD:
 		shop_sfx.stream = load("res://audio/sfx/alchemist/alchemist_scared.ogg")
@@ -102,7 +98,7 @@ func _on_closet_audio_finished():
 		shop_sfx.stream = WORRIED_SOUNDS.pick_random()
 	shop_sfx.play()
 
-
+## Handle leveling up the runner. 
 func _on_runner_runner_level_up():
 	var newShadow = runner.handle_level_up(storage.shadometer)
 	if storage.shadometer != newShadow:
