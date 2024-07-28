@@ -32,7 +32,7 @@ func check_if_item_picked() -> bool:
 	return true if (pickedUpIngredient != null) else false
 
 func get_ingredient_nodes() -> Array[IngredientUI]:
-	var ingredientNodes : Array[IngredientUI]
+	var ingredientNodes : Array[IngredientUI] = []
 	for ing in ingredients.get_children():
 		ingredientNodes.append(ing)
 	return ingredientNodes
