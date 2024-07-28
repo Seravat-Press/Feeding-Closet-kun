@@ -1,4 +1,19 @@
-[gd_scene format=3 uid="uid://biatejcvjliub"]
+[gd_scene load_steps=5 format=3 uid="uid://biatejcvjliub"]
+
+[ext_resource type="FontFile" uid="uid://doe13s6pv7v0a" path="res://fonts/Breathe Fire.otf" id="1_47lar"]
+[ext_resource type="Texture2D" uid="uid://qu5tb33mu0t3" path="res://assets/seravat-press-logo.png" id="2_mbqg6"]
+[ext_resource type="Texture2D" uid="uid://csajx2ieyk8kp" path="res://assets/tutorial/ingredient_shelves.png" id="3_xo7ai"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ch54o"]
+line_spacing = -24.0
+font = ExtResource("1_47lar")
+font_size = 100
+font_color = Color(0, 0, 0, 1)
+outline_size = 17
+outline_color = Color(0.290243, 5.77569e-05, 0.290945, 1)
+shadow_size = 30
+shadow_color = Color(0, 0, 0, 0.631373)
+shadow_offset = Vector2(5, 5)
 
 [node name="TutorialScreen" type="Control"]
 layout_mode = 3
@@ -7,3 +22,67 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 323.0
+grow_horizontal = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+text = "Feeding 
+Closet-kun"
+label_settings = SubResource("LabelSettings_ch54o")
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+text = "Welcome, alchemist! The town is overrun by individuals in need of your concoctions! Your goal is to fill the potion-shaped gaps in their lives and earn Congealed Shadow (CS) to feed to Closet-kun! 
+
+Oh, who's Closet-kun? Well, it's the eldritch being that's taken up residence in your broom cupboard! They're actually pretty sweet... as long as they stay well fed! "
+autowrap_mode = 2
+
+[node name="Seravat Symbol" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -101.0
+offset_bottom = 101.0
+grow_horizontal = 0
+texture = ExtResource("2_mbqg6")
+expand_mode = 4
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0147569
+anchor_top = 0.0308642
+anchor_right = -0.0147569
+anchor_bottom = 0.0308642
+offset_left = 26.0
+offset_top = 326.0
+offset_right = 457.0
+offset_bottom = 623.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel1" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0162413
+anchor_top = 0.565657
+anchor_right = 0.0162413
+anchor_bottom = 0.565657
+offset_right = 310.0
+offset_bottom = 123.0
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Panel1"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_xo7ai")
+expand_mode = 2
