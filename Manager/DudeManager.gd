@@ -97,7 +97,8 @@ func _on_game_timer_threshold_reached() -> void:
 	
 func begin_spawning_dudes():
 	dude_spawn_cooldown.stop()
-	randomize_dude_cooldown()
+	# Set Initial Dude Spawn Time
+	dude_spawn_cooldown.wait_time = 0.1
 	dude_spawn_cooldown.start()
 
 func randomize_dude_cooldown():
