@@ -12,8 +12,6 @@ func _ready():
 
 ## Called when the shadometer value changes. 
 func _on_storage_shadow_changed(new_value):
-	if new_value == 0:
-		return
 	shad_label.text = str(new_value)
 	var newShadowLabel : ShadowLose = SHADOW_LOSE.instantiate()
 	newShadowLabel.setup_value(new_value)
