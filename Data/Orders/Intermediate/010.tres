@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="OrderFull" load_steps=3 format=3 uid="uid://vwk28cldbrul"]
+
+[ext_resource type="Resource" uid="uid://2ie67iihff6t" path="res://Data/OrderTypes/ClawSerum_10.tres" id="1_htw0s"]
+[ext_resource type="Script" path="res://DataTypes/Order/OrderFull.gd" id="2_72hjj"]
+
+[resource]
+script = ExtResource("2_72hjj")
+orderData = ExtResource("1_htw0s")
+timeAdder = 0.0
+costAdder = 0

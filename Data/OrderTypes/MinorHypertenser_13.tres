@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Order" load_steps=5 format=3 uid="uid://ca1bawwbyid7s"]
+
+[ext_resource type="Resource" uid="uid://dh8ljrlidm1vj" path="res://Data/IngredientTypes/Death Petal_3.tres" id="1_5kliu"]
+[ext_resource type="Script" path="res://DataTypes/Ingredients/IngredientOrder.gd" id="2_pwibc"]
+[ext_resource type="Script" path="res://DataTypes/Order/Order.gd" id="3_mpoub"]
+
+[sub_resource type="Resource" id="Resource_if3k4"]
+script = ExtResource("2_pwibc")
+ingredientData = ExtResource("1_5kliu")
+amountNeeded = 3
+completedFlag = false
+
+[resource]
+script = ExtResource("3_mpoub")
+Name = "Minor Tenser"
+neededIngredients = Array[ExtResource("2_pwibc")]([SubResource("Resource_if3k4")])
+imgRect = "res://assets/orders/hypertenser.png"
+ID = 6

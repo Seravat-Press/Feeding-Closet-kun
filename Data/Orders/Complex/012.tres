@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="OrderFull" load_steps=3 format=3 uid="uid://bxl21qp4uoeer"]
+
+[ext_resource type="Resource" uid="uid://b5d7ylgrfjxau" path="res://Data/OrderTypes/BlessedCurse_12.tres" id="1_xa0u3"]
+[ext_resource type="Script" path="res://DataTypes/Order/OrderFull.gd" id="2_va04q"]
+
+[resource]
+script = ExtResource("2_va04q")
+orderData = ExtResource("1_xa0u3")
+timeAdder = 0.0
+costAdder = 0

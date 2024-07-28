@@ -177,15 +177,15 @@ ingredient = SubResource("Resource_uxm6u")
 [node name="btnRequestToxin" parent="UINodes/Runner/RequestButtonGrid" index="3"]
 ingredient = SubResource("Resource_y4rx8")
 
-[node name="DudeManager" parent="UINodes" node_paths=PackedStringArray("introductionPoint", "spawnPoint") instance=ExtResource("5_ojv5s")]
+[node name="DudeManager" parent="UINodes" node_paths=PackedStringArray("introductionPoint", "spawnPoint", "orderManager") instance=ExtResource("5_ojv5s")]
 textureDirectory = "res://assets/dudes"
-orderDirectory = "res://Data/Orders"
 namesFilePath = "res://assets/NamesList.txt"
 dudeSpawnCooldownMin = 2.0
 dudeSpawnCooldownMax = 5.0
 dudeStandTime = 3.0
 introductionPoint = NodePath("../../2DNodes/IntroductionPoint")
 spawnPoint = NodePath("../../2DNodes/SpawnPoint")
+orderManager = NodePath("../OrderManager")
 
 [node name="SettingsButton" parent="UINodes" node_paths=PackedStringArray("spawn_point") instance=ExtResource("21_g8axb")]
 layout_mode = 1
@@ -232,6 +232,7 @@ bus = &"Music"
 [connection signal="add_shadow" from="UINodes/OrderManager" to="." method="_on_shadow_earn"]
 [connection signal="add_shadow" from="UINodes/OrderManager" to="ProcessingNodes/Storage" method="_on_add_shadow"]
 [connection signal="queued_order_failed" from="UINodes/OrderManager" to="ProcessingNodes/Storage" method="_on_order_fail"]
+[connection signal="increment_reached" from="UINodes/GameTimer" to="UINodes/OrderManager" method="_on_game_timer_increment_reached"]
 [connection signal="increment_reached" from="UINodes/GameTimer" to="UINodes/DudeManager" method="_on_game_timer_threshold_reached"]
 [connection signal="mission_complete" from="UINodes/Runner" to="ProcessingNodes/Storage" method="_on_add_items"]
 [connection signal="runner_level_up" from="UINodes/Runner" to="." method="_on_runner_runner_level_up"]

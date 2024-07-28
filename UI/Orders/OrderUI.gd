@@ -4,6 +4,10 @@ class_name OrderUi extends MarginContainer
 
 const INGREDIENT_LINE = preload("res://UI/Orders/IngredientLine.tscn")
 
+const EASY_COLOR : Color = Color(0.361, 0.631, 0.377, 0.565)
+const MED_COLOR : Color = Color(0.653, 0.54, 0.312, 0.565)
+const HARD_COLOR : Color = Color(0.811, 0.414, 0.497, 0.565)
+
 signal entered_order(order)
 signal left_order(order)
 
@@ -40,6 +44,9 @@ func activate_order() -> void:
 	orderData.connect('order_updated', Callable(self, "_on_order_updated"))
 	orderData.connect('order_completed', Callable(self, "_on_order_success"))
 	
+	## Update the frame color
+	set_frame_color(orderData.get_order_difficulty())
+	
 	## Initialize Cost and Time.
 	rollingCost = orderData.get_cost_adder()
 	rollingTime = orderData.get_time_adder()
@@ -62,6 +69,19 @@ func activate_order() -> void:
 	order_timer.wait_time = rollingTime
 	self.visible = true
 	start_order_timer()
+
+## Set the frame color based on the order difficulty. 
+func set_frame_color(orderDifficulty : int):
+	match (orderDifficulty):
+		0: 
+			## Simple
+			order_outline.material.set_shader_parameter("inside_color", EASY_COLOR)
+		1:
+			## Intermediate
+			order_outline.material.set_shader_parameter("inside_color", MED_COLOR)
+		2:
+			## Complex
+			order_outline.material.set_shader_parameter("inside_color", HARD_COLOR)
 	
 ## Installs an order in this node and sets up the timer. 
 func install_order_data(newData : OrderFull) -> void:

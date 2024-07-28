@@ -15,4 +15,5 @@ script = ExtResource("1_qihnj")
 Name = "Hypertenser"
 neededIngredients = Array[ExtResource("2_stpbi")]([SubResource("Resource_if3k4")])
 imgRect = "res://assets/orders/hypertenser.png"
+difficulty = 1
 ID = 6

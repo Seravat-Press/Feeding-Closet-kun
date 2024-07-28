@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="OrderFull" load_steps=3 format=3 uid="uid://eblhwsuyp2l"]
+
+[ext_resource type="Resource" uid="uid://dpwnida7bnhxe" path="res://Data/OrderTypes/BigKahuna_11.tres" id="1_ytli5"]
+[ext_resource type="Script" path="res://DataTypes/Order/OrderFull.gd" id="2_3bqln"]
+
+[resource]
+script = ExtResource("2_3bqln")
+orderData = ExtResource("1_ytli5")
+timeAdder = 0.0
+costAdder = 0

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="OrderFull" load_steps=3 format=3 uid="uid://h25d45ykuwhv"]
+
+[ext_resource type="Resource" uid="uid://jywleakqrw5r" path="res://Data/OrderTypes/LycanDestroyer_15.tres" id="1_qgcom"]
+[ext_resource type="Script" path="res://DataTypes/Order/OrderFull.gd" id="1_toh5m"]
+
+[resource]
+script = ExtResource("1_toh5m")
+orderData = ExtResource("1_qgcom")
+timeAdder = 0.0
+costAdder = 0

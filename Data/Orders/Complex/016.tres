@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="OrderFull" load_steps=3 format=3 uid="uid://bquw8rviqhkkf"]
+
+[ext_resource type="Resource" uid="uid://1f5bmvyh2g5v" path="res://Data/OrderTypes/FocusWrong_16.tres" id="1_nj8ad"]
+[ext_resource type="Script" path="res://DataTypes/Order/OrderFull.gd" id="1_vwj5x"]
+
+[resource]
+script = ExtResource("1_vwj5x")
+orderData = ExtResource("1_nj8ad")
+timeAdder = 0.0
+costAdder = 0

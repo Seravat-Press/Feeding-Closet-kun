@@ -5,9 +5,10 @@
 [ext_resource type="Shader" path="res://UI/Orders/OrderOutline.gdshader" id="5_x7c1b"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kxaiv"]
+resource_local_to_scene = true
 shader = ExtResource("5_x7c1b")
 shader_parameter/line_color = Color(0, 0, 0, 1)
-shader_parameter/inside_color = Color(0.584876, 0.561649, 0.418313, 0.564706)
+shader_parameter/inside_color = Color(0.235907, 0.541654, 1, 0.564706)
 shader_parameter/width = 0.08
 
 [node name="OrderUi" type="MarginContainer"]

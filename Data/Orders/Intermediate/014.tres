@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="OrderFull" load_steps=3 format=3 uid="uid://xg3kdd1f8hnd"]
+
+[ext_resource type="Script" path="res://DataTypes/Order/OrderFull.gd" id="1_as01b"]
+[ext_resource type="Resource" uid="uid://cgyp6wym2dxfl" path="res://Data/OrderTypes/ClawGulp_14.tres" id="1_scwf3"]
+
+[resource]
+script = ExtResource("1_as01b")
+orderData = ExtResource("1_scwf3")
+timeAdder = 0.0
+costAdder = 0

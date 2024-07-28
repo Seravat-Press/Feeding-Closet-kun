@@ -15,4 +15,5 @@ script = ExtResource("1_vult1")
 Name = "Bottla 'Plasma"
 neededIngredients = Array[ExtResource("2_kj7w4")]([SubResource("Resource_aavmf")])
 imgRect = "res://assets/orders/bottlaplasma.png"
+difficulty = 2
 ID = 8

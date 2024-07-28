@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Order" load_steps=7 format=3 uid="uid://1f5bmvyh2g5v"]
+
+[ext_resource type="Resource" uid="uid://beyka4mlbrrny" path="res://Data/IngredientTypes/Fang_2.tres" id="1_qdo6y"]
+[ext_resource type="Script" path="res://DataTypes/Ingredients/IngredientOrder.gd" id="2_2x62w"]
+[ext_resource type="Resource" uid="uid://b3jbaa0uxgy8y" path="res://Data/IngredientTypes/Ectoplasm_0.tres" id="3_bhifv"]
+[ext_resource type="Script" path="res://DataTypes/Order/Order.gd" id="4_1rmem"]
+
+[sub_resource type="Resource" id="Resource_hkrw8"]
+script = ExtResource("2_2x62w")
+ingredientData = ExtResource("1_qdo6y")
+amountNeeded = 18
+completedFlag = false
+
+[sub_resource type="Resource" id="Resource_rmge4"]
+script = ExtResource("2_2x62w")
+ingredientData = ExtResource("3_bhifv")
+amountNeeded = 24
+completedFlag = false
+
+[resource]
+script = ExtResource("4_1rmem")
+Name = "Focus Rite"
+neededIngredients = Array[ExtResource("2_2x62w")]([SubResource("Resource_hkrw8"), SubResource("Resource_rmge4")])
+imgRect = "res://assets/orders/focusrite.png"
+difficulty = 2
+ID = 7

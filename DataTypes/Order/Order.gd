@@ -3,10 +3,17 @@ class_name Order extends Resource
 
 signal order_updated(ingredient_finished)
 
+enum ORDER_DIFFICULTY {
+	SIMPLE = 0,
+	INTERMEDIATE,
+	COMPLEX
+}
+
 @export var Name : String					## Name of order
 @export var neededIngredients : Array[IngredientOrder]	## Array of Ingredients
 @export_file("*.png") var imgRect			## Icon for this Order.
- 
+@export var difficulty : ORDER_DIFFICULTY = ORDER_DIFFICULTY.SIMPLE
+
 @export_group("Don't Change")
 @export var ID : int
 
@@ -30,3 +37,7 @@ func custom_sort_ing_by_id(a : IngredientOrder, b : IngredientOrder) -> bool:
 ## Returns the array of ingredients. 
 func get_ingredients() -> Array[IngredientOrder]:
 	return realIngredients
+
+## Return the difficulty of this order. 
+func get_difficulty() -> ORDER_DIFFICULTY:
+	return self.difficulty

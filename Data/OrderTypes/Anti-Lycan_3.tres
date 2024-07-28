@@ -22,4 +22,5 @@ script = ExtResource("1_1dtv1")
 Name = "Anti-Lycan"
 neededIngredients = Array[ExtResource("2_ps1ix")]([SubResource("Resource_luagk"), SubResource("Resource_mfi5a")])
 imgRect = "res://assets/orders/lycan.png"
+difficulty = 0
 ID = 3

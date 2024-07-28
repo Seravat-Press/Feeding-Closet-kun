@@ -4,8 +4,8 @@ class_name SeravatManager extends VBoxContainer
 
 const ingPath = preload("res://DataTypes/Ingredients/Ingredient.gd")	## Ingredient Resource.
 const ordPath = preload("res://DataTypes/Order/Order.gd")				## Order Resource. 
-const ingOutPath = "res://Data/Ingredients/"							## Output path for ingredients. 
-const ordOutPath = "res://Data/Orders/"									## Output path for orders.
+const ingOutPath = "res://Data/IngredientTypes/"						## Output path for ingredients. 
+const ordOutPath = "res://Data/OrderTypes/"								## Output path for orders.
 
 var ingText : String = "New [%3d]"	## Ingredient Button Text.
 var ordText : String = "New [%3d]"	## Order Button Text. 

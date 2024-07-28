@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="OrderFull" load_steps=3 format=3 uid="uid://h0xhtbgkdhx5"]
+
+[ext_resource type="Resource" uid="uid://fysmoyxe3ru" path="res://Data/OrderTypes/Bottla-Plasma_8.tres" id="1_h0v5t"]
+[ext_resource type="Script" path="res://DataTypes/Order/OrderFull.gd" id="2_dxjs1"]
+
+[resource]
+script = ExtResource("2_dxjs1")
+orderData = ExtResource("1_h0v5t")
+timeAdder = 0.0
+costAdder = 0

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="OrderFull" load_steps=3 format=3 uid="uid://bprga7w3tyb5d"]
+
+[ext_resource type="Resource" uid="uid://ca1bawwbyid7s" path="res://Data/OrderTypes/MinorHypertenser_13.tres" id="1_7pn1v"]
+[ext_resource type="Script" path="res://DataTypes/Order/OrderFull.gd" id="2_oa268"]
+
+[resource]
+script = ExtResource("2_oa268")
+orderData = ExtResource("1_7pn1v")
+timeAdder = 0.0
+costAdder = 0

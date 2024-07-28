@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Order" load_steps=7 format=3 uid="uid://jywleakqrw5r"]
+
+[ext_resource type="Resource" uid="uid://dh8ljrlidm1vj" path="res://Data/IngredientTypes/Death Petal_3.tres" id="1_t0ihr"]
+[ext_resource type="Script" path="res://DataTypes/Ingredients/IngredientOrder.gd" id="2_nkve8"]
+[ext_resource type="Resource" uid="uid://beyka4mlbrrny" path="res://Data/IngredientTypes/Fang_2.tres" id="3_oyjj7"]
+[ext_resource type="Script" path="res://DataTypes/Order/Order.gd" id="4_dcwld"]
+
+[sub_resource type="Resource" id="Resource_luagk"]
+script = ExtResource("2_nkve8")
+ingredientData = ExtResource("1_t0ihr")
+amountNeeded = 25
+completedFlag = false
+
+[sub_resource type="Resource" id="Resource_mfi5a"]
+script = ExtResource("2_nkve8")
+ingredientData = ExtResource("3_oyjj7")
+amountNeeded = 20
+completedFlag = false
+
+[resource]
+script = ExtResource("4_dcwld")
+Name = "Lycan Destroyer"
+neededIngredients = Array[ExtResource("2_nkve8")]([SubResource("Resource_luagk"), SubResource("Resource_mfi5a")])
+imgRect = "res://assets/orders/lycan.png"
+difficulty = 2
+ID = 3

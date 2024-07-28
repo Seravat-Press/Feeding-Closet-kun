@@ -56,3 +56,8 @@ func fail_order() -> void:
 
 func succeed_order() -> void: 
 	emit_signal("order_completed", self)
+
+## Return the difficulty of the order. 
+## NOTE: this should return Order.ORDER_DIFFICULTY. 
+func get_order_difficulty():
+	return orderData.get_difficulty()

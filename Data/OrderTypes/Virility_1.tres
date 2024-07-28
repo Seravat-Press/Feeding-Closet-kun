@@ -23,4 +23,5 @@ script = ExtResource("4_xy1i5")
 Name = "Virility"
 neededIngredients = Array[ExtResource("2_ako0y")]([SubResource("Resource_82s4i"), SubResource("Resource_qfoeh")])
 imgRect = "res://assets/orders/virility.png"
+difficulty = 1
 ID = 1
