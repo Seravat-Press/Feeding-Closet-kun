@@ -20,10 +20,6 @@ func _ready():
 	name_label.text = dudeName
 	print(dudeName + " has spawned in!")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
-
 ## Called when an orderUI emit("order_failed") for this dude's order. 
 func _on_dudes_order_failed(_failed_order : OrderFull) -> void: 
 	print(dudeName + " is so sad their order is failed...")

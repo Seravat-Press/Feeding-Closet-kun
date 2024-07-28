@@ -2,6 +2,9 @@
 class_name DudeManager extends Control
 
 const TIMER_INCREMENT : float = 0.5
+const STAND_INCREMENT : float = 0.5
+const MINIMUM_STAND_TIME : float = 1.0
+const MINIMUM_SPAWN_TIME : float = 1.0
 
 const DUDE_AUDIO = [
 	preload("res://audio/sfx/dudes/dudes_1.ogg"),
@@ -39,6 +42,7 @@ signal dude_despawned(dude)
 @onready var dude_audio = $DudeAudio
 
 var rollingDudeSpawnModifier : float = 0.0	## Increase to make dudes spawn faster. 
+var rollingDudeStandModifier : float = 0.0 	## Increase to make dudes stick around less. 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -97,6 +101,7 @@ func move_dude(dude : Dude, point : Vector2):
 ## Called when the game timer reaches its threshold. 
 func _on_game_timer_threshold_reached() -> void:
 	rollingDudeSpawnModifier += TIMER_INCREMENT
+	rollingDudeStandModifier += STAND_INCREMENT
 	
 func begin_spawning_dudes():
 	dude_spawn_cooldown.stop()
@@ -104,7 +109,7 @@ func begin_spawning_dudes():
 	dude_spawn_cooldown.start()
 
 func randomize_dude_cooldown():
-	dude_spawn_cooldown.wait_time = max(0.0,(randf_range(dudeSpawnCooldownMin, dudeSpawnCooldownMax) - rollingDudeSpawnModifier))
+	dude_spawn_cooldown.wait_time = max(MINIMUM_SPAWN_TIME,(randf_range(dudeSpawnCooldownMin, dudeSpawnCooldownMax) - rollingDudeSpawnModifier))
 
 func _on_dude_spawn_cooldown_timeout():
 	spawn_dude()
@@ -113,6 +118,7 @@ func _on_dude_spawn_cooldown_timeout():
 	spawnTween.tween_property(currentDude, "position", introductionPoint.position, 1).set_trans(Tween.TRANS_ELASTIC)
 	await spawnTween.finished
 	dude_spawned.emit(currentDude)
+	dude_stand_timer.wait_time = max(MINIMUM_STAND_TIME, dudeStandTime - rollingDudeStandModifier)
 	dude_stand_timer.start()
 
 func _on_dude_stand_timer_timeout():
