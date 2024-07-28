@@ -30,6 +30,8 @@ const RUNNER_AUDIO = [
 @onready var yield_label = $VBoxContainer/VBoxContainer/HBoxContainer2/YieldLabel
 @onready var level_cost = $VBoxContainer/VBoxContainer/HBoxContainer3/LevelCost
 @onready var num_spawn_location: Marker2D = $NumSpawnLocation
+@onready var cancel_button = $VBoxContainer/CancelButton
+
 #endregion
 
 var targetIngredient : IngredientFetch
@@ -40,6 +42,7 @@ var costToLevel : int	## Tracker for the current cost ot level up.
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	mission_timer_progress_bar.visible = false
+	cancel_button.visible = false
 	costToLevel = COST_PER_LEVEL
 	update_labels()
 
@@ -75,6 +78,7 @@ func begin_resource_mission(requestedIngredient : IngredientFetch):
 	mission_timer_progress_bar.value = timeCalculated
 	mission_timer.wait_time = timeCalculated
 	mission_timer_progress_bar.visible = true
+	cancel_button.visible = true
 	mission_timer.start()
 
 ## Called when the mission timer elapses.
@@ -85,6 +89,7 @@ func _on_mission_timer_timeout():
 	
 	# Turn off the progress bar. 
 	mission_timer_progress_bar.visible = false
+	cancel_button.visible = false
 	
 	# Add the level bonus to the gather quantity. 
 	gatherQuantity += (currentLevel * BONUS_PER_LEVEL)
@@ -102,6 +107,19 @@ func _on_mission_timer_timeout():
 	runner_audio.play()
 	
 
+## Abandon the fetch and re-enable the fetch buttons. 
+func abandon_fetch() -> void:
+	mission_timer.stop()
+	
+	# Turn back on all of the other ingredient buttons. 
+	for button in request_button_grid.get_children():
+		button.disabled = false
+	
+	# Turn off the progress bar. 
+	mission_timer_progress_bar.visible = false
+	cancel_button.visible = false
+	
+	
 #region Ingredient Button Handlers
 func _on_btn_request_death_petal_ingredient_clicked(ingredient : IngredientFetch):
 	# Only have one mission at a time. 
@@ -148,3 +166,7 @@ func handle_level_up(currShad : int) -> int:
 ## Called on game over. 
 func _on_closet_shop_devoured():
 	mission_timer.paused = true
+
+## Handle canceling the fetch. 
+func _on_cancel_button_pressed():
+	abandon_fetch()
