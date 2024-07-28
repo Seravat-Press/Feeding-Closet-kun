@@ -5,7 +5,8 @@ class_name Storage extends Node
 ## Shadow lost on an order fail. 
 const SHAD_LOST : int = 3
 
-signal shadow_changed(new_value) ## Amount of shadow has been changed.
+signal shadow_changed(new_value : int) 		## Amount of shadow has been changed.
+signal shadow_val_added(val_added : int)	## Shadometer modified by this value. 
 
 @export var shadometer : int = 0					## Money. 
 
@@ -15,15 +16,19 @@ var ingredientStorage : Array[IngredientUI]	## Ingredients in Storage.
 func add_shadow(moreShadow : int):
 	#printerr("\nAdding CS: " + str(moreShadow))
 	shadometer += moreShadow
+	emit_signal("shadow_val_added", moreShadow)
 	#printerr("Total CS: " + str(shadometer))
 	update_shadow()
 
 ## Subtracts shadow from the Shadometer. Bounds at 0. 
 func sub_shadow(lessShadow : int):
+	var newLess : int = lessShadow
 	shadometer -= lessShadow
 	#printerr("\nSubtracting CS: " + str(lessShadow))
 	if shadometer < 0:
+		newLess = abs(shadometer)
 		shadometer = 0
+	emit_signal("shadow_val_added", -1 * newLess)
 	#printerr("Total CS: " + str(shadometer))
 	update_shadow()
 

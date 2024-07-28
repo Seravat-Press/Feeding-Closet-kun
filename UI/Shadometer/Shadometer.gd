@@ -13,10 +13,12 @@ func _ready():
 ## Called when the shadometer value changes. 
 func _on_storage_shadow_changed(new_value):
 	shad_label.text = str(new_value)
-	var newShadowLabel : ShadowLose = SHADOW_LOSE.instantiate()
-	newShadowLabel.setup_value(new_value)
-	particle_destination.add_child(newShadowLabel)
 
 ## Return the destination of the particles. 
 func get_particle_destination() -> Marker2D:
 	return particle_destination
+
+func _on_shadow_val_added(valAdded : int):
+	var newShadowLabel : ShadowLose = SHADOW_LOSE.instantiate()
+	newShadowLabel.setup_value(valAdded)
+	particle_destination.add_child(newShadowLabel)

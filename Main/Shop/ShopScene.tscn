@@ -223,6 +223,7 @@ bus = &"Music"
 
 [connection signal="shadow_changed" from="ProcessingNodes/Storage" to="UINodes/Closet" method="_on_storage_shadow_changed"]
 [connection signal="shadow_changed" from="ProcessingNodes/Storage" to="UINodes/Shadometer" method="_on_storage_shadow_changed"]
+[connection signal="shadow_val_added" from="ProcessingNodes/Storage" to="UINodes/Shadometer" method="_on_shadow_val_added"]
 [connection signal="shop_devoured" from="UINodes/Closet" to="." method="_on_closet_shop_devoured"]
 [connection signal="shop_devoured" from="UINodes/Closet" to="UINodes/OrderManager" method="_on_shop_devoured"]
 [connection signal="shop_devoured" from="UINodes/Closet" to="UINodes/Runner" method="_on_closet_shop_devoured"]
