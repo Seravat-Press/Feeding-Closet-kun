@@ -13,14 +13,18 @@ var ingredientStorage : Array[IngredientUI]	## Ingredients in Storage.
 
 ## Adds Shadow to the Shadometer.
 func add_shadow(moreShadow : int):
+	#printerr("\nAdding CS: " + str(moreShadow))
 	shadometer += moreShadow
+	#printerr("Total CS: " + str(shadometer))
 	update_shadow()
 
 ## Subtracts shadow from the Shadometer. Bounds at 0. 
 func sub_shadow(lessShadow : int):
 	shadometer -= lessShadow
+	#printerr("\nSubtracting CS: " + str(lessShadow))
 	if shadometer < 0:
 		shadometer = 0
+	#printerr("Total CS: " + str(shadometer))
 	update_shadow()
 
 ## Emit a signal to UI nodes to update the shadometer. 
