@@ -2,6 +2,9 @@
 class_name StartScreen extends Control
 
 signal start_pressed
+
+const TUTORIAL_SCREEN = preload("res://UI/TutorialScreen/TutorialScreen.tscn")
+
 @onready var audio_stream_player = $AudioStreamPlayer
 
 func _ready() -> void:
@@ -21,4 +24,5 @@ func _on_exit_button_pressed():
 
 
 func _on_tutorial_button_pressed():
-	pass # Replace with function body.
+	var newTutorialScreen : TutorialScreen = TUTORIAL_SCREEN.instantiate()
+	add_child(newTutorialScreen)

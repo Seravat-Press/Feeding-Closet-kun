@@ -151,14 +151,14 @@ text = "Seravat Press"
 label_settings = SubResource("LabelSettings_p5715")
 horizontal_alignment = 2
 
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer2"]
-layout_mode = 2
-text = "Jacob Foxe"
-horizontal_alignment = 2
-
 [node name="Label3" type="Label" parent="MarginContainer/VBoxContainer2"]
 layout_mode = 2
 text = "Austin Tinkel"
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Jacob Foxe"
 horizontal_alignment = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -175,14 +175,14 @@ layout_mode = 2
 texture = ExtResource("4_2bios")
 expand_mode = 1
 
-[node name="MarginContainer3" type="MarginContainer" parent="."]
+[node name="SubtitleContainer" type="MarginContainer" parent="."]
 layout_mode = 0
 offset_left = 334.0
 offset_top = -23.0
 offset_right = 863.0
 offset_bottom = 150.0
 
-[node name="Label" type="Label" parent="MarginContainer3"]
+[node name="Label" type="Label" parent="SubtitleContainer"]
 layout_mode = 2
 text = "There's an eldritch horror living in my closet and I have to feed it coalesced shadow so it doesn't destroy the world!!!"
 label_settings = SubResource("LabelSettings_th7lu")

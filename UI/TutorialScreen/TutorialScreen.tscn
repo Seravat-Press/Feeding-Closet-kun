@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://biatejcvjliub"]
+[gd_scene load_steps=12 format=3 uid="uid://biatejcvjliub"]
 
 [ext_resource type="FontFile" uid="uid://doe13s6pv7v0a" path="res://fonts/Breathe Fire.otf" id="1_47lar"]
+[ext_resource type="Script" path="res://UI/TutorialScreen/TutorialScreen.gd" id="1_u2y23"]
 [ext_resource type="Texture2D" uid="uid://qu5tb33mu0t3" path="res://assets/seravat-press-logo.png" id="2_mbqg6"]
 [ext_resource type="Texture2D" uid="uid://csajx2ieyk8kp" path="res://assets/tutorial/ingredient_shelves.png" id="3_xo7ai"]
 [ext_resource type="Texture2D" uid="uid://bnrumb43w8fun" path="res://assets/tutorial/orders.png" id="4_orkfk"]
@@ -25,6 +26,8 @@ shadow_size = 2
 shadow_color = Color(0, 0, 0, 0.701961)
 shadow_offset = Vector2(3, 3)
 
+[sub_resource type="LabelSettings" id="LabelSettings_g1xk6"]
+
 [node name="TutorialScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -32,6 +35,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_u2y23")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.255659, 0.255659, 0.255659, 1)
 
 [node name="Seravat Symbol" type="TextureRect" parent="."]
 layout_mode = 1
@@ -69,213 +82,245 @@ Oh, who's Closet-kun? Well, it's the eldritch being that's taken up residence in
 label_settings = SubResource("LabelSettings_edsof")
 autowrap_mode = 2
 
-[node name="IngredientPanel" type="Panel" parent="."]
+[node name="IngredientPanel" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.0138889
-anchor_top = -0.239198
-anchor_right = -0.0138889
-anchor_bottom = -0.337963
-offset_left = 26.0
-offset_top = 326.0
-offset_right = 457.0
-offset_bottom = 623.0
+anchor_left = 0.00954861
+anchor_top = 0.263889
+anchor_right = 0.349826
+anchor_bottom = 0.558642
+offset_right = 40.0
+offset_bottom = 40.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="IngredientPanel"]
-layout_mode = 0
-offset_left = 96.0
-offset_top = 3.0
-offset_right = 311.0
-offset_bottom = 26.0
-text = "These are your ingredients! "
-
-[node name="IngredientTex" type="TextureRect" parent="IngredientPanel"]
+[node name="Panel" type="Panel" parent="IngredientPanel"]
 layout_mode = 2
-offset_left = 56.0
-offset_top = 27.0
-offset_right = 366.0
-offset_bottom = 150.0
-size_flags_vertical = 3
-texture = ExtResource("3_xo7ai")
-expand_mode = 2
 
-[node name="Label2" type="Label" parent="IngredientPanel"]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 153.0
-offset_right = 417.0
-offset_bottom = 228.0
-text = "- Drag them onto orders! 
-- Drag [50] onto Closet-kun to reduce a hunger stage!
-- Ask your assistant, Ron, to get you more!"
+[node name="VBoxContainer" type="VBoxContainer" parent="IngredientPanel"]
+layout_mode = 2
 
-[node name="OrderPanel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.0130208
-anchor_top = 0.12963
-anchor_right = -0.0130208
-anchor_bottom = 0.0200617
-offset_left = 26.0
-offset_top = 326.0
-offset_right = 457.0
-offset_bottom = 623.0
+[node name="Label" type="Label" parent="IngredientPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "These are your ingredients! "
+horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="OrderPanel"]
-layout_mode = 0
-offset_left = 94.0
-offset_top = 2.0
-offset_right = 309.0
-offset_bottom = 25.0
+[node name="IngredientTex" type="TextureRect" parent="IngredientPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 118)
+layout_mode = 2
+size_flags_vertical = 2
+texture = ExtResource("3_xo7ai")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="IngredientPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+text = " - Drag them onto orders! 
+ - Drag [50] onto Closet-kun to reduce a hunger stage!
+ - Ask your assistant, Ron, to get you more!"
+metadata/_edit_use_anchors_ = true
+
+[node name="OrderPanel" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00954861
+anchor_top = 0.631173
+anchor_right = 0.349826
+anchor_bottom = 0.925926
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="OrderPanel"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OrderPanel"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="OrderPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
 text = "These are orders!"
 horizontal_alignment = 1
-
-[node name="OrderTex" type="TextureRect" parent="OrderPanel"]
-layout_mode = 2
-offset_left = 50.0
-offset_top = 26.0
-offset_right = 360.0
-offset_bottom = 149.0
-size_flags_vertical = 3
-texture = ExtResource("4_orkfk")
-expand_mode = 2
-
-[node name="Label2" type="Label" parent="OrderPanel"]
-layout_mode = 0
-offset_left = 9.0
-offset_top = 149.0
-offset_right = 422.0
-offset_bottom = 224.0
-text = "- Each has different ingredients to fill!
-- Each will reward a different amount of CS!
-- If Failed, an order will subtract 3 CS from your stash!"
-
-[node name="OrderPanel2" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.372396
-anchor_top = -0.0833333
-anchor_right = 0.372396
-anchor_bottom = 0.0200617
-offset_left = 26.0
-offset_top = 326.0
-offset_right = 457.0
-offset_bottom = 623.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="OrderPanel2"]
-layout_mode = 0
-offset_left = 9.0
-offset_right = 178.0
-offset_bottom = 23.0
-text = "Closet-kun!"
-horizontal_alignment = 1
-
-[node name="OrderTex" type="TextureRect" parent="OrderPanel2"]
+[node name="IngredientTex" type="TextureRect" parent="OrderPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 118)
 layout_mode = 2
-offset_left = 204.0
-offset_top = 11.0
-offset_right = 421.0
-offset_bottom = 356.0
-size_flags_vertical = 3
-texture = ExtResource("5_popxl")
+size_flags_vertical = 2
+texture = ExtResource("4_orkfk")
 expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
 
-[node name="Label2" type="Label" parent="OrderPanel2"]
-layout_mode = 0
-offset_left = 9.0
-offset_top = 23.0
-offset_right = 204.0
-offset_bottom = 356.0
+[node name="Label2" type="Label" parent="OrderPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+text = " - Each has different ingredients to fill!
+ - Each will reward a different amount of CS!
+ - If Failed, an order will subtract 3 CS from your stash!"
+metadata/_edit_use_anchors_ = true
+
+[node name="ShadometerPanel" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.394965
+anchor_top = 0.263889
+anchor_right = 0.734375
+anchor_bottom = 0.305556
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="ShadometerPanel"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ShadometerPanel"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ShadometerPanel/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ShadometerPanel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Shadometer"
+label_settings = SubResource("LabelSettings_g1xk6")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="IngredientTex" type="TextureRect" parent="ShadometerPanel/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(160, 40)
+layout_mode = 2
+size_flags_vertical = 2
+texture = ExtResource("5_n4u4l")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="ShadometerPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = " - Gain CS for completing orders.
+ - Feed CS to Closet-kun!"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="NewCloset" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.394965
+anchor_top = 0.371914
+anchor_right = 0.734375
+anchor_bottom = 0.927469
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="NewCloset"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NewCloset"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NewCloset/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="NewCloset/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Closet-kun!"
+label_settings = SubResource("LabelSettings_g1xk6")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="NewCloset/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
 text = "- Hunger increases over time
 - 3 Hunger Stages
 - Use 50 Ingredients to decrease a hunger stage
 - Minimum 10 CS to feed Closet-kun!
 - 10CS = 10% Hunger Meter Refilled
 - More CS will be used if available. 
+- Game Over @ Stage 3!
 - Keep Closet-kun fed for as long as you can!"
+vertical_alignment = 1
 autowrap_mode = 2
-
-[node name="RunnerPanel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.75434
-anchor_top = -0.234568
-anchor_right = 0.592014
-anchor_bottom = 0.0200617
-offset_left = 26.0
-offset_top = 326.0
-offset_right = 457.0
-offset_bottom = 623.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="RunnerPanel"]
+[node name="IngredientTex" type="TextureRect" parent="NewCloset/HBoxContainer"]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+texture = ExtResource("5_popxl")
+expand_mode = 3
+stretch_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="RunnerPanel" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 23.0
-grow_horizontal = 2
+anchors_preset = -1
+anchor_left = 0.776042
+anchor_top = 0.263889
+anchor_right = 0.961806
+anchor_bottom = 0.919753
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_right = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="RunnerPanel"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RunnerPanel"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="RunnerPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
 text = "Meet Ron the Runner!"
 horizontal_alignment = 1
-
-[node name="OrderTex" type="TextureRect" parent="RunnerPanel"]
-layout_mode = 2
-offset_left = 32.0
-offset_top = 27.0
-offset_right = 210.0
-offset_bottom = 261.0
-size_flags_vertical = 3
-texture = ExtResource("6_yenko")
-expand_mode = 1
-
-[node name="Label2" type="Label" parent="RunnerPanel"]
-layout_mode = 0
-offset_left = 12.0
-offset_top = 275.0
-offset_right = 234.0
-offset_bottom = 405.0
-text = "- Press an ingredient to have him fetch some for you!
-- Level him up to increase his haul!"
-autowrap_mode = 2
-
-[node name="ShadometerPanel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.372396
-anchor_top = -0.234568
-anchor_right = 0.372396
-anchor_bottom = -0.558642
-offset_left = 26.0
-offset_top = 326.0
-offset_right = 457.0
-offset_bottom = 623.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="ShadometerPanel"]
-layout_mode = 0
-offset_left = 284.0
-offset_right = 391.0
-offset_bottom = 23.0
-text = "Shadometer"
-horizontal_alignment = 1
-
-[node name="ShadometerTex" type="TextureRect" parent="ShadometerPanel"]
+[node name="IngredientTex" type="TextureRect" parent="RunnerPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
-offset_left = 284.0
-offset_top = 28.0
-offset_right = 407.0
-offset_bottom = 74.0
-size_flags_vertical = 3
-texture = ExtResource("5_n4u4l")
-expand_mode = 2
+size_flags_vertical = 2
+texture = ExtResource("6_yenko")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
 
-[node name="Label2" type="Label" parent="ShadometerPanel"]
-layout_mode = 0
-offset_left = 9.0
-offset_top = 23.0
-offset_right = 422.0
-offset_bottom = 98.0
-text = "- Gain CS for completing orders.
-- Feed CS to Closet-kun!"
+[node name="Label2" type="Label" parent="RunnerPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+text = " - Press an ingredient to have him fetch some for you!
+ - Level him up to increase his haul!"
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ExitButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00868056
+anchor_top = 0.00771605
+anchor_right = 0.0269097
+anchor_bottom = 0.0694444
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("1_47lar")
+theme_override_font_sizes/font_size = 38
+text = "X"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
