@@ -22,5 +22,5 @@ script = ExtResource("4_ergbb")
 Name = "Massive Kahuna"
 neededIngredients = Array[ExtResource("2_o2cga")]([SubResource("Resource_d12cy"), SubResource("Resource_ctdkk")])
 imgRect = "res://assets/orders/bigkahuna.png"
-difficulty = 1
+difficulty = 2
 ID = 11
