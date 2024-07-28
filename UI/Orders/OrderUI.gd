@@ -111,7 +111,9 @@ func are_ingredients_filled() -> bool:
 func get_cost() -> int:
 	return self.rollingCost
 
+## Make the order fall on a fail. 
 func order_fall() -> void:
+	order_outline.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	var fallTween = create_tween()
 	var rotTween = create_tween()
 	order_outline.position -= Vector2(self.size.x /2, self.size.y / 2)
