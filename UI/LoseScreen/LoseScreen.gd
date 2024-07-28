@@ -32,8 +32,8 @@ func _ready():
 ## Called when the game is lost. 
 func _on_lose(sElapsed : float):
 	var sec : float = (int(sElapsed) % 60) + (float(int(sElapsed * 100) % 100) / 100)
-	var min : int = int(floor(sElapsed / 60))
-	var hr : int = int(floor(min / 60))
+	var minutes : int = int(floor(sElapsed / 60))
+	var hr : int = int(floor(minutes / 60))
 	
 	# Hide Hours if 0
 	if hr == 0:
@@ -41,13 +41,13 @@ func _on_lose(sElapsed : float):
 		hr_sep.visible = false
 	
 	# Hide minutes if 0
-	if min == 0:
+	if minutes == 0:
 		min_label.visible = false
 		min_sep.visible = false
 
 	# Update Labels
 	hr_label.text = HR_STR % hr
-	min_label.text = MIN_STR % min
+	min_label.text = MIN_STR % minutes
 	sec_label.text = SEC_STR % sec
 	
 	check_high_score(sElapsed)
