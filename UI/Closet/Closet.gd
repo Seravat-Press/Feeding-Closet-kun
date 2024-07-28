@@ -53,8 +53,8 @@ var timerValue : float = 0.0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_process(false)
-	initialize_closet()
-	set_process(true)
+	# Install arbitrary value.
+	visual_hunger_timer.install_hunger_values(10)
 
 func initialize_closet() -> void:
 	visual_hunger_timer.install_hunger_values(hungerTimerDuration)
@@ -64,6 +64,7 @@ func initialize_closet() -> void:
 	hunger_3.texture = GOOD_H_TEX
 	feed_button.disabled = true
 	feed_label.text = "FEED [" + str(minimumFeedCost) + "]"
+	set_process(true)
 	
 func _process(_delta) -> void: 
 	if !activeTimer.paused:
