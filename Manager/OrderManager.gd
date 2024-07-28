@@ -86,20 +86,23 @@ func build_order_arrays():
 	# Simple Orders
 	var orderFilesArray = Globals.list_files_in_directory(SIMPLE_ORDERS)
 	for orderFile in orderFilesArray:
-		newOrder = ResourceLoader.load(orderFile)
-		simpleArray.append(newOrder)
+		if not orderFile.get_extension() == "remap":
+			newOrder = ResourceLoader.load(orderFile)
+			simpleArray.append(newOrder)
 	
 	# Intermediate Orders
 	orderFilesArray = Globals.list_files_in_directory(INT_ORDERS)
 	for orderFile in orderFilesArray:
-		newOrder = ResourceLoader.load(orderFile)
-		intArray.append(newOrder)
+		if not orderFile.get_extension() == "remap":
+			newOrder = ResourceLoader.load(orderFile)
+			intArray.append(newOrder)
 	
 	# Complex Orders
 	orderFilesArray = Globals.list_files_in_directory(COMP_ORDERS)
 	for orderFile in orderFilesArray:
-		newOrder = ResourceLoader.load(orderFile)
-		compArray.append(newOrder)
+		if not orderFile.get_extension() == "remap":
+			newOrder = ResourceLoader.load(orderFile)
+			compArray.append(newOrder)
 		
 func generate_order(orderData):
 	var newOrder : OrderUi = newOrderPreloaded.instantiate()
