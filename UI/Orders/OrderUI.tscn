@@ -67,6 +67,7 @@ mouse_filter = 2
 
 [node name="OrderTimer" type="Timer" parent="."]
 
+[connection signal="gui_input" from="OrderOutline" to="." method="_on_order_outline_gui_input"]
 [connection signal="mouse_entered" from="OrderOutline" to="." method="_on_order_outline_mouse_entered"]
 [connection signal="mouse_exited" from="OrderOutline" to="." method="_on_order_outline_mouse_exited"]
 [connection signal="timeout" from="OrderTimer" to="." method="_on_order_timer_timeout"]

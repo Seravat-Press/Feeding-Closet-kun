@@ -125,9 +125,18 @@ func order_fall() -> void:
 	await fallTween.finished
 	queue_free()
 	
+## Order has failed so remove it and make it fall. 
 func _on_order_failed():
 	orderData.fail_order()
 	order_fall()
 
+## Order succeeded so free he instance. 
 func _on_order_success(_orderCompleted : OrderFull):
 	queue_free()
+
+
+func _on_order_outline_gui_input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed():
+			# Right Mouse Clicked on Order - cancel it
+			_on_order_failed()
