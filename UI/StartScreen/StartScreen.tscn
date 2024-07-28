@@ -59,7 +59,7 @@ grow_vertical = 2
 texture = ExtResource("2_tldku")
 expand_mode = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="CenterContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -75,7 +75,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="VBoxContainer"]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="CenterContainer"]
 position = Vector2(1.5, 14.5)
 scale = Vector2(0.6, 0.6)
 amount = 150
@@ -91,7 +91,7 @@ scale_amount_curve = SubResource("Curve_8v3mx")
 color = Color(0.364915, 9.10874e-05, 0.365025, 1)
 color_ramp = SubResource("Gradient_cdnee")
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="CenterContainer"]
 layout_mode = 2
 text = "Feeding 
 Closet-kun"
@@ -99,28 +99,28 @@ label_settings = SubResource("LabelSettings_js2al")
 horizontal_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="StartButton" type="Button" parent="VBoxContainer"]
+[node name="StartButton" type="Button" parent="CenterContainer"]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Start Game"
 metadata/_edit_lock_ = true
 
-[node name="TutorialButton" type="Button" parent="VBoxContainer"]
+[node name="TutorialButton" type="Button" parent="CenterContainer"]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Tutorial"
 metadata/_edit_lock_ = true
 
-[node name="ExitButton" type="Button" parent="VBoxContainer"]
+[node name="ExitButton" type="Button" parent="CenterContainer"]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Exit"
 metadata/_edit_lock_ = true
 
-[node name="MarginContainer" type="CenterContainer" parent="."]
+[node name="SeravatContainer" type="CenterContainer" parent="."]
 layout_mode = 2
 anchor_left = -0.0512153
 anchor_top = -0.265432
@@ -134,43 +134,43 @@ size_flags_horizontal = 8
 size_flags_vertical = 8
 metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="SeravatContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 metadata/_edit_lock_ = true
 
-[node name="Seravat Symbol" type="TextureRect" parent="MarginContainer/VBoxContainer2"]
+[node name="Seravat Symbol" type="TextureRect" parent="SeravatContainer/VBoxContainer2"]
 layout_mode = 2
 texture = ExtResource("3_ybycl")
 expand_mode = 4
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer2"]
+[node name="Label" type="Label" parent="SeravatContainer/VBoxContainer2"]
 layout_mode = 2
 text = "Seravat Press"
 label_settings = SubResource("LabelSettings_p5715")
 horizontal_alignment = 2
 
-[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer2"]
+[node name="Label3" type="Label" parent="SeravatContainer/VBoxContainer2"]
 layout_mode = 2
 text = "Austin Tinkel"
 horizontal_alignment = 2
 
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer2"]
+[node name="Label2" type="Label" parent="SeravatContainer/VBoxContainer2"]
 layout_mode = 2
 text = "Jacob Foxe"
 horizontal_alignment = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
-[node name="MarginContainer2" type="MarginContainer" parent="."]
+[node name="GodotContainer" type="MarginContainer" parent="."]
 layout_mode = 0
 offset_left = 993.0
 offset_top = 8.0
 offset_right = 1133.0
 offset_bottom = 148.0
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer2"]
+[node name="TextureRect" type="TextureRect" parent="GodotContainer"]
 layout_mode = 2
 texture = ExtResource("4_2bios")
 expand_mode = 1
@@ -189,6 +189,6 @@ label_settings = SubResource("LabelSettings_th7lu")
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/TutorialButton" to="." method="_on_tutorial_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="CenterContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CenterContainer/TutorialButton" to="." method="_on_tutorial_button_pressed"]
+[connection signal="pressed" from="CenterContainer/ExitButton" to="." method="_on_exit_button_pressed"]
