@@ -65,8 +65,6 @@ func begin_resource_mission(requestedIngredient : IngredientFetch):
 	# Turn off any ingredient buttons that are inactive. 
 	for button in request_button_grid.get_children():
 		if button.ingredient.get_ingredient_id() != requestedIngredient.get_ingredient_id():
-			button.visible = false
-		else:
 			button.disabled = true
 
 	# Calculate random number, calculate wait time from that. NOTE keep currentLevel * bonus in the timeout.
@@ -83,7 +81,6 @@ func begin_resource_mission(requestedIngredient : IngredientFetch):
 func _on_mission_timer_timeout():
 	# Turn back on all of the other ingredient buttons. 
 	for button in request_button_grid.get_children():
-		button.visible = true
 		button.disabled = false
 	
 	# Turn off the progress bar. 
@@ -107,16 +104,24 @@ func _on_mission_timer_timeout():
 
 #region Ingredient Button Handlers
 func _on_btn_request_death_petal_ingredient_clicked(ingredient : IngredientFetch):
-	begin_resource_mission(ingredient)
+	# Only have one mission at a time. 
+	if mission_timer_progress_bar.visible == false:
+		begin_resource_mission(ingredient)
 
 func _on_btn_request_ectoplasm_ingredient_clicked(ingredient : IngredientFetch):
-	begin_resource_mission(ingredient)
+	# Only have one mission at a time. 
+	if mission_timer_progress_bar.visible == false:
+		begin_resource_mission(ingredient)
 
 func _on_btn_request_fang_ingredient_clicked(ingredient : IngredientFetch):
-	begin_resource_mission(ingredient)
+	# Only have one mission at a time. 
+	if mission_timer_progress_bar.visible == false:
+		begin_resource_mission(ingredient)
 
 func _on_btn_request_toxin_ingredient_clicked(ingredient : IngredientFetch):
-	begin_resource_mission(ingredient)
+	# Only have one mission at a time. 
+	if mission_timer_progress_bar.visible == false:
+		begin_resource_mission(ingredient)
 #endregion
 
 
