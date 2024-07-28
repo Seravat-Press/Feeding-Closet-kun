@@ -62,7 +62,6 @@ func initialize_closet() -> void:
 	hunger_1.texture = GOOD_H_TEX
 	hunger_2.texture = GOOD_H_TEX
 	hunger_3.texture = GOOD_H_TEX
-	feed_button.disabled = true
 	feed_label.text = "FEED [" + str(minimumFeedCost) + "]"
 	set_process(true)
 	
@@ -198,7 +197,7 @@ func play_feed_audio() -> void:
 	
 ## If we don't have minimum CS to feed, turn off the feed button
 func update_feed_button() -> void:
-	if storageNode.shadometer < minimumFeedCost:
+	if storageNode.get_shadometer() < minimumFeedCost:
 		feed_button.disabled = true
 	else:
 		feed_button.disabled = false
