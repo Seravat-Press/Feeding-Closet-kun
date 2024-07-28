@@ -17,7 +17,7 @@ func list_files_in_directory(path) -> Array:
 		var file = dir.get_next()
 		if file == "":
 			break
-		elif not file.begins_with("."):
+		elif not file.begins_with(".") && not file.get_extension() == "import" && not file.get_extension() == "remap":
 			files.append(dir.get_current_dir().path_join(file))
 	dir.list_dir_end()
 	return files
