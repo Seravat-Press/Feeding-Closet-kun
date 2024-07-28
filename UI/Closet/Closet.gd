@@ -142,9 +142,11 @@ func hunger_lvl_changed():
 			hunger_3.texture = SPENT_H_TEX
 			emit_signal("shop_devoured")
 
+## Game's over; pause the timer. 
 func _on_shop_devoured():
 	activeTimer.paused = true
 
+## Handle feeding Closet-kun dynamically based on shadometer value. 
 func _on_btn_feed_button_pressed():
 	# Check how much of the meter remains.
 	var remainPercent : float = activeTimer.time_left / hungerTimerDuration
