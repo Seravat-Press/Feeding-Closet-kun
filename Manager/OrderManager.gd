@@ -12,7 +12,7 @@ const BOTTLE_SOUNDS = [
 	preload("res://audio/sfx/bottle_3.ogg")]
 const FAIL_SOUND = preload("res://audio/sfx/order_fail.ogg")
 
-@onready var visual_queue = $VisualQueue
+@onready var visual_queue = $ScrollContainer/VisualQueue
 @onready var visual = $Visual
 @onready var order_audio = $OrderAudio
 

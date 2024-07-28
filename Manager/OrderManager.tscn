@@ -21,13 +21,17 @@ offset_right = 287.0
 offset_bottom = 106.0
 text = "ORDER MANAGER"
 
-[node name="VisualQueue" type="HBoxContainer" parent="."]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-alignment = 1
-
 [node name="OrderAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_ccgf8")
 volume_db = 1.934
 bus = &"SFX"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+vertical_scroll_mode = 0
+
+[node name="VisualQueue" type="HBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+alignment = 1
