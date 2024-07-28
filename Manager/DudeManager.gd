@@ -62,7 +62,7 @@ func build_name_array():
 func build_portrait_array():
 	var textureFilesArray = Globals.list_files_in_directory(textureDirectory)
 	for textureFile in textureFilesArray:
-		if not textureFile.get_extension() == "import":
+		if not textureFile.get_extension() == "import" && not textureFile.get_extension() == "remap":
 			var newTexture = Globals.import_image(textureFile)
 			texturesArray.append(newTexture)
 
