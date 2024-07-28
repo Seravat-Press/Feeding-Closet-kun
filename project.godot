@@ -30,6 +30,10 @@ Globals="*res://Globals/Globals.gd"
 
 window/stretch/mode="canvas_items"
 
+[editor]
+
+export/convert_text_resources_to_binary=false
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/resource_manager/plugin.cfg")
