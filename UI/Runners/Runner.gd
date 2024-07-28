@@ -132,11 +132,14 @@ func handle_level_up(currShad : int) -> int:
 	if newShad < costToLevel:
 		# Cannot Level Up
 		return newShad
-		
+	
 	# Can Level up!
 	currentLevel += 1
 	newShad = currShad - costToLevel
 	costToLevel = (currentLevel * BONUS_COST_PER_LEVEL) + COST_PER_LEVEL
 	update_labels()
 	return newShad
-	
+
+## Called on game over. 
+func _on_closet_shop_devoured():
+	mission_timer.paused = true

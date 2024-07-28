@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://d21dn3asekoo7" path="res://assets/ingredients/fang.png" id="7_iy2el"]
 [ext_resource type="Texture2D" uid="uid://d1hkvrcd6v58f" path="res://assets/ingredients/toxin.png" id="9_n34xk"]
 
-[sub_resource type="Resource" id="Resource_elep1"]
+[sub_resource type="Resource" id="Resource_1x8jc"]
 resource_local_to_scene = true
 script = ExtResource("4_sfmyx")
 Name = "Death Petal"
@@ -19,7 +19,7 @@ orderTimeMod = 0.01
 orderCostMod = 1
 fetchTimeMod = 0.01
 
-[sub_resource type="Resource" id="Resource_27eky"]
+[sub_resource type="Resource" id="Resource_30xg2"]
 resource_local_to_scene = true
 script = ExtResource("4_sfmyx")
 Name = "Ectoplasm"
@@ -29,7 +29,7 @@ orderTimeMod = 0.01
 orderCostMod = 1
 fetchTimeMod = 0.01
 
-[sub_resource type="Resource" id="Resource_q301a"]
+[sub_resource type="Resource" id="Resource_mdxri"]
 resource_local_to_scene = true
 script = ExtResource("4_sfmyx")
 Name = "Fang"
@@ -39,7 +39,7 @@ orderTimeMod = 0.01
 orderCostMod = 1
 fetchTimeMod = 0.01
 
-[sub_resource type="Resource" id="Resource_o7hfu"]
+[sub_resource type="Resource" id="Resource_s82ir"]
 resource_local_to_scene = true
 script = ExtResource("4_sfmyx")
 Name = "Toxin"
@@ -136,28 +136,28 @@ columns = 2
 [node name="btnRequestDeathPetal" parent="RequestButtonGrid" instance=ExtResource("2_ivquo")]
 layout_mode = 2
 icon = ExtResource("3_riyrb")
-ingredient = SubResource("Resource_elep1")
+ingredient = SubResource("Resource_1x8jc")
 
 [node name="btnRequestEctoplasm" parent="RequestButtonGrid" instance=ExtResource("2_ivquo")]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 icon = ExtResource("5_b6rs8")
-ingredient = SubResource("Resource_27eky")
+ingredient = SubResource("Resource_30xg2")
 
 [node name="btnRequestFang" parent="RequestButtonGrid" instance=ExtResource("2_ivquo")]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 icon = ExtResource("7_iy2el")
-ingredient = SubResource("Resource_q301a")
+ingredient = SubResource("Resource_mdxri")
 
 [node name="btnRequestToxin" parent="RequestButtonGrid" instance=ExtResource("2_ivquo")]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 icon = ExtResource("9_n34xk")
-ingredient = SubResource("Resource_o7hfu")
+ingredient = SubResource("Resource_s82ir")
 
 [node name="RunnerAudio" type="AudioStreamPlayer" parent="."]
 volume_db = -6.876
