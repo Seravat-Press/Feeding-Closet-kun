@@ -130,7 +130,28 @@ If the player hits "Play Again", this score is kept cached so that they may comp
 
 # Design
 
+## Tools
+
+### Order/Ingredient Creator
+
+We created an Editor Plugin for Godot to expedite the creation of ingredients and orders. We called this "Seravat Manager," and it has a simple GUI to create these Resources and keep track of the "head" ID. 
+
+This can be seen at [SeravatManager](addons/resource_manager/)
+
+## Data
+
+### Ingredients
+
+Ingredients 
+
+### Orders
+
+
 ## Subsystems
+
+### Orders
+
+Orders are 
 
 ### Runner
 
