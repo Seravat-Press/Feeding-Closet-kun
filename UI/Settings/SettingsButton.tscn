@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dw7e3i1nvupjb"]
+
+[ext_resource type="Texture2D" uid="uid://c063lce486eh7" path="res://assets/settings_cog.png" id="1_a76av"]
+[ext_resource type="Script" path="res://UI/Settings/SettingsButton.gd" id="2_umqiv"]
+
+[node name="SettingsButton" type="Button"]
+offset_left = 1093.0
+offset_top = 65.0
+offset_right = 1165.0
+offset_bottom = 137.0
+scale = Vector2(0.75, 0.75)
+icon = ExtResource("1_a76av")
+flat = true
+script = ExtResource("2_umqiv")
+
+[connection signal="button_up" from="." to="." method="_on_button_up"]

@@ -100,6 +100,6 @@ func _on_closet_audio_finished():
 
 ## Handle leveling up the runner. 
 func _on_runner_runner_level_up():
-	var newShadow = runner.handle_level_up(storage.shadometer)
-	if storage.shadometer != newShadow:
+	var newShadow = runner.handle_level_up(storage.get_shadometer())
+	if storage.get_shadometer() != newShadow:
 		storage.set_new_shadow(newShadow)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://b30q37jguwlek"]
+[gd_scene load_steps=27 format=3 uid="uid://b30q37jguwlek"]
 
 [ext_resource type="Script" path="res://Main/Shop/ShopScene.gd" id="1_pnct4"]
 [ext_resource type="PackedScene" uid="uid://dl756gys3wbma" path="res://UI/Closet/Closet.tscn" id="2_sf3t0"]
@@ -21,8 +21,7 @@
 [ext_resource type="Resource" uid="uid://beyka4mlbrrny" path="res://Data/IngredientTypes/Fang_2.tres" id="16_shg1y"]
 [ext_resource type="Resource" uid="uid://bvq3jcd5f7gps" path="res://Data/IngredientTypes/Toxin_1.tres" id="17_ajb48"]
 [ext_resource type="AudioStream" uid="uid://cf16sq4tan4d" path="res://audio/music/an_ode_to_closet_kun.ogg" id="19_58p6x"]
-[ext_resource type="Texture2D" uid="uid://c063lce486eh7" path="res://assets/settings_cog.png" id="21_rs80h"]
-[ext_resource type="Script" path="res://UI/Settings/SettingsButton.gd" id="22_ervtw"]
+[ext_resource type="PackedScene" uid="uid://dw7e3i1nvupjb" path="res://UI/Settings/SettingsButton.tscn" id="21_g8axb"]
 
 [sub_resource type="Resource" id="Resource_v8s66"]
 script = ExtResource("14_irxkm")
@@ -188,17 +187,19 @@ dudeStandTime = 3.0
 introductionPoint = NodePath("../../2DNodes/IntroductionPoint")
 spawnPoint = NodePath("../../2DNodes/SpawnPoint")
 
-[node name="SettingsButton" type="Button" parent="UINodes" node_paths=PackedStringArray("spawn_point")]
-layout_mode = 0
-offset_left = 1093.0
-offset_top = 65.0
-offset_right = 1165.0
-offset_bottom = 137.0
-scale = Vector2(0.75, 0.75)
-icon = ExtResource("21_rs80h")
-flat = true
-script = ExtResource("22_ervtw")
+[node name="SettingsButton" parent="UINodes" node_paths=PackedStringArray("spawn_point") instance=ExtResource("21_g8axb")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.949653
+anchor_top = 0.12037
+anchor_right = 0.949653
+anchor_bottom = 0.12037
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 72.0
+offset_bottom = 72.0
 spawn_point = NodePath("../../2DNodes/SettingsOpenPoint")
+metadata/_edit_use_anchors_ = true
 
 [node name="2DNodes" type="Node2D" parent="."]
 
@@ -224,6 +225,7 @@ bus = &"Music"
 [connection signal="shadow_changed" from="ProcessingNodes/Storage" to="UINodes/Shadometer" method="_on_storage_shadow_changed"]
 [connection signal="shop_devoured" from="UINodes/Closet" to="." method="_on_closet_shop_devoured"]
 [connection signal="shop_devoured" from="UINodes/Closet" to="UINodes/OrderManager" method="_on_shop_devoured"]
+[connection signal="shop_devoured" from="UINodes/Closet" to="UINodes/Runner" method="_on_closet_shop_devoured"]
 [connection signal="finished" from="UINodes/Closet/ClosetAudio" to="." method="_on_closet_audio_finished"]
 [connection signal="released_ingredient" from="UINodes/Shelves" to="." method="_on_shelves_released_ingredient"]
 [connection signal="add_shadow" from="UINodes/OrderManager" to="." method="_on_shadow_earn"]
@@ -234,7 +236,7 @@ bus = &"Music"
 [connection signal="runner_level_up" from="UINodes/Runner" to="." method="_on_runner_runner_level_up"]
 [connection signal="timeout" from="UINodes/Runner/MissionTimer" to="ProcessingNodes/Storage" method="_on_mission_timer_timeout"]
 [connection signal="dude_spawned" from="UINodes/DudeManager" to="UINodes/OrderManager" method="_on_dude_manager_dude_spawned"]
-[connection signal="button_up" from="UINodes/SettingsButton" to="UINodes/SettingsButton" method="_on_button_up"]
 
 [editable path="UINodes/Closet"]
 [editable path="UINodes/Runner"]
+[editable path="UINodes/SettingsButton"]
