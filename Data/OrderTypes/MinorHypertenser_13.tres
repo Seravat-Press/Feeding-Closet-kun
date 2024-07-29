@@ -15,4 +15,5 @@ script = ExtResource("3_mpoub")
 Name = "Minor Tenser"
 neededIngredients = Array[ExtResource("2_pwibc")]([SubResource("Resource_if3k4")])
 imgRect = "res://assets/orders/hypertenser.png"
+difficulty = 0
 ID = 6
