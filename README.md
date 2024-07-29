@@ -7,7 +7,7 @@ It's made for the [Pirate Jam 15](https://itch.io/jam/pirate)
 
 ## Documentation
 
-Our entire design documentation cna be found here: [Closet-kun Design Doc](design.md)
+Our entire design documentation can be found here: [Closet-kun Design Doc](design.md)
 
 ## Tool Usage
 
