@@ -1,9 +1,9 @@
 ## Handle an order with Ingredient needs. 
 class_name OrderFull extends Resource
 
-signal order_updated(ingredient_finished)
-signal order_completed
-signal order_failed
+signal order_updated(ingredient_finished)	## Emit when an ingredient in this order has been completed. 
+signal order_completed	## Emit when the order succeeds to commit the payout. 
+signal order_failed		## Emit when the order has failed to cancel it. 
 
 @export var orderData : Order				## Order that this full order utilizes. 
 @export_range(-30.0,30.0, 0.1) var timeAdder : float = 0.0		## Adder to calculated order time.
