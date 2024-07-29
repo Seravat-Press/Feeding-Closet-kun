@@ -17,4 +17,5 @@ script = ExtResource("3_xt5ly")
 Name = "Invisibility"
 neededIngredients = Array[ExtResource("2_m0xkp")]([SubResource("Resource_5opr8")])
 imgRect = "res://assets/orders/invisibility.png"
+difficulty = 0
 ID = 0

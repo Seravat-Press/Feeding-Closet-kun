@@ -19,7 +19,7 @@ completedFlag = false
 
 [resource]
 script = ExtResource("4_1rmem")
-Name = "Focus Rite"
+Name = "Focus Wrong"
 neededIngredients = Array[ExtResource("2_2x62w")]([SubResource("Resource_hkrw8"), SubResource("Resource_rmge4")])
 imgRect = "res://assets/orders/focusrite.png"
 difficulty = 2

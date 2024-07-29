@@ -22,4 +22,5 @@ script = ExtResource("1_t3a45")
 Name = "Wart Salve"
 neededIngredients = Array[ExtResource("2_5563o")]([SubResource("Resource_l1jre"), SubResource("Resource_v14g7")])
 imgRect = "res://assets/orders/wart.png"
+difficulty = 0
 ID = 2
