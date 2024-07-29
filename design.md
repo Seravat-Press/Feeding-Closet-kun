@@ -52,6 +52,11 @@ Check out our codebase on Github and look through the Documentation in the Godot
 
 For information about this process, check out this link: [Godot Comment Documentation](https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_documentation_comments.html)
 
+
+## Github Link
+
+Closet-kun is open source, so you can check out our codebase here: [Feeding Closet-kun on Github](https://github.com/Seravat-Press/Feeding-Closet-kun)
+
 ---
 
 # Concept
