@@ -44,6 +44,14 @@ Singeplayer, Shop Management
 
 With simple mechanics and a frantic pace, this game is marketed to semi-casual players who want a short, tense experience. Minor upgrades provide players with progression, while increased speeds over time ensure the challenge scales with them. 
 
+## A Note on Documentation
+
+For 90% of this project's codebase, proper Godot 4 syntax was used for documentation comments. As such, scenes, classes, functions and variables should all have engine-generated documentation visible from within the Godot 4 editor. 
+
+Check out our codebase on Github and look through the Documentation in the Godot 4 editor!
+
+For information about this process, check out this link: [Godot Comment Documentation](https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_documentation_comments.html)
+
 ---
 
 # Concept
@@ -108,6 +116,10 @@ UI elements are part of the shop itself. The player drags ingredients from the s
 
 The game exclusively uses the mouse and left click. Ingredients are dragged to orders with the mouse and left click, and the player clicks buttons to request ingredients and feed Closet-kun.
 
+Right clicking on an order allows the user to cancel said order (this counts as an automatic fail of the order and incurs the 3 CS penalty). 
+
+Touch screen control has been preliminarily tested, though certain features (such as cancelling orders) cannot be performed. 
+
 ## Progression
 
 Progression is mainly achieved through upgrading the level of your Runner. Each subsequent level adds a bonus to every ingredient haul that they bring back, but the cost of upgrading increases as well!
@@ -119,6 +131,8 @@ Every 1 minute of gametime:
 - Customer stand time decreases (making way for another customer)
 
 This ensures that the longer a player continues on, the more orders they'll have to deal with. 
+
+There is also a gradual increase to average order difficulty with each successive minute until minute 3 of gameplay (after which the average order difficulty remains constant). This ensures that players are not surprised with complex orders before they have their bearings and/or sufficient ingredients. 
 
 ## Scores
 
@@ -140,18 +154,125 @@ This can be seen at [SeravatManager](addons/resource_manager/)
 
 ## Data
 
+A Resource-driven approach to data types was implemented in this project. This ensures that the data itself can communicate to containers and handlers without requiring more complex code. 
+
+This also reduces data overhead as it is not duplicated between instances and is instead accessed via reference. 
+
+Finally, this allowed us to bake functionality into the data types themselves. 
+
+For more information, see the Godot 4 documentation: [Resources - Godot 4](https://docs.godotengine.org/en/stable/tutorials/scripting/resources.html)
+
 ### Ingredients
 
-Ingredients 
+The **Ingredient** class contains the following information: 
+- Name (String): Ingredient Name
+- ID (int): Numerical ID
+- imgRect (Filepath): Path to the ingredient texture
+
+There are also modifier variables that can be changed from within the editor: 
+- orderTimeMod (float): Modifier for the amount of time to add to an order per 1 ingredient.
+- orderCostMod (int): Modifier for the amount of CS to add to an order per 1 ingredient.
+- fetchTimeMod (float): Modifier for the amount of time to add to a runner fetch mission per 1 ingredient.
+
+### Fetching Ingredients
+
+The **IngredientFetch** class is used by the [Runner](#runner) to determine fetch time/amounts for a given [Ingredient](#ingredients).
+
+The **IngredientFetch** class contains the following information: 
+- ingredientData ([Ingredient](#ingredients)): Base Ingredient data.
+
+There are also modifier variables that can be changed from within the editor: 
+- sourceTime (float): Time taken to gather the ingredient.
+- gatherMin (int): Minimum amount gathered by the runner.
+- gatherMax (int): Maximum amount gathered by the runner. 
+- timeMod (float): Adder to calculated time to fetch the ingredient. 
+
+### Ingredients in the Inventory
+
+The **IngredientInventory** class is used by the Storage system to keep track of the quantity of an [Ingredient](#ingredients). This is also the Resource used directly in Inventory UI elements. 
+
+It has the following *signals*:
+- ingredient_updated
+
+The **IngredientInventory** class contains the following information: 
+- ingredientData ([Ingredient](#ingredients)): Base Ingredient data.
+- amountHeld (int): Amount of an ingredient in storage. 
+
+### Ingredients in an Order
+
+The **IngredientOrder** class is used within [Orders](#orders) to keep track of the [Ingredients](#ingredients) needed to complete them.
+
+It has the following *signals*:
+- ingredient_updated
+
+The **IngredientInventory** class contains the following information: 
+- ingredientData ([Ingredient](#ingredients)): Base Ingredient data.
+- amountNeeded (int): Amount of an ingredient is needed in this order. 
+- completedFlag (bool): TRUE if the ingredient has been completed, FALSE otherwise. 
 
 ### Orders
 
+The **Order** class contains the following information: 
+- Name (String): Order (Potion) Name
+- ID (int): Numerical ID
+- imgRect (Filepath): Path to the ingredient texture
+- neededIngredients (Array[[IngredientOrder](#ingredients-in-an-order)]): Array of ingredients w/ quantities in this order. 
+- difficulty (Enum - ORDER_DIFFICULTY): Difficulty (Simple, Intermediate, Complex) of the order. 
+
+### Full Orders
+
+The **OrderFull** class contains complete order information and is used when generating the Order UI elements. 
+
+It has the following *signals*:
+- order_updated
+- order_completed
+- order_failed
+
+The **OrderFull** class contains the following information: 
+- orderData ([Order](#orders)): Order data within this full order. 
+
+There are also modifier variables that can be changed from within the editor: 
+- timeAdder (float): Adder to the calculated order time. 
+- costAdder (int): Adder to the calculated order cost. 
 
 ## Subsystems
 
-### Orders
+### Shadometer
 
-Orders are 
+![Shadometer](assets/tutorial/shadometer.png)
+
+The **Shadometer** visually represents and manages the currency of the game, **Congealed Shadow**. It resides in the top-right corner of the screen and also displays changes to the CS quantity with popup numbers. 
+
+### Order Manager
+
+![Order Manager](assets/tutorial/orders.png)
+
+The Order Manager handles creating, deploying, and destroying all orders.
+
+#### Fetch Orders
+
+At runtime, all order data is gathered from the filesystem to prepare arrays for the various order difficulty stages. 
+
+
+#### Deploying Orders
+
+When a customer is spawned, an [Order](#orders) is fetched by the **Order Manager** and connected to said customer. This Order is also connected to a newly-created Order UI element, which is added to the on-screen queue. 
+
+The Order UI element changes color depending on the relative difficulty of its connected [Order](#orders).
+
+#### Order Processing
+
+Once an Order UI is in the on-screen queue, its timer begins and the user has until that timer runs out to satisfy all of its needed ingredients. 
+
+These UI elements check for the mouse entering its shape so that if a held [Ingredient](#ingredients) is dropped, the Order Manager knows where to add that quantity to. 
+
+#### Cancelling an Order / Failing an Order
+
+When a timer runs out (OR an Order UI is right-clicked), the element drops out of the visual-queue, is erased, and 3 CS is deducted from the [Shadometer](#shadometer).
+
+#### Succeeding an Order
+
+If all ingredients are satisfied before an Order's timer elapses, the Order Manager queues a payout for said [Order](#orders), which is added to the [Shadometer](#shadometer). 
 
 ### Runner
 
@@ -218,7 +339,8 @@ As the Godot Engine was used, deployment both of these platforms is fairly trivi
 - 2024-07-25: Create and refine basic economy of the game. Time, ingredient costs, etc.
 - 2024-07-26: Add sound effects and animations, clean up rough edges of art and implementation.
 - 2024-07-27: Fix bugs and polish game balance.
-- 2024-07-28: Continued polish. Tuning timing, orders, ingredients.
+- 2024-07-28: Continued polish. Tuning timing, orders, ingredients. Test/Fix deployment.
+- 2024-07-29: Documentation Completion, final deployment, submission.
 
 It's made for the [Pirate Jam 15](https://itch.io/jam/pirate)
 
