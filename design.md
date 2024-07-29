@@ -189,7 +189,7 @@ There are also modifier variables that can be changed from within the editor:
 
 ### Ingredients in the Inventory
 
-The **IngredientInventory** class is used by the Storage system to keep track of the quantity of an [Ingredient](#ingredients). This is also the Resource used directly in Inventory UI elements. 
+The **IngredientInventory** class is used by the [Inventory Storage](#inventory-ingredient-storage) system to keep track of the quantity of an [Ingredient](#ingredients). This is also the Resource used directly in Inventory UI elements. 
 
 It has the following *signals*:
 - ingredient_updated
@@ -221,7 +221,7 @@ The **Order** class contains the following information:
 
 ### Full Orders
 
-The **OrderFull** class contains complete order information and is used when generating the Order UI elements. 
+The **OrderFull** class contains complete order information and is used when generating the Order UI elements. They are handled by the [Order Manager](#order-manager) subsystem.  
 
 It has the following *signals*:
 - order_updated
@@ -293,6 +293,78 @@ A "Cancel Fetch" button also appears which allows the player to abandon the curr
 The Runner starts at Level 0 and with each level gains that number in additional ingredient yield at the end of a fetch mission (this does not impact fetch time). 
 
 The first level-up requires 40 CS, then each subsequent level-up requires an additional 10CS (50CS for Level 2, etc.). 
+
+### Customers (Dude Manager)
+
+![Glasses Dude](assets/dudes/GlassesDude.png) ![Jar Dude](assets/dudes/JarDude.png) ![Squiggle Dude](assets/dudes/SquiggleDude.png)
+
+Also known as "Dudes" in the source, these potion-needing individuals spawn regularly and request alchemical sustenance. 
+
+#### Dude Orders
+
+Each **Dude** gets one order. On spawning, they enter the scene, add the order, and then leave. 
+
+#### Dude Audio
+
+Dudes have a set of random audio tracks that they choose from and play when they spawn. 
+
+#### Spawn Rate
+
+At runtime, a dude is spawned immediately. Thereafter, a random spawntime between 5-10s occurs for each dude. 
+
+At intervals of 60s, this spawntime is decreased by 0.5s (minimum of 1s for spawntime). This ensures the dudes gradually spawn more quickly (thus adding [Orders](#orders) more quickly). 
+
+### Closet-kun
+
+![Closet-kun](assets/tutorial/closetkun.png)
+
+The Closet Subsystem handles the gradual hunger increase of **Closet-kun** and ends the game if they starve. 
+
+#### Hunger Stages
+
+The Closet has three **Hunger Stages** which are indicated by the three circles above the texture. Each time the [Hunger Timer](#hunger-timer) elapses, the **Hunger Stage** increases. 
+
+Hunger Stages can be decreased by dragging 50 of an [Ingredient](#ingredients) onto the **Closet** to feed **Closet-kun**. 
+
+#### Hunger Timer
+
+The **Hunger Timer** begins at runtime and lasts for 30s. On timeout, it iterates the [Hunger Stage](#hunger-stages) and restarts (if [Game Over](#game-over) is not queued). 
+
+The **Hunger Timer** can be decreased. See [Feeding Closet-kun](#feeding-closet-kun).
+
+#### Feeding Closet-kun
+
+Closet-kun can be fed Congealed Shadow by pressing the **FEED (10)** button pictured above. 
+
+It requires a minimum of 10CS in the [Shadometer](#shadometer) to feed **Closet-kun**, and the [Hunger Timer](#hunger-timer) is restored 10% of the fullscale value per 10CS. 
+
+If the [Shadometer](#shadometer) contains more than 10CS, any amount will be consumed by **Closet-kun** up to the maximum Timer refresh. 
+
+#### Game Over
+
+Once the final [Hunger Stage](#hunger-stages) elapses, a **Game Over** is queued. 
+
+### Inventory (Ingredient Storage)
+
+![Ingredient Storage](assets/tutorial/ingredient_shelves.png)
+
+The **Alchemist's** current Ingredient Storage is tracked here on-screen. 
+
+#### Gathering Ingredients
+
+The [Runner](#runner) is used to gather more ingredients. 
+
+#### Using Ingredients
+
+[Ingredients](#ingredients) are used by clicking and holding with the **Left Mouse Button** on one of the UI elements. 
+
+##### Filling Orders
+
+Held [Ingredients](#ingredients) can be dropped onto [Orders](#orders) in the [Order Manager](#order-manager). If the [Order](#orders) needs any of this [Ingredient](#ingredients), the number will be subtracted and filled accordingly. 
+
+##### Feeding Closet-kun
+
+50 of an [Ingredient](#ingredients) can be dropped onto **Closet-kun** to decrease a [Hunger Stage](#hunger-stages).
 
 ---
 
